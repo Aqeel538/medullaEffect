@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use App\Models\VerifyToken;
+use App\Models\User;
 
 class VerificationController extends Controller
 {
@@ -38,5 +40,29 @@ class VerificationController extends Controller
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
+    }
+
+    public function userEmailActivation(Request $req){
+        $verifyToken = $req->token;
+        $verifyToken = VerifyToken::where('token', $verifyToken)->first();
+        if($verifyToken){
+            $verifyToken->is_activated = 1;
+            $verifyToken->save();
+            $user = User::where('email', $verifyToken->email)->first();
+            $user->status = 1;
+            $user->sava();
+
+            $getting_token = VerifyToken::where('token', $verifyToken->token)->first();
+            $getting_token->delete();
+
+            return redirect('/home')->with('is_activated', 'Your account is now activated');
+        }
+        else{
+            return redirect('/veri-account');
+        }
+    }
+
+    public function verifyAccount(Request $req){
+        return view('verifications.otp_verification');
     }
 }

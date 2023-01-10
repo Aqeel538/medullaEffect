@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\SingleUserController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\VerificationController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,9 @@ Route::get('/index', function () {
 
 
 Auth::routes();
+
+Route::post('/email/verification', [VerificationController::class, 'userEmailActivation'])->name('verify.otp');
+Route::get('/verifyAccount', [VerificationController::class, 'verifyAccount'])->name('verify.account');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -49,6 +53,5 @@ Route::get('/questinare', [SingleUserController::class, 'questinare'])->name('qu
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');
 
-Route::post('/individual/create', [RegisterController::class, 'create'])->name('individual.store');
-
-
+// Individual Routes
+Route::post('/individual/create', [RegisterController::class, 'create'])->name('individual.create');

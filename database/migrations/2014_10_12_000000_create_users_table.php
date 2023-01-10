@@ -27,7 +27,13 @@ class CreateUsersTable extends Migration
             $table->string('industry')->nullable(true);
             $table->string('contact')->nullable(true);
             $table->string('image')->nullable(true);
-            $table->integer('status')->nullable(true);
+            $table->integer('status')->default(0)->nullable(true);
+            $table->string('job_type')->nullable(true);
+            $table->string('located_in')->nullable(true);
+            $table->string('work_type')->nullable(true);
+            $table->string('industry_and_position')->nullable(true);
+            $table->string('pay_range')->nullable(true);
+            $table->string('nationality')->nullable(true);
             $table->rememberToken();
             $table->timestamps();
         });
