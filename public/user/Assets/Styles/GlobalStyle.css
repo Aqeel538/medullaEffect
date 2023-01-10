@@ -1,0 +1,159 @@
+
+
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --filedbtnbackground: #9A1029;
+
+  }
+  h1{
+font-family: Helvetica;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* body { background-color: var(--blue); }
+  
+  h2 { border-bottom: 2px solid var(--blue); } */
+
+/* topnavcss */
+
+.topnavbar{
+    display: flex;
+justify-content: space-between;
+    align-items: center;
+    color: #7C2342;
+    padding: 10px 0;
+}
+/* .topnavleft{
+    display: flex;
+
+
+} */
+.topnavmid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.topnavmid p{
+    margin-bottom: 0;
+    line-height: 38px;
+    font-weight: 500;
+    padding: 0 3px;
+    font-size: 26px;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.topnavright{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+}
+.topnavright :nth-child(1){
+padding: 0 10px;
+    
+}
+
+.navbar
+{
+    background-color: #FFF3F7;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+.ques-navbar{
+    background-color: #FFF3F7; 
+    padding: 10px 0;
+    margin: 20px 0;
+}
+ .quesnav-bar ul{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+  list-style: none;
+text-decoration: none;
+}
+.quesnav-bar ul li
+{
+padding: 0 10px;
+color: #303030;
+} 
+.navbar ul
+{
+ display: flex;
+  justify-content: center;
+  align-items: center;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+transform: translate(-50%,-50%);
+}
+
+.navbar ul li
+{
+ display: flex;
+ padding:10px;
+ font-family: 'Helvetica';
+ color: #5e5959;
+ font-weight: 400;
+ letter-spacing: 0.02em;
+
+}
+.midnavside-text ul li{
+  
+    display: flex;
+    font-weight: 400;
+   font-size: 10px;
+line-height: 20.55px;
+
+
+}
+li :hover
+{
+ 
+ color: #bb0f0f;
+
+}
+
+.buttonfill{
+  color: white;
+  background-color:  #7C2342;
+  padding: 9px 33px;;
+  border: none;
+border-radius: 5px;
+cursor: pointer;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+}
+.buttonfill:focus{
+  outline: none;
+}
+.buttonunfill:focus{
+  outline: none;
+}
+.buttonunfill{
+  color: #7C2342;
+  background-color:  white;
+  padding: 9px 33px;
+  border: 1px solid #7C2342;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+}
