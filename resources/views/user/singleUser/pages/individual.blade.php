@@ -46,7 +46,7 @@
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="input-group mb-3">
                             <span class="input-group-text border border-0 phara_16" style="background-color: rgba(244, 244, 244, 1);"><i class="fa-regular fa-user"></i></span>
-                            <input   type="text" name="name" class="form-control padd_12_input ps-0 border border-0" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Full Name">
+                            <input required  type="text" name="name" class="form-control padd_12_input ps-0 border border-0" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Full Name">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">

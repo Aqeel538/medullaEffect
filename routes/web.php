@@ -33,6 +33,15 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('user/index', [AdminController::class, 'users_index'])->name('users_index');
     Route::get('user/detail/{id}', [AdminController::class, 'users_detail'])->name('users_detail');
     Route::get('user/detail/{status}/{id}', [AdminController::class, 'changeStatus']);
+
+    // User Tags
+    Route::get('user/tag', [AdminController::class, 'users_tag'])->name('users_tag');
+    Route::get('user/tag/form', [AdminController::class, 'users_tag_form'])->name('users_tag_form');
+    Route::post('user/tag/store', [AdminController::class, 'users_tag_store'])->name('users_tag_store');
+    Route::get('user/tag/edit/{id}', [AdminController::class, 'users_tag_edit'])->name('users_tag_edit');
+    Route::post('user/tag/editstore', [AdminController::class, 'users_tag_editstore'])->name('users_tag_editstore');
+    Route::any('user/tag/delete', [AdminController::class, 'users_tag_delete'])->name('users_tag_delete');
+
 });
 
 Route::get('/advance/fillter', [SingleUserController::class, 'advance_fillter'])->name('advance.fillter');

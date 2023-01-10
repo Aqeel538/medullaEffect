@@ -15,8 +15,8 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ route('users_index') }}">All users</a></li>
-                    {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('users_detail') }}">Users Detail</a>
-                    </li> --}}
+                     <li class="nav-item"> <a class="nav-link" href="{{ route('users_tag') }}"> Tags</a>
+                    </li> 
                 </ul>
             </div>
         </li>
