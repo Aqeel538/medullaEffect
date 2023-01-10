@@ -4,17 +4,18 @@ namespace App\Http\Controllers\individual\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\VerifyToken;
+use Illuminate\Support\Facades\Hash;
+use App\Mail\EmailVerificationMail;
 
-class RegistrationController extends Controller
+class RegistrationControllerInd extends Controller
 {
-    use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -47,7 +48,7 @@ class RegistrationController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    function create(array $data)
+    function create(Request $data)
     {
         $individual =  User::create([
             'name' => $data['name'],
@@ -72,6 +73,10 @@ class RegistrationController extends Controller
 
         \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
 
-        return $individual;
+        return redirect(route('verify.account'));
     }
+
+    // public function submit_questionair(){
+        
+    // }
 }

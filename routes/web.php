@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\SingleUserController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\individual\Auth\RegistrationControllerInd;
 use App\Http\Controllers\Auth\VerificationController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
@@ -54,4 +55,4 @@ Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob'
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');
 
 // Individual Routes
-Route::post('/individual/create', [RegisterController::class, 'create'])->name('individual.create');
+Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');

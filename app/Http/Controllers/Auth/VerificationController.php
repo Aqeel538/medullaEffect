@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use App\Models\VerifyToken;
@@ -50,19 +51,19 @@ class VerificationController extends Controller
             $verifyToken->save();
             $user = User::where('email', $verifyToken->email)->first();
             $user->status = 1;
-            $user->sava();
+            $user->save();
 
             $getting_token = VerifyToken::where('token', $verifyToken->token)->first();
             $getting_token->delete();
 
-            return redirect('/home')->with('is_activated', 'Your account is now activated');
+            return redirect('/questinare', compact('user'))->with('is_activated', 'Your account is now activated');
         }
         else{
             return redirect('/veri-account');
         }
     }
 
-    public function verifyAccount(Request $req){
+    public function verifyAccount(){
         return view('verifications.otp_verification');
     }
 }

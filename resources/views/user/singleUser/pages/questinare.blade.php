@@ -47,6 +47,7 @@
                 </div>
                 <form action="" method="POST">
                     @csrf
+                    
                     <div class="row">
                         <div class="col-12  col-lg-6 col-md-6 form-group">
                             <div class="input-icons">
@@ -75,6 +76,7 @@
                                     <option disabled selected hidden> Gender...</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
+                                    <option value="female">Other</option>
                                 </select>
                             </div>
                         </div>
