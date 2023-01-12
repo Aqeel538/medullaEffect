@@ -91,6 +91,7 @@ Route::get('/tagline', [SingleUserController::class, 'tagline'])->name('tagline'
 
 Route::get('/', [SingleUserController::class, 'index'])->name('index');
 Route::get('/profile/{id}', [SingleUserController::class, 'profile'])->name('profile');
+// Route::get('/profile_view', [SingleUserController::class, 'profile'])->name('profile.view');
 Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profile2');
 Route::get('/questinare/{id}', [SingleUserController::class, 'questinare'])->name('questinare');
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
@@ -100,3 +101,6 @@ Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJo
 Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
 Route::post('/submit/questionair/{id}', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
 Route::post('/update/profile/{id}', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
+
+// Freelancer Routes
+// Route::post('freelancer/create', [])

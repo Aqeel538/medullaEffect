@@ -39,7 +39,7 @@
                 <p class="pt-2 pb-2 phara_16" style="font-weight: 400;">Post job Hire people through Medulla...nis iste natus error sit
                     voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
             </div>
-            <form action="{{ route('individual.store') }}" method="POST">
+            <form action="">
                 @csrf
                 <input required type="hidden" name="check" value="1" />
                 <div class="row justify-content-center Poppins">

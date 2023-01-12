@@ -23,12 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $get_user = User::where('email', auth()->user()->email)->first();
-        if($get_user->status == 1){
-            return view('home');
-        }
-        else{
-            return redirect('/verify-account');
-        }
+        // $get_user = User::where('email', auth()->user()->email)->first();
+        // if($get_user->status == 1){
+        // }
+        // else{
+        //     return redirect('/verify-account');
+        // }
+        return view('home');
     }
 }

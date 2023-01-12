@@ -76,7 +76,7 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);">
-                                    <i class="fa-solid fa-phone"></i>
+                                    <i class="ri-lock-unlock-line"></i>
                                 </span>
                                 <input type="text" name="password"
                                     class="form-control ps-0 border border-0 padd_12_input"
@@ -87,8 +87,7 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text phara_16 border border-0"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-envelope"></i></span>
+                                    style="    background-color: rgba(244, 244, 244, 1);"><i class="ri-map-pin-user-line"></i></span>
                                 <input type="text" name="address" class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Address">
@@ -111,8 +110,7 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mb-3">
                                 <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-user"></i></span>
+                                    style="background-color: rgba(244, 244, 244, 1);"><i class="ri-earth-line"></i></span>
                                 <input type="text" name="website" class="form-control ps-0 border border-0 padd_12_input"
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Website (optional)">
@@ -140,16 +138,12 @@
                                     class="form-control ps-0 border border-0 padd_12_input"
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Industry">
-                                <button type="button" class=" dropdown-toggle drop_btn border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropend</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Action two</a></li>
-                                    <li><a class="dropdown-item" href="#">Action three</a></li>
-                                </ul>
+                                    {{-- <select required style="width: 100%" name="job_type">
+                                        <option value="" disabled selected hidden>Are you interested in full time or part
+                                            time work?</option>
+                                        <option>Full Time</option>
+                                        <option>Part Time</option>
+                                    </select> --}}
                             </div>
                         </div>
 

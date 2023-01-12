@@ -25,6 +25,16 @@
                     <div>
                         <span><i class="fa-regular fa-bell start_16_respons"></i></span>
                         <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                        <i class="ri-logout-circle-line">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                        </a>
+                      </i>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -49,18 +59,23 @@
                     <h1 class="pt-4 profile-text-ques-heading">Fill out the questionnaire</h1>
                     <p class="john-para-afer-ques-heading">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                         accusantium lorue laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
-                    <form action="{{route('update.user.profile', $user->id)}}" class="pt-3 pb-5">
+                    <form action="{{ route('update.user.profile', $user->id) }}" method="POST" class="pt-3 pb-5">
+                        @csrf
                         <div class="row">
                             <div class="col-12  col-lg-6 col-md-6 form-group">
                                 <div class="input-icons">
                                     <i class="fa-regular fa-user icon"></i>
-                                    <input class="input-field" type="text" name="name" value="<?= isset($user->name) && !empty($user->name) ? $user->name : '' ?>" placeholder="Full Name">
+                                    <input class="input-field" type="text" name="name"
+                                        value="<?= isset($user->name) && !empty($user->name) ? $user->name : '' ?>"
+                                        placeholder="Full Name">
                                 </div>
                             </div>
                             <div class="col-12  col-lg-6 col-md-6 form-group">
                                 <div class="input-icons">
                                     <i class="fa-regular fa-envelope icon"></i>
-                                    <input class="input-field" type="email" name="email" value="<?= isset($user->email) && !empty($user->email) ? $user->email : '' ?>" placeholder="Email ID" />
+                                    <input class="input-field" type="email" name="email"
+                                        value="<?= isset($user->email) && !empty($user->email) ? $user->email : '' ?>"
+                                        placeholder="Email ID" />
                                 </div>
                             </div>
                         </div>
@@ -68,7 +83,9 @@
                             <div class="col-12  col-lg-6 col-md-6 form-group">
                                 <div class="input-icons">
                                     <i class="fa-regular fa-user icon"></i>
-                                    <input class="input-field" type="text" name="phone" value="<?= isset($user->phone) && !empty($user->phone) ? $user->phone : '' ?>" placeholder="Phone Number">
+                                    <input class="input-field" type="text" name="phone"
+                                        value="<?= isset($user->phone) && !empty($user->phone) ? $user->phone : '' ?>"
+                                        placeholder="Phone Number">
                                 </div>
                             </div>
                             <div class="col-12  col-lg-6 col-md-6 form-group">
@@ -100,11 +117,12 @@
                         <div class="row">
 
                             <div class="col-12 form-group">
-                              <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="located_in" value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
-                                    placeholder="In which city are you located?" />
-                            </div>
+                                <div class="inputfield">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input class="input-field" type="text" name="located_in"
+                                        value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
+                                        placeholder="In which city are you located?" />
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -123,42 +141,42 @@
                         </div>
                         <div class="row">
                             <div class="col-12 form-group">
-                              <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="industry_and_position"
-                                    placeholder="State your desired industry and position" />
-                            </div>
+                                <div class="inputfield">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input class="input-field" type="text" name="industry_and_position"
+                                        placeholder="State your desired industry and position" />
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 form-group">
-                              <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <select name="pay_range" style="width: 100%;">
-                                    <option value="" disabled selected hidden>State your desired pay range
-                                    </option>
-                                    <option>0-5</option>
-                                    <option>5-10</option>
-                                    <option>10-15</option>
-                                    <option>15-20</option>
-                                    <option>20-25</option>
-                                    <option>25-30</option>
-                                    <option>30-35</option>
-                                    <option>35-40</option>
-                                    <option>40-45</option>
-                                    <option>45-50</option>
-                                </select>
-                            </div>
+                                <div class="inputfield">
+                                    <i class="fa-regular fa-user"></i>
+                                    <select name="pay_range" style="width: 100%;">
+                                        <option value="" disabled selected hidden>State your desired pay range
+                                        </option>
+                                        <option>0-5</option>
+                                        <option>5-10</option>
+                                        <option>10-15</option>
+                                        <option>15-20</option>
+                                        <option>20-25</option>
+                                        <option>25-30</option>
+                                        <option>30-35</option>
+                                        <option>35-40</option>
+                                        <option>40-45</option>
+                                        <option>45-50</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
-                          <div class="col-12 form-group">
-                            <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="nationality"
-                                    placeholder="State your nationality" />
+                            <div class="col-12 form-group">
+                                <div class="inputfield">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input class="input-field" type="text" name="nationality"
+                                        placeholder="State your nationality" />
+                                </div>
                             </div>
-                        </div>
                         </div>
                         <div class="row">
                             <div class="col-12 text-lg-right">
