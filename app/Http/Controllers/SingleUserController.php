@@ -11,48 +11,56 @@ class SingleUserController extends Controller
 
     public function advance_fillter()
     {
-        return view('user.singleUser.pages.advanceFillter');
+        $title = "Advance Filter";
+        return view('user.singleUser.pages.advanceFillter', compact('title'));
     }
 
     public function applied()
     {
-        return view("user.singleUser.pages.applied");
+        $title = "Applied";
+        return view("user.singleUser.pages.applied", compact('title'));
     }
 
     public function companay()
     {
-        return view('user.singleUser.pages.companay');
+        $title = "Company Sign-up";
+        return view('user.singleUser.pages.companay', compact('title'));
     }
 
     public function freelancer()
     {
-        return view('user.singleUser.pages.freelancer');
+        $title = "Freelancer Sign-up";
+        return view('user.singleUser.pages.freelancer', compact('title'));
     }
 
     public function individual()
     {
-        return view('user.singleUser.pages.individual');
+        $title = "Individual Sign-up";
+        return view('user.singleUser.pages.individual', compact('title'));
     }
 
     public function tagline()
     {
-        return view('user.singleUser.pages.tagline');
+        $title = "Tagline";
+        return view('user.singleUser.pages.tagline', compact('title'));
     }
 
     public function index()
     {
-        return view('user.singleUser.pages.index');
+        $title = "Index";
+        return view('user.singleUser.pages.index', compact('title'));
     }
 
     public function profile($id)
     {
         $user = User::where('id', $id)->first();
-        return view('user.singleUser.pages.profile', compact('user'));
+        return view('user.singleUser.pages.profile', compact('user', 'title'));
     }
 
     public function profile2()
     {
-        return view('user.singleUser.pages.profile2');
+        $title = "Profile";
+        return view('user.singleUser.pages.profile2', compact('title'));
     }
 
     public function questinare($user_id)
@@ -65,17 +73,19 @@ class SingleUserController extends Controller
         //     return redirect(route('verify'));
         // }
         // dd($user);
-        return view('user.singleUser.pages.questinare', compact('user'));
+        return view('user.singleUser.pages.questinare', compact('user', 'title'));
     }
 
     public function viewJob()
     {
-        return view('user.singleUser.pages.viewJob');
+        $title = "View Job";
+        return view('user.singleUser.pages.viewJob', compact('title'));
     }
 
     public function viewJobs()
     {
-        return view('user.singleUser.pages.viewJobs');
+        $title = "View Jobs";
+        return view('user.singleUser.pages.viewJobs', compact('title'));
     }
 
     //Individual User Register and uodate Links

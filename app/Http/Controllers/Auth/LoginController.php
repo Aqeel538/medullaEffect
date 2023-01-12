@@ -34,6 +34,10 @@ class LoginController extends Controller
         {
             // return redirect()->route('adminDashboard');    // admin dashboard path
             return route('adminDashboard');
+        }
+        else if(Auth::user()->role == 'individual'){
+            $id = Auth::user()->id;
+            return route('profile',$id);
         } 
         // else {
         //     return redirect()->route('login');   // member dashboard path

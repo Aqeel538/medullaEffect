@@ -1,4 +1,5 @@
 @extends('user.singleUser.layouts.main')
+@section('title', 'Individual-Questinare')
 @section('content')
     <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1);">
         <header>
