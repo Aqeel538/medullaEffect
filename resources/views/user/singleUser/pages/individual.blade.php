@@ -40,7 +40,7 @@
                         natus error sit
                         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                 </div>
-                <form action="{{ route('individual.create')}}" method="POST">
+                <form action="{{ route('individual.create')}}" method="POST" class="needs-validation" novalidate="">
                     @csrf
                     <input type="hidden" name="check" value="1" />
                     <div class="row justify-content-center Poppins">

@@ -45,20 +45,24 @@
                             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                     </div>
                 </div>
-                <form action="" method="POST">
+               
+                <form action="{{ route('submit.questionair', $user->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    
                     <div class="row">
                         <div class="col-12  col-lg-6 col-md-6 form-group">
                             <div class="input-icons">
                                 <i class="fa-regular fa-user icon"></i>
-                                <input class="input-field" type="text" name="name" placeholder="Full Name">
+                                <input class="input-field" type="text" name="name"
+                                    value="<?= isset($user->name) && !empty($user->name) ? $user->name : '' ?>"
+                                    placeholder="Full Name">
                             </div>
                         </div>
                         <div class="col-12  col-lg-6 col-md-6 ">
                             <div class="input-icons">
                                 <i class="fa-regular fa-envelope icon"></i>
-                                <input class="input-field" type="email" name="email" placeholder="Email ID" />
+                                <input class="input-field" type="email" name="email"
+                                    value="<?= isset($user->email) && !empty($user->email) ? $user->email : '' ?>"
+                                    placeholder="Email ID" />
                             </div>
                         </div>
                     </div>
@@ -66,7 +70,9 @@
                         <div class="col-12  col-lg-6 col-md-6 ">
                             <div class="input-icons">
                                 <i class="fa-regular fa-user icon"></i>
-                                <input class="input-field" type="text" name="phone" placeholder="Phone Number">
+                                <input class="input-field" type="text" name="phone"
+                                    value="<?= isset($user->phone) && !empty($user->phone) ? $user->phone : '' ?>"
+                                    placeholder="Phone Number">
                             </div>
                         </div>
                         <div class="col-12  col-lg-6 col-md-6 form-group">
@@ -76,95 +82,85 @@
                                     <option disabled selected hidden> Gender...</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
-                                    <option value="female">Other</option>
+                                    <option value="other">Other</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-12 form-group">
                             <div class="inputfield">
                                 <i class="fa-regular fa-user"></i>
-                                <select required style="width: 100%;">
+                                <select required style="width: 100%" name="job_type">
                                     <option value="" disabled selected hidden>Are you interested in full time or part
                                         time work?</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <select required style="width: 100%;">
-                                    <option value="" disabled selected hidden>Where are you located?</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                    <option>Full Time</option>
+                                    <option>Part Time</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-12 form-group">
                             <div class="inputfield">
                                 <i class="fa-regular fa-user"></i>
-                                <select required style="width: 100%;">
+                                <input class="input-field" type="text" name="located_in"
+                                    placeholder="In which city are you located?" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <div class="inputfield">
+                                <i class="fa-regular fa-user"></i>
+                                <select name="work_type" required style="width: 100%;">
                                     <option value="" disabled selected hidden>Are you interested to work In-person,
                                         remote or hybrid?</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                    <option>In-Person</option>
+                                    <option>Remote</option>
+                                    <option>Hybrid</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-12 form-group">
                             <div class="inputfield">
                                 <i class="fa-regular fa-user"></i>
-                                <select required style="width: 100%;">
-                                    <option value="" disabled selected hidden>State your desired industry and position
-                                    </option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
+                                <input class="input-field" type="text" name="industry_and_position"
+                                    placeholder="State your desired industry and position" required />
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <select required style="width: 100%;">
-                                    <option value="" disabled selected hidden>State your desired pay range</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
+                       
+                            <div class="col-12 form-group">
+                                <div class="inputfield">
+                                    <i class="fa-regular fa-user"></i>
+                                    <select name="pay_range" required style="width: 100%;">
+                                        <option value="" disabled selected hidden>State your desired pay range
+                                        </option>
+                                        <option>0-5</option>
+                                        <option>5-10</option>
+                                        <option>10-15</option>
+                                        <option>15-20</option>
+                                        <option>20-25</option>
+                                        <option>25-30</option>
+                                        <option>30-35</option>
+                                        <option>35-40</option>
+                                        <option>40-45</option>
+                                        <option>45-50</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <select required style="width: 100%;">
-                                    <option value="" disabled selected hidden>State your nationality</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
+                       
+                      
+                            <div class="col-12 form-group">
+                                <div class="inputfield">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input class="input-field" type="text" name="nationality"
+                                        placeholder="State your nationality" required />
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <a href="{{ route('profile') }}">
-                        <button type="button" style="cursor: pointer;" class="buttonfill">Update</button></a>
+                            <button type="submit" style="cursor: pointer;" class="buttonfill">Update</button>
                 </form>
 
             </div>

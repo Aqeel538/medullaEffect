@@ -50,33 +50,73 @@ class RegistrationControllerInd extends Controller
      */
     function create(Request $data)
     {
-        $individual =  User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'address' => $data['address'],
-            'company_name' => $data['company_name'],
-            'website' => $data['website'],
-            'phone' => $data['phone'],
-            'industry' => $data['industry'],
-            'contact' => $data['contact'],
-            'role' => 'individual',
+        $validate = $this->validate($data,[
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'password' => 'required', 'string', 'min:8', 'confirmed',
         ]);
-        $validToken = rand(10, 100..'2023');
-        $get_token = new VerifyToken();
-        $get_token->token = $validToken;
-        $get_token->email = $data['email'];
-        $get_token->save();
+        if($validate){
+            $individual =  User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'address' => $data['address'],
+                'company_name' => $data['company_name'],
+                'website' => $data['website'],
+                'phone' => $data['phone'],
+                'industry' => $data['industry'],
+                'contact' => $data['contact'],
+                'role' => 'individual',
+                'status' => 1,
+            ]);
+        }
+        else{
+            echo 'Validation Error';
+        }
+        // $validToken = rand(10, 100..'2023');
+        // $get_token = new VerifyToken();
+        // $get_token->token = $validToken;
+        // $get_token->email = $data['email'];
+        // $get_token->save();
 
-        $get_user_email = $data['email'];
-        $get_user_name = $data['name'];
+        // $get_user_email = $data['email'];
+        // $get_user_name = $data['name'];
 
-        \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
-
-        return redirect(route('verify.account'));
+        // \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
+        $user_id = $individual->id;
+        // dd($user_id);
+        // return redirect('/questinare/',$user_id);
+        return redirect()->route('questinare', $user_id);
     }
 
-    // public function submit_questionair(){
-        
-    // }
+    public function submit_questionair(Request $req, $id){
+        // dd($id);
+        $questionair = User::whereId($id)->update([
+            'gender' => $req['gender'],
+            'job_type' => $req['job_type'],
+            'located_in' => $req['located_in'],
+            'work_type' => $req['work_type'],
+            'industry_and_position' => $req['industry_and_position'],
+            'pay_range' => $req['pay_range'],
+            'nationality' => $req['nationality'],
+        ]);
+        // return redirect(route('profile'));
+        return redirect()->route('profile', $id);
+    }
+
+    public function update_user_profile(Request $req, $id){
+        $profile = User::whereId($id)->update([
+            'name' => $req['name'],
+            'email' => $req['email'],
+            'gender' => $req['gender'],
+            'phone' => $req['phone'],
+            'job_type' => $req['job_type'],
+            'located_in' => $req['located_in'],
+            'work_type' => $req['work_type'],
+            'industry_and_position' => $req['industry_and_position'],
+            'pay_range' => $req['pay_range'],
+            'nationality' => $req['nationality'],
+        ]);
+        return redirect()->route('profile', $id);
+    }
 }

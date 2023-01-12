@@ -54,7 +54,7 @@
         <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
           <div class="card card_phara" style="background: #F9F9F9; border-radius:21px;">
             <div class="card-body">
-              <div class="cardsimg">
+              <div class="cardimg">
                 <img src="{{ asset('user') }}//Assets/Images/landing-page-img/card-img-1.png" width="180px" alt="no img" srcset="" />
               </div>
               <h2 class="cardsheading ">Company</h2>
@@ -69,9 +69,9 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
-          <div class="card card_phara" style="background-color:  #7C2342;  border-radius:21px;">
+          <div class="card card_phara" style="background-color:  #7C2342;  border-radius:21px; padding: 6px">
             <div class="card-body">
-              <div class="cardsimg">
+              <div class="cardimg">
                 <img src="{{ asset('user') }}//Assets/Images/landing-page-img/card-img--3.png" alt="" srcset="" />
               </div>
               <h4 class="cardsheading text-white">Freelancer</h4>
@@ -88,7 +88,7 @@
         <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
           <div class="card card_phara" style="background: #F9F9F9; border-radius:21px; ">
             <div class="card-body">
-              <div class="cardsimg">
+              <div class="cardimg">
                 <img src="{{ asset('user') }}//Assets/Images/landing-page-img/card-img-2.png" alt="" srcset="" />
               </div>
               <h4 class="cardsheading">Individuals</h4>

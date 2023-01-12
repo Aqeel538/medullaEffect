@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('contact')->nullable(true);
             $table->string('image')->nullable(true);
             $table->integer('status')->default(0)->nullable(true);
+            $table->string('gender')->nullable(true);
             $table->string('job_type')->nullable(true);
             $table->string('located_in')->nullable(true);
             $table->string('work_type')->nullable(true);

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class SingleUserController extends Controller
 {
@@ -45,9 +44,10 @@ class SingleUserController extends Controller
         return view('user.singleUser.pages.index');
     }
 
-    public function profile()
+    public function profile($id)
     {
-        return view('user.singleUser.pages.profile');
+        $user = User::where('id', $id)->first();
+        return view('user.singleUser.pages.profile', compact('user'));
     }
 
     public function profile2()
@@ -55,9 +55,17 @@ class SingleUserController extends Controller
         return view('user.singleUser.pages.profile2');
     }
 
-    public function questinare()
+    public function questinare($user_id)
     {
-        return view('user.singleUser.pages.questinare');
+        // dd($user_id);
+        $user = User::where('id', $user_id)->first();
+        // if ($user) {
+        // }
+        // else{
+        //     return redirect(route('verify'));
+        // }
+        // dd($user);
+        return view('user.singleUser.pages.questinare', compact('user'));
     }
 
     public function viewJob()

@@ -56,13 +56,13 @@
     margin-bottom: 20px;
 }
 
-.cardsimg {
+.cardimg {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.cardsimg img {
+.cardimg img {
     width: 200px;
     height: 200px;
 

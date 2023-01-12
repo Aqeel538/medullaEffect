@@ -56,10 +56,10 @@ class VerificationController extends Controller
             $getting_token = VerifyToken::where('token', $verifyToken->token)->first();
             $getting_token->delete();
 
-            return redirect('/questinare', compact('user'))->with('is_activated', 'Your account is now activated');
+            return redirect('/questinare')->with('is_activated', 'Your account is now activated');
         }
         else{
-            return redirect('/veri-account');
+            return redirect('/email/verification')->with('Please verify the email first');
         }
     }
 
