@@ -1,6 +1,7 @@
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('admin') }}/vendors/feather/feather.css">
   <link rel="stylesheet" href="{{ asset('admin') }}/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="{{ asset('admin') }}/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="{{ asset('admin') }}/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
