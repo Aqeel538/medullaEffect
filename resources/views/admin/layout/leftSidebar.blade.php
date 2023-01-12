@@ -9,12 +9,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/admin/dashboard">
                 <i class="icon-grid menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('user/index') ? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">Users</span>
@@ -26,7 +26,7 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('user/tag') ? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
                 <span class="menu-title">Tags</span>

@@ -34,10 +34,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('adminDashboard');
 
+    //--------------- Admin Routes ---------------\\
     // Users
-    Route::get('user/index', [AdminController::class, 'users_index'])->name('users_index');
-    Route::get('user/detail/{id}', [AdminController::class, 'users_detail'])->name('users_detail');
-    Route::get('user/detail/{status}/{id}', [AdminController::class, 'changeStatus']);
+    Route::get('admin/user/index', [AdminController::class, 'users_index'])->name('users_index');
+    Route::get('admin/user/detail/{id}', [AdminController::class, 'users_detail'])->name('users_detail');
+    Route::get('admin/user/status/{status}/{id}', [AdminController::class, 'changeStatus']);
 
     // User Tags
     Route::get('user/tag', [AdminController::class, 'users_tag'])->name('users_tag');

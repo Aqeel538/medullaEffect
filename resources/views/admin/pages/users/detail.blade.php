@@ -71,11 +71,11 @@
                                             Dropdown
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3">
-                                            <a class="dropdown-item" href="/user/detail/1/{{ $obj->id }}"
+                                            <a class="dropdown-item" href="/admin/user/status/1/{{ $obj->id }}"
                                                 class="btn btn-danger">Active
                                             </a>
 
-                                            <a class="dropdown-item" href="/user/detail/0/{{ $obj->id }}"
+                                            <a class="dropdown-item" href="/admin/user/status/0/{{ $obj->id }}"
                                                 class="btn btn-danger">Inactive</a>
                                         </div>
                                     </div>
