@@ -25,12 +25,14 @@
                     <div>
                         <span><i class="fa-regular fa-bell start_16_respons"></i></span>
                         <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                        <i class="ri-logout-circle-line">
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                        </a>
+                        {{-- <i class="ri-logout-circle-line" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"> --}}
+                          {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                            > --}}
+                            <i style="cursor: pointer;" class="ri-logout-circle-line" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
                       </i>
+                        {{-- </a> --}}
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
