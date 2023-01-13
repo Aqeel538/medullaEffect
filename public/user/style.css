@@ -423,10 +423,10 @@ input[type=radio]#sav {
 
 /* ---------------------------MEDIA--QUERIES------------------------------ */
 @media (min-width:1240px) {
-  .signup_height{
+  /* .signup_height{
     height: 100vh;
     overflow: hidden;
-  }
+  } */
   
 }
 

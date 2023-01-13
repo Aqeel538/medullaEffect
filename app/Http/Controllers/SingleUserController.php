@@ -47,12 +47,13 @@ class SingleUserController extends Controller
 
     public function index()
     {
-        $title = "Index";
+        $title = "Home";
         return view('user.singleUser.pages.index', compact('title'));
     }
 
     public function profile($id)
     {
+        $title = "Profile";
         $user = User::where('id', $id)->first();
         return view('user.singleUser.pages.profile', compact('user', 'title'));
     }
@@ -66,6 +67,7 @@ class SingleUserController extends Controller
     public function questinare($user_id)
     {
         // dd($user_id);
+        $title = "questinare";
         $user = User::where('id', $user_id)->first();
         // if ($user) {
         // }

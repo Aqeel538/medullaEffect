@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\VerifyToken;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\EmailVerificationMail;
+use Illuminate\Support\Facades\Validator;
 
 class RegistrationControllerInd extends Controller
 {
@@ -51,9 +52,11 @@ class RegistrationControllerInd extends Controller
     function create(Request $data)
     {
         $validate = $this->validate($data,[
-            'name' => 'required', 'string', 'max:255',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'password' => 'required', 'string', 'min:8', 'confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'phone'=>'required',
+            'address'=>'required',
         ]);
         if($validate){
             $individual =  User::create([
@@ -71,7 +74,7 @@ class RegistrationControllerInd extends Controller
             ]);
         }
         else{
-            echo 'Validation Error';
+            echo 'Errors';
         }
         // $validToken = rand(10, 100..'2023');
         // $get_token = new VerifyToken();
