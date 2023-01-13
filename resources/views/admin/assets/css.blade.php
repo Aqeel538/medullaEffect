@@ -13,9 +13,3 @@
   <link rel="stylesheet" href="{{ asset('admin') }}/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('admin') }}/images/favicon.png" />
-
-
-
-
-
-

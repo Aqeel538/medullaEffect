@@ -14,35 +14,38 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $title = "Index";
         return view('admin.pages.index');
     }
 
     //Users
     public function users_index()
     {
+        $title = "All Users";
         $userLists = User::get();
         return view('admin.pages.users.index', get_defined_vars());
     }
 
     public function users_detail(Request $req)
     {
-
+        $title = "User-Detail";
         $obj = User::whereId($req->id)->first();
-
         return view('admin.pages.users.detail', get_defined_vars());
     }
 
     // User Tags CRUD
     public function users_tag()
     {
+        $title = "Tag-View";
         $tags = Tag::get();
-        return view('admin.pages.users.tags', compact('tags'));
+        return view('admin.pages.users.tags',get_defined_vars());
     }
 
     public function users_tag_edit(Request $request, $id)
     {
+        $title = "Tag-Update";
         $tags = Tag::where('id', $id)->first();
-        return view('admin.pages.users.editTag', compact('tags'));
+        return view('admin.pages.users.editTag', get_defined_vars());
     }
 
     public function users_tag_editstore(Request $request)
@@ -66,7 +69,8 @@ class AdminController extends Controller
 
     public function users_tag_form()
     {
-        return view('admin.pages.users.tagsForm');
+        $title = "Tag-Create";
+        return view('admin.pages.users.tagsForm', get_defined_vars());
     }
 
     public function users_tag_store(Request $request)
@@ -82,12 +86,14 @@ class AdminController extends Controller
     // Category CRUD
     public function users_category()
     {
+        $title = "Category-View";
         $categories = Category::get();
-        return view('admin.pages.users.category.category', compact('categories'));
+        return view('admin.pages.users.category.category', get_defined_vars());
     }
     public function users_category_form()
     {
-        return view('admin.pages.users.category.categoryForm');
+        $title = "Category-Create";
+        return view('admin.pages.users.category.categoryForm', get_defined_vars());
     }
 
     public function users_category_store(Request $request)
@@ -102,8 +108,9 @@ class AdminController extends Controller
 
     public function users_category_edit(Request $request, $id)
     {
+        $title = "Category-View";
         $category = Category::where('id', $id)->first();
-        return view('admin.pages.users.category.editCategory', compact('category'));
+        return view('admin.pages.users.category.editCategory',  get_defined_vars());
     }
     public function users_category_editstore(Request $request)
     {
@@ -126,12 +133,14 @@ class AdminController extends Controller
     // Service CRUD
     public function services()
     {
+        $title = "Service-View";
         $services = Service::with('Categories', 'Users')->get();
        
         return view('admin.pages.users.services.services', get_defined_vars());
     }
     public function service_form()
     {
+        $title = "Service-Create";
         $categories = Category::get();
         $users = User::get();
         return view('admin.pages.users.services.serviceForm', get_defined_vars());
@@ -159,6 +168,7 @@ class AdminController extends Controller
     }
     public function service_edit(Request $request, $id)
     {
+        $title = "Service-Update";
         $users = User::get();
         $categories = Category::get();
         $service = Service::where('id', $id)->first();
@@ -196,11 +206,13 @@ class AdminController extends Controller
     // Jobs CRUD
     public function jobs()
     {
+        $title = "Job-View";
         $jobs = Job::with('Categories', 'Users')->get();
         return view('admin.pages.users.jobs.jobs', get_defined_vars());
     }
     public function jobs_form()
     {
+        $title = "Job-Create";
         $categories = Category::get();
         $users = User::get();
         return view('admin.pages.users.jobs.jobForm', get_defined_vars());
@@ -228,6 +240,7 @@ class AdminController extends Controller
     }
     public function jobs_edit(Request $request, $id)
     {
+        $title = "Job-Update";
         $users = User::get();
         $categories = Category::get();
         $jobs = Job::where('id', $id)->first();
@@ -262,6 +275,13 @@ class AdminController extends Controller
     }
 
 
+    // All User Seen
+    public function individual_user()
+    {
+        $title = "Individual-User";
+        $user = User::where('role', 'individual')->get();
+        return view('admin.pages.users.userseen.individual',  get_defined_vars());
+    }
 
 
 
