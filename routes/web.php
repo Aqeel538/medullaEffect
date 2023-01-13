@@ -73,6 +73,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::any('job/delete/{id}', [AdminController::class, 'job_delete'])->name('job_delete');
 
 
+    //User Seeing
+    Route::get('individual/user', [AdminController::class, 'individual_user'])->name('individual_user');
+
+
+
 
 
 

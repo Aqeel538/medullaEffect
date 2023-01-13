@@ -19,3 +19,4 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('admin') }}/js/dashboard.js"></script>
   <script src="{{ asset('admin') }}/js/Chart.roundedBarCharts.js"></script>
+  

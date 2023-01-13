@@ -20,7 +20,8 @@
     //         element.addClass('active');
     //       }
     //     }
-    //   } else {
+    //   } 
+      // else {
     //     //for other url
     //     if (element.attr('href').indexOf(current) !== -1) {
     //       element.parents('.nav-item').last().addClass('active');

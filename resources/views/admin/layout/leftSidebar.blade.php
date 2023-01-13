@@ -1,10 +1,5 @@
 <style>
-    .notactive {
-        background-color: #ffffff !important;
-    }
-    .active{
-        background-color: #4B49AC !important;
-    }
+    
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
@@ -14,7 +9,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item {{ Request::is('user/index') ? 'active' : '' }}">
+        <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">Users</span>
@@ -22,7 +17,7 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link " href="{{ route('users_index') }}">All users</a></li>
+                    <li class="nav-item "> <a class="nav-link {{ Route::currentRouteNamed('/users_index') ? 'active' : '' }}" href="{{ route('users_index') }}">All users</a></li>
                 </ul>
             </div>
         </li>
@@ -90,27 +85,27 @@
         Login </a></li>
         <li class="nav-item"> <a class="nav-link" href="{{ asset('admin') }}/pages/samples/register.html">
                 Register </a></li>
-    </ul>
-    </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-            <i class="icon-ban menu-icon"></i>
-            <span class="menu-title">Error pages</span>
-            <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="error">
-            <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ asset('admin') }}/pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ asset('admin') }}/pages/samples/error-500.html"> 500 </a></li>
-            </ul>
+
         </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="pages/documentation/documentation.html">
-            <i class="icon-paper menu-icon"></i>
-            <span class="menu-title">Documentation</span>
-        </a>
-    </li>--}}
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+                <i class="icon-ban menu-icon"></i>
+                <span class="menu-title">Error pages</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ asset('admin') }}/pages/samples/error-404.html"> 404 </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ asset('admin') }}/pages/samples/error-500.html"> 500 </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="pages/documentation/documentation.html">
+                <i class="icon-paper menu-icon"></i>
+                <span class="menu-title">Documentation</span>
+            </a>
+        </li>--}}
     </ul>
 </nav>
