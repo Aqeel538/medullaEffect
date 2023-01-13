@@ -25,12 +25,11 @@
                     <div>
                         <span><i class="fa-regular fa-bell start_16_respons"></i></span>
                         <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                        {{-- <i class="ri-logout-circle-line" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();"> --}}
-                          {{-- <a class="dropdown-item" href="{{ route('logout') }}"
-                            > --}}
-                            <i style="cursor: pointer;" class="ri-logout-circle-line" onclick="event.preventDefault();
+                        <i style="pointer: cursor;" class="ri-logout-circle-line" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
+                          {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                            >
+                        </a> --}}
                       </i>
                         {{-- </a> --}}
 
@@ -50,9 +49,8 @@
                     <div class="img-holder">
                         <img src="{{ asset('user') }}/Assets/Images/profile-imges/user.png" alt="" srcset="">
                     </div>
-                    <h6 class="justify-content-center pt-2 john-text">John Doe</h6>
-                    <p class="john-para">123 Avenue Park City, Bhurban
-                        4 Years Experience</p>
+                    <h6 class="justify-content-center pt-2 john-text">{{$user->name}}</h6>
+                    <p class="john-para">{{$user->address}}</p>
                 </div>
             </div>
             <div class="col-lg-6 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"

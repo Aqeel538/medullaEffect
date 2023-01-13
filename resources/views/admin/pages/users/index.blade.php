@@ -29,7 +29,7 @@
                                     @foreach ($userLists as $userList)
                                         <tr>
                                             <td class="py-1">
-                                                <img src="<?= $userList->image ?>" height="50" width="50"
+                                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/user-profile-default-image.png" height="50" width="50"
                                                     class="img-fluid img-thumbnail" alt="">
                                             </td>
                                             <td>{{ $userList->name }}</td>
