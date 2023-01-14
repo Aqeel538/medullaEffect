@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\individual\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\VerifyToken;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Mail\EmailVerificationMail;
 use Illuminate\Support\Facades\Validator;
 
 class RegistrationControllerInd extends Controller
@@ -49,17 +48,17 @@ class RegistrationControllerInd extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    function create(Request $data)
+    public function create(Request $data)
     {
-        $validate = $this->validate($data,[
+        $validate = $this->validate($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|min:8',
-            'phone'=>'required',
-            'address'=>'required',
+            'phone' => 'required',
+            'address' => 'required',
         ]);
-        if($validate){
-            $individual =  User::create([
+        if ($validate) {
+            $individual = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
@@ -72,8 +71,7 @@ class RegistrationControllerInd extends Controller
                 'role' => 'individual',
                 'status' => 1,
             ]);
-        }
-        else{
+        } else {
             echo 'Errors';
         }
         // $validToken = rand(10, 100..'2023');
@@ -92,7 +90,8 @@ class RegistrationControllerInd extends Controller
         return redirect()->route('questinare', $user_id);
     }
 
-    public function submit_questionair(Request $req, $id){
+    public function submit_questionair(Request $req, $id)
+    {
         // dd($id);
         $questionair = User::whereId($id)->update([
             'gender' => $req['gender'],
@@ -107,7 +106,8 @@ class RegistrationControllerInd extends Controller
         return redirect()->route('profile', $id);
     }
 
-    public function update_user_profile(Request $req, $id){
+    public function update_user_profile(Request $req, $id)
+    {
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
             'email' => $req['email'],
@@ -121,5 +121,29 @@ class RegistrationControllerInd extends Controller
             'nationality' => $req['nationality'],
         ]);
         return redirect()->route('profile', $id);
+    }
+
+    public function edit_image(Request $request)
+    {
+        // dd($request->image);
+        $id = Auth()->user()->id;
+        if ($id) {
+            if ($request->file('image')) {
+                $imageName = time() . rand(9, 999) . '.' . $request->image->extension();
+                $request->image->move(public_path('uploads/user'), $imageName);
+                User::whereId($id)->update([
+                    'image' => $imageName,
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'image' => $request->file(),
+                ]);
+            } else {
+                return response()->json([
+                    "status" => 404,
+                    'message' => 'Image not upload',
+                ]);
+            }
+        }
     }
 }

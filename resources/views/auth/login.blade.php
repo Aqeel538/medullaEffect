@@ -99,9 +99,12 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="{{asset('admin')}}/images/logo.svg" alt="logo">
+              {{-- <div class="brand-logo"> --}}
+                <div class="mb-4 d-flex justify-content-center">
+                  <img class="img-fluid" src="{{ asset('user') }}/images/job-search-company.png" alt="w8">
+                  <h3 class="Poppins d-flex align-items-center">Medulla Effects</h3>
               </div>
+              {{-- </div> --}}
               <h4>Hello! let's get started</h4>
               <h6 class="font-weight-light">Sign in to continue.</h6>
               <form method="POST" action="{{ route('login') }}" class="pt-3">
@@ -113,7 +116,8 @@
                   <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="mb-2">
-                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn maroonColor"
+                    style="background-color: rgba(124, 35, 66, 1)">
                         SIGN IN
                     </button>
                   </div>

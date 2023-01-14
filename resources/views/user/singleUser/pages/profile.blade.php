@@ -20,21 +20,17 @@
                             <li><a href="#">Saved Jobs</a></li>
                             <li><a href="#">Resume</a></li>
                         </ul>
-
                     </div>
                     <div>
                         <span><i class="fa-regular fa-bell start_16_respons"></i></span>
                         <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-<<<<<<< Updated upstream
-                        <i style="pointer: cursor;" class="ri-logout-circle-line" onclick="event.preventDefault();
-=======
-                            <i style="cursor: pointer;" class="ri-logout-circle-line" onclick="event.preventDefault();
->>>>>>> Stashed changes
+                        <i style="cursor:pointer;" class="ri-logout-circle-line"
+                            onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                          {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                            {{-- <a class="dropdown-item" href="{{ route('logout') }}"
                             >
                         </a> --}}
-                      </i>
+                        </i>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -48,16 +44,26 @@
         <div class="row mt-3 justify-content-center p-4 ">
             <div class="col-lg-3 mt-md-5 mb-lg-0 mb-sm-4 mt-lg-0 mb-xs-4   col-10 text-center">
                 <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
-                    <div class="img-holder">
+                    {{-- <div class="img-holder profile_image">
                         <img src="{{ asset('user') }}/Assets/Images/profile-imges/user.png" alt="" srcset="">
+                    </div> --}}
+                    <div class="avatar-upload">
+                        <form id="edit_image_form">
+                            <div class="avatar-edit">
+                                <?php $image = isset($user->image) && !empty($user->image) ? $user->image : ''; ?>
+                                <input type='file' name="image" id="imageUpload" data-default-file="<?= $image ?>"
+                                    accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview"
+                                    style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqsb6lK-PlD1kHFoubbiC-jN21tqj9ADz9crJ2rBIstz1gKFPE&usqp=CAU);">
+                                </div>
+                            </div>
+                        </form>
                     </div>
-<<<<<<< Updated upstream
-                    <h6 class="justify-content-center pt-2 john-text">{{$user->name}}</h6>
-                    <p class="john-para">{{$user->address}}</p>
-=======
-                    <h6 class="justify-content-center pt-2 john-text"><?= isset($user->name) && !empty($user->name) ? $user->name : '' ?></h6>
-                    <p class="john-para"><?= isset($user->address) && !empty($user->address) ? $user->address : '' ?></p>
->>>>>>> Stashed changes
+                    <h6 class="justify-content-center pt-2 john-text">{{ $user->name }}</h6>
+                    <p class="john-para">{{ $user->address }}</p>
                 </div>
             </div>
             <div class="col-lg-6 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"
@@ -99,7 +105,9 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="gender" required style="width: 100%;">
-                                        <option value="" disabled selected hidden> Gender...</option>
+                                        <option
+                                            value="<?= isset($user->gender) && !empty($user->gender) ? $user->gender : '' ?>"
+                                            disabled selected hidden> {{ $user->gender ? $user->gender : 'Gender...' }} </option>
                                         <option>Male</option>
                                         <option>Female</option>
                                         <option>Other</option>
@@ -112,8 +120,13 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="job_type" required style="width: 100%;">
-                                        <option value="" disabled selected hidden>Are you interested in full time or
-                                            part time work?</option>
+                                        <option
+                                            value="<?= isset($user->job_type) && !empty($user->job_type) ? $user->job_type : '' ?>"
+                                            disabled selected hidden>
+                                            {{ $user->job_type
+                                                ? $user->job_type
+                                                : 'Are you interested in full time or part time work?' }}
+                                        </option>
                                         <option>Full Time</option>
                                         <option>Part Time</option>
                                     </select>
@@ -137,8 +150,14 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="work_type" style="width: 100%;">
-                                        <option value="" disabled selected hidden>Are you interested to work
-                                            In-person, remote or hybrid?</option>
+                                        <option
+                                            value="<?= isset($user->work_type) && !empty($user->work_type) ? $user->work_type : '' ?>"
+                                            disabled selected hidden>
+                                            {{ $user->work_type
+                                                ? $user->work_type
+                                                : 'Are you interested to work
+                                                                                        In-person, remote or hybrid?' }}
+                                        </option>
                                         <option>In-Person</option>
                                         <option>Remote</option>
                                         <option>Hybrid</option>
@@ -151,6 +170,7 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <input class="input-field" type="text" name="industry_and_position"
+                                        value="<?= isset($user->industry_and_position) && !empty($user->industry_and_position) ? $user->industry_and_position : '' ?>"
                                         placeholder="State your desired industry and position" />
                                 </div>
                             </div>
@@ -160,7 +180,10 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="pay_range" style="width: 100%;">
-                                        <option value="" disabled selected hidden>State your desired pay range
+                                        <option
+                                            value="<?= isset($user->pay_range) && !empty($user->pay_range) ? $user->pay_range : '' ?>"
+                                            disabled selected hidden>
+                                            {{ $user->pay_range ? $user->pay_range : 'State your desired pay range' }}
                                         </option>
                                         <option>0-5</option>
                                         <option>5-10</option>
@@ -180,8 +203,9 @@
                             <div class="col-12 form-group">
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
-                                    <input class="input-field" type="text" name="nationality"
-                                        placeholder="State your nationality" />
+                                    <input class="input-field"
+                                        value="<?= isset($user->nationality) && !empty($user->nationality) ? $user->nationality : '' ?>"
+                                        type="text" name="nationality" placeholder="State your nationality" />
                                 </div>
                             </div>
                         </div>

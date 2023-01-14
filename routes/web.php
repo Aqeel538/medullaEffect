@@ -59,6 +59,7 @@ Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJo
 Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
 Route::post('/submit/questionair/{id}', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
 Route::post('/update/profile/{id}', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
+Route::post('edit/image', [RegistrationControllerInd::class, 'edit_image'])->name('edit.image');
 
 // Freelancer Routes
 // Route::post('freelancer/create', [])
