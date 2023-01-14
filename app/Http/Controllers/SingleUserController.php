@@ -67,7 +67,11 @@ class SingleUserController extends Controller
     public function questinare($user_id)
     {
         // dd($user_id);
+<<<<<<< Updated upstream
         $title = "questinare";
+=======
+        $title = 'Questionair';
+>>>>>>> Stashed changes
         $user = User::where('id', $user_id)->first();
         // if ($user) {
         // }

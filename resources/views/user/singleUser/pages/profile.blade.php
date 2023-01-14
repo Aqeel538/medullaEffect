@@ -25,14 +25,16 @@
                     <div>
                         <span><i class="fa-regular fa-bell start_16_respons"></i></span>
                         <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+<<<<<<< Updated upstream
                         <i style="pointer: cursor;" class="ri-logout-circle-line" onclick="event.preventDefault();
+=======
+                            <i style="cursor: pointer;" class="ri-logout-circle-line" onclick="event.preventDefault();
+>>>>>>> Stashed changes
                         document.getElementById('logout-form').submit();">
                           {{-- <a class="dropdown-item" href="{{ route('logout') }}"
                             >
                         </a> --}}
                       </i>
-                        {{-- </a> --}}
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -49,8 +51,13 @@
                     <div class="img-holder">
                         <img src="{{ asset('user') }}/Assets/Images/profile-imges/user.png" alt="" srcset="">
                     </div>
+<<<<<<< Updated upstream
                     <h6 class="justify-content-center pt-2 john-text">{{$user->name}}</h6>
                     <p class="john-para">{{$user->address}}</p>
+=======
+                    <h6 class="justify-content-center pt-2 john-text"><?= isset($user->name) && !empty($user->name) ? $user->name : '' ?></h6>
+                    <p class="john-para"><?= isset($user->address) && !empty($user->address) ? $user->address : '' ?></p>
+>>>>>>> Stashed changes
                 </div>
             </div>
             <div class="col-lg-6 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"

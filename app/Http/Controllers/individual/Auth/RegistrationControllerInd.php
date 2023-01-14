@@ -54,7 +54,7 @@ class RegistrationControllerInd extends Controller
         $validate = $this->validate($data,[
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|min:8',
             'phone'=>'required',
             'address'=>'required',
         ]);
