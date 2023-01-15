@@ -40,6 +40,19 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/user/detail/{id}', [AdminController::class, 'users_detail'])->name('users_detail');
     Route::get('admin/user/status/{status}/{id}', [AdminController::class, 'changeStatus']);
 
+
+
+    // Freelancers
+    Route::get('admin/freelancer/index', [AdminController::class, 'freelancer_index'])->name('admin.freelancer.index');
+    Route::get('admin/freelancer/detail/{id}', [AdminController::class, 'freelancer_detail'])->name('admin.freelancer.detail');
+    Route::get('admin/freelancer/status/{status}/{id}', [AdminController::class, 'freelancerChangeStatus']);
+
+    // Companies
+    Route::get('admin/companies/index', [AdminController::class, 'companies_index'])->name('admin.companies.index');
+    Route::get('admin/companies/detail/{id}', [AdminController::class, 'companies_detail'])->name('admin.companies.detail');
+    Route::get('admin/companies/status/{status}/{id}', [AdminController::class, 'companiesChangeStatus']);
+
+
     // User Tags
     Route::get('user/tag', [AdminController::class, 'users_tag'])->name('users_tag');
     Route::get('user/tag/form', [AdminController::class, 'users_tag_form'])->name('users_tag_form');
@@ -76,37 +89,39 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     //User Seeing
     Route::get('individual/user', [AdminController::class, 'individual_user'])->name('individual_user');
 
-
-
-
-
-
-
-
-
-
-
 });
 
 Route::get('/advance/fillter', [SingleUserController::class, 'advance_fillter'])->name('advance.fillter');
 Route::get('/applied', [SingleUserController::class, 'applied'])->name('applied');
 Route::get('/companay', [SingleUserController::class, 'companay'])->name('companay');
 Route::get('/freelancer', [SingleUserController::class, 'freelancer'])->name('freelancer');
-Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
+
 Route::get('/tagline', [SingleUserController::class, 'tagline'])->name('tagline');
 
 Route::get('/', [SingleUserController::class, 'index'])->name('index');
-Route::get('/profile/{id}', [SingleUserController::class, 'profile'])->name('profile');
+
 // Route::get('/profile_view', [SingleUserController::class, 'profile'])->name('profile.view');
 Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profile2');
-Route::get('/questinare/{id}', [SingleUserController::class, 'questinare'])->name('questinare');
+
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');
+Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
+Route::middleware(['guest'])->group(function () {
+Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
+});
 
 // Individual Routes
-Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
-Route::post('/submit/questionair/{id}', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
-Route::post('/update/profile/{id}', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/questinare', [SingleUserController::class, 'questinare'])->name('questinare');
+    Route::post('/submit/questionair', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
+});
+    Route::middleware(['auth', 'isIndividual'])->group(function () {
+     Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
+    Route::post('/update/profile/{id}', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
+    Route::post('/update/profile/image', [RegistrationControllerInd::class, 'update_user_profile_image'])->name('update.user.profile.image');
+});
+
 
 // Freelancer Routes
 // Route::post('freelancer/create', [])

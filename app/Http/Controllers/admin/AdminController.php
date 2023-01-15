@@ -9,13 +9,20 @@ use App\Models\Service;
 use App\Models\User;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $title = "Index";
-        return view('admin.pages.index');
+        $title = "Admin-Dashboard";
+        $mytime = Carbon::now();
+        $admin = User::where('role', 'admin')->first();
+        $individual = User::where('role', 'individual')->count();
+        $company = User::where('role', 'company')->count();
+        $freelancer = User::where('role', 'freelancer')->count();
+        $job = Job::count();
+        return view('admin.pages.index',  get_defined_vars());
     }
 
     //Users
@@ -23,6 +30,8 @@ class AdminController extends Controller
     {
         $title = "All Users";
         $userLists = User::get();
+        $title = "All Users";
+        $userLists = User::where('role', 'individual')->get();
         return view('admin.pages.users.index', get_defined_vars());
     }
 
@@ -31,6 +40,36 @@ class AdminController extends Controller
         $title = "User-Detail";
         $obj = User::whereId($req->id)->first();
         return view('admin.pages.users.detail', get_defined_vars());
+    }
+
+    //Companies
+    public function companies_index()
+    {
+        $title = "All Companies";
+        $users = User::where('role', 'company')->get();
+        return view('admin.pages.companies.index', get_defined_vars());
+    }
+
+    public function companies_detail(Request $req)
+    {
+        $title = "Companies-Detail";
+        $obj = User::whereId($req->id)->first();
+        return view('admin.pages.companies.detail', get_defined_vars());
+    }
+
+    //Freelancers
+    public function freelancer_index()
+    {
+        $title = "All-Freelancers";
+        $users = User::where('role', 'freelancer')->get();
+        return view('admin.pages.freelancers.index', get_defined_vars());
+    }
+
+    public function freelancer_detail(Request $req)
+    {
+        $title = "Freelancers-Detail";
+        $obj = User::whereId($req->id)->first();
+        return view('admin.pages.freelancers.detail', get_defined_vars());
     }
 
     // User Tags CRUD
@@ -287,6 +326,7 @@ class AdminController extends Controller
 
 
 
+    
     public function changeStatus($status, $id)
     {
         $order = User::where('id', $id)->first();

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class SingleUserController extends Controller
 {
@@ -51,10 +53,11 @@ class SingleUserController extends Controller
         return view('user.singleUser.pages.index', compact('title'));
     }
 
-    public function profile($id)
+    public function profile()
     {
         $title = "Profile";
-        $user = User::where('id', $id)->first();
+
+        $user = Auth::user();
         return view('user.singleUser.pages.profile', compact('user', 'title'));
     }
 
@@ -64,10 +67,9 @@ class SingleUserController extends Controller
         return view('user.singleUser.pages.profile2', compact('title'));
     }
 
-    public function questinare($user_id)
+    public function questinare()
     {
-        // dd($user_id);
-        $title = "questinare";
+        $title = "Questinare";
         $user = User::where('id', $user_id)->first();
         // if ($user) {
         // }

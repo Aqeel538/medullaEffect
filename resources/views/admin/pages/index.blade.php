@@ -14,7 +14,7 @@
                             <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                                 <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button"
                                     id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
+                                    <i class="mdi mdi-calendar"></i> Today ({!! $mytime->format('Y-m-d') ?? '10 Jan 2021' !!})
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
                                     <a class="dropdown-item" href="#">January - March</a>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
+            {{-- <div class="col-md-6 grid-margin stretch-card">
                 <div class="card tale-bg">
                     <div class="card-people mt-auto">
                         <img src="{{ asset('admin') }}/images/dashboard/people.svg" alt="people">
@@ -46,24 +46,24 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-6 grid-margin transparent">
                 <div class="row">
                     <div class="col-md-6 mb-4 stretch-card transparent">
                         <div class="card card-tale">
                             <div class="card-body">
-                                <p class="mb-4">Today’s Bookings</p>
-                                <p class="fs-30 mb-2">4006</p>
-                                <p>10.00% (30 days)</p>
+                                <p class="mb-4">Total Individuals</p>
+                                <p class="fs-30 mb-2">{!! $individual ?? '' !!}</p>
+                                {{-- <p>10.00% (30 days)</p> --}}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4 stretch-card transparent">
                         <div class="card card-dark-blue">
                             <div class="card-body">
-                                <p class="mb-4">Total Bookings</p>
-                                <p class="fs-30 mb-2">61344</p>
-                                <p>22.00% (30 days)</p>
+                                <p class="mb-4">Total Companies</p>
+                                <p class="fs-30 mb-2">{!! $company ?? '' !!}</p>
+                                {{-- <p>22.00% (30 days)</p> --}}
                             </div>
                         </div>
                     </div>
@@ -72,25 +72,25 @@
                     <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                         <div class="card card-light-blue">
                             <div class="card-body">
-                                <p class="mb-4">Number of Meetings</p>
-                                <p class="fs-30 mb-2">34040</p>
-                                <p>2.00% (30 days)</p>
+                                <p class="mb-4">Total Freelancers</p>
+                                <p class="fs-30 mb-2">{!! $freelancer ?? '' !!}</p>
+                                {{-- <p>2.00% (30 days)</p> --}}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 stretch-card transparent">
                         <div class="card card-light-danger">
                             <div class="card-body">
-                                <p class="mb-4">Number of Clients</p>
-                                <p class="fs-30 mb-2">47033</p>
-                                <p>0.22% (30 days)</p>
+                                <p class="mb-4">Total jobs posted</p>
+                                <p class="fs-30 mb-2">{!! $job ?? '' !!}</p>
+                                {{-- <p>0.22% (30 days)</p> --}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -746,7 +746,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 <!-- main-panel ends -->

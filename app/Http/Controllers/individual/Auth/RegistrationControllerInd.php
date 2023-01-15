@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\individual\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\VerifyToken;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Mail\EmailVerificationMail;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegistrationControllerInd extends Controller
 {
@@ -39,7 +39,7 @@ class RegistrationControllerInd extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -49,17 +49,17 @@ class RegistrationControllerInd extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    function create(Request $data)
+    public function create(Request $data)
     {
-        $validate = $this->validate($data,[
+        $validate = $this->validate($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8|',
             'phone'=>'required',
             'address'=>'required',
         ]);
         if($validate){
-            $individual =  User::create([
+            $user =  User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
@@ -72,8 +72,7 @@ class RegistrationControllerInd extends Controller
                 'role' => 'individual',
                 'status' => 1,
             ]);
-        }
-        else{
+        } else {
             echo 'Errors';
         }
         // $validToken = rand(10, 100..'2023');
@@ -86,14 +85,16 @@ class RegistrationControllerInd extends Controller
         // $get_user_name = $data['name'];
 
         // \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
-        $user_id = $individual->id;
+        $user_id = $user->id;
         // dd($user_id);
         // return redirect('/questinare/',$user_id);
-        return redirect()->route('questinare', $user_id);
+        // return $user;
+        return redirect()->route('questinare');
     }
 
-    public function submit_questionair(Request $req, $id){
+    public function submit_questionair(Request $req){
         // dd($id);
+        $id = Auth::user()->id;
         $questionair = User::whereId($id)->update([
             'gender' => $req['gender'],
             'job_type' => $req['job_type'],
@@ -102,11 +103,40 @@ class RegistrationControllerInd extends Controller
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],
             'nationality' => $req['nationality'],
+            'questionaire_submit' => 1,
         ]);
         // return redirect(route('profile'));
         return redirect()->route('profile', $id);
     }
 
+    public function update_user_profile_image (Request $req){
+        // $validation = Validator::make($req->all(), [
+        //     'data' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        //    ]);
+        //    if($validation->passes())
+        //    {
+        //     $image = $req->file();
+        //     $new_name = 111 . '.' . $image->getClientOriginalExtension();
+
+        //     $id = Auth::user()->id;
+        // $questionair = User::whereId($id)->update([
+        //     'image' => $new_name
+        // ]);
+        //     $image->move(public_path('uploads'), $new_name);
+        //     return response()->json([
+        //      'message'   => 'Image Upload Successfully',
+        //      'uploaded_image' => '<img src="/images/'.$new_name.'" class="img-thumbnail" width="300" />',
+        //      'class_name'  => 'alert-success'
+        //     ]);
+        //    }
+        //    else
+        //    {
+            return response()->json([
+             'message'   => "dd",
+
+            ]);
+          
+    }
     public function update_user_profile(Request $req, $id){
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
@@ -121,5 +151,29 @@ class RegistrationControllerInd extends Controller
             'nationality' => $req['nationality'],
         ]);
         return redirect()->route('profile', $id);
+    }
+
+    public function edit_image(Request $request)
+    {
+        // dd($request->image);
+        $id = Auth()->user()->id;
+        if ($id) {
+            if ($request->file('image')) {
+                $imageName = time() . rand(9, 999) . '.' . $request->image->extension();
+                $request->image->move(public_path('uploads/user'), $imageName);
+                User::whereId($id)->update([
+                    'image' => $imageName,
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'image' => $request->file(),
+                ]);
+            } else {
+                return response()->json([
+                    "status" => 404,
+                    'message' => 'Image not upload',
+                ]);
+            }
+        }
     }
 }
