@@ -6,17 +6,39 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="icon-layout menu-icon"></i>
-                <span class="menu-title">Users</span>
+        <li class="nav-item {{ Request::is('/admin/user/index') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#individuals" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-head menu-icon"></i>
+                <span class="menu-title">Individuals</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="individuals">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('users_index') }}">All users</a></li>
-                    {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('users_detail') }}">Users Detail</a>
-                    </li> --}}
+                    <li class="nav-item "> <a class="nav-link" href="{{ route('users_index') }}">All Individuals</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item {{ Request::is('admin/freelancer/index') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#freelancers" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-head menu-icon"></i>
+                <span class="menu-title">Freelancers</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="freelancers">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item "> <a class="nav-link {{ Route::currentRouteNamed('/users_index') ? 'active' : '' }}" href="{{ route('admin.freelancer.index') }}">All Freelancers</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item {{ Request::is('admin/companies/index') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#companies" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Companies</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="companies">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item "> <a class="nav-link {{ Route::currentRouteNamed('/users_index') ? 'active' : '' }}" href="{{ route('admin.companies.index') }}">All Companies</a></li>
                 </ul>
             </div>
         </li>

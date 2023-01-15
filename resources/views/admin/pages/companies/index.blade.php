@@ -6,7 +6,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">All individuals</p>
+                        <p class="card-title">All companies</p>
                         {{-- <div class="row" style="justify-content: right; margin-top: -45px; margin-right: 10px;">
                             <a href="{{ route('jobs_form') }}" class="btn btn-primary">Add New</a>
                         </div> --}}
@@ -24,17 +24,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($userLists as $userList)
+                                            @foreach ($users as $user)
                                                 <tr>
                                                    
                                                     <td class="py-1">
-                                                        <img src="{!! $userList->image ?? '' !!}" height="50" width="50"
+                                                        <img src="{!! $user->image ?? '' !!}" height="50" width="50"
                                                             class="img-fluid img-thumbnail" alt="">
                                                     </td>
-                                                    <td>{!! $userList->name ?? '' !!}</td>
-                                                    <td>{!! $userList->email ?? '' !!}</td>
+                                                    <td>{!! $user->name ?? '' !!}</td>
+                                                    <td>{!! $user->email ?? '' !!}</td>
                                                     <td>
-                                                        @if ($userList->status == 1)
+                                                        @if ($user->status == 1)
                                                         <label class="badge badge-success">Active</label>
                                                         @else
                                                         <label class="badge badge-danger">Inactive</label>
@@ -43,7 +43,7 @@
 
 
                                                     <td>
-                                                        <a href="{{ route('users_detail', $userList->id) }}"><i
+                                                        <a href="{{ route('admin.companies.detail', $user->id) }}"><i
                                                             class="ti-eye"></i></a>
                                                     </td>
 

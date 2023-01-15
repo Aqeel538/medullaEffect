@@ -18,8 +18,14 @@ class IndividualMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->role == 'individual'){
-            return $next($request);
-        } else {
+            if (Auth::user()->questionaire_submit == 1){
+                return $next($request);
+            }
+            else {
+                return redirect('/questinare');
+            }
+        } 
+        else {
             return redirect('/home');
          }
     }

@@ -1,5 +1,6 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
+
     <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1);">
         <header>
 
@@ -31,6 +32,8 @@
                             >
                         </a> --}}
                         </i>
+                        {{-- </a> --}}
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -105,12 +108,10 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="gender" required style="width: 100%;">
-                                        <option
-                                            value="<?= isset($user->gender) && !empty($user->gender) ? $user->gender : '' ?>"
-                                            disabled selected hidden> {{ $user->gender ? $user->gender : 'Gender...' }} </option>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
+                                        <option value="" disabled selected hidden>{!! $user->gender ?? 'Gender' !!}</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -120,15 +121,11 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="job_type" required style="width: 100%;">
-                                        <option
-                                            value="<?= isset($user->job_type) && !empty($user->job_type) ? $user->job_type : '' ?>"
-                                            disabled selected hidden>
-                                            {{ $user->job_type
-                                                ? $user->job_type
-                                                : 'Are you interested in full time or part time work?' }}
-                                        </option>
-                                        <option>Full Time</option>
-                                        <option>Part Time</option>
+                                        <option value="" disabled selected hidden>{!! $user->job_type ??
+                                            'Are you interested in full time or
+                                                                                    part time work?' !!}</option>
+                                        <option value="Full Time">Full Time</option>
+                                        <option value="Part Time">Part Time</option>
                                     </select>
 
                                 </div>
@@ -150,17 +147,12 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="work_type" style="width: 100%;">
-                                        <option
-                                            value="<?= isset($user->work_type) && !empty($user->work_type) ? $user->work_type : '' ?>"
-                                            disabled selected hidden>
-                                            {{ $user->work_type
-                                                ? $user->work_type
-                                                : 'Are you interested to work
-                                                                                        In-person, remote or hybrid?' }}
-                                        </option>
-                                        <option>In-Person</option>
-                                        <option>Remote</option>
-                                        <option>Hybrid</option>
+                                        <option value="" disabled selected hidden>{!! $user->work_type ??
+                                            'Are you interested to work
+                                                                                    In-person, remote or hybrid?' !!}</option>
+                                        <option value="In-Person">In-Person</option>
+                                        <option value="Remote">Remote</option>
+                                        <option value="Hybrid">Hybrid</option>
                                     </select>
                                 </div>
                             </div>
@@ -170,8 +162,7 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <input class="input-field" type="text" name="industry_and_position"
-                                        value="<?= isset($user->industry_and_position) && !empty($user->industry_and_position) ? $user->industry_and_position : '' ?>"
-                                        placeholder="State your desired industry and position" />
+                                        placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                                 </div>
                             </div>
                         </div>
@@ -180,21 +171,18 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="pay_range" style="width: 100%;">
-                                        <option
-                                            value="<?= isset($user->pay_range) && !empty($user->pay_range) ? $user->pay_range : '' ?>"
-                                            disabled selected hidden>
-                                            {{ $user->pay_range ? $user->pay_range : 'State your desired pay range' }}
+                                        <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
                                         </option>
-                                        <option>0-5</option>
-                                        <option>5-10</option>
-                                        <option>10-15</option>
-                                        <option>15-20</option>
-                                        <option>20-25</option>
-                                        <option>25-30</option>
-                                        <option>30-35</option>
-                                        <option>35-40</option>
-                                        <option>40-45</option>
-                                        <option>45-50</option>
+                                        <option value="0-50">0-50</option>
+                                        <option value="50-100">50-100</option>
+                                        <option value="100-1500">100-1500</option>
+                                        <option value="1500-2000">1500-2000</option>
+                                        <option value="2000-2500">2000-2500</option>
+                                        <option value="2500-3000">2500-3000</option>
+                                        <option value="3000-3500">3000-3500</option>
+                                        <option value="3500-4000">3500-4000</option>
+                                        <option value="4000-4500">4000-4500</option>
+                                        <option value="4500-5000">4500-5000</option>
                                     </select>
                                 </div>
                             </div>
@@ -203,9 +191,8 @@
                             <div class="col-12 form-group">
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
-                                    <input class="input-field"
-                                        value="<?= isset($user->nationality) && !empty($user->nationality) ? $user->nationality : '' ?>"
-                                        type="text" name="nationality" placeholder="State your nationality" />
+                                    <input class="input-field" type="text" name="nationality"
+                                        placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                                 </div>
                             </div>
                         </div>
