@@ -64,7 +64,7 @@
          });
          $.ajax({
              type: "POST",
-             url: "/edit/image",
+             url: "/individual/update/profileImage",
              data: formData,
              contentType: false,
              processData: false,

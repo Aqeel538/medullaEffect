@@ -50,12 +50,21 @@
                                             </tr>
                                             @endforeach
                                         </tbody>
+                                        
                                     </table>
+                                    <div class="d-flex justify-content-center mt-5">
+                                        {!! $userLists->links() !!}
+                                    </div>
+                                    
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+                
             </div>
         </div>
     </div>

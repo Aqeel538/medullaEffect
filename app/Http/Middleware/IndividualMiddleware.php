@@ -18,7 +18,11 @@ class IndividualMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->role == 'individual'){
-            if (Auth::user()->questionaire_submit == 1){
+            if (Auth::user()->status == 0){
+                Auth::logout();
+                return redirect('/login')->with('error','Your account is deactivated');
+            }
+            elseif (Auth::user()->questionaire_submit == 1) {
                 return $next($request);
             }
             else {
@@ -26,7 +30,7 @@ class IndividualMiddleware
             }
         } 
         else {
-            return redirect('/home');
+            return redirect('/login');
          }
     }
 }

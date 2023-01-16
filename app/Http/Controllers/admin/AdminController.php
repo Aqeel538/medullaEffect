@@ -13,6 +13,8 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
+    // Admin Dashboard Index
+
     public function index()
     {
         $title = "Admin-Dashboard";
@@ -31,7 +33,7 @@ class AdminController extends Controller
         $title = "All Users";
         $userLists = User::get();
         $title = "All Users";
-        $userLists = User::where('role', 'individual')->get();
+        $userLists = User::where('role', 'individual')->paginate(10);
         return view('admin.pages.users.index', get_defined_vars());
     }
 
@@ -321,12 +323,8 @@ class AdminController extends Controller
         $user = User::where('role', 'individual')->get();
         return view('admin.pages.users.userseen.individual',  get_defined_vars());
     }
-
-
-
-
-
     
+    // Active / Deactive user
     public function changeStatus($status, $id)
     {
         $order = User::where('id', $id)->first();

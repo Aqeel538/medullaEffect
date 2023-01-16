@@ -1,6 +1,5 @@
 @extends('admin.main')
 @section('content')
-
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -26,7 +25,7 @@
                                         <tbody>
                                             @foreach ($users as $user)
                                                 <tr>
-                                                   
+
                                                     <td class="py-1">
                                                         <img src="{!! $user->image ?? '' !!}" height="50" width="50"
                                                             class="img-fluid img-thumbnail" alt="">
@@ -35,19 +34,19 @@
                                                     <td>{!! $user->email ?? '' !!}</td>
                                                     <td>
                                                         @if ($user->status == 1)
-                                                        <label class="badge badge-success">Active</label>
+                                                            <label class="badge badge-success">Active</label>
                                                         @else
-                                                        <label class="badge badge-danger">Inactive</label>
+                                                            <label class="badge badge-danger">Inactive</label>
                                                         @endif
                                                     </td>
 
 
                                                     <td>
                                                         <a href="{{ route('admin.companies.detail', $user->id) }}"><i
-                                                            class="ti-eye"></i></a>
+                                                                class="ti-eye"></i></a>
                                                     </td>
 
-                                            </tr>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -59,9 +58,5 @@
             </div>
         </div>
     </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:../../partials/_footer.html -->
-
-    <!-- partial -->
 @endsection
 <!-- main-panel ends -->

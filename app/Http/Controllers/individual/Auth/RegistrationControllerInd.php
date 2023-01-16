@@ -137,7 +137,8 @@ class RegistrationControllerInd extends Controller
             ]);
           
     }
-    public function update_user_profile(Request $req, $id){
+    public function update_user_profile(Request $req){
+        $id = Auth::user()->id;
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
             'email' => $req['email'],

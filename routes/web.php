@@ -19,28 +19,24 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/index', function () {
     return view('welcome');
 });
-
-
 Auth::routes();
 
 Route::post('/email/verification', [VerificationController::class, 'userEmailActivation'])->name('verify.otp');
 Route::get('/verifyAccount', [VerificationController::class, 'verifyAccount'])->name('verify.account');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::middleware(['auth', 'isAdmin'])->group(function () {
+    //--------------- Admin Dashboard Routes Start ---------------\\
+
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('adminDashboard');
 
-    //--------------- Admin Routes ---------------\\
-    // Users
+    // Individuals
     Route::get('admin/user/index', [AdminController::class, 'users_index'])->name('users_index');
     Route::get('admin/user/detail/{id}', [AdminController::class, 'users_detail'])->name('users_detail');
     Route::get('admin/user/status/{status}/{id}', [AdminController::class, 'changeStatus']);
-
-
 
     // Freelancers
     Route::get('admin/freelancer/index', [AdminController::class, 'freelancer_index'])->name('admin.freelancer.index');
@@ -51,7 +47,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/companies/index', [AdminController::class, 'companies_index'])->name('admin.companies.index');
     Route::get('admin/companies/detail/{id}', [AdminController::class, 'companies_detail'])->name('admin.companies.detail');
     Route::get('admin/companies/status/{status}/{id}', [AdminController::class, 'companiesChangeStatus']);
-
 
     // User Tags
     Route::get('user/tag', [AdminController::class, 'users_tag'])->name('users_tag');
@@ -85,43 +80,40 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('jobs/editstore', [AdminController::class, 'jobs_editstore'])->name('jobs_editstore');
     Route::any('job/delete/{id}', [AdminController::class, 'job_delete'])->name('job_delete');
 
-
     //User Seeing
     Route::get('individual/user', [AdminController::class, 'individual_user'])->name('individual_user');
 
+    //--------------- Admin Dashboard Routes End ---------------\\
 });
 
+
+// Auth Routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/questinare', [SingleUserController::class, 'questinare'])->name('questinare');
+    Route::post('/submit/questionair', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
+});
+
+// Individual Auth routes
+Route::middleware(['auth', 'isIndividual'])->group(function () {
+    Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
+    Route::post('individual/update/profileImage', [RegistrationControllerInd::class, 'edit_image']);
+    Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
+
+});
+
+
+    //--------------- Unauthenticated Routes Start ---------------\\
 Route::get('/advance/fillter', [SingleUserController::class, 'advance_fillter'])->name('advance.fillter');
 Route::get('/applied', [SingleUserController::class, 'applied'])->name('applied');
 Route::get('/companay', [SingleUserController::class, 'companay'])->name('companay');
 Route::get('/freelancer', [SingleUserController::class, 'freelancer'])->name('freelancer');
-
 Route::get('/tagline', [SingleUserController::class, 'tagline'])->name('tagline');
-
 Route::get('/', [SingleUserController::class, 'index'])->name('index');
-
-// Route::get('/profile_view', [SingleUserController::class, 'profile'])->name('profile.view');
 Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profile2');
-
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');
 Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
 Route::middleware(['guest'])->group(function () {
 Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
 });
-
-// Individual Routes
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/questinare', [SingleUserController::class, 'questinare'])->name('questinare');
-    Route::post('/submit/questionair', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
-});
-    Route::middleware(['auth', 'isIndividual'])->group(function () {
-     Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
-    Route::post('/update/profile/{id}', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
-    Route::post('/update/profile/image', [RegistrationControllerInd::class, 'update_user_profile_image'])->name('update.user.profile.image');
-});
-
-
-// Freelancer Routes
-// Route::post('freelancer/create', [])
+    //--------------- Unauthenticated Routes End ---------------\\

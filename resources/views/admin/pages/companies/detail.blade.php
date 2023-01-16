@@ -8,15 +8,15 @@
                         <div class="d-flex text-black">
                             <div class="row w-100">
                                 <div class="col-lg-3 col-md-3 col-sm-12">
-                                    
-                                        <div class="flex-shrink-0 profileDisplay">
-                                            <?php $image = isset($obj->image) && !empty($obj->image) ? $obj->image : ''; ?>
 
-                                            <img src="{!! $obj->image ?? '' !!}"
-                                                alt="please upload image" class="img-fluid profile"
-                                                style="width: 180px; border-radius: 10px; margin-inline: 10px;">
-                                        </div>
-                                  
+                                    <div class="flex-shrink-0 profileDisplay">
+                                        <?php $image = isset($obj->image) && !empty($obj->image) ? $obj->image : ''; ?>
+
+                                        <img src="{!! $obj->image ?? '' !!}" alt="please upload image"
+                                            class="img-fluid profile"
+                                            style="width: 180px; border-radius: 10px; margin-inline: 10px;">
+                                    </div>
+
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-12">
                                     <div class="flex-grow-1 ms-3 ">

@@ -70,7 +70,7 @@ class SingleUserController extends Controller
     public function questinare()
     {
         $title = "Questinare";
-        $user = User::where('id', $user_id)->first();
+        $user = Auth::user();
         // if ($user) {
         // }
         // else{
