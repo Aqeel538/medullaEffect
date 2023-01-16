@@ -12,4 +12,5 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('admin') }}/css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('admin') }}/images/favicon.png" />
+  {{-- <link rel="shortcut icon" href="{{ asset('admin') }}/images/favicon.png" /> --}}
+  <link rel="icon" type="image/x-icon" href="{{ asset('user/images') }}/favicon.png">

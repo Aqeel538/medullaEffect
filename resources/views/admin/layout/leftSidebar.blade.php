@@ -7,7 +7,7 @@
             </a>
         </li>
 
-        <li class="nav-item {{ Request::is('/admin/user/index') ? 'active' : '' }}">
+        <li class="nav-item {{ Request::is('admin/user/index') ? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#individuals" aria-expanded="false" aria-controls="ui-basic">
                 <i class="icon-head menu-icon"></i>
                 <span class="menu-title">Individuals</span>
