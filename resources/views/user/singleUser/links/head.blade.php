@@ -1,5 +1,5 @@
      <!-- -----CSS---bootstrap----- -->
-     <link rel="icon" type="image/x-icon" href="{{ asset('user/images') }}/job-search-company.png">
+     <link rel="icon" type="image/x-icon" href="{{ asset('user/images') }}/favicon.png">
      <meta name="csrf-token" content="{{ csrf_token() }}" />
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
      <!-- ---fontawesome--cdn--------- -->

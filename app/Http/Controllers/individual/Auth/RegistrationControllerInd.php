@@ -56,7 +56,7 @@ class RegistrationControllerInd extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|',
             'phone'=>'required',
-            'address'=>'required',
+            // 'address'=>'required',
         ]);
         if($validate){
             $user =  User::create([

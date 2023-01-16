@@ -101,12 +101,12 @@
                                 <span class="input-group-text phara_16 border border-0"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
                                         class="ri-map-pin-user-line"></i></span>
-                                <input type="text" name="address" class="form-control ps-0 border border-0 padd_12_input"
+                                <input type="number" name="phone" class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Address">
+                                    placeholder="Phone">
                             </div>
                             <div class="text-danger d-flex">
-                                @error('address')
+                                @error('phone')
                                     {{ $message }}
                                 @enderror
                             </div>
@@ -114,7 +114,7 @@
 
                     </div>
                     <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12">
+                        {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
@@ -124,8 +124,8 @@
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Company Name">
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
+                        </div> --}}
+                        {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i class="ri-earth-line"></i></span>
@@ -133,11 +133,11 @@
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Website (optional)">
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                     <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12">
+                        {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
@@ -152,8 +152,8 @@
                                     {{ $message }}
                                 @enderror
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 dropdown">
+                        </div> --}}
+                        {{-- <div class="col-lg-6 col-md-6 col-12 dropdown">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
@@ -162,14 +162,9 @@
                                     class="form-control ps-0 border border-0 padd_12_input"
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Industry">
-                                {{-- <select required style="width: 100%" name="job_type">
-                                        <option value="" disabled selected hidden>Are you interested in full time or part
-                                            time work?</option>
-                                        <option>Full Time</option>
-                                        <option>Part Time</option>
-                                    </select> --}}
+                               
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-12 col-md-12 col-12">
