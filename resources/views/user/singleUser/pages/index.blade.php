@@ -71,42 +71,6 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
-              <div class="card card_phara" style="background: #F9F9F9; border-radius:21px;">
-                  <div class="card-body">
-                      <div class="cardimg">
-                          <img src="{{ asset('user') }}//Assets/Images/landing-page-img/card-img-1.png" width="180px"
-                              alt="no img" srcset="" />
-                      </div>
-                      <h2 class="cardsheading ">Company</h2>
-                      <p class="text-phara-respns">
-                          Post job Hire people through Medulla...nis iste natus error sit
-                          voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                          eaque ipsa quae ab ritatis.
-                      </p>
-                      <a href="{{ route('companay') }}">
-                          <button class="buttonfill poppins">Let’s Go</button></a>
-                  </div>
-              </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
-            <div class="card card_phara" style="background: #F9F9F9; border-radius:21px;">
-                <div class="card-body">
-                    <div class="cardimg">
-                        <img src="{{ asset('user') }}//Assets/Images/landing-page-img/card-img-1.png" width="180px"
-                            alt="no img" srcset="" />
-                    </div>
-                    <h2 class="cardsheading ">Company</h2>
-                    <p class="text-phara-respns">
-                        Post job Hire people through Medulla...nis iste natus error sit
-                        voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                        eaque ipsa quae ab ritatis.
-                    </p>
-                    <a href="{{ route('companay') }}">
-                        <button class="buttonfill poppins">Let’s Go</button></a>
-                </div>
-            </div>
-        </div>
-            {{-- <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card card_phara" style="background-color:  #7C2342;  border-radius:21px; padding: 6px">
                     <div class="card-body">
                         <div class="cardimg">
@@ -123,8 +87,8 @@
                             <button class="buttonunfill poppins">Let’s Go</button></a>
                     </div>
                 </div>
-            </div> --}}
-            {{-- <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card card_phara" style="background: #F9F9F9; border-radius:21px; ">
                     <div class="card-body">
                         <div class="cardimg">
@@ -142,7 +106,7 @@
                     </div>
                 </div>
 
-            </div> --}}
+            </div>
 
 
 
