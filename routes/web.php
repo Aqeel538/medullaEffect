@@ -5,6 +5,8 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\SingleUserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\individual\Auth\RegistrationControllerInd;
+use App\Http\Controllers\freelancer\Auth\FreelancerRegistrationController;
+use App\Http\Controllers\company\Auth\CompanyRegistrationController;
 use App\Http\Controllers\Auth\VerificationController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
@@ -113,6 +115,8 @@ Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profil
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');
 Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
+Route::post('/freelancer/create', [FreelancerRegistrationController::class, 'create'])->name('freelancer.create');
+Route::post('/company/create', [CompanyRegistrationController::class, 'create'])->name('company.create');
 Route::middleware(['guest'])->group(function () {
 Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
 });

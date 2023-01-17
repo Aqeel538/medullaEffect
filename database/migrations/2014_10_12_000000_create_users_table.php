@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('industry_and_position')->nullable(true);
             $table->string('pay_range')->nullable(true);
             $table->string('nationality')->nullable(true);
+            $table->string('questionaire_submit')->nullable(true);
             $table->rememberToken();
             $table->timestamps();
         });
