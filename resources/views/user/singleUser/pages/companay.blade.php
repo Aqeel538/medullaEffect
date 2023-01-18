@@ -39,7 +39,7 @@
                 <p class="pt-2 pb-2 phara_16" style="font-weight: 400;">Post job Hire people through Medulla...nis iste natus error sit
                     voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
             </div>
-            <form action="">
+            <form action="{{ route('company.create') }}" method="POST" class="needs-validation" novalidate="">
                 @csrf
                 <input required type="hidden" name="check" value="1" />
                 <div class="row justify-content-center Poppins">
@@ -48,11 +48,21 @@
                             <span class="input-group-text border border-0 phara_16" style="background-color: rgba(244, 244, 244, 1);"><i class="fa-regular fa-user"></i></span>
                             <input required type="text" name="name" class="form-control padd_12_input ps-0 border border-0" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Full Name">
                         </div>
+                        <div class="text-danger d-flex">
+                            @error('name')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="input-group mb-3">
                             <span class="input-group-text border border-0 phara_16" style="    background-color: rgba(244, 244, 244, 1);"><i class="fa-regular fa-envelope"></i></span>
                             <input required type="email" name="email" class="form-control padd_12_input ps-0 border border-0" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Email ID">
+                        </div>
+                        <div class="text-danger d-flex">
+                            @error('email')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
 
@@ -63,11 +73,21 @@
                             <span class="input-group-text phara_16 border border-0" style="background-color: rgba(244, 244, 244, 1);"><i class="fa-solid fa-phone"></i></span>
                             <input required type="text" name="phone" class="form-control ps-0 border border-0 padd_12_input" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Enter Password">
                         </div>
+                        <div class="text-danger d-flex">
+                            @error('phone')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="input-group mb-3">
                             <span class="input-group-text phara_16 border border-0" style="    background-color: rgba(244, 244, 244, 1);"><i class="fa-regular fa-envelope"></i></span>
                             <input required type="text" name="address" class="form-control ps-0 border border-0 padd_12_input" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Address">
+                        </div>
+                        <div class="text-danger d-flex">
+                            @error('address')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
 

@@ -117,7 +117,7 @@
                             <div class="col-12  col-lg-6 col-md-6 form-group">
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
-                                    <select name="gender" required style="width: 100%;">
+                                    <select name="gender" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->gender ?? 'Gender' !!}</option>
                                         <option value="Male">Male</option>
@@ -132,7 +132,7 @@
                             <div class="col-12 form-group">
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
-                                    <select name="job_type" required style="width: 100%;">
+                                    <select name="job_type" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->job_type ??
                                             'Are you interested in full time or
