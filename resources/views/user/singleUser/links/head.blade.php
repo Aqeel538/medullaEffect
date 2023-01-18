@@ -17,16 +17,16 @@
          }
      </style>
      <link rel="stylesheet" href="{{ asset('user') }}/style.css">
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/Styles/Style.css" />
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/Styles/GlobalStyle.css" />
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/Styles/Profile.css" />
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/Styles/questinarecss.css" />
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/bootstrap-4.0.0-dist/css/bootstrap.css">
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/style.css" />
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/globalStyle.css" />
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/profile.css" />
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/questinarecss.css" />
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/bootstrap-4.0.0-dist/css/bootstrap.css">
      <script src="{{ asset('user/jquery') }}/jquery-3.3.1.min.js"></script>
      <script src="{{ asset('user') }}/jquery/jquery-3.3.1.min.js"></script>
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/Styles/Viewjobcss.css" />
-     <link rel="stylesheet" href="{{ asset('user') }}/Assets/Styles/Viewjobcss.css" />
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/Styles/viewjobcss.css" />
+     <link rel="stylesheet" href="{{ asset('user') }}/assets/Styles/viewjobcss.css" />
 
 
     
