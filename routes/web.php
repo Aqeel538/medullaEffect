@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\freelancer\FreelancerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\SingleUserController;
@@ -102,9 +103,21 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
 
 });
+//Freelancer Routes
+// Route::middleware(['auth', 'isFreelancer'])->group(function () {
+Route::get('/freelancer/profile', [FreelancerController::class, 'freelancer_profile'])->name('freelancer.profile');
+Route::get('control/panel', [FreelancerController::class, 'control_panel'])->name('control.panel');
+Route::get('/all/businesses', [FreelancerController::class, 'businesses_list'])->name('businesses.list');
+Route::get('/business/details', [FreelancerController::class, 'business_details'])->name('business.details');
+Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');
+Route::get('/freelancer/listing', [FreelancerController::class, 'freelancers_listing'])->name('freelancer.listing.frontend');
+Route::get('/freelancer/details', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
+Route::get('/about/service', [FreelancerController::class, 'about_service'])->name('about.service');
+Route::get('/add/service', [FreelancerController::class, 'add_a_service'])->name('add.service');
+Route::get('/notifications', [FreelancerController::class, 'see_notifications'])->name('see.notifications');
+// });
 
-
-    //--------------- Unauthenticated Routes Start ---------------\\
+//--------------- Unauthenticated Routes Start ---------------\\
 Route::get('/advance/fillter', [SingleUserController::class, 'advance_fillter'])->name('advance.fillter');
 Route::get('/applied', [SingleUserController::class, 'applied'])->name('applied');
 Route::get('/companay', [SingleUserController::class, 'companay'])->name('companay');
@@ -118,6 +131,6 @@ Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])-
 Route::post('/freelancer/create', [FreelancerRegistrationController::class, 'create'])->name('freelancer.create');
 Route::post('/company/create', [CompanyRegistrationController::class, 'create'])->name('company.create');
 Route::middleware(['guest'])->group(function () {
-Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
+    Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
 });
-    //--------------- Unauthenticated Routes End ---------------\\
+//--------------- Unauthenticated Routes End ---------------\\

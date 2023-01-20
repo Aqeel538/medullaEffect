@@ -14,7 +14,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list Halvetica " id="myDIV">
-                        <li><a href="{{ route('/advance/fillter') }}" class="mylist active">View Jobs</a></li>
+                        <li><a href="{{ route('advance.fillter') }}" class="mylist active">View Jobs</a></li>
                         <li><a href="{{ route('applied') }}" class="mylist">View Applications</a></li>
                         <li><a href="#" class="mylist">Resume</a></li>
                     </ul>

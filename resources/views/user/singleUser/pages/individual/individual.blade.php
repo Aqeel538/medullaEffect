@@ -24,13 +24,13 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/images/Copany-bg-img.png" class="company_img" alt="w8">
+                    <img src="{{ asset('user') }}/assets/Images/Copany-bg-img.png" class="company_img" alt="w8">
                 </div>
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center colum_2nd">
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/images/job-search-company.png" alt="w8">
+                    <img src="{{ asset('user') }}/assets/Images/job-search-company.png" alt="w8">
                     <h3 class="Poppins">Medulla
                         Effects</h3>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group">
                                 <span class="input-group-text border border-0 phara_16"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
+                                    style="background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-envelope"></i></span>
                                 <input type="email" name="email" class="form-control padd_12_input ps-0 border border-0"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
@@ -99,7 +99,7 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
+                                    style="background-color: rgba(244, 244, 244, 1);"><i
                                         class="ri-map-pin-user-line"></i></span>
                                 <input type="number" name="phone" class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
@@ -114,7 +114,7 @@
 
                     </div>
                     <div class="row justify-content-center Poppins">
-                        {{-- <div class="col-lg-6 col-md-6 col-12">
+                        <!-- {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
@@ -124,8 +124,8 @@
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Company Name">
                             </div>
-                        </div> --}}
-                        {{-- <div class="col-lg-6 col-md-6 col-12">
+                        </div> --}} -->
+                        <!-- {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i class="ri-earth-line"></i></span>
@@ -133,11 +133,11 @@
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Website (optional)">
                             </div>
-                        </div> --}}
+                        </div> --}} -->
 
                     </div>
                     <div class="row justify-content-center Poppins">
-                        {{-- <div class="col-lg-6 col-md-6 col-12">
+                        <!-- {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
@@ -152,8 +152,8 @@
                                     {{ $message }}
                                 @enderror
                             </div>
-                        </div> --}}
-                        {{-- <div class="col-lg-6 col-md-6 col-12 dropdown">
+                        </div> --}} -->
+                        <!-- {{-- <div class="col-lg-6 col-md-6 col-12 dropdown">
                             <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
@@ -164,7 +164,7 @@
                                     placeholder="Industry">
                                
                             </div>
-                        </div> --}}
+                        </div> --}} -->
                     </div>
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-12 col-md-12 col-12">

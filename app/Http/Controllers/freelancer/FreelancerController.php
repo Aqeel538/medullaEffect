@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Http\Controllers\freelancer;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Cache\RetrievesMultipleKeys;
+use Illuminate\Http\Request;
+
+class FreelancerController extends Controller
+{
+    public function freelancers_listing()
+    {
+        $title = 'All Freelancers';
+        return view('user.singleUser.pages.freelancer.freelancerListingFrontend', compact('title'));
+    }
+    public function freelancer_details()
+    {
+        $title = 'Freelancer Details';
+        return view('user.singleUser.pages.freelancer.singleFreelancerDetails', compact('title'));
+    }
+    public function freelancer_profile()
+    {
+        $title = 'Profile';
+        return view('user.singleUser.pages.freelancer.profilepage', compact('title'));
+    }
+    public function control_panel(){
+        $title = 'Control Panel';
+        return view('user.singleUser.pages.freelancer.freelancerControlPanel', compact('title'));
+    }
+    public function businesses_list()
+    {
+        $title = 'Bussiness';
+        return view('user.singleUser.pages.freelancer.business', compact('title'));
+    }
+    public function business_details()
+    {
+        $title = 'Business Details';
+        return view('user.singleUser.pages.freelancer.singleBusinessDetail', compact('title'));
+    }
+    public function chatBot_page()
+    {
+        $title = "Chat Bot";
+        return view('user.singleUser.pages.freelancer.chatbot', compact('title'));
+    }
+    public function about_service(){
+        $title = 'About Service';
+        return view('user.singleUser.pages.freelancer.aboutService', compact('title'));
+    }
+    public function add_a_service(){
+        $title = 'Add A Service';
+        return view('user.singleUser.pages.freelancer.addService', compact('title'));
+    }
+    public function see_notifications(){
+        $title = 'Notifications';
+        return view('user.singleUser.pages.freelancer.notifications', compact('title'));
+    }
+}

@@ -12,6 +12,17 @@
 
 }
 
+.job-view-para-2{
+  font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 131.99%;
+display: flex;
+align-items: center;
+color: #000000;
+}
+
 .mylist {
   padding-bottom: 19px;
 
@@ -143,22 +154,23 @@ display: flex;
 align-items: center;
 
 color: #000000;
+
   }
   .fas-elip{
     color: #A3A3A3;
   }
   .single-job-heading{
     font-family: 'Helvetica';
-font-style: normal;
-font-weight: 700;
-font-size: 19px;
-line-height: 131.99%;
-/* identical to box height, or 25px */
-
-display: flex;
-align-items: center;
-
-color: #000000;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 131.99%;
+    /* identical to box height, or 25px */
+    
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
   }
 .tabsrow{
     border-bottom: 2px solid #e2e0e0;
@@ -204,6 +216,18 @@ font-weight: 400;
 font-size: 16.2181px;
 line-height: 136.99%;
 }
+.buttonunfill-saves{
+  color: #7C2342;
+  background-color:  white;
+  padding: 9px 8px;
+  border: 0.648723px solid #9A1029;
+  border-radius: 5px;
+  font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16.2181px;
+line-height: 136.99%;
+}
 .buttonunfill-save:focus
     {
 outline: none;
@@ -225,15 +249,13 @@ font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 144.99%;
-/* or 22px */
-
 letter-spacing: 0.02em;
-
 color: #303030;
-
 opacity: 0.8;
     }
-    .cardsimg img{
+
+    .cardsimg img
+    {
         border: 2px solid #7C2342;
         border-radius: 50%;
     }
@@ -244,29 +266,12 @@ font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 144.99%;
-/* or 20px */
-
 letter-spacing: 0.02em;
-
 color: #303030;
-
 opacity: 0.8;
 }
-    /* tabs css */
-    /* .wrapper {
-        max-width: 800px;
-        margin: auto;
-        margin-top: 80px;
-      }
-       */
-      /* .tab-wrapper {
-        text-align: center;
-        display: block;
-        margin: auto;
-        max-width: 500px;
-      } */
-      
-      .tabs {
+
+  .tabs {
         margin: 0;
         padding: 0;
         display: flex;
@@ -290,11 +295,7 @@ opacity: 0.8;
      
         letter-spacing: 0.02em;
         text-transform: capitalize;
-        
         color: #000000;
-        
-      
-
         list-style: none;
         /* padding: 10px 40px; */
         color: black;
@@ -495,6 +496,13 @@ input[type=radio]#people
   .land_page_head h4 {
     font-size: 17px;
 }
+.buttonunfill-saves{
+margin-top: 15px;
+
+}
+.job-details {
+
+  font-size: 10px;}
 
 .land_page_head img {
     width: 20px;

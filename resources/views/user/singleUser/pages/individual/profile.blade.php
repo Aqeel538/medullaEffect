@@ -27,20 +27,13 @@
                         <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
 
                         <i style="cursor:pointer;" class="ri-logout-circle-line"
-
-                       
-
                             onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             {{-- <a class="dropdown-item" href="{{ route('logout') }}"
                             >
                         </a> --}}
                         </i>
-
-
                         {{-- </a> --}}
-
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -56,7 +49,7 @@
                 <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
 
                     {{-- <div class="img-holder profile_image">
-                        <img src="{{ asset('user') }}/Assets/Images/profile-imges/user.png" alt="" srcset="">
+                        <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt="" srcset="">
                     </div> --}}
                     <div class="avatar-upload">
                         <form id="edit_image_form">

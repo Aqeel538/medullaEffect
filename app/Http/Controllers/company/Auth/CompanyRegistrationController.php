@@ -14,7 +14,7 @@ class CompanyRegistrationController extends Controller
         $validate = $this->validate($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            // 'address'=>'required',
+            'password' => 'required|string|min:8',
         ]);
         if($validate){
             $user =  User::create([

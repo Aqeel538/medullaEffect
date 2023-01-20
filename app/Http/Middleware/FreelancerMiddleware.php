@@ -27,7 +27,7 @@ class FreelancerMiddleware
             // }
             else {
                 return $next($request);
-                return redirect('/questinare');
+                // return redirect('/questinare');
             }
         } else {
             return redirect('/login');

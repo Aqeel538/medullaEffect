@@ -82,3 +82,30 @@
          });
      });
  </script>
+
+<!-- New script starts -->
+<script>
+      // --------Tabes-----------
+      $(".tab-link").click(function () {
+        var tabID = $(this).attr("data-tab");
+
+        $(this).addClass("active").siblings().removeClass("active");
+
+        $("#tab-" + tabID)
+          .addClass("active")
+          .siblings()
+          .removeClass("active");
+      });
+      // -----------active----class--------
+      // Add active class to the current button (highlight it)
+      var header = document.getElementById("myDIV");
+      var btns = header.getElementsByClassName("mylist");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+    </script>
+<!-- New script ends -->

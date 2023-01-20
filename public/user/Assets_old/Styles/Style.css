@@ -1,0 +1,896 @@
+.buttonfill {
+    color: white;
+    font-weight: 400;
+    background-color: #7C2342;
+    padding: 9px 33px;
+    ;
+    border: none;
+}
+
+.buttonfill:focus {
+    outline: none;
+}
+
+.buttonunfill:focus {
+    outline: none;
+}
+
+.buttonunfill {
+    color: #7C2342;
+    font-weight: 400;
+    background-color: white;
+    padding: 9px 33px;
+    border: none;
+}
+
+
+.submit-btn {
+    color: white;
+    background-color: #7C2342;
+    padding: 9px 33px;
+    ;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 3px;
+    text-align: end;
+}
+
+.submit-btn:focus {
+    outline: none;
+}
+
+
+/* cards section */
+
+.cards {
+    border-radius: 5px;
+
+    justify-content: center;
+
+}
+
+.cards .card {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cardimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardimg img {
+    width: 200px;
+    height: 200px;
+
+}
+
+.cards-body:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+.cards-body:nth-child(2) {
+    background-color: #7C2342;
+    color: white !important;
+}
+
+.cards-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 300px;
+    width: 20%;
+    padding: 40px;
+    border-radius: 21.0305px;
+
+}
+
+.cards-descs {
+    color: white;
+}
+
+.poppins {
+    font-family: 'Poppins' !important;
+}
+
+.Halvetica {
+    font-family: 'helvetica';
+}
+
+.cardsheading {
+    /* color: black; */
+    background-color: transparent;
+    padding: 30px 0;
+
+}
+
+/* hero section */
+
+.herosecion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.herosecion h1 {
+    font-weight: 700;
+    margin: 30px 0;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'helvetica';
+}
+
+.heading-span-text {
+    color: #7C2342;
+}
+
+.hero-sec-p {
+    font-size: 15px;
+    text-align: center;
+}
+
+
+
+
+
+/* form section */
+.form-main-row {
+    /* background-color: blueviolet; */
+
+
+    align-items: center;
+    padding: 20px 0;
+    margin: 30px 0;
+}
+
+.first-input-row {
+    background-color: #5e5959;
+}
+
+/* .modullaeffetsform{
+    background-color: aqua;
+} */
+/* .form-left-side{
+    background-color: #9A1029;
+}  */
+/* .form-right-side{
+    background-color: #a387d6;
+} */
+p {
+    color: #303030;
+}
+
+.form-images {
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.playbutton {
+    color: rgba(124, 35, 66, 1);
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #FFFFFF;
+    padding: 27px 31px;
+    font-size: 28px;
+    position: absolute;
+    border-radius: 48px;
+    /* right: -9%; */
+    top: 37%;
+    left: 43%;
+    /* bottom: 13%; */
+    z-index: 3;
+}
+
+/* .form-images img {
+    position: static;
+    z-index: 2;
+} */
+
+.form-images div img {
+    z-index: -1;
+    position: absolute;
+    left: 0px;
+    bottom: -8%;
+
+}
+
+
+
+
+
+.inputfield {
+    /* background-color: #7C2342; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    /* background-color: #bb0f0f; */
+    background-color: #F4F4F4;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.inputfield input {
+    /* background-color: #b897a3; */
+    border: none;
+    padding: 10px 9px;
+    background-color: #F4F4F4;
+
+}
+
+.inputfield input:focus {
+    /* background-color: #b897a3; */
+    border: none;
+    outline: none;
+}
+
+.inputfield ::placeholder {
+    color: #9A9A9A;
+    ;
+}
+
+
+/* footer css */
+.footer {
+    background-color: #F9F9F9;
+
+
+}
+
+
+
+.Footer-navbar {
+    display: flex;
+}
+
+.Footer-navbar li {
+    list-style: none;
+
+}
+
+.footer-links li {
+    list-style: none;
+    /* line-height: 12px; */
+}
+
+.footer-links li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(48, 48, 48, 1);
+
+}
+
+.medula-footer-para {
+    display: flex;
+    align-items: center;
+    color: #9A1029;
+
+
+}
+
+.medula-footer-para p {
+    margin-bottom: 0;
+    color: #9A1029;
+}
+
+.modula#eff {
+    margin-bottom: 0;
+    line-height: 38px;
+    font-weight: 800;
+    padding: 0 3px;
+    font-size: 26px;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+/* ------------Navbar------------------ */
+.profile_list li {
+    list-style: none;
+    margin-inline: 22px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #303030;
+}
+
+.profile_list li a {
+    text-decoration: none;
+    color: black;
+}
+
+.just_colorhead {
+    color: rgba(124, 35, 66, 1);
+
+}
+
+.land_page_head h4 {
+    font-size: 25.3775px;
+    font-weight: 500;
+}
+
+.land_page_head img {
+    width: 37px;
+}
+
+.cardsheading {
+    font-size: 33.4576px;
+    font-weight: 700;
+}
+
+.mrgn_btm {
+    margin-bottom: 40px;
+}
+
+/* -----------------form--------------------- */
+.modulaeff h6 {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(124, 35, 66, 1);
+}
+
+.modulaeff h4 {
+    font-size: 45px;
+    font-weight: 700;
+    color: #020113;
+}
+
+.modulaeff p {
+    font-weight: 400;
+}
+
+.form_innerr span {
+    background-color: rgba(244, 244, 244, 1);
+}
+
+.form_innerr input {
+    background-color: rgba(244, 244, 244, 1);
+    border-left: none;
+    color: #9A9A9A;
+    padding: 12px;
+}
+
+.buttonfill {
+    color: white;
+    background-color: #7C2342;
+    padding: 9px 33px;
+    ;
+    border: none;
+    border-radius: 5px;
+}
+
+.buttonfill:focus {
+    outline: none;
+}
+
+.buttonunfill:focus {
+    outline: none;
+}
+
+.buttonunfill {
+    color: #7C2342;
+    background-color: white;
+    padding: 9px 33px;
+    border: 1px solid #7C2342;
+    border-radius: 5px;
+}
+
+.buttonunfill-create {
+    color: #7C2342;
+    background-color: white;
+    padding: 9px 30px;
+    border: 0.648723px solid #9A1029;
+    border-radius: 6px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.2181px;
+    line-height: 136.99%;
+}
+
+.card_phara p {
+    height: 22vh;
+}
+
+.footer_left {
+    padding-left: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(48, 48, 48, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------MEDIA--QUERIES------------------------------ */
+@media (max-width:1240px) {}
+
+@media (max-width:1200px) {
+    .herosecion h1 {
+        font-size: 46px;
+    }
+
+    .card_phara p {
+        height: 24vh;
+    }
+}
+
+@media (max-width:1040px) {
+    .cardsheading {
+        font-size: 30px;
+    }
+
+    .card_phara p {
+        height: 28vh;
+    }
+
+
+    /* -----------------form--------------------- */
+    .modulaeff h6 {
+        font-size: 19px;
+
+    }
+
+    .modulaeff h4 {
+        font-size: 39px;
+
+    }
+
+    .modulaeff p {
+        font-size: 16px;
+    }
+
+    .form_innerr input {
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+
+    .playbutton {
+
+        padding: 20px 24px;
+        font-size: 24px;
+    }
+
+    .footer_left {
+        padding-left: 11px;
+    }
+}
+
+@media (max-width:992px) {
+
+    .land_page_head h4 {
+        font-size: 24px;
+    }
+
+    .herosecion h1 {
+        font-size: 43px;
+    }
+
+    .cardsheading {
+        font-size: 29px;
+    }
+
+    .mrgn_btm {
+        margin-bottom: 16px;
+    }
+
+    /* -----------------form--------------------- */
+    .modulaeff h6 {
+        font-size: 18px;
+
+    }
+
+    .modulaeff h4 {
+        font-size: 37px;
+
+    }
+
+    .modulaeff p {
+        font-size: 15px;
+    }
+
+    .form_innerr input {
+        font-size: 15px;
+    }
+
+    .submit-btn {
+        font-size: 15px;
+    }
+
+    .playbutton {
+        padding: 20px 23px;
+        font-size: 23px;
+    }
+
+    .card_phara p {
+        height: auto;
+    }
+}
+
+@media (max-width:768px) {
+    .land_page_head h4 {
+        font-size: 23px;
+    }
+
+    .start_16_respons {
+        font-size: 15px;
+    }
+
+    .profile_list li {
+
+        font-size: 14px;
+
+    }
+
+    .herosecion h1 {
+        font-size: 39px;
+    }
+
+    .text-phara-respns {
+        font-size: 15px;
+    }
+
+    .cardsheading {
+        font-size: 27px;
+    }
+
+    .buttonunfill,
+    .buttonfill {
+        font-size: 15px;
+    }
+
+    /* -----------------form--------------------- */
+    .modulaeff h6 {
+        font-size: 17px;
+
+    }
+
+    .modulaeff h4 {
+        font-size: 34px;
+
+    }
+
+    .modulaeff p {
+        font-size: 15px;
+    }
+
+    .form_innerr input {
+        font-size: 15px;
+    }
+
+    .submit-btn {
+        font-size: 15px;
+    }
+
+    .playbutton {
+        padding: 29px 33px;
+        font-size: 36px;
+    }
+}
+
+@media (max-width:576px) {
+    .land_page_head h4 {
+        font-size: 22px;
+    }
+
+    .land_page_head img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .start_16_respons {
+        font-size: 14px;
+    }
+
+    .profile_list li {
+
+        font-size: 13px;
+
+    }
+
+    .herosecion h1 {
+        font-size: 33px;
+    }
+
+    .text-phara-respns {
+        font-size: 14px;
+    }
+
+    .cardsheading {
+        font-size: 25px;
+    }
+
+    .buttonunfill,
+    .buttonfill {
+        font-size: 14px;
+        padding: 7px 24px !important;
+    }
+
+    /* -----------------form--------------------- */
+    .modulaeff h6 {
+        font-size: 17px;
+
+    }
+
+    .modulaeff h4 {
+        font-size: 30px;
+
+    }
+
+    .modulaeff p {
+        font-size: 14px;
+    }
+
+    .form_innerr input {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+        padding: 9px 26px;
+
+    }
+
+    .playbutton {
+        padding: 24px 28px;
+        font-size: 26px;
+    }
+
+    .footer_left {
+        padding-left: 20px;
+        font-size: 13px;
+    }
+
+    .footer-links li a {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width:468px) {
+    .land_page_head h4 {
+        font-size: 20px;
+    }
+
+    .land_page_head img {
+        width: 25px;
+        height: 27px;
+    }
+
+    .start_16_respons {
+        font-size: 13px;
+    }
+
+    .profile_list li {
+
+        font-size: 12px;
+        margin-inline: 13px;
+
+    }
+
+    .herosecion h1 {
+        font-size: 28px;
+    }
+
+    .text-phara-respns {
+        font-size: 13px;
+    }
+
+    .cardsheading {
+        font-size: 24px;
+
+    }
+
+    .buttonunfill,
+    .buttonfill {
+        font-size: 13px;
+        padding: 7px 20px !important;
+    }
+
+    /* -----------------form--------------------- */
+    .modulaeff h6 {
+        font-size: 16px;
+
+    }
+
+    .modulaeff h4 {
+        font-size: 28px;
+
+    }
+
+    .modulaeff p {
+        font-size: 13px;
+    }
+
+    .form_innerr input {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        font-size: 13px;
+        padding: 9px 23px;
+
+    }
+
+    .playbutton {
+        padding: 20px 23px;
+        font-size: 25px;
+    }
+
+    .footer_left {
+        padding-left: 16px;
+        font-size: 12px;
+    }
+
+    .footer-links li a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:426px) {
+    .profile_list li {
+
+        font-size: 11px;
+        margin-inline: 11px;
+
+    }
+
+    .cardsheading {
+        font-size: 23px;
+    }
+}
+
+@media (max-width:376px) {
+    .land_page_head h4 {
+        font-size: 18px;
+    }
+
+    .land_page_head img {
+        width: 22px;
+        height: 24px;
+        margin-top: 2px;
+    }
+
+    .profile_list li {
+
+        font-size: 11px;
+        margin-inline: 11px;
+
+    }
+
+    .herosecion h1 {
+        font-size: 24px;
+    }
+
+    .cardsheading {
+        font-size: 20px;
+    }
+
+    .modulaeff h4 {
+        font-size: 24px;
+
+    }
+
+    .playbutton {
+        padding: 17px 20px;
+        font-size: 20px;
+    }
+
+    .footer_left {
+        padding-left: 14px;
+        font-size: 11px;
+    }
+
+    .footer-links li a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width:320px) {
+    .land_page_head h4 {
+        font-size: 17px;
+    }
+
+    .land_page_head img {
+        width: 20px;
+        height: 22px;
+        margin-top: 3px;
+    }
+
+    .profile_list li {
+
+        font-size: 10px;
+        margin-inline: 10px;
+
+    }
+
+    .herosecion h1 {
+        font-size: 21px;
+    }
+
+    .text-phara-respns {
+        font-size: 12px;
+    }
+
+    .cardsheading {
+        font-size: 19px;
+    }
+
+    .buttonunfill,
+    .buttonfill {
+        font-size: 12px;
+        padding: 5px 15px !important;
+    }
+
+    /* -----------------form--------------------- */
+    .modulaeff h6 {
+        font-size: 15px;
+
+    }
+
+    .modulaeff h4 {
+        font-size: 20px;
+
+    }
+
+    .modulaeff p {
+        font-size: 12px;
+    }
+
+    .form_innerr input {
+        font-size: 12px;
+    }
+
+    .submit-btn {
+        font-size: 12px;
+        padding: 9px 20px;
+
+    }
+
+    .playbutton {
+        padding: 14px 16px;
+        font-size: 18px;
+    }
+
+    .footer_left {
+        padding-left: 14px;
+        font-size: 10px;
+    }
+
+    .footer_left {
+        padding-left: 10px;
+        font-size: 10px;
+    }
+
+    .footer-links li a {
+        font-size: 10px;
+    }
+}
