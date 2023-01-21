@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\freelancer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Cache\RetrievesMultipleKeys;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FreelancerController extends Controller
 {
@@ -49,6 +51,12 @@ class FreelancerController extends Controller
     public function add_a_service(){
         $title = 'Add A Service';
         return view('user.singleUser.pages.freelancer.addService', compact('title'));
+    }
+    public function add_new_service(Request $request){
+        $id = Auth::user()->id;
+        $service = Service::create([
+
+        ]);
     }
     public function see_notifications(){
         $title = 'Notifications';

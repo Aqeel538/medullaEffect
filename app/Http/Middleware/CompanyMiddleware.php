@@ -26,7 +26,6 @@ class CompanyMiddleware
             //     return $next($request);
             // }
             else {
-                return redirect('/questinare');
                 return $next($request);
             }
         } else {

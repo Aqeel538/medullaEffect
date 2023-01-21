@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('user_id')->nullable(true);
             $table->string('category_id')->nullable(true);
             $table->string('title')->nullable(true);
+            $table->string('rate')->nullable(true);
             $table->string('discription')->nullable(true);
             $table->string('image')->nullable(true);
             $table->timestamps();
