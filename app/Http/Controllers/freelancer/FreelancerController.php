@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\freelancer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Cache\RetrievesMultipleKeys;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class FreelancerController extends Controller
         $title = 'Profile';
         return view('user.singleUser.pages.freelancer.profilepage', compact('title'));
     }
-    public function control_panel(){
+    public function control_panel()
+    {
         $title = 'Control Panel';
         return view('user.singleUser.pages.freelancer.freelancerControlPanel', compact('title'));
     }
@@ -44,21 +46,31 @@ class FreelancerController extends Controller
         $title = "Chat Bot";
         return view('user.singleUser.pages.freelancer.chatbot', compact('title'));
     }
-    public function about_service(){
+    public function about_service()
+    {
         $title = 'About Service';
         return view('user.singleUser.pages.freelancer.aboutService', compact('title'));
     }
-    public function add_a_service(){
+    public function add_a_service()
+    {
         $title = 'Add A Service';
-        return view('user.singleUser.pages.freelancer.addService', compact('title'));
+        $categories = Category::get();
+        return view('user.singleUser.pages.freelancer.addService', compact('title', 'categories'));
     }
-    public function add_new_service(Request $request){
+    public function add_new_service(Request $request)
+    {
         $id = Auth::user()->id;
         $service = Service::create([
-
+            'user_id' => $id,
+            'category_id' => $request->category_id,
+            'title' => $request->title,
+            'rate' => $request->rate,
+            'discription' => $request->description,
         ]);
+        return redirect('/freelancer/profile');
     }
-    public function see_notifications(){
+    public function see_notifications()
+    {
         $title = 'Notifications';
         return view('user.singleUser.pages.freelancer.notifications', compact('title'));
     }
