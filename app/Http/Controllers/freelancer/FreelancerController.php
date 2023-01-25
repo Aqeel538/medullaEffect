@@ -24,7 +24,9 @@ class FreelancerController extends Controller
     public function freelancer_profile()
     {
         $title = 'Profile';
-        return view('user.singleUser.pages.freelancer.profilepage', compact('title'));
+        $user = Auth::user();
+        $services = Service::where('user_id', $user->id)->get();
+        return view('user.singleUser.pages.freelancer.profilepage', compact('title', 'user', 'services'));
     }
     public function control_panel()
     {
