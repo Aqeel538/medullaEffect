@@ -15,8 +15,8 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list Halvetica " id="myDIV">
-                                <li><a href="#" class="mylist active" >Businesses</a></li>
-                                <li><a href="#" class="mylist">Freelancers</a></li>
+                                <li><a href="{{ route('businesses.list') }}" class="mylist" >Businesses</a></li>
+                                <li><a href="{{ route('freelancer.listing.frontend') }}" class="mylist active">Freelancers</a></li>
                                 <li><a href="#" class="mylist">Settings</a></li>
                             </ul>
                         </div>
@@ -31,7 +31,7 @@
       <div class="container mt-4">
         <div class="row">
           <div class="col-12 arrow ">
-            <a href="../Tagline.html">
+            <a href="{{ route('freelancer.listing.frontend') }}">
             <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
           </div>
           <br />

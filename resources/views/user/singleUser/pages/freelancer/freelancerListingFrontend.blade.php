@@ -1,5 +1,12 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
+<style>
+    .contect{
+        text-decoration: none !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+</style>
 <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1);">
     <header>
 
@@ -15,8 +22,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list Halvetica " id="myDIV">
-                        <li><a href="#" class="mylist active">Businesses</a></li>
-                        <li><a href="#" class="mylist">Freelancers</a></li>
+                        <li><a href="{{ route('businesses.list') }}" class="mylist">Businesses</a></li>
+                        <li><a href="{{ route('freelancer.listing.frontend') }}" class="mylist active">Freelancers</a></li>
                         <li><a href="#" class="mylist">Settings</a></li>
                     </ul>
                 </div>
@@ -108,7 +115,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-6">
@@ -123,7 +130,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-6">
@@ -138,7 +145,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}"  class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-6">
@@ -153,7 +160,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}"  class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
         </div>
@@ -171,7 +178,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}"  class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-6">
@@ -186,7 +193,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}"  class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-6">
@@ -201,7 +208,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}"  class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-6">
@@ -216,7 +223,7 @@
                         accusantium loru.
                     </p>
 
-                    <button class="buttonfill mt-4 mb-4">Contact</button>
+                    <a href="{{ route('freelancer.details') }}"  class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
         </div>

@@ -114,6 +114,9 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/freelancer/details', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
     Route::get('/about/service', [FreelancerController::class, 'about_service'])->name('about.service');
     Route::get('/add/service', [FreelancerController::class, 'add_a_service'])->name('add.service');
+    Route::get('/edit/service/{id}', [FreelancerController::class, 'edit_a_service'])->name('edit.service');
+    Route::post('/update/service', [FreelancerController::class, 'update_a_service'])->name('update.service');
+    Route::get('/pouse/service/{id}', [FreelancerController::class, 'pouse_a_service'])->name('pouse.service');
     Route::post('/add/new/service', [FreelancerController::class, 'add_new_service'])->name('add.new.service');
     Route::get('/notifications', [FreelancerController::class, 'see_notifications'])->name('see.notifications');
 });

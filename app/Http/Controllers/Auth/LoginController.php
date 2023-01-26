@@ -38,6 +38,7 @@ class LoginController extends Controller
         else if(Auth::user()->role == 'individual'){
             $id = Auth::user()->id;
             return route('profile',$id);
+
         }
         else if(Auth::user()->role == 'freelancer'){
             $id = Auth::user()->id;
@@ -46,6 +47,7 @@ class LoginController extends Controller
         else {
             return redirect()->route('login');   // member dashboard path
         }
+
     }
 
     /**

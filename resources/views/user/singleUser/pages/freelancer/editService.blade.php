@@ -46,11 +46,12 @@
                 </div>
                 
                 {{-- {{dd($categories)}} --}}
-                <form action="{{ route('add.new.service') }}" method="POST">
+                <form action="{{ route('update.service') }}" method="POST">
                     @csrf
+                    <input value="{!! $service->id ?? '' !!}" name="id" type="hidden">
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <input type="text" name="title" class="form-control" placeholder="Service Name"
+                            <input type="text" name="title" class="form-control" value="{!! $service->title ?? '' !!}" placeholder="Service Name"
                                 style="background-color: #f4f4f4; border: none; padding: 10px" />
                         </div>
 
@@ -65,7 +66,7 @@
                       border: none;
                       background-color: #f4f4f4;
                     ">
-                                    <option value="" disabled selected hidden>Category</option>
+                                    <option value="{!! $service->Categories->id ?? '' !!}" disabled selected hidden>{!! $service->Categories->category ?? '' !!}</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">
                                             {{ $category->category}}
@@ -76,7 +77,7 @@
                             <div></div>
                         </div>
                         <div class="col-6">
-                            <input class="rate-field form-control" type="text" placeholder="Rate" name="rate"
+                            <input value="{!! $service->rate ?? '' !!}" class="rate-field form-control" type="text" placeholder="Rate" name="rate"
                                 style="
                     border: none;
                     background-color: #f4f4f4;
@@ -86,12 +87,12 @@
                   " />
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" placeholder="Description" rows="6"
-                                style="background-color: #f4f4f4; border: none"></textarea>
+                            <textarea class="form-control w-100" name="description"   id="exampleFormControlTextarea1" placeholder="Description" rows="6" 
+                                style="background-color: #f4f4f4; border: none">{!! $service->discription ?? '' !!}</textarea>
                         </div>
                     </div>
                     <div class="mt-3 text-center">
-                        <button type="submit" class="btn_fill Poppins phara_16">Add a new Service</button>
+                        <button type="submit" class="btn_fill Poppins phara_16">Update</button>
                     </div>
                 </form>
             </div>

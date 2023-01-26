@@ -1,5 +1,10 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
+<style>
+  a{
+    text-decoration: none !important;
+  }
+</style>
 <!----- ---------2st--Navbar------------- -->
 <div
       class="container-fluid"
@@ -29,8 +34,8 @@
                 class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list Halvetica"
                 id="myDIV"
               >
-                <li><a href="#" class="mylist active">Businesses</a></li>
-                <li><a href="#" class="mylist">Freelancers</a></li>
+                <li><a href="{{ route('businesses.list') }}" class="mylist active">Businesses</a></li>
+                <li><a href="{{ route('freelancer.listing.frontend') }}" class="mylist">Freelancers</a></li>
                 <li><a href="#" class="mylist">Settings</a></li>
               </ul>
             </div>
@@ -112,11 +117,10 @@
     <div class="container-fluid mt-5 p-lg-5 p-md-4 p-sm-3 p-1">
       <!-- ------------row--1---Tab------------- -->
       <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
+        @foreach($companies as $company)
         <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
-          <div
-            style="background-color: #f9f9f9; border-radius: 20px"
-            class="p-5 single-crd-row"
-          >
+          <div style="background-color: #f9f9f9; border-radius: 20px"
+            class="p-5 single-crd-row">
             <div class="img-holder">
               <img
                 src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
@@ -125,14 +129,33 @@
               />
             </div>
             <div class="text-center">
-              <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-              <p class="john-para-afer-ques-heading">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium loru.
-              </p>
+              <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
+              <p class="john-para-afer-ques-heading">{!! $company->website ?? '' !!}</p>
+            </div>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+          </div>
+        </div>
+        @endforeach
+        <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
+          <div
+            style="background-color: #f9f9f9; border-radius: 20px"
+            class="p-5"
+          >
+            <div class="img-holder">
+              <img
+                src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                alt=""
+                srcset=""
+              />
             </div>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
+            <p class="john-para-afer-ques-heading">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium loru.
+            </p>
+
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
@@ -154,7 +177,7 @@
               accusantium loru.
             </p>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
@@ -176,29 +199,7 @@
               accusantium loru.
             </p>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
-          <div
-            style="background-color: #f9f9f9; border-radius: 20px"
-            class="p-5"
-          >
-            <div class="img-holder">
-              <img
-                src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
-                alt=""
-                srcset=""
-              />
-            </div>
-
-            <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-            <p class="john-para-afer-ques-heading">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium loru.
-            </p>
-
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
       </div>
@@ -224,7 +225,7 @@
               </p>
             </div>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
@@ -246,7 +247,7 @@
               accusantium loru.
             </p>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
@@ -268,7 +269,7 @@
               accusantium loru.
             </p>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
@@ -290,7 +291,7 @@
               accusantium loru.
             </p>
 
-            <button class="buttonfill mt-4 mb-4">Contact</button>
+            <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
           </div>
         </div>
       </div>
