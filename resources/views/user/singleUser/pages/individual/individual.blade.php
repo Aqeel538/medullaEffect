@@ -190,7 +190,7 @@
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn_fill Poppins phara_16">Register</button>
+                        <button type="submit" class="buttonfilled">Register</button>
                     </div>
                     <div class="pt-4">
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span

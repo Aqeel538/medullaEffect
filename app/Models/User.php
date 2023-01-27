@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
     public function getImageAttribute(){
         if ($this->attributes['image'] == null || !$this->attributes['image']) {
-            return asset('user/Assets/Images/profile-imges/user-profile-default-image.png');
+            return asset('user/assets/images/profile-imges/default.png');
         }
         
         else{

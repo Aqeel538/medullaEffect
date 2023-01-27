@@ -1,32 +1,45 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
-    <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1)">
-        <header>
-            <nav class="ps-lg-5 pe-lg-5 ps-md-5 pe-md-5 pt-3 pb-3 navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
+<div class="container-fluid second-nav">
+    <div class="container">
+
+        <div class="header">
+            <nav class="navbar">
+                <div class="container-fluid p-0">
                     <div>
-                        <span><i class="ri-search-line start_16_respons"></i></span>
+                        <img src="../../../Assets/Images/landing-page-img/Vectorsearch.png" alt="" srcset="">
                     </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list">
-                            <li><a href="{{ route('businesses.list') }}">Businesses</a></li>
-                            <li><a href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
-                            <li><a href="#">Settings</a></li>
-                        </ul>
-                        <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                        </div>
+                    <ul class="navbar-list" id="myDIV">
+                        <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
+                        <li><a class="navbar-link  mylist active"
+                                href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
+                        <li><a class="navbar-link" href="#">Settings</a></li>
+
+                    </ul>
+                    <div>
+                        <span><i class="fa-regular fa-bell start_16_respons"></i></span>
+                        <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                        <span><i style="cursor:pointer;" class="ri-logout-circle-line"
+                            onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        </i></span> 
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                     </div>
                 </div>
+
             </nav>
-        </header>
+
+            <div class="mobile-navbar-btn">
+                <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+
+                <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
+            </div>
+        </div>
+
     </div>
+</div>
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center">
@@ -44,7 +57,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 {{-- {{dd($categories)}} --}}
                 <form action="{{ route('add.new.service') }}" method="POST">
                     @csrf
@@ -68,7 +81,7 @@
                                     <option value="" disabled selected hidden>Category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">
-                                            {{ $category->category}}
+                                            {{ $category->category }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -86,12 +99,12 @@
                   " />
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" placeholder="Description" rows="6"
-                                style="background-color: #f4f4f4; border: none"></textarea>
+                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" placeholder="Description"
+                                rows="6" style="background-color: #f4f4f4; border: none"></textarea>
                         </div>
                     </div>
                     <div class="mt-3 text-center">
-                        <button type="submit" class="btn_fill Poppins phara_16">Add a new Service</button>
+                        <button type="submit" class="buttonfilled">Create</button>
                     </div>
                 </form>
             </div>

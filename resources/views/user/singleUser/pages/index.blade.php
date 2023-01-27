@@ -1,33 +1,26 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
-    <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1);">
-        <header>
-
-            <nav class="ps-lg-5 pe-lg-5 ps-md-5 pe-md-5 pt-3 pb-3 navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <div>
-
-                    </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Find Global Tilent</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                        <div>
-
-                        </div>
-                    </div>
+    
+        <div class="container-fluid second-nav">
+            <div class="container">
+              <div class="header">
+                <nav class="navbar-index">
+                  <ul class="navbar-list">
+                    <li><a class="navbar-link" href="#">Home</a></li>
+                    <li><a class="navbar-link" href="#">Services</a></li>
+                    <li><a class="navbar-link" href="#">Find Global Talent</a></li>
+                    <li><a class="navbar-link" href="#">Contact</a></li>
+                    <li><a class="navbar-link" href="#">FAQs</a></li>      
+                  </ul>
+                </nav>
+                <div class="mobile-navbar-btn">
+                  <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+                  <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
-            </nav>
-        </header>
-    </div>
+              </div>
+            </div>
+          </div>
+  
 
     <!-- hero section -->
     <div class="container herosecion mt-lg-5 mt-md-5 mt-2">
@@ -50,7 +43,7 @@
 
     </div>
     <!-- cards row -->
-    <div class="container-fluid mt-5">
+    {{-- <div class="container-fluid mt-5">
         <div class="row justify-content-center text-center poppins p-4">
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card card_phara" style="background: #F9F9F9; border-radius:21px;">
@@ -110,6 +103,65 @@
 
 
 
+
+        </div>
+    </div> --}}
+    <!-- cards row -->
+    <div class="container-fluid mt-5  ">
+        <div class="row justify-content-center index-page-card-row text-center poppins p-4">
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+                <div class="card-figure">
+                    <div class="">
+                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/card-img-1.png"
+                            class="img-fluid img-siz-1" alt="no img" srcset="" />
+                    </div>
+                    <div class="card-iner-body">
+                        <h2 class="cards-heading">Company</h2>
+                        <p class="cards-text-para">
+                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
+                        </p>
+                        <a href="{{ route('companay') }}">
+                            <button class="buttonfilled">Let’s Go</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+                <div class="card-figure-2nd-card">
+                    <div class="">
+                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/card-img--3.png" class="img-fluid img-siz-1" alt=""
+                            srcset="" />
+                    </div>
+                    <div class="card-iner-body">
+                        <h2 class="cards-headig-midle-card">Freelancer</h2>
+                        <p class="text-para-midle-card">
+                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
+                        </p>
+                        <a href="{{ route('freelancer') }}">
+                            <button class="buttonunfill">Let’s Go</button></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+                <div class="card-figure">
+                    <div class="">
+                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/card-img-2.png"
+                            class="img-fluid img-siz-1" alt="" srcset="" />
+                    </div>
+                    <div class="card-iner-body">
+                        <h2 class="cards-heading">Individuals</h2>
+                        <p class="cards-text-para">
+                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
+                        </p>
+                        <a href="{{ route('individual') }}">
+                            <button class="buttonfilled">Let’s Go</button></a>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     </div>

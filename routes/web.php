@@ -94,12 +94,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/questinare', [SingleUserController::class, 'questinare'])->name('questinare');
     Route::post('/submit/questionair', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
+    Route::post('individual/update/profileImage', [RegistrationControllerInd::class, 'edit_image']);
 });
 
 // Individual Auth routes
 Route::middleware(['auth', 'isIndividual'])->group(function () {
     Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
-    Route::post('individual/update/profileImage', [RegistrationControllerInd::class, 'edit_image']);
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
 
 });

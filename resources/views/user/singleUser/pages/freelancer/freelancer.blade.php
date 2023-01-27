@@ -71,7 +71,7 @@
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="input-group mt-3">
                             <span class="input-group-text phara_16 border border-0" style="background-color: rgba(244, 244, 244, 1);"><i class="ri-lock-unlock-line"></i></span>
-                            <input required type="text" name="password" class="form-control ps-0 border border-0 padd_12_input" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Enter Password">
+                            <input required type="password" name="password" class="form-control ps-0 border border-0 padd_12_input" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Enter Password">
                         </div>
                         <div class="text-danger d-flex">
                             @error('password')
@@ -106,7 +106,7 @@
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="input-group mt-3">
                             <span class="input-group-text phara_16 border border-0" style="background-color: rgba(244, 244, 244, 1);"><i class="fa-solid fa-phone"></i></span>
-                            <input required type="text" name="phone" class="form-control ps-0 border border-0 padd_12_input" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Phone Number">
+                            <input required type="number" name="phone" class="form-control ps-0 border border-0 padd_12_input" style="border-left: none; background-color: rgba(244, 244, 244, 1);" placeholder="Phone Number">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12 dropdown">
@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <button type="submit" class="btn_fill Poppins phara_16">Register</button>
+                    <button type="submit" class="buttonfilled">Register</button>
                 </div>
                 <div class="pt-4">
                     <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span class="log_company"><a href="/login">Log In</a></span></p>
