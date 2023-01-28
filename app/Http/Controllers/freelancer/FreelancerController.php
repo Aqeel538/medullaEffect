@@ -85,7 +85,7 @@ class FreelancerController extends Controller
             if ($data) {
                 return redirect()->back();
             }
-        }else{
+        } else {
             $user->status = 1;
             $data = $user->save();
             if ($data) {
@@ -93,7 +93,7 @@ class FreelancerController extends Controller
             }
         }
     }
-   
+
     public function edit_a_service($id)
     {
         $title = 'Update A Service';
@@ -110,7 +110,7 @@ class FreelancerController extends Controller
         $service->rate = $request->rate;
         $service->discription = $request->description;
         $data = $service->save();
-        if($data){
+        if ($data) {
             return redirect()->route('freelancer.profile');
         }
     }

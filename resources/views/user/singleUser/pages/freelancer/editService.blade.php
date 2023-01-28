@@ -1,45 +1,45 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
-<div class="container-fluid second-nav">
-    <div class="container">
+    <div class="container-fluid second-nav">
+        <div class="container">
 
-        <div class="header">
-            <nav class="navbar">
-                <div class="container-fluid p-0">
-                    <div>
-                        <img src="../../../Assets/Images/landing-page-img/Vectorsearch.png" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-list" id="myDIV">
-                        <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
-                        <li><a class="navbar-link  mylist active"
-                                href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
-                        <li><a class="navbar-link" href="#">Settings</a></li>
+            <div class="header">
+                <nav class="navbar">
+                    <div class="container-fluid p-0">
+                        <div>
+                            <img src="../../../Assets/Images/landing-page-img/Vectorsearch.png" alt="" srcset="">
+                        </div>
+                        <ul class="navbar-list" id="myDIV">
+                            <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
+                            <li><a class="navbar-link  mylist active"
+                                    href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
+                            <li><a class="navbar-link" href="#">Settings</a></li>
 
-                    </ul>
-                    <div>
-                        <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                        <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                        <span><i style="cursor:pointer;" class="ri-logout-circle-line"
-                            onclick="event.preventDefault();
+                        </ul>
+                        <div>
+                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
+                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span><i style="cursor:pointer;" class="ri-logout-circle-line"
+                                    onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        </i></span> 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                                </i></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                     </div>
+
+                </nav>
+
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
-
-            </nav>
-
-            <div class="mobile-navbar-btn">
-                <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-
-                <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="mt-3 text-center">
-                        <button type="submit" class="btn_fill Poppins phara_16">Update</button>
+                        <button type="submit" class="buttonfilled">Update</button>
                     </div>
                 </form>
             </div>

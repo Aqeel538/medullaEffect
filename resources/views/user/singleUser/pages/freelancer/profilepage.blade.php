@@ -54,7 +54,7 @@
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            </i></span> 
+                            </i></span>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -111,9 +111,9 @@
                                 <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3 res"
                                     style="background: #FFFFFF;;border-radius: 20px;">
                                     <div class="row">
-                                        <div class="col-2 cardsimg">
+                                        <div class="col-2 cardsimg" >
                                             <img width="70" src="{!! $user->image ?? '' !!}"
-                                                class="w-5" alt="w8">
+                                                class="w-5" alt="w8" style="height: 70px;">
                                         </div>
                                         <div class="col-8">
                                             <p class="single-job-heading" style="margin: 0;"><b>{!! $service->title ?? '' !!}</b>
