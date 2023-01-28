@@ -27,12 +27,12 @@
                             <span><i class="fa-regular fa-bell start_16_respons"></i></span>
                             <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
-                                onclick="event.preventDefault();
+                                    onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            </i></span> 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                                </i></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </div>
 
