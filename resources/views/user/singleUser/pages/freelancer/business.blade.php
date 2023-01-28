@@ -126,7 +126,7 @@
                             <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
                             <p class="john-para-afer-ques-heading">{!! $company->website ?? '' !!}</p>
                         </div>
-                        <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                        <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                     </div>
                 </div>
             @endforeach
@@ -143,7 +143,7 @@
                         accusantium loru.
                     </p>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
@@ -159,7 +159,7 @@
                         accusantium loru.
                     </p>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
@@ -175,7 +175,7 @@
                         accusantium loru.
                     </p>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
         </div>
@@ -195,7 +195,7 @@
                         </p>
                     </div>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
@@ -211,7 +211,7 @@
                         accusantium loru.
                     </p>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
@@ -227,7 +227,7 @@
                         accusantium loru.
                     </p>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
@@ -243,7 +243,7 @@
                         accusantium loru.
                     </p>
 
-                    <a href="{{ route('business.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
+                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
             </div>
         </div>

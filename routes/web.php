@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/index', function () {
     return view('welcome');
 });
@@ -101,14 +102,13 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'isIndividual'])->group(function () {
     Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
-
 });
 //Freelancer Routes
 Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/freelancer/profile', [FreelancerController::class, 'freelancer_profile'])->name('freelancer.profile');
     Route::get('control/panel', [FreelancerController::class, 'control_panel'])->name('control.panel');
     Route::get('/all/businesses', [FreelancerController::class, 'businesses_list'])->name('businesses.list');
-    Route::get('/business/details', [FreelancerController::class, 'business_details'])->name('business.details');
+    Route::get('/business/details/{id}', [FreelancerController::class, 'business_details'])->name('business.details');
     Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');
     Route::get('/freelancer/listing', [FreelancerController::class, 'freelancers_listing'])->name('freelancer.listing.frontend');
     Route::get('/freelancer/details', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');

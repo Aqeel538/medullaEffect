@@ -42,10 +42,13 @@ class FreelancerController extends Controller
         $title = 'Bussiness';
         return view('user.singleUser.pages.freelancer.business', get_defined_vars());
     }
-    public function business_details()
+    public function business_details($id)
     {
         $title = 'Business Details';
-        return view('user.singleUser.pages.freelancer.singleBusinessDetail', compact('title'));
+        $company = User::where('id', $id)->first();
+        $companies = User::where('role', 'company')->get();
+        // dd($companies);
+        return view('user.singleUser.pages.freelancer.singleBusinessDetail', get_defined_vars());
     }
     public function chatBot_page()
     {
