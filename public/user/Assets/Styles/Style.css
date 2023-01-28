@@ -2876,6 +2876,7 @@ color: #7C2342;
   .company_bg {
     background-color: rgba(124, 35, 66, 1);
     padding: 26px;
+    height: 100vh !important;
   
   }
   

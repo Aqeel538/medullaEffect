@@ -112,7 +112,7 @@
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure">
                     <div class="">
-                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/card-img-1.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-1.png"
                             class="img-fluid img-siz-1" alt="no img" srcset="" />
                     </div>
                     <div class="card-iner-body">
@@ -129,7 +129,7 @@
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure-2nd-card">
                     <div class="">
-                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/card-img--3.png" class="img-fluid img-siz-1" alt=""
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img--3.png" class="img-fluid img-siz-1" alt=""
                             srcset="" />
                     </div>
                     <div class="card-iner-body">
@@ -147,7 +147,7 @@
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure">
                     <div class="">
-                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/card-img-2.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-2.png"
                             class="img-fluid img-siz-1" alt="" srcset="" />
                     </div>
                     <div class="card-iner-body">

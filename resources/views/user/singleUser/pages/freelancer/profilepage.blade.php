@@ -112,7 +112,7 @@
                                     style="background: #FFFFFF;;border-radius: 20px;">
                                     <div class="row">
                                         <div class="col-2 cardsimg">
-                                            <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                            <img width="70" src="{!! $user->image ?? '' !!}"
                                                 class="w-5" alt="w8">
                                         </div>
                                         <div class="col-8">
