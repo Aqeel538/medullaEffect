@@ -109,7 +109,8 @@
 
                 <div class="jobviewbtns mt-5 mb-4">
                     <button class="buttonfill-apply pl-4 pr-4">Contact</button>
-                    <button class="buttonunfill-save">Save for Later</button>
+                    <a href="{{ route('save_service', $company->id) }}"><button class="buttonunfill-save">Save for
+                            Later</button></a>
                     <a href=""> <button class="buttonunfill-saves">Share</button></a>
                 </div>
             </div>
@@ -143,7 +144,8 @@
                                     omnis ie natnatusus error... </p>
                                 <div class="jobviewbtns mt-1 mb-1">
                                     <button class="buttonfill-apply">Contact</button>
-                                    <button class="buttonunfill-save">Save for Later</button>
+                                    <a href="{{ route('save_service', $companies->id) }}"><button
+                                            class="buttonunfill-save">Save for Later</button></a>
                                 </div>
                             </div>
                         </div>

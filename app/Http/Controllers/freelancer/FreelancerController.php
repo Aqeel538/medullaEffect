@@ -4,6 +4,7 @@ namespace App\Http\Controllers\freelancer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\SaveService;
 use App\Models\User;
 use App\Models\Service;
 use Illuminate\Cache\RetrievesMultipleKeys;
@@ -15,12 +16,17 @@ class FreelancerController extends Controller
     public function freelancers_listing()
     {
         $title = 'All Freelancers';
-        return view('user.singleUser.pages.freelancer.freelancerListingFrontend', compact('title'));
+        $freelancers = User::where('role', 'freelancer')->get();
+        return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
     }
-    public function freelancer_details()
+    public function freelancer_details($id)
     {
         $title = 'Freelancer Details';
-        return view('user.singleUser.pages.freelancer.singleFreelancerDetails', compact('title'));
+        $freelancer = User::where('id', $id)->with('services')->first();
+        $freelancerServices = User::where('id', $id)->with('services')->get();
+        $allfreelancers = User::where('role', 'freelancer')->with('services')->get();
+        // dd($freelancerServices);
+        return view('user.singleUser.pages.freelancer.singleFreelancerDetails', get_defined_vars());
     }
     public function freelancer_profile()
     {
@@ -121,5 +127,21 @@ class FreelancerController extends Controller
     {
         $title = 'Notifications';
         return view('user.singleUser.pages.freelancer.notifications', compact('title'));
+    }
+
+    // SAVE SERVICE
+    public function save_service($id)
+    {
+
+        $userId = auth()->user()->id;
+        if ($checkService = SaveService::where('service_id', $id)->first()) {
+            return redirect()->back()->with('message', 'Updated');
+        }
+        $saveService = new SaveService();
+        $saveService->user_id = $userId;
+        $saveService->service_id = $id;
+        $saveService->save();
+
+        return back();
     }
 }

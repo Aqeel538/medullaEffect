@@ -115,138 +115,26 @@
         <div class="container">
             <!-- ------------row--1---Tab------------- -->
             <div class="row text-center">
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9 ; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
+                @foreach ($freelancers as $freelancer)
+                    <div class="col-lg-3 col-md-3 col-6 mt-5">
+                        <div style="background-color: #F9F9F9 ; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
+                            <div class="img-holder">
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
+                                    srcset="" />
+                            </div>
+
+                            <h3 class="bus-heading mt-3 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+                            <p class="john-para-afer-ques-heading mb-5" style="height:120px">
+                                {!! $freelancer->company_name ?? '' !!}
+                            </p>
+
+                            <a href="{{ route('freelancer.details', $freelancer->id) }}"
+                                class="buttonfill mt-4 mb-4">Contact</a>
                         </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9 ; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9 ; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- ------------step--2---Tab------------- -->
-            <div class="row text-center mt-5">
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="pt-4 pb-2 ps-4 pe-3">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt=""
-                                srcset="" />
-                        </div>
-
-                        <h3 class="bus-heading mt-3 mb-3">Freelancer Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-
-                        <a href="{{ route('freelancer.details') }}" class="buttonfill mt-4 mb-4">Contact</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 @endsection

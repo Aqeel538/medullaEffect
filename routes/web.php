@@ -111,7 +111,7 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/business/details/{id}', [FreelancerController::class, 'business_details'])->name('business.details');
     Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');
     Route::get('/freelancer/listing', [FreelancerController::class, 'freelancers_listing'])->name('freelancer.listing.frontend');
-    Route::get('/freelancer/details', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
+    Route::get('/freelancer/details/{id}', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
     Route::get('/about/service', [FreelancerController::class, 'about_service'])->name('about.service');
     Route::get('/add/service', [FreelancerController::class, 'add_a_service'])->name('add.service');
     Route::get('/edit/service/{id}', [FreelancerController::class, 'edit_a_service'])->name('edit.service');
@@ -119,6 +119,8 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/pouse/service/{id}', [FreelancerController::class, 'pouse_a_service'])->name('pouse.service');
     Route::post('/add/new/service', [FreelancerController::class, 'add_new_service'])->name('add.new.service');
     Route::get('/notifications', [FreelancerController::class, 'see_notifications'])->name('see.notifications');
+
+    Route::get('/saveService/{id}', [FreelancerController::class, 'save_service'])->name('save_service');
 });
 
 //--------------- Unauthenticated Routes Start ---------------\\
