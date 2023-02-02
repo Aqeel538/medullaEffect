@@ -17,8 +17,16 @@
 
                         </ul>
                         <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -63,18 +71,21 @@
                         </div> &nbsp; &nbsp; &nbsp;
                         <div class="icon-text">
                             <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;3 Services</span>
-                            </p>
-                        </div> &nbsp; &nbsp; &nbsp;
-                        <div class="icon-text">
-                            <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;6 year of
+                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;{{ $count }}
                                     Services</span>
                             </p>
                         </div> &nbsp; &nbsp; &nbsp;
                         <div class="icon-text">
                             <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Full Time</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{{ $freelancer->experience }} year of
+                                    Services</span>
+                            </p>
+                        </div> &nbsp; &nbsp; &nbsp;
+                        <div class="icon-text">
+                            <p class="job-view-para">
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $freelancer->job_type ?? 'Job Type' !!}</span>
                             </p>
                         </div> &nbsp; &nbsp; &nbsp;
 
@@ -119,7 +130,9 @@
                 </div>
 
                 <div class="jobviewbtns mt-5 mb-4">
-                    <button class="buttonfill-apply pl-4 pr-4">Contact</button>
+                    <a href="{{ route('chatbot') }}">
+                        <button class="buttonfill-apply">Contact</button>
+                    </a>
                     <a href="{{ route('save_service', $freelancer->id) }}"><button class="buttonunfill-save">Save for
                             Later</button></a>
                     <button class="buttonunfill-saves">Share</button>
@@ -164,37 +177,40 @@
 
                 @foreach ($freelancerServices as $freelancers)
                     @foreach ($freelancers->services as $service)
-                        <div class="row">
-                            <div class="col-lg-12 pt-3 pb-3  res" style="background-color: #F9F9F9;border-radius: 20px;">
-                                <div class="row">
-                                    <div class="col-2 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
-                                            class="w-5" alt="w8">
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="single-job-heading" style="margin: 0;padding: 0;">
+                        <a href="{{ route('about.service', $service->id) }}">
+                            <div class="row">
+                                <div class="col-lg-12 pt-3 pb-3  res"
+                                    style="background-color: #F9F9F9;border-radius: 20px;">
+                                    <div class="row">
+                                        <div class="col-2 cardsimg">
+                                            <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8">
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="single-job-heading" style="margin: 0;padding: 0;">
 
-                                            <b>{{ $service->title }}</b>
-                                        </p>
-                                        <p class="job-posted" style="margin: 0;padding: 0;">Most Liked</p>
+                                                <b>{{ $service->title }}</b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0;padding: 0;">Most Liked</p>
+                                        </div>
+                                        <div class="col-2">
+                                            <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-2">
-                                        <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                    <p class="abutnexa-text pt-4 pb-3">
+                                        {!! $service->discription ?? 'There is no description' !!}
+                                    </p>
+                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <a href="{{ route('chatbot') }}">
+                                            <button class="buttonfill-apply">Contact</button>
+                                        </a>
+                                        <a href="{{ route('save_service', $freelancers->id) }}"><button
+                                                class="buttonunfill-save">Save for Later</button></a>
                                     </div>
                                 </div>
-                                <p class="abutnexa-text pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit
-                                    voluptatem
-                                    accn. Sed ut perspiciatis unde otis ie natus error sit voluptatem accn. Sed ut
-                                    perspiciatis unde
-                                    omnis ie natnatusus error... </p>
-                                <div class="jobviewbtns mt-1 mb-1">
-                                    <button class="buttonfill-apply">Contact</button>
-                                    <a href="{{ route('save_service', $freelancers->id) }}"><button
-                                            class="buttonunfill-save">Save for Later</button></a>
-                                </div>
+
                             </div>
-
-                        </div>
+                        </a>
                     @endforeach
                 @endforeach
             </div>

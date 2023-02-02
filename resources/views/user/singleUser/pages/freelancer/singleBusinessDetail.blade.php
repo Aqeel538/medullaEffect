@@ -17,8 +17,16 @@
 
                         </ul>
                         <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -108,7 +116,9 @@
                 </div>
 
                 <div class="jobviewbtns mt-5 mb-4">
-                    <button class="buttonfill-apply pl-4 pr-4">Contact</button>
+                    <a href="{{ route('chatbot') }}">
+                        <button class="buttonfill-apply">Contact</button>
+                    </a>
                     <a href="{{ route('save_service', $company->id) }}"><button class="buttonunfill-save">Save for
                             Later</button></a>
                     <a href=""> <button class="buttonunfill-saves">Share</button></a>
@@ -143,7 +153,9 @@
                                     unde
                                     omnis ie natnatusus error... </p>
                                 <div class="jobviewbtns mt-1 mb-1">
-                                    <button class="buttonfill-apply">Contact</button>
+                                    <a href="{{ route('chatbot') }}">
+                                        <button class="buttonfill-apply">Contact</button>
+                                    </a>
                                     <a href="{{ route('save_service', $companies->id) }}"><button
                                             class="buttonunfill-save">Save for Later</button></a>
                                 </div>

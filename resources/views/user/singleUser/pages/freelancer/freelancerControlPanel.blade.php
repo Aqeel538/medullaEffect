@@ -17,12 +17,20 @@
 
                   </ul>
                   <div>
-                    <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                    <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                    <span>
+                        <a class="navbar-link" href="{{ route('see.notifications') }}">
+                            <i class="fa-regular fa-bell start_16_respons"></i>
+                        </a>
+                    </span>
+                    <span>
+                        <a class="navbar-link" href="{{ route('chatbot') }}">
+                            <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                        </a>
+                    </span>
                     <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                         onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    </i></span> 
+                    </i></span>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>

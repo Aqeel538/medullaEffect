@@ -112,7 +112,7 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');
     Route::get('/freelancer/listing', [FreelancerController::class, 'freelancers_listing'])->name('freelancer.listing.frontend');
     Route::get('/freelancer/details/{id}', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
-    Route::get('/about/service', [FreelancerController::class, 'about_service'])->name('about.service');
+    Route::get('/about/service/{id}', [FreelancerController::class, 'about_service'])->name('about.service');
     Route::get('/add/service', [FreelancerController::class, 'add_a_service'])->name('add.service');
     Route::get('/edit/service/{id}', [FreelancerController::class, 'edit_a_service'])->name('edit.service');
     Route::post('/update/service', [FreelancerController::class, 'update_a_service'])->name('update.service');
@@ -121,6 +121,7 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/notifications', [FreelancerController::class, 'see_notifications'])->name('see.notifications');
 
     Route::get('/saveService/{id}', [FreelancerController::class, 'save_service'])->name('save_service');
+    Route::get('/freelancer/search', [FreelancerController::class, 'freelancer_search'])->name('freelancer.search');
 });
 
 //--------------- Unauthenticated Routes Start ---------------\\

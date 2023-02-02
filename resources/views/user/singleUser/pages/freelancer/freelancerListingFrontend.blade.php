@@ -24,8 +24,16 @@
 
                         </ul>
                         <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                     onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -66,41 +74,41 @@
         <div class="container">
             <div class="row">
                 <div class="p-1 col-lg-8 offset-2 col-md-12 row-bg-color">
-                    <div class="row industry-dropdown-input">
-                        <div class="col-lg-5 col-md-5 col-12">
-                            <div class="inpus-industry">&nbsp;
-                                <i class="fa-solid fa-briefcase text-dark start_16_respons"></i>
-                                &nbsp; Industry
-                                <div class="pos">
-                                    <input list="browsers" name="myBrowser" class="widths" />
-                                </div>
+                    <form action="{{ route('freelancer.search') }}" method="GET">
+                        @csrf
+                        <div class="row industry-dropdown-input">
+                            <div class="col-lg-5 col-md-5 col-12">
+                                <div class="inpus-industry">&nbsp;
+                                    <i class="fa-solid fa-briefcase text-dark start_16_respons"></i>
+                                    &nbsp; Industry
+                                    <div class="pos">
+                                        <input list="browsers" name="industry" class="widths" />
+                                    </div>
 
-                                <datalist id="browsers">
-                                    <option value="Chrome"></option>
-                                    <option value="Firefox"></option>
-                                    <option value="Internet Explorer"></option>
-                                    <option value="Opera"></option>
-                                    <option value="Safari"></option>
-                                    <option value="Microsoft Edge"></option>
-                                </datalist>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-12">
-                            <div class="inpus-industry-2">
-                                <i class="fa-solid fa-location-dot text-dark"></i> &nbsp;Location &nbsp;
-                                <div class="pos">
-                                    <input type="search" class="width" />
+                                    <datalist id="browsers">
+                                        @foreach ($industryOption->unique('industry') as $freelancer)
+                                            <option value="{{ $freelancer->industry }}"></option>
+                                        @endforeach
+                                    </datalist>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 respn-btn">
-                            <button type="button" class="buttonfill text-center">
-                                Search
-                            </button>
-                            <button type="button" class="non">Filter</button>
+                            <div class="col-lg-5 col-md-5 col-12">
+                                <div class="inpus-industry-2">
+                                    <i class="fa-solid fa-location-dot text-dark"></i> &nbsp;Location &nbsp;
+                                    <div class="pos">
+                                        <input type="search" class="width" name="searchLocation" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 respn-btn">
+                                <button type="submit" class="buttonfill text-center">
+                                    Search
+                                </button>
+                                <button type="button" class="non">Filter</button>
 
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="col-lg-2 col-md-12 filter-buton-thrd-nav ">
                     <button type="button" class="non2 buttonunfill">
@@ -116,6 +124,37 @@
             <!-- ------------row--1---Tab------------- -->
             <div class="row text-center">
                 @foreach ($freelancers as $freelancer)
+                    <div class="col-lg-3 col-md-6 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
+                        <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
+                            <div class="freelancer-page pt-3">
+                                <div class="img-holder-frelancer pt-4">
+
+                                    <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
+
+                                    <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                </div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="bus-heading mt-5 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+
+                                <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+
+                                <a href="{{ route('freelancer.details', $freelancer->id) }}"> <button
+                                        class="buttonfill mt-4 mb-4">
+                                        Contact
+                                    </button>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+
+                {{-- OLD CARDS --}}
+                {{-- @foreach ($freelancers as $freelancer)
                     <div class="col-lg-3 col-md-3 col-6 mt-5">
                         <div style="background-color: #F9F9F9 ; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
                             <div class="img-holder">
@@ -132,7 +171,8 @@
                                 class="buttonfill mt-4 mb-4">Contact</a>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
+
             </div>
             <!-- ------------step--2---Tab------------- -->
         </div>

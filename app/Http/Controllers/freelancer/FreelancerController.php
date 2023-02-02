@@ -17,6 +17,8 @@ class FreelancerController extends Controller
     {
         $title = 'All Freelancers';
         $freelancers = User::where('role', 'freelancer')->get();
+        $industryOption = $freelancers;
+
         return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
     }
     public function freelancer_details($id)
@@ -25,7 +27,8 @@ class FreelancerController extends Controller
         $freelancer = User::where('id', $id)->with('services')->first();
         $freelancerServices = User::where('id', $id)->with('services')->get();
         $allfreelancers = User::where('role', 'freelancer')->with('services')->get();
-        // dd($freelancerServices);
+        $countServices = User::where('id', $id)->with('services')->first();
+        $count = $countServices->services->count();
         return view('user.singleUser.pages.freelancer.singleFreelancerDetails', get_defined_vars());
     }
     public function freelancer_profile()
@@ -33,7 +36,6 @@ class FreelancerController extends Controller
         $title = 'Profile';
         $user = Auth::user();
         $services = Service::where('user_id', $user->id)->get();
-        // dd($services);
         return view('user.singleUser.pages.freelancer.profilepage', compact('title', 'user', 'services'));
     }
     public function control_panel()
@@ -61,10 +63,12 @@ class FreelancerController extends Controller
         $title = "Chat Bot";
         return view('user.singleUser.pages.freelancer.chatbot', compact('title'));
     }
-    public function about_service()
+    public function about_service($id)
     {
         $title = 'About Service';
-        return view('user.singleUser.pages.freelancer.aboutService', compact('title'));
+        $aboutService = Service::where('id', $id)->with('Categories')->first();
+        // dd($aboutService);
+        return view('user.singleUser.pages.freelancer.aboutService', get_defined_vars());
     }
     public function add_a_service()
     {
@@ -143,5 +147,31 @@ class FreelancerController extends Controller
         $saveService->save();
 
         return back();
+    }
+
+    public function freelancer_search(Request $request)
+    {
+        $title = 'All Freelancers';
+        $industryOption = User::where('role', 'freelancer')->get();
+
+        if ($request->searchLocation) {
+            if ($request->industry) {
+
+                $freelancers = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->where('industry', $request->industry)->get();
+
+                return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+            } else {
+                $freelancers = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->get();
+
+                return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+            }
+        }
+        if ($request->industry) {
+            $freelancers = User::where('role', 'freelancer')->where('industry', $request->industry)->get();
+
+            return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+        }
+        $freelancers = User::where('role', 'freelancer')->get();
+        return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
     }
 }

@@ -135,7 +135,7 @@ class RegistrationControllerInd extends Controller
              'message'   => "dd",
 
             ]);
-          
+
     }
     public function update_user_profile(Request $req){
         $id = Auth::user()->id;

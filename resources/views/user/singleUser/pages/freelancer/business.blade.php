@@ -24,8 +24,16 @@
 
                         </ul>
                         <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -52,7 +60,7 @@
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-7 col-sm-9 col-12 text-center Halvetica">
-                <h1 class="headings-profile">Businesses</h1>
+                <h1 class="headings-profile mt-5">Businesses</h1>
                 <p class="mt-4 john-para-afer-ques-heading mb-4">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
@@ -65,7 +73,7 @@
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                <div class="p-1 col-lg-10 col-md-12 row-bg-color">
+                <div class="p-1 col-lg-8 offset-2 col-md-12 row-bg-color">
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-5 col-12">
                             <div class="inpus-industry">&nbsp;
@@ -116,21 +124,31 @@
         <!-- ------------row--1---Tab------------- -->
         <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
             @foreach ($companies as $company)
-                <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
-                    <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5 single-crd-row">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                                srcset="" />
+                <div class="col-lg-3 col-md-3 col-6">
+                    <div style="background-color: #F9F9F9 ;border-radius: 20px;">
+                        <div class="freelancer-page pt-3">
+                            <div class="img-holder-frelancer pt-4">
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
+                                    srcset="" />
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
-                            <p class="john-para-afer-ques-heading">{!! $company->website ?? '' !!}</p>
+                        <div class="p-2">
+                            <h3 class="bus-heading mt-5 mb-3">{!! $company->company_name ?? '' !!}</h3>
+                            <p class="john-para-afer-ques-heading">
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium loru.
+                            </p>
+                            <a href="{{ route('business.details', $company->id) }}"> <button
+                                    class="buttonfill mt-4 mb-4">Contact</button></a>
+
                         </div>
-                        <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
+
                     </div>
                 </div>
             @endforeach
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
+
+            {{-- OLD CARD --}}
+            {{-- <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
                 <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5">
                     <div class="img-holder">
                         <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
@@ -145,107 +163,8 @@
 
                     <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
-                <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5">
-                    <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                            srcset="" />
-                    </div>
+            </div> --}}
 
-                    <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-                    <p class="john-para-afer-ques-heading">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium loru.
-                    </p>
-
-                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4">
-                <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5">
-                    <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                            srcset="" />
-                    </div>
-
-                    <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-                    <p class="john-para-afer-ques-heading">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium loru.
-                    </p>
-
-                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
-                </div>
-            </div>
-        </div>
-        <!-- ------------row 2---Tab------------- -->
-        <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
-            <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
-                <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5 single-crd-row">
-                    <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                            srcset="" />
-                    </div>
-                    <div class="text-center">
-                        <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-                        <p class="john-para-afer-ques-heading">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium loru.
-                        </p>
-                    </div>
-
-                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
-                <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5">
-                    <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                            srcset="" />
-                    </div>
-
-                    <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-                    <p class="john-para-afer-ques-heading">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium loru.
-                    </p>
-
-                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
-                <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5">
-                    <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                            srcset="" />
-                    </div>
-
-                    <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-                    <p class="john-para-afer-ques-heading">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium loru.
-                    </p>
-
-                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mt-lg-3 mt-md-3 mt-4">
-                <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5">
-                    <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
-                            srcset="" />
-                    </div>
-
-                    <h3 class="bus-heading mt-3 mb-3">Business Name</h3>
-                    <p class="john-para-afer-ques-heading">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium loru.
-                    </p>
-
-                    <a href="{{ route('business.details', $company->id) }}" class="buttonfill mt-4 mb-4">Contact</a>
-                </div>
-            </div>
         </div>
     </div>
 @endsection

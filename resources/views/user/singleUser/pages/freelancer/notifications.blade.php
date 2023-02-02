@@ -12,17 +12,24 @@
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list">
-                            <li><a href="../Tagline.html">Businesses</a></li>
-                            <li><a href="#">Freelancers</a></li>
-                            <li><a href="#">Settings</a></li>
-                        </ul>
-                        <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                        </div>
+
+                    <ul class="navbar-list" id="myDIV">
+                        <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
+                        <li><a class="navbar-link" href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
+                        <li><a class="navbar-link" href="#">Settings</a></li>
+
+                    </ul>
+                    <div>
+                        <a class="navbar-link mylist active" href="{{ route('see.notifications') }}">
+                            <i class="fa-regular fa-bell start_16_respons"></i>
+                        </a>
+                        <span>
+                            <a class="navbar-link" href="{{ route('chatbot') }}">
+                                <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                            </a>
+                        </span>
                     </div>
+
                 </div>
             </nav>
         </header>
