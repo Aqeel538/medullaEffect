@@ -30,7 +30,6 @@ class AdminController extends Controller
     //Users
     public function users_index()
     {
-        $title = "All Users";
         $userLists = User::get();
         $title = "All Users";
         $userLists = User::where('role', 'individual')->paginate(10);
@@ -129,12 +128,12 @@ class AdminController extends Controller
     {
         $title = "Category-View";
         $categories = Category::get();
-        return view('admin.pages.users.category.category', get_defined_vars());
+        return view('admin.pages.category.category', get_defined_vars());
     }
     public function users_category_form()
     {
         $title = "Category-Create";
-        return view('admin.pages.users.category.categoryForm', get_defined_vars());
+        return view('admin.pages.category.categoryForm', get_defined_vars());
     }
 
     public function users_category_store(Request $request)
@@ -151,7 +150,7 @@ class AdminController extends Controller
     {
         $title = "Category-View";
         $category = Category::where('id', $id)->first();
-        return view('admin.pages.users.category.editCategory',  get_defined_vars());
+        return view('admin.pages.category.editCategory',  get_defined_vars());
     }
     public function users_category_editstore(Request $request)
     {

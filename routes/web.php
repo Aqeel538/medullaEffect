@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\freelancer\FreelancerController;
+use App\Http\Controllers\company\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\SingleUserController;
@@ -60,13 +61,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('user/tag/editstore', [AdminController::class, 'users_tag_editstore'])->name('users_tag_editstore');
     Route::any('user/tag/delete/{id}', [AdminController::class, 'users_tag_delete'])->name('users_tag_delete');
 
-    // User Category
-    Route::get('user/category', [AdminController::class, 'users_category'])->name('users_category');
-    Route::get('user/category/form', [AdminController::class, 'users_category_form'])->name('users_category_form');
-    Route::post('user/category/store', [AdminController::class, 'users_category_store'])->name('users_category_store');
-    Route::get('user/category/edit/{id}', [AdminController::class, 'users_category_edit'])->name('users_category_edit');
-    Route::post('user/category/editstore', [AdminController::class, 'users_category_editstore'])->name('users_category_editstore');
-    Route::any('user/category/delete/{id}', [AdminController::class, 'users_category_delete'])->name('users_category_delete');
+    // Category
+    Route::get('admin/category-list', [AdminController::class, 'users_category'])->name('users_category');
+    Route::get('admin/category-form', [AdminController::class, 'users_category_form'])->name('users_category_form');
+    Route::post('admin/category-store', [AdminController::class, 'users_category_store'])->name('users_category_store');
+    Route::get('admin/category-edit/{id}', [AdminController::class, 'users_category_edit'])->name('users_category_edit');
+    Route::post('admin/category-editstore', [AdminController::class, 'users_category_editstore'])->name('users_category_editstore');
+    Route::any('admin/category-delete/{id}', [AdminController::class, 'users_category_delete'])->name('users_category_delete');
 
     // Services
     Route::get('services', [AdminController::class, 'services'])->name('services');
@@ -103,6 +104,14 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
     Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
 });
+
+// Company Route
+Route::middleware(['auth', 'isCompany'])->group(function () {
+    Route::get('/company/dashboard', [CompanyController::class, 'copmanyDashboard'])->name('company.dashboard');
+    Route::get('/company/all-freelancer', [CompanyController::class, 'allFreelancer'])->name('company.freelancer');
+});
+
+
 //Freelancer Routes
 Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/freelancer/profile', [FreelancerController::class, 'freelancer_profile'])->name('freelancer.profile');

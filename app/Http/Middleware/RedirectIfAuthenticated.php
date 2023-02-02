@@ -31,6 +31,9 @@ class RedirectIfAuthenticated
                 if (Auth::user()->role == "freelancer") {
                     return redirect('/freelancer/profile');
                 }
+                if (Auth::user()->role == "company") {
+                    return redirect('/company/dashboard');
+                }
                 return redirect(RouteServiceProvider::HOME);
             }
         }
