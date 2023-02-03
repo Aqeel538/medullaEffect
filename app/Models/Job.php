@@ -10,7 +10,7 @@ class Job extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id','category_id','title','discription','image'
+        'user_id', 'category_id', 'title', 'rate', 'description', 'image'
     ];
 
     public function Categories()

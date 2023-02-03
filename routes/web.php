@@ -108,7 +108,28 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
 // Company Route
 Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'copmanyDashboard'])->name('company.dashboard');
+
+    // FREELANCER
     Route::get('/company/all-freelancer', [CompanyController::class, 'allFreelancer'])->name('company.freelancer');
+    Route::get('/company/freelancer/search', [CompanyController::class, 'company_freelancer_search'])->name('company_freelancer.search');
+
+    // ADVANCE SEARCH
+    Route::get('/company/advanceSearchFilter', [CompanyController::class, 'company_advanceSearchFilter'])->name('company.advanceSearchFilter');
+    Route::get('/company/freelancer/advanceSearch', [CompanyController::class, 'company_freelancer_advanceSearch'])->name('company.freelancer.advanceSearch');
+
+    Route::post('/company/update/profile', [CompanyController::class, 'update_company_profile'])->name('update.company.profile');
+
+    // JOBS
+    Route::get('/company/jobs', [CompanyController::class, 'company_jobs'])->name('company.jobs');
+    Route::get('/company/jobs/form/{id}', [CompanyController::class, 'company_jobs_form'])->name('company_jobs_form');
+    Route::post('/company/jobs/store/{id}', [CompanyController::class, 'company_jobs_store'])->name('company_jobs_store');
+    Route::get('/company/jodDetails/{id}', [CompanyController::class, 'company_jodDetails'])->name('company.jodDetails');
+    Route::any('/company/jobs/delete/{id}', [CompanyController::class, 'company_jobs_delete'])->name('company_jobs_delete');
+
+    // ARCHIVE JOB
+    Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
+
+    Route::get('/company/jobPost', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
 });
 
 

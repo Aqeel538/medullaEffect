@@ -1,45 +1,45 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
+    <div class="container-fluid second-nav">
+        <div class="container">
+            <div class="header">
+                <nav class="navbar">
+                    <div class="container-fluid p-0">
+                        <div>
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png" alt=""
+                                srcset="">
+                        </div>
+                        <ul class="navbar-list" id="myDIV">
 
-<div class="container-fluid second-nav">
-    <div class="container">
-        <div class="header">
-            <nav class="navbar">
-                <div class="container-fluid p-0">
-                    <div>
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-list" id="myDIV">
+                            <li><a class="navbar-link mylist active" href="#">View Jobs</a></li>
+                            <li><a class="navbar-link" href="#">View Applications</a></li>
+                            <li><a class="navbar-link" href="#">Saved Jobs</a></li>
+                            <li><a class="navbar-link" href="#">Resume</a></li>
 
-                        <li><a class="navbar-link mylist active" href="#">View Jobs</a></li>
-                        <li><a class="navbar-link" href="#">View Applications</a></li>
-                        <li><a class="navbar-link" href="#">Saved Jobs</a></li>
-                        <li><a class="navbar-link" href="#">Resume</a></li>
-
-                    </ul>
-                    <div>
-                        <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                        <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                        <span><i style="cursor:pointer;" class="ri-logout-circle-line"
-                            onclick="event.preventDefault();
+                        </ul>
+                        <div>
+                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
+                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span><i style="cursor:pointer;" class="ri-logout-circle-line"
+                                    onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        </i></span> 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                                </i></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                     </div>
+
+                </nav>
+
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
-
-            </nav>
-
-            <div class="mobile-navbar-btn">
-                <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-
-                <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
             </div>
         </div>
     </div>
-</div>
     <div class="container-fluid mt-5">
         <h1 class="headings-profile">Profile</h1>
         <div class="row mt-3 justify-content-center p-4 ">
@@ -58,14 +58,13 @@
                                 <label for="imageUpload"></label>
                             </div>
                             <div class="avatar-preview">
-                                <div id="imagePreview"
-                                    style="background-image: url({!! $user->image !!});">
+                                <div id="imagePreview" style="background-image: url({!! $user->image !!});">
                                 </div>
                             </div>
                         </form>
                     </div>
 
-              
+
                     <h6 class="justify-content-center pt-2 john-text">{{ $user->name }}</h6>
                     <p class="john-para">{{ $user->address }}</p>
                 </div>
@@ -125,9 +124,7 @@
                                     <i class="fa-regular fa-user"></i>
                                     <select name="job_type" style="width: 100%;">
 
-                                        <option value="" disabled selected hidden>{!! $user->job_type ??
-                                            'Are you interested in full time or
-                                                                                    part time work?' !!}</option>
+                                        <option value="" disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}</option>
                                         <option value="Full Time">Full Time</option>
                                         <option value="Part Time">Part Time</option>
 
@@ -155,7 +152,7 @@
 
                                         <option value="" disabled selected hidden>{!! $user->work_type ??
                                             'Are you interested to work
-                                                                                    In-person, remote or hybrid?' !!}</option>
+                                                                                                                                                                    In-person, remote or hybrid?' !!}</option>
                                         <option value="In-Person">In-Person</option>
                                         <option value="Remote">Remote</option>
                                         <option value="Hybrid">Hybrid</option>
@@ -169,7 +166,6 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <input class="input-field" type="text" name="industry_and_position"
-
                                         placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
 
                                 </div>
@@ -180,10 +176,7 @@
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
                                     <select name="pay_range" style="width: 100%;">
-
-
                                         <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
-
                                         </option>
                                         <option value="0-50">0-50</option>
                                         <option value="50-100">50-100</option>
@@ -203,10 +196,8 @@
                             <div class="col-12 form-group">
                                 <div class="inputfield">
                                     <i class="fa-regular fa-user"></i>
-
                                     <input class="input-field" type="text" name="nationality"
                                         placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
-
                                 </div>
                             </div>
                         </div>
