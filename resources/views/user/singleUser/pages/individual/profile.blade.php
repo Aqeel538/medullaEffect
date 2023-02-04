@@ -11,7 +11,7 @@
                         </div>
                         <ul class="navbar-list" id="myDIV">
 
-                            <li><a class="navbar-link mylist active" href="#">View Jobs</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual_jobs') }}">View Jobs</a></li>
                             <li><a class="navbar-link" href="#">View Applications</a></li>
                             <li><a class="navbar-link" href="#">Saved Jobs</a></li>
                             <li><a class="navbar-link" href="#">Resume</a></li>
@@ -152,7 +152,7 @@
 
                                         <option value="" disabled selected hidden>{!! $user->work_type ??
                                             'Are you interested to work
-                                                                                                                                                                    In-person, remote or hybrid?' !!}</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                    In-person, remote or hybrid?' !!}</option>
                                         <option value="In-Person">In-Person</option>
                                         <option value="Remote">Remote</option>
                                         <option value="Hybrid">Hybrid</option>
@@ -218,6 +218,18 @@
                         <p class="john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem accn.
                         </p>
                         <button type="" class="buttonunfillborder">Upload</button>
+                    </div>
+                </div>
+                <!-- 2nd col -->
+                <div class="mt-5">
+                    <div class="mt-5 pt-2 pb-2 pr-3 pl-3" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
+                        <p class="aplied-jobs-para pt-4 pb-2">
+                            Jobs Applied<span style="color: #9A1029;">&nbsp;12</span> <br> <br>
+                            Resumes <br> Downloaded by Company <span style="color: #9A1029">10</span> <br><br>
+                            Profile Views <span style="color: #9A1029;
+                    ;">20</span>
+                        </p>
+
                     </div>
                 </div>
             </div>

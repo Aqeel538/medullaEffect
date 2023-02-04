@@ -10,6 +10,7 @@ use App\Http\Controllers\individual\Auth\RegistrationControllerInd;
 use App\Http\Controllers\freelancer\Auth\FreelancerRegistrationController;
 use App\Http\Controllers\company\Auth\CompanyRegistrationController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\individual\IndividualController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
 
@@ -103,11 +104,18 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'isIndividual'])->group(function () {
     Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
+
+    // Jobs
+    Route::get('/individual/jobs', [IndividualController::class, 'individual_jobs'])->name('individual_jobs');
+
+    // Applied Jobs
+    Route::get('/individual/appliedJobs', [IndividualController::class, 'individual_appliedJobs'])->name('individual_appliedJobs');
 });
 
 // Company Route
 Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'copmanyDashboard'])->name('company.dashboard');
+    Route::post('/company/update/profile', [CompanyController::class, 'update_company_profile'])->name('update.company.profile');
 
     // FREELANCER
     Route::get('/company/all-freelancer', [CompanyController::class, 'allFreelancer'])->name('company.freelancer');
@@ -116,8 +124,6 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     // ADVANCE SEARCH
     Route::get('/company/advanceSearchFilter', [CompanyController::class, 'company_advanceSearchFilter'])->name('company.advanceSearchFilter');
     Route::get('/company/freelancer/advanceSearch', [CompanyController::class, 'company_freelancer_advanceSearch'])->name('company.freelancer.advanceSearch');
-
-    Route::post('/company/update/profile', [CompanyController::class, 'update_company_profile'])->name('update.company.profile');
 
     // JOBS
     Route::get('/company/jobs', [CompanyController::class, 'company_jobs'])->name('company.jobs');
