@@ -11,8 +11,8 @@
                         </div>
                         <ul class="navbar-list" id="myDIV">
 
-                            <li><a class="navbar-link" href="{{ route('individual_jobs') }}">View Jobs</a></li>
-                            <li><a class="navbar-link" href="#">View Applications</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
+                            <li><a href="{{ route('individual.appliedJobs') }}" class="mylist">View Applications</a></li>
                             <li><a class="navbar-link" href="#">Saved Jobs</a></li>
                             <li><a class="navbar-link" href="#">Resume</a></li>
 
@@ -152,7 +152,7 @@
 
                                         <option value="" disabled selected hidden>{!! $user->work_type ??
                                             'Are you interested to work
-                                                                                                                                                                                                                                                                                                                                                                                                                    In-person, remote or hybrid?' !!}</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    In-person, remote or hybrid?' !!}</option>
                                         <option value="In-Person">In-Person</option>
                                         <option value="Remote">Remote</option>
                                         <option value="Hybrid">Hybrid</option>

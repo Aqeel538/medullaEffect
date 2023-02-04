@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'phone', 'address', 'image', 'status','company_name','website','industry','contact','gender','job_type','located_in','work_type','industry_and_position', 'pay_range', 'nationality','questionaire_submit'
+        'name', 'email', 'password', 'role', 'phone', 'address', 'image', 'status', 'company_name', 'website', 'industry', 'contact', 'gender', 'job_type', 'located_in', 'work_type', 'industry_and_position', 'pay_range', 'nationality', 'questionaire_submit'
     ];
 
     /**
@@ -37,18 +37,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function getImageAttribute(){
+    public function getImageAttribute()
+    {
         if ($this->attributes['image'] == null || !$this->attributes['image']) {
             return asset('user/assets/images/profile-imges/default.png');
+        } else {
+            return asset('uploads/user') . '/' . $this->attributes['image'];
         }
-        
-        else{
-            return asset('uploads/user').'/'. $this->attributes['image'];
-        }
-        
     }
     public function services()
     {
         return $this->hasMany(Service::class);
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
     }
 }

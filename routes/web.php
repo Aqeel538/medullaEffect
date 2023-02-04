@@ -106,10 +106,20 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
 
     // Jobs
-    Route::get('/individual/jobs', [IndividualController::class, 'individual_jobs'])->name('individual_jobs');
+    Route::get('/individual/jobs', [IndividualController::class, 'individual_jobs'])->name('individual.jobs');
+    Route::get('/individual/jobs/search', [IndividualController::class, 'individual_jobs_search'])->name('individual.jobs.search');
+    Route::get('/individual/jodDetails/{id}', [IndividualController::class, 'individual_jodDetails'])->name('individual.jodDetails');
+
+    // ADVANCE SEARCH
+    Route::get('/individual/advanceSearchFilter', [IndividualController::class, 'individual_advanceSearchFilter'])->name('individual.advanceSearchFilter');
+    Route::get('/individual/jobs/advanceSearch', [IndividualController::class, 'individual_jobs_advanceSearch'])->name('individual.jobs.advanceSearch');
 
     // Applied Jobs
-    Route::get('/individual/appliedJobs', [IndividualController::class, 'individual_appliedJobs'])->name('individual_appliedJobs');
+    Route::get('/individual/appliedJobs', [IndividualController::class, 'individual_appliedJobs'])->name('individual.appliedJobs');
+    Route::get('/individual/applyNow/{id}', [IndividualController::class, 'individual_apply_now'])->name('individual.apply.now');
+
+    // saveForLater
+    Route::get('/individual/saveForLater/{id}', [IndividualController::class, 'individual_saveForLater'])->name('individual.saveForLater');
 });
 
 // Company Route

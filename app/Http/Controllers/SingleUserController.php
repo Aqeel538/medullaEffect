@@ -17,7 +17,7 @@ class SingleUserController extends Controller
         return view('user.singleUser.pages.individual.advanceFillter', compact('title'));
     }
 
-    public function applied()
+    public function  applied()
     {
         $title = "Applied";
         return view("user.singleUser.pages.individual.applied", compact('title'));
@@ -58,7 +58,7 @@ class SingleUserController extends Controller
         $title = "Profile";
 
         $user = Auth::user();
-        return view('user.singleUser.pages.individual.profile', compact('user', 'title'));
+        return view('user.singleUser.pages.individual.profile', get_defined_vars());
     }
 
     public function profile2()
