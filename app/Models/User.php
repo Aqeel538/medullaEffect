@@ -54,4 +54,30 @@ class User extends Authenticatable
     {
         return $this->hasMany(Job::class);
     }
+
+    // CHAT RELATIONS
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'id', 'sender_id');
+    }
+
+    public function messagecomments()
+    {
+        return $this->hasMany(MessageComment::class, 'id', 'sender_id');
+    }
+
+    public function messagesender()
+    {
+        return $this->hasMany(Message::class, 'id', 'sender_id');
+    }
+
+    public function messagereceiver()
+    {
+        return $this->hasMany(Message::class, 'id', 'receiver_id');
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
 }

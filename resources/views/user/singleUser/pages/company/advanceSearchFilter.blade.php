@@ -18,7 +18,7 @@
                             </li>
                             <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
                             <li><a class="navbar-link" href="#">Applicants</a></li>
-                            <li><a class="navbar-link" href="#">Individuals</a></li>
+                            <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
                             <li><a class="navbar-link  mylist active"
                                     href="{{ route('company.freelancer') }}">Freelancers</a></li>
                             <li><a class="navbar-link" href="#">Settings</a></li>
@@ -121,11 +121,7 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
                                 <i class="fa-regular fa-calendar"></i>
-                                <select name="created_at" required style="width: 100%">
-                                    <option value="" disabled selected hidden>Date Posted</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2024">2024</option>
-                                </select>
+                                <input class="" name="created_at" type="date" placeholder="created_at" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">

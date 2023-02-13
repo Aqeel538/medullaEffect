@@ -1,143 +1,108 @@
+@extends('userNew.singleUser.layouts.main2')
+@section('content')
+    <style>
+        .colum_2nd {
+            padding: 44px 116px 12px 116px;
+        }
+    </style>
+    <!-- -----------company----signup------------ -->
+    <div class="container-fluid">
+        <div class="row justify-content-center signup_height">
+            <div class="col-lg-4 col-md-4 col-12 company_bg">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
+                        <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
+                        </span>
 
-<!DOCTYPE html>
-<html lang="en">
+                    </div>
+                    <div>
+                        <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
+                        <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/x-icon" href="{{ asset('user/images') }}/job-search-company.png">
-  <title>Medulla Login</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="{{asset('admin')}}/vendors/feather/feather.css">
-  <link rel="stylesheet" href="{{asset('admin')}}/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="{{asset('admin')}}/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{{asset('admin')}}/css/vertical-layout-light/style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
-     alpha/css/bootstrap.css" rel="stylesheet">
-	
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    </div>
 
-	<link rel="stylesheet" type="text/css" 
-     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <!-- endinject -->
-  {{-- <link rel="shortcut icon" href="{{asset('admin')}}/images/favicon.png" /> --}}
-</head>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img src="{{ asset('user') }}/assets/Images/Copany-bg-img.png" class="company_img" alt="w8">
+                </div>
 
-<body>
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="content-wrapper d-flex align-items-center auth px-0">
-        <div class="row w-100 mx-0">
-          <div class="col-lg-4 mx-auto">
-            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              {{-- <div class="brand-logo"> --}}
-                <div class="mb-4 d-flex justify-content-center">
-                  <img class="img-fluid" src="{{ asset('user') }}/images/job-search-company.png" alt="w8">
-                  <h3 class="Poppins d-flex align-items-center">Medulla Effects</h3>
-              </div>
-              {{-- </div> --}}
-              <h4>Hello! let's get started</h4>
-              <h6 class="font-weight-light">Sign in to continue.</h6>
-              <form method="POST" action="{{ route('login') }}" class="pt-3">
-                @csrf
-                <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
-                </div>
-                <div class="form-group">
-                  <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="mb-2">
-                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn maroonColor"
-                    style="background-color: rgba(124, 35, 66, 1)">
-                        SIGN IN
-                    </button>
-                  </div>
-                {{-- <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="{{asset('admin')}}/index.html">SIGN IN</a>
-                </div> --}}
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                {{-- <div class="mb-2">
-                  <button type="button" class="btn btn-block btn-facebook auth-form-btn">
-                    <i class="ti-facebook mr-2"></i>Connect using facebook
-                  </button>
-                </div> --}}
-                <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="{{ url()->previous() }}" class="text-primary">Create</a>
-                </div>
-              </form>
             </div>
-          </div>
+            <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center colum_2nd">
+                <div class="d-flex justify-content-center">
+                    <img src="{{ asset('user') }}/assets/Images/job-search-company.png" alt="w8">
+                    <h3 class="Poppins">Medulla
+                        Effects</h3>
+                </div>
+                <div class="mt-4 Halvetica">
+                    <h1 class="head_text">Login</h1>
+                    <p class="pt-2 pb-2 phara_16" style="font-weight: 400;">Post job Hire people through Medulla...nis iste
+                        natus error sit
+                        voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
+                </div>
+                <form method="POST" action="{{ route('login') }}" class="pt-5">
+                    @csrf
+                    <input required type="hidden" name="check" value="1" />
+                    <div class="row justify-content-center Poppins">
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="input-group">
+                                <span class="input-group-text border border-0 phara_16"
+                                    style="    background-color: rgba(244, 244, 244, 1);"><i
+                                        class="fa-regular fa-envelope"></i></span>
+                                <input required type="email" name="email"
+                                    class="form-control padd_12_input ps-0 border border-0"
+                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
+                                    placeholder="Email ID">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center Poppins">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="input-group mt-3">
+                                <span class="input-group-text phara_16 border border-0"
+                                    style="background-color: rgba(244, 244, 244, 1);">
+                                    <i class="ri-lock-unlock-line"></i>
+                                </span>
+                                <input type="password" name="password"
+                                    class="form-control ps-0 border border-0 padd_12_input"
+                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
+                                    placeholder="Enter Password">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
+                            <span class="log_company"><a href="">Forgot password?</a></span>
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <button type="submit" class="buttonfilled">Login</button>
+                    </div>
+                    <div class="pt-3">
+                        <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
+                            Don't have an account?
+                            <span class="log_company"><a href="{{ url()->previous() }}">Register</a></span>
+                        </p>
+                    </div>
+
+                </form>
+
+
+
+            </div>
+
         </div>
-      </div>
-      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="{{asset('admin')}}/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="{{asset('admin')}}/js/off-canvas.js"></script>
-  <script src="{{asset('admin')}}/js/hoverable-collapse.js"></script>
-  <script src="{{asset('admin')}}/js/template.js"></script>
-  <script src="{{asset('admin')}}/js/settings.js"></script>
-  <script src="{{asset('admin')}}/js/todolist.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script>
-    @if(Session::has('message'))
-    toastr.options =
-    {
-      "closeButton" : true,
-      "progressBar" : true
-    }
-        toastr.success("{{ session('message') }}");
-    @endif
-  
-    @if(Session::has('error'))
-    toastr.options =
-    {
-      "closeButton" : true,
-      "progressBar" : true
-    }
-        toastr.error("{{ session('error') }}");
-    @endif
-  
-    @if(Session::has('info'))
-    toastr.options =
-    {
-      "closeButton" : true,
-      "progressBar" : true
-    }
-        toastr.info("{{ session('info') }}");
-    @endif
-  
-    @if(Session::has('warning'))
-    toastr.options =
-    {
-      "closeButton" : true,
-      "progressBar" : true
-    }
-        toastr.warning("{{ session('warning') }}");
-    @endif
-  </script>
-  <!-- endinject -->
-</body>
-
-</html>
-
+@endsection

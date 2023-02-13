@@ -5,24 +5,34 @@ namespace App\Http\Controllers\individual;
 use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\Job;
+use App\Models\Resume;
 use App\Models\SaveForLater;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class IndividualController extends Controller
 {
+
+    public function profile()
+    {
+        $title = "Profile";
+
+        $user = Auth::user();
+        return view('userNew.singleUser.pages.individual.profile', get_defined_vars());
+    }
+
     public function individual_jobs()
     {
         $title = 'All Job';
-        $user_id = Auth::user()->id;
+        $user_id = auth()->user()->id;
+        $allJobs = User::where('role', 'company')->with('jobs')->get('id');
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
         $industryOption = $freelancers;
-
-        $allJobs = User::where('role', 'company')->with('jobs')->get('id');
         $savedJobs = SaveForLater::where('user_id', $user_id)->with('savedJobs')->get();
-
-        return view('user.singleUser.pages.individual.tagline', get_defined_vars());
+        // dd($savedJobs);
+        return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
     }
     public function individual_jobs_search(Request $request)
     {
@@ -34,29 +44,30 @@ class IndividualController extends Controller
 
                 $allJobs = User::where('role', 'company')->where('located_in', $request->searchLocation)->where('industry', $request->industry)->with('jobs')->get('id');
 
-                return view('user.singleUser.pages.individual.tagline', get_defined_vars());
+                return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
             } else {
                 $allJobs = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->with('jobs')->get('id');
 
-                return view('user.singleUser.pages.individual.tagline', get_defined_vars());
+                return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
             }
         }
         if ($request->industry) {
             $allJobs = User::where('role', 'company')->where('industry', $request->industry)->with('jobs')->get('id');
 
-            return view('user.singleUser.pages.individual.tagline', get_defined_vars());
+            return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
         }
 
         $allJobs = User::where('role', 'company')->with('jobs')->get('id');
-        return view('user.singleUser.pages.individual.tagline', get_defined_vars());
+        return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
     }
 
     public function individual_advanceSearchFilter()
     {
         $title = 'Advance search filter';
+        $allJobs = User::where('role', 'company')->with('jobs')->get('id');
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
         $industryOption = $freelancers;
-        return view('user.singleUser.pages.individual.advanceFillter', get_defined_vars());
+        return view('userNew.singleUser.pages.individual.advanceFillter', get_defined_vars());
     }
 
     public function individual_jobs_advanceSearch(Request $request)
@@ -66,7 +77,7 @@ class IndividualController extends Controller
         $industry = $request->input('industry');
         $experience = $request->input('experience');
         $job_type = $request->input('job_type');
-        // $date_posted = $request->input('date_posted');
+        $date_posted = $request->input('created_at');
         $pay_range = $request->input('pay_range');
         $query = User::query();
         if ($location) {
@@ -81,21 +92,26 @@ class IndividualController extends Controller
         if ($job_type) {
             $query->where('job_type', $job_type)->with('jobs')->get('id');
         }
-        // if ($date_posted) {
-        //     $query->where('date_posted', $date_posted)->with('jobs')->get('id');
-        // }
+        if ($date_posted) {
+            $query->whereDate('created_at', $date_posted)->with('jobs')->get('id');
+        }
         if ($pay_range) {
             $query->where('pay_range', $pay_range)->with('jobs')->get('id');
         }
         $allJobs = $query->get();
-        return view('user.singleUser.pages.individual.advanceFillter', get_defined_vars());
+        return view('userNew.singleUser.pages.individual.advanceFillter', get_defined_vars());
     }
 
     public function individual_jodDetails($id)
     {
         $title = 'Job Detail';
-        $jobDetail = Job::where('id', $id)->first();
-        return view('user.singleUser.pages.individual.viewJob', get_defined_vars());
+        $jobDetail = Job::where('id', $id)->with('Users')->first();
+        $otherJobs = User::where('role', 'company')->with('jobs')->get();
+        $createdAt = $otherJobs[2]->jobs[0]->created_at->diffForHumans();
+
+        // $hours = $jobDetail->created_at->diffForHumans();
+
+        return view('userNew.singleUser.pages.individual.viewJob', get_defined_vars());
     }
 
     // Applied jobs
@@ -105,7 +121,7 @@ class IndividualController extends Controller
         $title = 'All Job';
         $appliedJobs = Application::where('applicant_id', $applicant_id)->with('getAppliedJobs')->get();
         // dd($appliedJobs);
-        return view('user.singleUser.pages.individual.applied', get_defined_vars());
+        return view('userNew.singleUser.pages.individual.applied', get_defined_vars());
     }
 
     public function individual_apply_now($id)
@@ -134,5 +150,14 @@ class IndividualController extends Controller
         $saveForLater->save();
 
         return back();
+    }
+
+    // Company
+    public function individual_companyDetails($id)
+    {
+        $title = 'Company Detail';
+        $company = User::where('id', $id)->first();
+        $otherJobs = User::where('role', 'company')->with('jobs')->get();
+        return view('userNew.singleUser.pages.individual.companyDetails', get_defined_vars());
     }
 }

@@ -30,27 +30,23 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo()
     {
-        if (Auth::user()->role == 'admin')
-        {
+
+        $title = 'Login';
+
+        if (Auth::user()->role == 'admin') {
             // return redirect()->route('adminDashboard');    // admin dashboard path
             return route('adminDashboard');
-        }
-        else if(Auth::user()->role == 'individual'){
+        } else if (Auth::user()->role == 'individual') {
             $id = Auth::user()->id;
-            return route('profile',$id);
-
-        }
-        else if(Auth::user()->role == 'freelancer'){
+            return route('profile', $id);
+        } else if (Auth::user()->role == 'freelancer') {
             $id = Auth::user()->id;
-            return route('freelancer.profile',$id);
-        } 
-        else if(Auth::user()->role == 'company'){
+            return route('freelancer.profile', $id);
+        } else if (Auth::user()->role == 'company') {
             return route('company.dashboard');
-        }  
-        else {
+        } else {
             return redirect()->route('login');   // member dashboard path
         }
-
     }
 
     /**

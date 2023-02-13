@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\company;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\Archive;
 use App\Models\Category;
 use App\Models\Job;
@@ -17,7 +18,7 @@ class CompanyController extends Controller
     {
         $user = Auth::user();
         $title = 'Company dashboard';
-        return view('user.singleUser.pages.company.dashboard', get_defined_vars());
+        return view('userNew.singleUser.pages.company.dashboard', get_defined_vars());
     }
 
     public function allFreelancer()
@@ -25,7 +26,7 @@ class CompanyController extends Controller
         $title = 'All freelancers';
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
         $industryOption = $freelancers;
-        return view('user.singleUser.pages.company.freelancer', get_defined_vars());
+        return view('userNew.singleUser.pages.company.freelancer', get_defined_vars());
     }
 
     public function update_company_profile(Request $req)
@@ -51,7 +52,7 @@ class CompanyController extends Controller
     {
         $title = 'All Jobs';
         $allJobs = Job::get();
-        return view('user.singleUser.pages.company.job', get_defined_vars());
+        return view('userNew.singleUser.pages.company.job', get_defined_vars());
     }
     public function company_jobs_form($id)
     {
@@ -61,7 +62,7 @@ class CompanyController extends Controller
             $obj = Job::whereId($id)->with('Categories')->first();
         }
         $categories = Category::get();
-        return view('user.singleUser.pages.company.newJob', get_defined_vars());
+        return view('userNew.singleUser.pages.company.newJob', get_defined_vars());
     }
 
     public function company_jobs_store(Request $req, $id)
@@ -91,8 +92,25 @@ class CompanyController extends Controller
 
     public function company_jobs_delete(Request $req)
     {
-        Job::whereId($req->id)->delete();
-        return back();
+
+        $archiveDetele = Archive::where('job_id', $req->id)->delete();
+
+        $delete = Job::destroy($req->id);
+
+        // check data deleted or not
+        if ($delete == 1) {
+            $success = true;
+            $message = "User deleted successfully";
+        } else {
+            $success = true;
+            $message = "User not found";
+        }
+
+        //  return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
     }
 
     public function company_archiveJob($id)
@@ -117,20 +135,20 @@ class CompanyController extends Controller
         $jobsPosted = Job::where('user_id', $user_id)->get();
         $archiveJobs = Archive::where('user_id', $user_id)->with('getjob')->get();
         // dd($archiveJobs->job->title);
-        return view('user.singleUser.pages.company.jobPost', get_defined_vars());
+        return view('userNew.singleUser.pages.company.jobPost', get_defined_vars());
     }
     public function company_jodDetails($id)
     {
         $title = 'Job Detail';
         $jobDetail = Job::where('id', $id)->first();
-        return view('user.singleUser.pages.company.jobDetails', get_defined_vars());
+        return view('userNew.singleUser.pages.company.jobDetails', get_defined_vars());
     }
     public function company_advanceSearchFilter()
     {
         $title = 'Advance search filter';
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
         $industryOption = $freelancers;
-        return view('user.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
+        return view('userNew.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
     }
 
     public function company_freelancer_search(Request $request)
@@ -143,22 +161,22 @@ class CompanyController extends Controller
 
                 $freelancers = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->where('industry', $request->industry)->get();
 
-                return view('user.singleUser.pages.company.freelancer', get_defined_vars());
+                return view('userNew.singleUser.pages.company.freelancer', get_defined_vars());
                 return back(get_defined_vars());
             } else {
                 $freelancers = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->get();
 
-                return view('user.singleUser.pages.company.freelancer', get_defined_vars());
+                return view('userNew.singleUser.pages.company.freelancer', get_defined_vars());
             }
         }
         if ($request->industry) {
             $freelancers = User::where('role', 'freelancer')->where('industry', $request->industry)->get();
 
-            return view('user.singleUser.pages.company.freelancer', get_defined_vars());
+            return view('userNew.singleUser.pages.company.freelancer', get_defined_vars());
         }
 
         $freelancers = User::where('role', 'freelancer')->get();
-        return view('user.singleUser.pages.company.freelancer', get_defined_vars());
+        return view('userNew.singleUser.pages.company.freelancer', get_defined_vars());
     }
 
     public function company_freelancer_advanceSearch(Request $request)
@@ -168,7 +186,7 @@ class CompanyController extends Controller
         $industry = $request->input('industry');
         $experience = $request->input('experience');
         $job_type = $request->input('job_type');
-        // $date_posted = $request->input('date_posted');
+        $date_posted = $request->input('created_at');
         $pay_range = $request->input('pay_range');
         $query = User::query();
         if ($location) {
@@ -183,13 +201,42 @@ class CompanyController extends Controller
         if ($job_type) {
             $query->where('job_type', $job_type);
         }
-        // if ($date_posted) {
-        //     $query->where('date_posted', $date_posted);
-        // }
+        if ($date_posted) {
+            $query->whereDate('created_at', $date_posted);
+        }
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
         $freelancers = $query->get();
-        return view('user.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
+        return view('userNew.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
+    }
+
+    public function allIndividual()
+    {
+        $title = 'All Individual';
+        $allIndividuals = User::where('role', 'individual')->where('status', 1)->get();
+        // dd($individuals);
+        $industryOption = $allIndividuals;
+        return view('userNew.singleUser.pages.company.individual', get_defined_vars());
+    }
+
+    // APPLICANTS
+    public function company_allApplicants($id = null)
+    {
+
+        $title = 'All Applicants';
+        $user = auth()->user()->id;
+        $postedJobs = Job::where('user_id', $user)->with('Categories')->get();
+        $getAllApplicants = Application::where('job_id', $id)->with('users')->get();
+        // dd($getAllApplicants);
+        return view('userNew.singleUser.pages.company.applicants', get_defined_vars());
+    }
+    public function company_applicantResume($id = null)
+    {
+
+        $title = 'Applicant Resume';
+        $applicantResume = User::where('id', $id)->first();
+        // dd($applicantResume);
+        return view('userNew.singleUser.pages.company.applicantResume', get_defined_vars());
     }
 }

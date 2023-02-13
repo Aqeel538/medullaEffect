@@ -2,6 +2,7 @@
 @section('content')
     <div class="container-fluid second-nav">
         <div class="container">
+
             <div class="header">
                 <nav class="navbar">
                     <div class="container-fluid p-0">
@@ -10,19 +11,27 @@
                                 srcset="">
                         </div>
                         <ul class="navbar-list" id="myDIV">
-
                             <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
-                            <li><a href="{{ route('individual.appliedJobs') }}" class="mylist">View Applications</a></li>
-                            <li><a class="navbar-link" href="#">Saved Jobs</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
+                            </li>
                             <li><a class="navbar-link" href="#">Resume</a></li>
+
 
                         </ul>
                         <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                     onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
+                            document.getElementById('logout-form').submit();">
                                 </i></span>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -38,8 +47,11 @@
                     <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
             </div>
+
         </div>
     </div>
+
+
     <div class="container-fluid mt-5">
         <h1 class="headings-profile">Profile</h1>
         <div class="row mt-3 justify-content-center p-4 ">
@@ -151,8 +163,7 @@
                                     <select name="work_type" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->work_type ??
-                                            'Are you interested to work
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    In-person, remote or hybrid?' !!}</option>
+                                            'Are you interested to work In-person, remote or hybrid?' !!}</option>
                                         <option value="In-Person">In-Person</option>
                                         <option value="Remote">Remote</option>
                                         <option value="Hybrid">Hybrid</option>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\individual\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Resume;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,10 +56,10 @@ class RegistrationControllerInd extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|',
-            'phone'=>'required',
+            'phone' => 'required',
             // 'address'=>'required',
         ]);
-        if($validate){
+        if ($validate) {
             $user =  User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -92,7 +93,8 @@ class RegistrationControllerInd extends Controller
         return redirect()->route('questinare');
     }
 
-    public function submit_questionair(Request $req){
+    public function submit_questionair(Request $req)
+    {
         // dd($id);
         $id = Auth::user()->id;
         $questionair = User::whereId($id)->update([
@@ -109,7 +111,8 @@ class RegistrationControllerInd extends Controller
         return redirect()->route('profile', $id);
     }
 
-    public function update_user_profile_image (Request $req){
+    public function update_user_profile_image(Request $req)
+    {
         // $validation = Validator::make($req->all(), [
         //     'data' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         //    ]);
@@ -131,13 +134,13 @@ class RegistrationControllerInd extends Controller
         //    }
         //    else
         //    {
-            return response()->json([
-             'message'   => "dd",
+        return response()->json([
+            'message'   => "dd",
 
-            ]);
-
+        ]);
     }
-    public function update_user_profile(Request $req){
+    public function update_user_profile(Request $req)
+    {
         $id = Auth::user()->id;
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
@@ -177,4 +180,7 @@ class RegistrationControllerInd extends Controller
             }
         }
     }
+
+    // update resume
+
 }

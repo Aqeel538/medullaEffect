@@ -125,31 +125,32 @@
             <div class="row text-center">
                 @foreach ($freelancers as $freelancer)
                     <div class="col-lg-3 col-md-6 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
-                        <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
-                            <div class="freelancer-page pt-3">
-                                <div class="img-holder-frelancer pt-4">
+                        <a href="{{ route('freelancer.details', $freelancer->id) }}">
+                            <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
+                                <div class="freelancer-page pt-3">
+                                    <div class="img-holder-frelancer pt-4">
 
-                                    <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
+                                        <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
 
-                                    <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                        <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                    </div>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="bus-heading mt-5 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+
+                                    <h6 class="location-heading">Located in: <span
+                                            class="place">{!! $freelancer->located_in ?? '' !!}</span>
+                                    </h6>
+                                    <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+                                    <a href="{{ route('show_chat', $freelancer->id) }}">
+                                        <button class="buttonfill mt-4 mb-4">
+                                            Contact
+                                        </button>
+                                    </a>
+
                                 </div>
                             </div>
-                            <div class="p-3">
-                                <h3 class="bus-heading mt-5 mb-3">{!! $freelancer->name ?? '' !!}</h3>
-
-                                <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
-                                </h6>
-                                <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
-
-                                <a href="{{ route('freelancer.details', $freelancer->id) }}"> <button
-                                        class="buttonfill mt-4 mb-4">
-                                        Contact
-                                    </button>
-                                </a>
-
-                            </div>
-
-                        </div>
+                        </a>
                     </div>
                 @endforeach
 

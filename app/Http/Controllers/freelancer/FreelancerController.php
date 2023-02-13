@@ -19,7 +19,7 @@ class FreelancerController extends Controller
         $freelancers = User::where('role', 'freelancer')->get();
         $industryOption = $freelancers;
 
-        return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
     }
     public function freelancer_details($id)
     {
@@ -29,26 +29,26 @@ class FreelancerController extends Controller
         $allfreelancers = User::where('role', 'freelancer')->with('services')->get();
         $countServices = User::where('id', $id)->with('services')->first();
         $count = $countServices->services->count();
-        return view('user.singleUser.pages.freelancer.singleFreelancerDetails', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.singleFreelancerDetails', get_defined_vars());
     }
     public function freelancer_profile()
     {
         $title = 'Profile';
         $user = Auth::user();
         $services = Service::where('user_id', $user->id)->get();
-        return view('user.singleUser.pages.freelancer.profilepage', compact('title', 'user', 'services'));
+        return view('userNew.singleUser.pages.freelancer.profilepage', compact('title', 'user', 'services'));
     }
     public function control_panel()
     {
         $title = 'Control Panel';
-        return view('user.singleUser.pages.freelancer.freelancerControlPanel', compact('title'));
+        return view('userNew.singleUser.pages.freelancer.freelancerControlPanel', compact('title'));
     }
     public function businesses_list()
     {
         $companies = User::where('role', 'company')->get();
         // dd($companies);
         $title = 'Bussiness';
-        return view('user.singleUser.pages.freelancer.business', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.business', get_defined_vars());
     }
     public function business_details($id)
     {
@@ -56,25 +56,26 @@ class FreelancerController extends Controller
         $company = User::where('id', $id)->first();
         $companies = User::where('role', 'company')->get();
         // dd($companies);
-        return view('user.singleUser.pages.freelancer.singleBusinessDetail', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.singleBusinessDetail', get_defined_vars());
     }
     public function chatBot_page()
     {
         $title = "Chat Bot";
-        return view('user.singleUser.pages.freelancer.chatbot', compact('title'));
+
+        return view('userNew.singleUser.pages.freelancer.chatbot', compact('title'));
     }
     public function about_service($id)
     {
         $title = 'About Service';
         $aboutService = Service::where('id', $id)->with('Categories')->first();
         // dd($aboutService);
-        return view('user.singleUser.pages.freelancer.aboutService', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.aboutService', get_defined_vars());
     }
     public function add_a_service()
     {
         $title = 'Add A Service';
         $categories = Category::get();
-        return view('user.singleUser.pages.freelancer.addService', compact('title', 'categories'));
+        return view('userNew.singleUser.pages.freelancer.addService', compact('title', 'categories'));
     }
     public function add_new_service(Request $request)
     {
@@ -113,7 +114,7 @@ class FreelancerController extends Controller
         $categories = Category::get();
         $service = Service::where('id', $id)->with('Categories')->first();
         // dd($service);
-        return view('user.singleUser.pages.freelancer.editService', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.editService', get_defined_vars());
     }
     public function update_a_service(Request $request)
     {
@@ -130,7 +131,7 @@ class FreelancerController extends Controller
     public function see_notifications()
     {
         $title = 'Notifications';
-        return view('user.singleUser.pages.freelancer.notifications', compact('title'));
+        return view('userNew.singleUser.pages.freelancer.notifications', compact('title'));
     }
 
     // SAVE SERVICE
@@ -159,19 +160,101 @@ class FreelancerController extends Controller
 
                 $freelancers = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->where('industry', $request->industry)->get();
 
-                return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+                return view('userNew.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
             } else {
                 $freelancers = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->get();
 
-                return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+                return view('userNew.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
             }
         }
         if ($request->industry) {
             $freelancers = User::where('role', 'freelancer')->where('industry', $request->industry)->get();
 
-            return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+            return view('userNew.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
         }
         $freelancers = User::where('role', 'freelancer')->get();
-        return view('user.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+        return view('userNew.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
+    }
+
+
+    public function freelancer_advanceSearchFilter()
+    {
+        $title = 'Advance search filter';
+        $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
+        $industryOption = $freelancers;
+        return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
+    }
+
+    public function freelancer_advanceSearch(Request $request)
+    {
+        $title = 'All Freelancers';
+        $location = $request->input('searchLocation');
+        $industry = $request->input('industry');
+        $experience = $request->input('experience');
+        $job_type = $request->input('job_type');
+        $date_posted = $request->input('created_at');
+        $pay_range = $request->input('pay_range');
+        $query = User::query();
+        if ($location) {
+            $query->where('located_in', 'like', '%' . $location . '%');
+        }
+        if ($industry) {
+            $query->where('industry', $industry);
+        }
+        if ($experience) {
+            $query->where('experience', $experience);
+        }
+        if ($job_type) {
+            $query->where('job_type', $job_type);
+        }
+        if ($date_posted) {
+            $query->whereDate('created_at', $date_posted);
+        }
+        if ($pay_range) {
+            $query->where('pay_range', $pay_range);
+        }
+        $freelancers = $query->get();
+        return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
+    }
+
+    // advance search for Company
+    public function company_advanceSearchFilter()
+    {
+        $title = 'Advance search filter';
+        $freelancers = User::where('role', 'company')->where('status', 1)->get();
+        $industryOption = $freelancers;
+        return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
+    }
+
+    public function company_advanceSearch(Request $request)
+    {
+        $title = 'All Companies';
+        $location = $request->input('searchLocation');
+        $industry = $request->input('industry');
+        $experience = $request->input('experience');
+        $job_type = $request->input('job_type');
+        $date_posted = $request->input('created_at');
+        $pay_range = $request->input('pay_range');
+        $query = User::query();
+        if ($location) {
+            $query->where('located_in', 'like', '%' . $location . '%');
+        }
+        if ($industry) {
+            $query->where('industry', $industry);
+        }
+        if ($experience) {
+            $query->where('experience', $experience);
+        }
+        if ($job_type) {
+            $query->where('job_type', $job_type);
+        }
+        if ($date_posted) {
+            $query->whereDate('created_at', $date_posted);
+        }
+        if ($pay_range) {
+            $query->where('pay_range', $pay_range);
+        }
+        $freelancers = $query->get();
+        return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
     }
 }

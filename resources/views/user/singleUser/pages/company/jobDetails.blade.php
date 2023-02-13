@@ -16,7 +16,7 @@
                             </li>
                             <li><a class="navbar-link mylist active" href="{{ route('company.jobs') }}">Jobs</a></li>
                             <li><a class="navbar-link" href="#">Applicants</a></li>
-                            <li><a class="navbar-link" href="#">Individuals</a></li>
+                            <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
                             <li><a class="navbar-link" href="{{ route('company.freelancer') }}">Freelancers</a></li>
                             <li><a class="navbar-link" href="#">Settings</a></li>
                         </ul>

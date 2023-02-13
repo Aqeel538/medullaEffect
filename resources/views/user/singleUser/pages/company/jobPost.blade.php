@@ -15,7 +15,7 @@
                             </li>
                             <li><a class="navbar-link mylist active" href="{{ route('company.jobs') }}">Jobs</a></li>
                             <li><a class="navbar-link" href="#">Applicants</a></li>
-                            <li><a class="navbar-link" href="#">Individuals</a></li>
+                            <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
                             <li><a class="navbar-link" href="{{ route('company.freelancer') }}">Freelancers</a></li>
                             <li><a class="navbar-link" href="#">Settings</a></li>
                         </ul>
@@ -73,37 +73,38 @@
         <div class="content-wrapper ">
             <!-- ------------step--1---Tab------------- -->
             <div id="tab-1" class="tab-content active">
-                <div class="row justify-content-center mt-5 p-lg-4 p-md-3 p-2">
+                <div class="row mt-5 p-lg-4 p-md-3 p-2">
                     @foreach ($jobsPosted as $job)
                         <div class="col-lg-4 col-md-4 col-12  Halvetica res">
-                            <div class="p-3" style="background: #F9F9F9;;border-radius: 20px;">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
-                                            class="w-5" alt="w8">
+                            <a href="{{ route('company.jodDetails', $job->id) }}">
+                                <div class="p-3 mb-3" style="background: #F9F9F9;;border-radius: 20px;">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                            <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                            <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
+                                                    {!! $job->title ?? '' !!}
+                                                </b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                            <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                        <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
-                                                {!! $job->title ?? '' !!}
-                                            </b>
-                                        </p>
-                                        <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                        <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                    <p class="abutnexa-text pt-4 pb-3" style="height: 120px!important;overflow:hidden">
+                                        {!! $job->description ?? '' !!}
+                                    </p>
+                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <button class="buttonfill-apply">Apply Now</button>
+                                        <a href="{{ route('company.archiveJob', $job->id) }}"><button
+                                                class="buttonunfill-save">Archive</button></a>
+
                                     </div>
                                 </div>
-                                <p class="abutnexa-text pt-4 pb-3" style="height: 120px!important;overflow:hidden">
-                                    {!! $job->description ?? '' !!}
-                                </p>
-                                <div class="jobviewbtns mt-1 mb-1">
-                                    <button class="buttonfill-apply">Apply Now</button>
-                                    <a href="{{ route('company.archiveJob', $job->id) }}"><button
-                                            class="buttonunfill-save">Archive</button></a>
-
-                                </div>
-                            </div>
-
+                            </a>
                         </div>
                     @endforeach
                 </div>

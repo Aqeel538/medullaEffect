@@ -10,6 +10,7 @@ use App\Http\Controllers\individual\Auth\RegistrationControllerInd;
 use App\Http\Controllers\freelancer\Auth\FreelancerRegistrationController;
 use App\Http\Controllers\company\Auth\CompanyRegistrationController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\individual\IndividualController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/index', function () {
     return view('welcome');
 });
-Auth::routes();
+
 
 Route::post('/email/verification', [VerificationController::class, 'userEmailActivation'])->name('verify.otp');
 Route::get('/verifyAccount', [VerificationController::class, 'verifyAccount'])->name('verify.account');
@@ -102,7 +103,7 @@ Route::middleware(['auth'])->group(function () {
 
 // Individual Auth routes
 Route::middleware(['auth', 'isIndividual'])->group(function () {
-    Route::get('/profile', [SingleUserController::class, 'profile'])->name('profile');
+    Route::get('/profile', [IndividualController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
 
     // Jobs
@@ -120,6 +121,9 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
 
     // saveForLater
     Route::get('/individual/saveForLater/{id}', [IndividualController::class, 'individual_saveForLater'])->name('individual.saveForLater');
+
+    // Company
+    Route::get('/individual/companyDetails/{id}', [IndividualController::class, 'individual_companyDetails'])->name('individual.companyDetails');
 });
 
 // Company Route
@@ -131,6 +135,10 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/all-freelancer', [CompanyController::class, 'allFreelancer'])->name('company.freelancer');
     Route::get('/company/freelancer/search', [CompanyController::class, 'company_freelancer_search'])->name('company_freelancer.search');
 
+    // Individual
+    Route::get('/company/all-individual', [CompanyController::class, 'allIndividual'])->name('company.individual');
+    Route::get('/company/individual/search', [CompanyController::class, 'company_individual_search'])->name('company_individual.search');
+
     // ADVANCE SEARCH
     Route::get('/company/advanceSearchFilter', [CompanyController::class, 'company_advanceSearchFilter'])->name('company.advanceSearchFilter');
     Route::get('/company/freelancer/advanceSearch', [CompanyController::class, 'company_freelancer_advanceSearch'])->name('company.freelancer.advanceSearch');
@@ -140,7 +148,11 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/jobs/form/{id}', [CompanyController::class, 'company_jobs_form'])->name('company_jobs_form');
     Route::post('/company/jobs/store/{id}', [CompanyController::class, 'company_jobs_store'])->name('company_jobs_store');
     Route::get('/company/jodDetails/{id}', [CompanyController::class, 'company_jodDetails'])->name('company.jodDetails');
-    Route::any('/company/jobs/delete/{id}', [CompanyController::class, 'company_jobs_delete'])->name('company_jobs_delete');
+    Route::post('/company/jobs/delete/{id}', [CompanyController::class, 'company_jobs_delete'])->name('company_jobs_delete');
+
+    // Applicatns
+    Route::get('/company/allApplicants/{id?}', [CompanyController::class, 'company_allApplicants'])->name('company.allApplicants');
+    Route::get('/company/applicantResume/{id}', [CompanyController::class, 'company_applicantResume'])->name('company.applicantResume');
 
     // ARCHIVE JOB
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
@@ -155,7 +167,13 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('control/panel', [FreelancerController::class, 'control_panel'])->name('control.panel');
     Route::get('/all/businesses', [FreelancerController::class, 'businesses_list'])->name('businesses.list');
     Route::get('/business/details/{id}', [FreelancerController::class, 'business_details'])->name('business.details');
+
+    // CHAT
     Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');
+    Route::get('messages/{id}', [ChatController::class, 'show'])->name('show_chat');
+    Route::post('storeConversations',  [ChatController::class, 'store'])->name('storeConversations');
+    Route::get('getConversations', [ChatController::class, 'getConversations'])->name('getConversations');
+
     Route::get('/freelancer/listing', [FreelancerController::class, 'freelancers_listing'])->name('freelancer.listing.frontend');
     Route::get('/freelancer/details/{id}', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
     Route::get('/about/service/{id}', [FreelancerController::class, 'about_service'])->name('about.service');
@@ -167,7 +185,21 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/notifications', [FreelancerController::class, 'see_notifications'])->name('see.notifications');
 
     Route::get('/saveService/{id}', [FreelancerController::class, 'save_service'])->name('save_service');
+
+
     Route::get('/freelancer/search', [FreelancerController::class, 'freelancer_search'])->name('freelancer.search');
+
+    // ADVANCE SEARCH
+    Route::get('/freelancer/advanceSearchFilter', [FreelancerController::class, 'freelancer_advanceSearchFilter'])->name('freelancer.advanceSearchFilter');
+    Route::get('/freelancer/advanceSearch', [FreelancerController::class, 'freelancer_advanceSearch'])->name('freelancer.advanceSearch');
+
+    // ADVANCE SEARCH for company
+    Route::get('/company/advanceSearchFilter', [FreelancerController::class, 'company_advanceSearchFilter'])->name('company.advanceSearchFilter');
+    Route::get('/company/advanceSearch', [FreelancerController::class, 'company_advanceSearch'])->name('company.advanceSearch');
+
+    // CHAT
+
+    Route::get('/chat-room/{id}', [ChatController::class, 'chat_room'])->name('chat_room');
 });
 
 //--------------- Unauthenticated Routes Start ---------------\\
@@ -186,4 +218,6 @@ Route::post('/company/create', [CompanyRegistrationController::class, 'create'])
 Route::middleware(['guest'])->group(function () {
     Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
 });
+
+Auth::routes();
 //--------------- Unauthenticated Routes End ---------------\\

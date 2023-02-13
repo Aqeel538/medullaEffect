@@ -4,30 +4,41 @@
     <!----- ---------2st--Navbar------------- -->
     <div class="container-fluid second-nav">
         <div class="container">
+
             <div class="header">
                 <nav class="navbar">
                     <div class="container-fluid p-0">
                         <div>
-                            <img src="../Assets/Images/landing-page-img/Vectorsearch.png" alt="" srcset="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png" alt=""
+                                srcset="">
                         </div>
                         <ul class="navbar-list" id="myDIV">
-
-                            <li><a class="navbar-link mylist active" href="#">View Jobs</a></li>
-                            <li><a class="navbar-link" href="#">View Applications</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
+                            </li>
                             <li><a class="navbar-link" href="#">Saved Jobs</a></li>
                             <li><a class="navbar-link" href="#">Resume</a></li>
 
+
                         </ul>
                         <div>
-                            <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                            <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
                             <span><i style="cursor:pointer;" class="ri-logout-circle-line"
-                                onclick="event.preventDefault();
+                                    onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            </i></span> 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                                </i></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </div>
 
@@ -39,8 +50,10 @@
                     <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
             </div>
+
         </div>
     </div>
+
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
@@ -80,7 +93,7 @@
                     <div class="row mt-2">
                         <div class="col-12 col-lg-6 col-md-6 form-group">
                             <div class="inputfield">
-                                
+
                                 <i class="fa-solid fa-phone"></i>
                                 <input class="input-field-profile" type="text" name="phone"
                                     value="<?= isset($user->phone) && !empty($user->phone) ? $user->phone : '' ?>"

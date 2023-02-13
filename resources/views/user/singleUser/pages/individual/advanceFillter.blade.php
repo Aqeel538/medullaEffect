@@ -1,34 +1,57 @@
 @extends('user.singleUser.layouts.main')
 @section('content')
-    <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1);">
-        <header>
+    <div class="container-fluid second-nav">
+        <div class="container">
 
-            <nav class="ps-lg-5 pe-lg-5 ps-md-5 pe-md-5 pt-3 pb-3 navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <div>
-                        <span><i class="ri-search-line start_16_respons"></i></span>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list Halvetica " id="myDIV">
-                            <li><a href="{{ route('advance.fillter') }}" class="mylist active">View Jobs</a></li>
-                            <li><a href="{{ route('individual.appliedJobs') }}" class="mylist">View Applications</a></li>
-                            <li><a href="#" class="mylist">Resume</a></li>
+            <div class="header">
+                <nav class="navbar">
+                    <div class="container-fluid p-0">
+                        <div>
+                            <img src="../../../Assets/Images/landing-page-img/Vectorsearch.png" alt="" srcset="">
+                        </div>
+                        <ul class="navbar-list" id="myDIV">
+                            <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
+                            </li>
+                            <li><a class="navbar-link" href="#">Saved Jobs</a></li>
+                            <li><a class="navbar-link" href="#">Resume</a></li>
+
+
                         </ul>
+                        <div>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span><i style="cursor:pointer;" class="ri-logout-circle-line"
+                                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                                </i></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
 
-                    </div>
-                    <div>
-                        <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                        <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                    </div>
+                </nav>
+
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
-            </nav>
-        </header>
+            </div>
+
+        </div>
     </div>
+
+
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
@@ -94,11 +117,12 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
                                 <img src="../Assets/Images/profile-imges/calendar-icon.png" alt="" srcset="">
-                                <select name="created_at" required style="width: 100%">
+                                {{-- <select name="created_at" required style="width: 100%">
                                     <option value="" disabled selected hidden>Date Posted</option>
                                     <option value="2023">2023</option>
                                     <option value="2024">2024</option>
-                                </select>
+                                </select> --}}
+                                <input class="" type="date" name="created_at" placeholder="created_at" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">

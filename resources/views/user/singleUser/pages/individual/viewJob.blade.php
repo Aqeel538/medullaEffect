@@ -8,35 +8,58 @@
             height: 35px !important;
         }
     </style>
-    <div class="container-fluid" style="background-color: rgba(255, 243, 247, 1);">
-        <header>
+    <div class="container-fluid second-nav">
+        <div class="container">
 
-            <nav class="ps-lg-5 pe-lg-5 ps-md-5 pe-md-5 pt-3 pb-3 navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <div>
-                        <span><i class="ri-search-line start_16_respons"></i></span>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 profile_list Halvetica " id="myDIV">
-                            <li><a href="#" class="mylist active">View Jobs</a></li>
-                            <li><a href="{{ route('individual.appliedJobs') }}" class="mylist">View Applications</a></li>
-                            <li><a href="#" class="mylist">Resume</a></li>
+            <div class="header">
+                <nav class="navbar">
+                    <div class="container-fluid p-0">
+                        <div>
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png" alt=""
+                                srcset="">
+                        </div>
+                        <ul class="navbar-list" id="myDIV">
+                            <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
+                            <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
+                            </li>
+                            <li><a class="navbar-link" href="#">Saved Jobs</a></li>
+                            <li><a class="navbar-link" href="#">Resume</a></li>
+
+
                         </ul>
+                        <div>
+                            <span>
+                                <a class="navbar-link" href="{{ route('see.notifications') }}">
+                                    <i class="fa-regular fa-bell start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span>
+                                <a class="navbar-link" href="{{ route('chatbot') }}">
+                                    <i class="fa-regular fa-user ms-1 start_16_respons"></i>
+                                </a>
+                            </span>
+                            <span><i style="cursor:pointer;" class="ri-logout-circle-line"
+                                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                                </i></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
 
-                    </div>
-                    <div>
-                        <span><i class="fa-regular fa-bell start_16_respons"></i></span>
-                        <span><i class="fa-regular fa-user ms-1 start_16_respons"></i></span>
-                    </div>
+                </nav>
+
+                <div class="mobile-navbar-btn">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
-            </nav>
-        </header>
+            </div>
+
+        </div>
     </div>
+
 
     <div class="container mt-4">
         <div class="row">
@@ -55,12 +78,14 @@
                     <div class="allitems d-flex">
                         <div class="icon-text">
                             <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Full Time</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->work_type ?? '' !!}</span>
                             </p>
                         </div> &nbsp; &nbsp; &nbsp;
                         <div class="icon-text">
                             <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Remote</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->job_type ?? '' !!}</span>
                             </p>
                         </div> &nbsp; &nbsp; &nbsp;
                         <div class="icon-text">
@@ -71,7 +96,8 @@
                         </div>
                     </div>
                     <div class="time">
-                        <p class="">Posted 2 Hours Ago
+                        <p class="">
+                            {{ \Carbon\Carbon::parse($jobDetail->created_at)->diffForHumans() }}
                         </p>
 
                     </div>
@@ -80,8 +106,10 @@
                     {!! $jobDetail->description ?? '' !!}
                 </p>
                 <div class="jobviewbtns mt-5 mb-4">
-                    <button class="buttonfill-apply">Apply Now</button>
-                    <button class="buttonunfill-save">Save for Later</button>
+                    <a href="{{ route('individual.apply.now', $jobDetail->id) }}"><button class="buttonfill-apply">Apply
+                            Now</button></a>
+                    <a href="{{ route('individual.saveForLater', $jobDetail->id) }}"><button class="buttonunfill-save">Save
+                            for Later</button></a>
                 </div>
             </div>
             <!-- right side of view job page -->
@@ -89,14 +117,14 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12  pt-3 pb-3 res" style="background-color: #F9F9F9;border-radius: 20px;">
                         <div class="abutnexa d-flex justify-content-between">
-                            <h4 class="about-nexa-heading">About Nexa</h4>
+                            <h4 class="about-nexa-heading">About {!! $jobDetail->Users->company_name ?? '' !!}</h4>
                             <button class="buttonunfill-save-follow
                                     ">Follow</button>
                         </div>
                         <div class="icon-text d-flex justify-content-between">
                             <p class="me-2 job-view-paras">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Marketing &
-                                    Advertising</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->industry ?? '' !!}</span>
                             </p>
 
                             <p>
@@ -109,84 +137,48 @@
                             clients throughout the region, and have since expanded our business on a global scale. Through
                             digital marketing and growth marketing strategies, we help companies realize their true
                             potential in a frictionless and innovative environment, where Sales, Marketing & Customer
-                            Service work together to increase sales and retain customers... <span class="fw-bolder"
-                                style="color: #7C2342;">Learn More</span> </p>
+                            Service work together to increase sales and retain customers...
+                            <a href="{{ route('individual.companyDetails', $jobDetail->Users->id) }}">
+                                <span class="fw-bolder" style="color: #7C2342;">Learn More</span>
+                        </p></a>
                     </div>
                 </div>
                 <h4 class="pt-4 ml-0 other-job-txt">Others Jobs</h4>
                 <div class="row">
-                    <div class="col-lg-12 pt-3 pb-3  res" style="background-color: #F9F9F9;border-radius: 20px;">
-                        <div class="row">
-                            <div class="col-2 cardsimg">
-                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                    alt="w8">
-                            </div>
-                            <div class="col-8">
-                                <p class="single-job-heading" style="margin: 0;padding: 0;"><b> Lorem Ipsum </b></p>
-                                <p class="job-posted" style="margin: 0;padding: 0;">Posted 2 Hours Ago</p>
-                            </div>
-                            <div class="col-2">
-                                <i class="fas-elip fa-solid fa-ellipsis"></i>
-                            </div>
-                        </div>
-                        <p class="abutnexa-text pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem
-                            accn. Sed ut perspiciatis unde otis ie natus error sit voluptatem accn. Sed ut perspiciatis unde
-                            omnis ie natnatusus error... </p>
-                        <div class="jobviewbtns mt-1 mb-1">
-                            <button class="buttonfill-apply">Apply Now</button>
-                            <button class="buttonunfill-save">Save for Later</button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-lg-12 pt-3 pb-3 res" style="background-color: #F9F9F9;border-radius: 20px;">
-                        <div class="row">
-                            <div class="col-2 cardsimg">
-                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                    alt="w8">
-                            </div>
-                            <div class="col-8">
-                                <p class="single-job-heading" style="margin: 0;padding: 0;"><b> Lorem Ipsum </b></p>
-                                <p class="job-posted" style="margin: 0;padding: 0;">Posted 2 Hours Ago</p>
-                            </div>
-                            <div class="col-2">
-                                <i class="fas-elip fa-solid fa-ellipsis"></i>
-                            </div>
-                        </div>
-                        <p class="abutnexa-text pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem
-                            accn. Sed ut perspiciatis unde otis ie natus error sit voluptatem accn. Sed ut perspiciatis unde
-                            omnis ie natnatusus error... </p>
-                        <div class="jobviewbtns mt-1 mb-1">
-                            <button class="buttonfill-apply">Apply Now</button>
-                            <button class="buttonunfill-save">Save for Later</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-lg-12 pt-3 pb-3  res" style="background-color: #F9F9F9;border-radius: 20px;">
-                        <div class="row">
-                            <div class="col-2 cardsimg">
-                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                    alt="w8">
-                            </div>
-                            <div class="col-8">
-                                <p class="single-job-heading" style="margin: 0;padding: 0;"><b> Lorem Ipsum </b></p>
-                                <p class="job-posted" style="margin: 0;padding: 0;">Posted 2 Hours Ago</p>
-                            </div>
-                            <div class="col-2">
-                                <i class="fas-elip fa-solid fa-ellipsis"></i>
-                            </div>
-                        </div>
-                        <p class="abutnexa-text pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem
-                            accn. Sed ut perspiciatis unde otis ie natus error sit voluptatem accn. Sed ut perspiciatis unde
-                            omnis ie natnatusus error... </p>
-                        <div class="jobviewbtns mt-1 mb-1">
-                            <button class="buttonfill-apply">Apply Now</button>
-                            <button class="buttonunfill-save">Save for Later</button>
-                        </div>
-                    </div>
+                    @foreach ($otherJobs as $otherJob)
+                        @foreach ($otherJob->jobs as $getjobs)
+                            @if ($jobDetail->id != $getjobs->id)
+                                <a href="{{ route('individual.jodDetails', $getjobs->id) }}">
+                                    <div class="col-lg-12 pt-3 pb-3  res mb-3"
+                                        style="background-color: #F9F9F9;border-radius: 20px;">
+                                        <div class="row">
+                                            <div class="col-2 cardsimg">
+                                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
+                                                    class="w-5" alt="w8">
+                                            </div>
+                                            <div class="col-8">
+                                                <p class="single-job-heading" style="margin: 0;padding: 0;"><b>
+                                                        {{ $getjobs->title }}</b></p>
+                                                <p class="job-posted" style="margin: 0;padding: 0;">
+                                                    {{ \Carbon\Carbon::parse($getjobs->created_at)->diffForHumans() }}
+                                                </p>
+                                            </div>
+                                            <div class="col-2">
+                                                <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                            </div>
+                                        </div>
+                                        <p class="abutnexa-text pt-4 pb-3">{!! $getjobs->description ?? '' !!} </p>
+                                        <div class="jobviewbtns mt-1 mb-1">
+                                            <a href="{{ route('individual.apply.now', $getjobs->id) }}"><button
+                                                    class="buttonfill-apply">Apply Now</button></a>
+                                            <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
+                                                    class="buttonunfill-save">Save for Later</button></a>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endif
+                        @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
