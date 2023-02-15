@@ -10,7 +10,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -23,12 +23,12 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="{{ route('chatbot') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                     </div>
@@ -51,7 +51,8 @@
         <div class="row ">
             <div class="col-12  ">
                 <a href="../Tagline.html">
-                    <img src="../Assets/Images/landing-page-img/Vectorarrow.png" alt="" srcset="">
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
+                        srcset="">
             </div>
             <br />
             <br />
@@ -138,7 +139,7 @@
                                     style="background-color: #F9F9F9;border-radius: 20px;">
                                     <div class="row">
                                         <div class="col-2 cardsimg">
-                                            <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                                 class="w-5" alt="w8">
                                         </div>
                                         <div class="col-8">

@@ -17,7 +17,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -30,10 +30,10 @@
 
                     </ul>
                     <div>
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                             alt="" srcset="">
                         &nbsp;
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                             alt="" srcset="">
                     </div>
                     <span><i style="cursor:pointer;" class="ri-logout-circle-line"
@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-12 job-view-crd-res-575">
                 <a href="{{ route('tagline') }}">
-                    <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorarrow.png" alt=""
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
                         srcset=""></a>
             </div>
             <br>
@@ -147,7 +147,7 @@
                                         style="background-color: #F9F9F9;border-radius: 20px;">
                                         <div class="row">
                                             <div class="col-2 cardsimg">
-                                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                                     class="w-5" alt="w8">
                                             </div>
                                             <div class="col-8">

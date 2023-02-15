@@ -4,9 +4,9 @@
          <div class="d-flex justify-content-center align-items-center mt-4 mb-4">
              <div class="">
                  <a href="https://web.whatsapp.com/"> <img
-                         src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorinsta.png" class="icon-img"
+                         src="{{ asset('user') }}/assets/images/landing-page-img/Vectorinsta.png" class="icon-img"
                          alt="" srcset="">&nbsp;</a>
-                 <a href=""> <img src="{{ asset('user') }}/Assets/Images/landing-page-img/vecyoutube.png"
+                 <a href=""> <img src="{{ asset('user') }}/assets/images/landing-page-img/vecyoutube.png"
                          alt="" class="icon-img" srcset=""></a>
 
 
@@ -19,11 +19,11 @@
              </div>
              <div>
                  <a href="">
-                     <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorphone.png" class="icon-img"
+                     <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorphone.png" class="icon-img"
                          alt="" srcset=""> &nbsp;
                  </a>
                  <a href="">
-                     <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorredemail.png" class="icon-img"
+                     <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorredemail.png" class="icon-img"
                          alt="" srcset="">
                  </a>
 

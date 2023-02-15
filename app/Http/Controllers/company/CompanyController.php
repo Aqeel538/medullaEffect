@@ -143,7 +143,7 @@ class CompanyController extends Controller
         $jobDetail = Job::where('id', $id)->first();
         return view('userNew.singleUser.pages.company.jobDetails', get_defined_vars());
     }
-    public function company_advanceSearchFilter()
+    public function company_freelancerAdvanceSearchFilter()
     {
         $title = 'Advance search filter';
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
@@ -181,6 +181,8 @@ class CompanyController extends Controller
 
     public function company_freelancer_advanceSearch(Request $request)
     {
+
+
         $title = 'All Freelancers';
         $location = $request->input('searchLocation');
         $industry = $request->input('industry');
@@ -202,22 +204,97 @@ class CompanyController extends Controller
             $query->where('job_type', $job_type);
         }
         if ($date_posted) {
-            $query->whereDate('created_at', $date_posted);
+            $query->whereDate('created_at', 'like', '%' . $date_posted . '%');
         }
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
         $freelancers = $query->get();
+
         return view('userNew.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
     }
 
+    // Individual
     public function allIndividual()
     {
         $title = 'All Individual';
-        $allIndividuals = User::where('role', 'individual')->where('status', 1)->get();
+        $individuals = User::where('role', 'individual')->get();
         // dd($individuals);
-        $industryOption = $allIndividuals;
+        $industryOption = $individuals;
+
         return view('userNew.singleUser.pages.company.individual', get_defined_vars());
+    }
+
+
+    public function company_individual_search(Request $request)
+    {
+        $title = 'All Individuals';
+        $industryOption = User::where('role', 'individual')->get();
+
+        if ($request->searchLocation) {
+            if ($request->industry) {
+
+                $individuals = User::where('role', 'individual')->where('located_in', $request->searchLocation)->where('industry', $request->industry)->get();
+
+                return view('userNew.singleUser.pages.company.individual', get_defined_vars());
+                return back(get_defined_vars());
+            } else {
+                $individuals = User::where('role', 'individual')->where('located_in', $request->searchLocation)->get();
+
+                return view('userNew.singleUser.pages.company.individual', get_defined_vars());
+            }
+        }
+        if ($request->industry) {
+            $individuals = User::where('role', 'individual')->where('industry', $request->industry)->get();
+
+            return view('userNew.singleUser.pages.company.individual', get_defined_vars());
+        }
+
+        $individuals = User::where('role', 'individual')->get();
+        return view('userNew.singleUser.pages.company.individual', get_defined_vars());
+    }
+
+    public function company_individualAdvanceSearchFilter()
+    {
+        $title = 'Advance search filter';
+        $individuals = User::where('role', 'individual')->where('status', 1)->get();
+        $industryOption = $individuals;
+        return view('userNew.singleUser.pages.company.individualAdvanceSearchFilter', get_defined_vars());
+    }
+
+    public function company_individual_advanceSearch(Request $request)
+    {
+
+
+        $title = 'All Individuals';
+        $location = $request->input('searchLocation');
+        $industry = $request->input('industry');
+        $experience = $request->input('experience');
+        $job_type = $request->input('job_type');
+        $date_posted = $request->input('created_at');
+        $pay_range = $request->input('pay_range');
+        $query = User::query();
+        if ($location) {
+            $query->where('located_in', 'like', '%' . $location . '%');
+        }
+        if ($industry) {
+            $query->where('industry', $industry);
+        }
+        if ($experience) {
+            $query->where('experience', $experience);
+        }
+        if ($job_type) {
+            $query->where('job_type', $job_type);
+        }
+        if ($date_posted) {
+            $query->whereDate('created_at', 'like', '%' . $date_posted . '%');
+        }
+        if ($pay_range) {
+            $query->where('pay_range', $pay_range);
+        }
+        $individuals = $query->get();
+
+        return view('userNew.singleUser.pages.company.individualAdvanceSearchFilter', get_defined_vars());
     }
 
     // APPLICANTS
@@ -238,5 +315,13 @@ class CompanyController extends Controller
         $applicantResume = User::where('id', $id)->first();
         // dd($applicantResume);
         return view('userNew.singleUser.pages.company.applicantResume', get_defined_vars());
+    }
+
+    // Chat
+    public function company_chatBot_page()
+    {
+        $title = "company Chat Bot";
+
+        return view('userNew.singleUser.pages.company.chatbot', compact('title'));
     }
 }

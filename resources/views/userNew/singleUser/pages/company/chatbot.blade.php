@@ -2,50 +2,54 @@
 @section('content')
     <!-- 2nd nav -->
     <div class="container-fluid second-nav">
-        <!----- ---------2st--Navbar------------- -->
-        <div class="container-fluid second-nav">
-            <div class="container">
-                <div class="headers">
-                    <nav class="navbar-questionare">
+        <div class="container">
+            <div class="headers">
+                <nav class="navbar-questionare">
 
-                        <div class="">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
-                                class="search-icon-index" alt="" srcset="">
-                        </div>
-                        <ul class="navbar-lists" id="myDIV">
-
-                            <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
-                            <li><a class="navbar-link  mylist active"
-                                    href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
-                            <li><a class="navbar-link" href="#">Settings</a></li>
-
-                        </ul>
-                        <div>
-                            <a class="navbar-link" href="{{ route('see.notifications') }}">
-                                <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
-                                    alt="" srcset="">
-                            </a>
-                            &nbsp;
-                            <a class="navbar-link" href="">
-                                <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
-                                    alt="" srcset="">
-                            </a>
-                        </div>
-
-
-
-
-                    </nav>
-
-                    <div class="mobile-navbar-btns">
-                        <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                        <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
+                    <div class="">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
                     </div>
+                    <ul class="navbar-lists" id="myDIV">
+
+                        <li><a class="navbar-link" href="{{ route('company.dashboard') }}">Dashboard</a>
+                        </li>
+                        <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
+                        <li><a class="navbar-link" href="{{ route('company.allApplicants') }}">Applicants</a></li>
+                        <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
+                        <li><a class="navbar-link  " href="{{ route('company.freelancer') }}">Freelancers</a>
+                        </li>
+                        <li><a class="navbar-link" href="#">Settings</a></li>
+
+                    </ul>
+                    <div>
+                        <a class="navbar-link" href="{{ route('see.notifications') }}">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
+                                alt="" srcset="">
+                        </a>
+                        &nbsp;
+                        <a class="navbar-link" href="{{ route('company.jobPost') }}">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
+                                alt="" srcset="">
+                        </a>
+                        <i style="cursor:pointer;" class="ri-logout-circle-line"
+                            onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+                        </i>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </nav>
+
+                <div class="mobile-navbar-btns">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
             </div>
         </div>
     </div>
-    <!---------------- -Navend--------------- -->
+
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <h1 class="headings-profile mb-4">Inbox</h1>
@@ -58,19 +62,21 @@
                         @foreach ($user_messages as $single_message)
                             <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
                                 <div class="img-holder">
-                                    <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" style="width: 60px;"
-                                        class="" alt="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
+                                        style="width: 60px;" class="" alt="">
                                 </div>
                                 <div class="text-start ps-2">
                                     @if ($single_message->receiver_id == Auth::user()->id)
                                         <h3 class="m-0 p-0 inbox-chat-heading">
-                                            <a href="/messages/{{ $single_message->id }}" style=" text-decoration: none;">
+                                            <a href="/company/messages/{{ $single_message->id }}"
+                                                style=" text-decoration: none;">
                                                 <p> {{ $single_message->name }}</p>
                                             </a>
                                         </h3>
                                     @else
                                         <h3 class="m-0 p-0 inbox-chat-heading">
-                                            <a href="/messages/{{ $single_message->id }}" style=" text-decoration: none;">
+                                            <a href="/company/messages/{{ $single_message->id }}"
+                                                style=" text-decoration: none;">
                                                 <p> {{ $single_message->name }}</p>
                                             </a>
                                         </h3>
@@ -96,7 +102,7 @@
                 <div class="p-4 fixed-top chat-header">
                     <div class="d-flex">
                         <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" style="width: 60px;"
+                            <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" style="width: 60px;"
                                 class="" alt="">
                         </div>
                         <div class="ps-2">
@@ -144,7 +150,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: "/storeConversations",
+                    url: "/company/storeConversations",
                     method: "post",
                     data: new FormData(this),
                     processData: false,
@@ -172,7 +178,7 @@
             function getmessage(id) {
                 // var id = $(this).data('id');
                 $.ajax({
-                    url: "/getConversations",
+                    url: "/company/getConversations",
                     type: "GET",
                     data: {
                         id: id

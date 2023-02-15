@@ -9,7 +9,7 @@
                     <nav class="navbar-questionare">
 
                         <div class="">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                                 class="search-icon-index" alt="" srcset="">
                         </div>
                         <ul class="navbar-lists" id="myDIV">
@@ -22,12 +22,12 @@
                         </ul>
                         <div>
                             <a class="navbar-link" href="{{ route('see.notifications') }}">
-                                <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                                <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                     alt="" srcset="">
                             </a>
                             &nbsp;
                             <a class="navbar-link" href="">
-                                <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                                <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                     alt="" srcset="">
                             </a>
                         </div>
@@ -58,7 +58,7 @@
                         @foreach ($user_messages as $single_message)
                             <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
                                 <div class="img-holder">
-                                    <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" style="width: 60px;"
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" style="width: 60px;"
                                         class="" alt="">
                                 </div>
                                 <div class="text-start ps-2">
@@ -96,7 +96,7 @@
                 <div class="p-4 fixed-top chat-header">
                     <div class="d-flex">
                         <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" style="width: 60px;"
+                            <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" style="width: 60px;"
                                 class="" alt="">
                         </div>
                         <div class="ps-2">

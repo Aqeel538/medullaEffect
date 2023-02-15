@@ -7,7 +7,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -21,10 +21,10 @@
 
                     </ul>
                     <div>
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                             alt="" srcset="">
                         &nbsp;
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                             alt="" srcset="">
                     </div>
                 </nav>
@@ -54,7 +54,7 @@
                         <div class="p-3" style="background: #F9F9F9;;border-radius: 20px;">
                             <div class="row">
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                    <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                         class="w-5" alt="w8" />
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-7">

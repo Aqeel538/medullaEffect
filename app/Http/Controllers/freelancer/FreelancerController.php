@@ -46,6 +46,7 @@ class FreelancerController extends Controller
     public function businesses_list()
     {
         $companies = User::where('role', 'company')->get();
+        $industryOption = $companies;
         // dd($companies);
         $title = 'Bussiness';
         return view('userNew.singleUser.pages.freelancer.business', get_defined_vars());
@@ -218,12 +219,39 @@ class FreelancerController extends Controller
     }
 
     // advance search for Company
+    public function company_search(Request $request)
+    {
+        $title = 'All company';
+        $industryOption = User::where('role', 'company')->get();
+
+        if ($request->searchLocation) {
+            if ($request->industry) {
+
+                $companies = User::where('role', 'company')->where('located_in', $request->searchLocation)->where('industry', $request->industry)->get();
+
+                return view('userNew.singleUser.pages.freelancer.business', get_defined_vars());
+            } else {
+                $companies = User::where('role', 'company')->where('located_in', $request->searchLocation)->get();
+
+                return view('userNew.singleUser.pages.freelancer.business', get_defined_vars());
+            }
+        }
+        if ($request->industry) {
+            $companies = User::where('role', 'company')->where('industry', $request->industry)->get();
+
+            return view('userNew.singleUser.pages.freelancer.business', get_defined_vars());
+        }
+        $companies = User::where('role', 'company')->get();
+        return view('userNew.singleUser.pages.freelancer.business', get_defined_vars());
+    }
+
+
     public function company_advanceSearchFilter()
     {
         $title = 'Advance search filter';
-        $freelancers = User::where('role', 'company')->where('status', 1)->get();
-        $industryOption = $freelancers;
-        return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
+        $companies = User::where('role', 'company')->where('status', 1)->get();
+        $industryOption = $companies;
+        return view('userNew.singleUser.pages.freelancer.companyAdvanceSearchFilter', get_defined_vars());
     }
 
     public function company_advanceSearch(Request $request)
@@ -254,7 +282,7 @@ class FreelancerController extends Controller
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
-        $freelancers = $query->get();
-        return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
+        $companies = $query->get();
+        return view('userNew.singleUser.pages.freelancer.companyAdvanceSearchFilter', get_defined_vars());
     }
 }

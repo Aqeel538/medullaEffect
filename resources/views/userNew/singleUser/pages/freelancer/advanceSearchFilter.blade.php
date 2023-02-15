@@ -9,7 +9,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -22,12 +22,12 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                     </div>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}Assets/Images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" required style="width: 100%">
                                     <option value="" disabled selected hidden>
@@ -119,7 +119,8 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/calendar-icon.png" alt="" srcset="">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
+                                    srcset="">
                                 <select name="created_at" required style="width: 100%">
                                     <option value="" disabled selected hidden>Date Posted</option>
                                     <option>2023</option>

@@ -43,10 +43,11 @@ class VerificationController extends Controller
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 
-    public function userEmailActivation(Request $req){
+    public function userEmailActivation(Request $req)
+    {
         $verifyToken = $req->token;
         $verifyToken = VerifyToken::where('token', $verifyToken)->first();
-        if($verifyToken){
+        if ($verifyToken) {
             $verifyToken->is_activated = 1;
             $verifyToken->save();
             $user = User::where('email', $verifyToken->email)->first();
@@ -57,13 +58,13 @@ class VerificationController extends Controller
             $getting_token->delete();
 
             return redirect('/questinare')->with('is_activated', 'Your account is now activated');
-        }
-        else{
+        } else {
             return redirect('/email/verification')->with('Please verify the email first');
         }
     }
 
-    public function verifyAccount(){
+    public function verifyAccount()
+    {
         return view('verifications.otp_verification');
     }
 }

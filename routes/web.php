@@ -4,6 +4,7 @@ use App\Http\Controllers\freelancer\FreelancerController;
 use App\Http\Controllers\company\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\SingleUserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\individual\Auth\RegistrationControllerInd;
@@ -34,6 +35,16 @@ Route::get('/index', function () {
 Route::post('/email/verification', [VerificationController::class, 'userEmailActivation'])->name('verify.otp');
 Route::get('/verifyAccount', [VerificationController::class, 'verifyAccount'])->name('verify.account');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// FORGOT PASSWORD
+Route::get('forgotPassword', [RegistrationControllerInd::class, 'forgot_password'])->name('forgot.password');
+Route::post('sendEmail', [RegistrationControllerInd::class, 'send_email'])->name('send.email');
+Route::get('otpVerificationPage', [RegistrationControllerInd::class, 'otp_verification_page'])->name('otp.verification.page');
+Route::post('otpVerification', [RegistrationControllerInd::class, 'otp_verification'])->name('otp.verification');
+Route::get('resetPasswordPage', [RegistrationControllerInd::class, 'reset_password_page'])->name('reset.password.page');
+Route::post('resetPassword', [RegistrationControllerInd::class, 'reset_password'])->name('reset.password');
+
+
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     //--------------- Admin Dashboard Routes Start ---------------\\
@@ -139,9 +150,13 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/all-individual', [CompanyController::class, 'allIndividual'])->name('company.individual');
     Route::get('/company/individual/search', [CompanyController::class, 'company_individual_search'])->name('company_individual.search');
 
-    // ADVANCE SEARCH
-    Route::get('/company/advanceSearchFilter', [CompanyController::class, 'company_advanceSearchFilter'])->name('company.advanceSearchFilter');
+    // ADVANCE SEARCH For Frelancer
+    Route::get('/company/freelancer/advanceSearchFilter', [CompanyController::class, 'company_freelancerAdvanceSearchFilter'])->name('company.freelancerAdvanceSearchFilter');
     Route::get('/company/freelancer/advanceSearch', [CompanyController::class, 'company_freelancer_advanceSearch'])->name('company.freelancer.advanceSearch');
+
+    // ADVANCE SEARCH For Individual
+    Route::get('/company/individual/advanceSearchFilter', [CompanyController::class, 'company_individualAdvanceSearchFilter'])->name('company.individualAdvanceSearchFilter');
+    Route::get('/company/individual/advanceSearch', [CompanyController::class, 'company_individual_advanceSearch'])->name('company.individual.advanceSearch');
 
     // JOBS
     Route::get('/company/jobs', [CompanyController::class, 'company_jobs'])->name('company.jobs');
@@ -158,6 +173,12 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
 
     Route::get('/company/jobPost', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
+
+    // CHAT
+    Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');
+    Route::get('company/messages/{id}', [ChatController::class, 'company_show'])->name('company.show.chat');
+    Route::post('company/storeConversations',  [ChatController::class, 'company_store'])->name('company.storeConversations');
+    Route::get('company/getConversations', [ChatController::class, 'company_getConversations'])->name('company.getConversations');
 });
 
 
@@ -194,6 +215,8 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('/freelancer/advanceSearch', [FreelancerController::class, 'freelancer_advanceSearch'])->name('freelancer.advanceSearch');
 
     // ADVANCE SEARCH for company
+    Route::get('/company/search', [FreelancerController::class, 'company_search'])->name('company.search');
+
     Route::get('/company/advanceSearchFilter', [FreelancerController::class, 'company_advanceSearchFilter'])->name('company.advanceSearchFilter');
     Route::get('/company/advanceSearch', [FreelancerController::class, 'company_advanceSearch'])->name('company.advanceSearch');
 

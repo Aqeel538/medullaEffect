@@ -8,7 +8,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -21,12 +21,12 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                     </div>
@@ -67,8 +67,8 @@
                             <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3 " style="background: #F9F9F9;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="../Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                            alt="w8">
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                            class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
                                         <p class="single-job-heading" style="margin: 0; padding: 0 20px;"><b> Lorem Ipsum
@@ -92,8 +92,8 @@
                             <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3" style="background: #F9F9F9;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="../Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                            alt="w8">
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                            class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
                                         <p class="single-job-heading" style="margin: 0; padding: 0 20px;"><b> Lorem Ipsum
@@ -117,8 +117,8 @@
                             <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3" style="background: #F9F9F9;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="../Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                            alt="w8">
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                            class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
                                         <p class="single-job-heading" style="margin: 0; padding: 0 20px;"><b> Lorem Ipsum
@@ -142,8 +142,8 @@
                             <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3 " style="background: #F9F9F9;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="../Assets/Images/profile-imges/jobview-img.png" class="w-5"
-                                            alt="w8">
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                            class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
                                         <p class="single-job-heading" style="margin: 0; padding: 0 20px;"><b> Lorem Ipsum

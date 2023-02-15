@@ -1,47 +1,47 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-  <!----- ---------2st--Navbar------------- -->
-  <div class="container-fluid second-nav">
-    <div class="container">
-        <div class="headers">
-            <nav class="navbar-questionare">
+    <!----- ---------2st--Navbar------------- -->
+    <div class="container-fluid second-nav">
+        <div class="container">
+            <div class="headers">
+                <nav class="navbar-questionare">
 
-                <div class="">
-                    <img src="{{asset('user')}}/Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                        srcset="">
+                    <div class="">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
+                    </div>
+                    <ul class="navbar-lists" id="myDIV">
+
+                        <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
+                        <li><a class="navbar-link  mylist active"
+                                href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
+                        <li><a class="navbar-link" href="#">Settings</a></li>
+
+                    </ul>
+                    <div>
+                        <a class="navbar-link" href="{{ route('see.notifications') }}">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
+                                alt="" srcset="">
+                        </a>
+                        &nbsp;
+                        <a class="navbar-link" href="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
+                                alt="" srcset="">
+                        </a>
+                    </div>
+
+
+
+
+                </nav>
+
+                <div class="mobile-navbar-btns">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
                 </div>
-                <ul class="navbar-lists" id="myDIV">
-
-                    <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
-                    <li><a class="navbar-link  mylist active"
-                            href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
-                    <li><a class="navbar-link" href="#">Settings</a></li>
-
-                </ul>
-                <div>
-                    <a class="navbar-link" href="{{ route('see.notifications') }}">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
-                            alt="" srcset="">
-                    </a>
-                    &nbsp;
-                    <a class="navbar-link" href="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
-                            alt="" srcset="">
-                    </a>
-                </div>
-
-
-
-
-            </nav>
-
-            <div class="mobile-navbar-btns">
-                <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
             </div>
         </div>
     </div>
-</div>
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <h1 class="headings-profile mb-4">Profile</h1>
@@ -49,7 +49,7 @@
             <div class="col-lg-3 mt-md-5 mb-lg-0 mb-sm-4 mt-lg-0 mb-xs-4   col-12 text-center">
                 <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
                     <div class="img-holder">
-                        <img src="{{ asset('user') }}/assets/Images/profile-imges/user.png" alt="" srcset="">
+                        <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" alt="" srcset="">
                     </div>
                     <h6 class="justify-content-center pt-2 pb-2 john-text">John Doe</h6>
                     <p class="john-para">123 Avenue Park City, Bhurban
@@ -72,7 +72,7 @@
                                 style="background: #FFFFFF;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                             class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
@@ -99,7 +99,7 @@
                                 style="background: #FFFFFF;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                             class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
@@ -126,7 +126,7 @@
                                 style="background: #FFFFFF;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                             class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">
@@ -153,7 +153,7 @@
                                 style="background: #FFFFFF;;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png"
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                             class="w-5" alt="w8">
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-7">

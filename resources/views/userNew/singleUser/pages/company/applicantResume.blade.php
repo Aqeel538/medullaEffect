@@ -6,8 +6,8 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="../Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                            srcset="">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 

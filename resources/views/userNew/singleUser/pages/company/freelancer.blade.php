@@ -8,8 +8,8 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="../Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                            srcset="">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 
@@ -25,21 +25,21 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                         <i style="cursor:pointer;" class="ri-logout-circle-line"
-                        onclick="event.preventDefault();
+                            onclick="event.preventDefault();
     document.getElementById('logout-form').submit();">
-                    </i>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                        </i>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </nav>
 
@@ -74,7 +74,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}Assets/Images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}assets/images/profile-imges/Vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/loction.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
                                     srcset="" />
 
                                 <div class="pos">
@@ -106,7 +106,7 @@
                 </form>
             </div>
             <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
-                <a href="{{ route('company.advanceSearchFilter') }}">
+                <a href="{{ route('company.freelancerAdvanceSearchFilter') }}">
                     <button type="button" class="display-btn">Filter</button>
                 </a>
             </div>
@@ -135,7 +135,11 @@
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
 
-                            <button class="buttonfill mt-4 mb-4">Contact</button>
+                            <a href="{{ route('company.show.chat', $freelancer->id) }}">
+                                <button class="buttonfill mt-4 mb-4">
+                                    Contact
+                                </button>
+                            </a>
                         </div>
 
                     </div>

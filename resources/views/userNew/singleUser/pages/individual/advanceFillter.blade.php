@@ -7,7 +7,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -20,10 +20,10 @@
 
                     </ul>
                     <div>
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                             alt="" srcset="">
                         &nbsp;
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                             alt="" srcset="">
                     </div>
                 </nav>
@@ -63,7 +63,8 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/exp-level.png" alt="" srcset="">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
+                                    srcset="">
                                 <select name="experience" required style="width: 100%">
                                     <option value="" disabled selected hidden>
                                         Experience Level
@@ -99,7 +100,8 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/calendar-icon.png" alt="" srcset="">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
+                                    srcset="">
                                 <input class="" type="date" name="created_at" placeholder="created_at" />
                             </div>
                         </div>
@@ -136,7 +138,7 @@
                         <div class="p-3 mb-3" style="background: #F9F9F9;;border-radius: 20px;">
                             <div class="row">
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                    <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                         class="w-5" alt="w8" />
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-7">

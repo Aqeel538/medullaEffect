@@ -19,10 +19,10 @@ class EmailVerificationMail extends Mailable
      *
      * @return void
      */
-    public function __construct($get_user_name, $get_user_email, $validToken)
+    public function __construct($get_user_email, $validToken)
     {
         $this->get_user_email = $get_user_email;
-        $this->get_user_name = $get_user_name;
+        // $this->get_user_name = $get_user_name;
         $this->validToken = $validToken;
     }
 

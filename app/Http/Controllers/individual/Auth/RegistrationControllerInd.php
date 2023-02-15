@@ -5,10 +5,13 @@ namespace App\Http\Controllers\individual\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Resume;
 use App\Models\User;
+use App\Models\VerifyToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+
 
 
 class RegistrationControllerInd extends Controller
@@ -183,4 +186,149 @@ class RegistrationControllerInd extends Controller
 
     // update resume
 
+
+
+    // FORGOT PASSWORD
+    public function forgot_password()
+    {
+        return view('auth.forgotPassword.sendEmail');
+        // return view('auth.forgotPassword.otpVerification');
+    }
+
+    public function otp_verification_page()
+    {
+        return view('auth.forgotPassword.otpVerification');
+    }
+
+    public function send_email(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users'
+        ]);
+
+        // requestValidate($request, [
+        //     "email" => "required|email|exists:users"
+
+        // ]);
+        VerifyToken::where('email', $request->email)->delete();
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            $token = rand(111111, 999999);
+            VerifyToken::insert([
+                'email' => $user->email,
+                'token' => $token
+            ]);
+            Mail::send('emails.verification', ['user' => $user, 'token' => $token], function ($m) use ($user, $token) {
+                $m->from('info@dwive758.com', 'medullaEffect');
+
+                $m->to($user->email, $user->name)->subject('Forgot Password Token');
+            });
+
+            // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
+
+            return view('auth.forgotPassword.otpVerification', get_defined_vars());
+        } else {
+
+            return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
+        }
+
+        // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
+        return view('auth.forgotPassword.otpVerification', get_defined_vars());
+    }
+
+    // public function reset_password_old(Request $data)
+    // {
+
+
+    //     $validToken = rand(10, 100. . '2023');
+    //     $get_token = new VerifyToken();
+    //     $get_token->token = $validToken;
+    //     $get_token->email = $data['email'];
+    //     $get_token->save();
+
+    //     $get_user_email = $data['email'];
+    //     // $get_user_name = $data['name'];
+
+    //     Mail::send('emails.verification', ['user' => $data, 'token' => $validToken], function ($m) use ($data, $validToken) {
+
+    //         $m->from('info@dwive758.com', 'medullaEffect');
+
+    //         $m->to($data->email, $data->name)->subject('Forgot Password Token');
+    //     });
+    //     // Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $validToken));
+    // }
+
+
+    function otp_verification(Request $request)
+    {
+
+        // $request->validate([
+        //     "o" => "required",
+        //     "t" => "required",
+        //     "p" => "required",
+        //     "v" => "required",
+        //     "e" => "required",
+        //     "r" => "required",
+        // ]);
+        $token = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
+        dd($token);
+        $token = VerifyToken::where('token', $request->token)->first();
+        if (isset($token) && !empty($token)) {
+            User::where('email', $token->email)->update([
+                'is_verified' => 1
+            ]);
+
+            $user = User::where('email', $token->email)->first();
+            VerifyToken::where('token', $request->token)->delete();
+
+            // return ['code' => 200, 'status' => true, 'message' => 'Registered Successfully', 'data' => $user, 'access_token' => $user->createToken($request->email)->plainTextToken];
+
+        } else {
+
+            return ['status' => false, 'message' => 'Invalid OTP'];
+        }
+        return view('auth.forgotPassword.resetPassword', get_defined_vars());
+    }
+
+    public function reset_password_page()
+    {
+        return view('auth.forgotPassword.resetPassword');
+    }
+
+    function reset_password(Request $request)
+    {
+
+        $request->validate([
+            "password" => "required"
+        ]);
+
+
+
+        $result = User::where('email', $request->email)->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        if (isset($result) && !empty($result)) {
+            // dd('ok');
+            return redirect('/login');
+        } else {
+            // dd('ok');
+            return redirect('/resetPassword');
+        }
+
+
+        // $token = VerifyToken::where('token', $request->token)->first();
+        // if ($token) {
+        //     User::where('email', $token->email)->update([
+        //         'password' => Hash::make($request->password)
+        //     ]);
+        //     VerifyToken::where('token', $request->token)->delete();
+        //     $user = User::where('email', $token->email)->first();
+
+        //     return ['status' => true, 'message' => 'Password Reset Successfully', 'data' => $user, 'access_token' => $user->createToken($token->email)->plainTextToken];
+        // } else {
+
+        //     return ['status' => true, 'message' => 'Invalid OTP'];
+        // }
+    }
 }

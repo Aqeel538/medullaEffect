@@ -14,7 +14,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -26,12 +26,12 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                     </div>
@@ -63,44 +63,46 @@
         <!-- <div class="container"> -->
         <div class="row justify-content-center filter-trd-nav-row">
             <div class="col-lg-9 col-md-12 row-bg-color">
-                <div class="row industry-dropdown-input">
-                    <div class="col-lg-5 col-md-4 col-12">
-                        <div class="inpus-industry">&nbsp;
-                            <img src="../Assets/Images/profile-imges/Vectorbag.png" alt="icon" />
-                            <div class="">
-                                <input list="browsers" name="myBrowser" class="widths" placeholder="Industry" />
-                            </div>
+                <form action="{{ route('company.search') }}" method="GET">
+                    @csrf
+                    <div class="row industry-dropdown-input">
+                        <div class="col-lg-5 col-md-4 col-12">
+                            <div class="inpus-industry">&nbsp;
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <div class="">
+                                    <input list="browsers" name="industry" class="widths" placeholder="Industry" />
+                                </div>
 
-                            <datalist id="browsers">
-                                <option value="Chrome"></option>
-                                <option value="Firefox"></option>
-                                <option value="Internet Explorer"></option>
-                                <option value="Opera"></option>
-                                <option value="Safari"></option>
-                                <option value="Microsoft Edge"></option>
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-4 col-12">
-                        <div class="inpus-industry-2">
-                            <img src="{{ asset('user') }}/Assets/Images/profile-imges/loction.png" alt=""
-                                srcset="" />
-
-                            <div class="pos">
-                                <input type="search" class="width" placeholder="Location" />
+                                <datalist id="browsers">
+                                    @foreach ($industryOption->unique('industry') as $company)
+                                        <option value="{{ $company->industry }}"></option>
+                                    @endforeach
+                                </datalist>
                             </div>
                         </div>
+                        <div class="col-lg-5 col-md-4 col-12">
+                            <div class="inpus-industry-2">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
+                                    srcset="" />
+
+                                <div class="pos">
+                                    <input type="search" class="width" name="searchLocation" placeholder="Location" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
+                            <button type="submit" class=" buttonfill text-center">
+                                Search
+                            </button>
+                            <button type="button" class="non">Filter</button>
+                        </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
-                        <button type="button" class=" buttonfill text-center">
-                            Search
-                        </button>
-                        <button type="button" class="non">Filter</button>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
-                <button type="button" class="display-btn">Filter</button>
+                <a href="{{ route('company.advanceSearchFilter') }}">
+                    <button type="button" class="display-btn">Filter</button>
+                </a>
             </div>
         </div>
         <!-- </div> -->
@@ -115,7 +117,7 @@
 
                     <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5 ">
                         <div class="img-holders">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png" alt=""
                                 srcset="" />
                         </div>
                         <div class="text-center">

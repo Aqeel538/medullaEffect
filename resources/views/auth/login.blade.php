@@ -24,13 +24,13 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/assets/Images/Copany-bg-img.png" class="company_img" alt="w8">
+                    <img src="{{ asset('user') }}/assets/images/Copany-bg-img.png" class="company_img" alt="w8">
                 </div>
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center colum_2nd">
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/assets/Images/job-search-company.png" alt="w8">
+                    <img src="{{ asset('user') }}/assets/images/job-search-company.png" alt="w8">
                     <h3 class="Poppins">Medulla
                         Effects</h3>
                 </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="pt-4">
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
-                            <span class="log_company"><a href="">Forgot password?</a></span>
+                            <span class="log_company"><a href="{{ route('forgot.password') }}">Forgot password?</a></span>
                         </p>
                     </div>
                     <div class="mt-5">

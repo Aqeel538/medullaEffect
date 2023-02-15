@@ -1,38 +1,5 @@
-@extends('user.singleUser.layouts.main')
+@extends('userNew.singleUser.layouts.main')
 @section('content')
-    <!-- -----1st--Navbar--------- -->
-    <div class="container-fluid">
-        <div class="container">
-            <div class="d-flex justify-content-center align-items-center mt-4 mb-4">
-                <div class="">
-                    <a href="https://web.whatsapp.com/"> <img src="./Assets/Images/landing-page-img/Vector insta.png"
-                            class="icon-img" alt="" srcset="">&nbsp;</a>
-                    <a href=""> <img src="./Assets/Images/landing-page-img/vecyoutube.png" alt=""
-                            class="icon-img" srcset=""></a>
-
-
-                </div>
-                <div class="res-on-375 mx-auto  d-flex">
-
-                    <img src="./Assets/Images/profile-imges/job-search-company.png" alt="w8" class="logo-img">
-                    &nbsp; <h4 class="Logo-text">Medulla
-                        Effects</h4>
-                </div>
-                <div>
-                    <a href="">
-                        <img src="./Assets/Images/landing-page-img/Vectorphone.png" class="icon-img" alt=""
-                            srcset=""> &nbsp;
-                    </a>
-                    <a href="">
-                        <img src="../Assets/Images/landing-page-img/Vectorredemail.png" class="icon-img" alt=""
-                            srcset="">
-                    </a>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
     <!----- ---------2st--Navbar------------- -->
     <div class="container-fluid second-nav">
         <div class="container">
@@ -77,8 +44,8 @@
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure">
                     <div class="">
-                        <img src="/Assets/Images/landing-page-img/card-img-1.png" class="img-fluid img-siz-1" alt="no img"
-                            srcset="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-1.png"
+                            class="img-fluid img-siz-1" alt="no img" srcset="" />
                     </div>
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Company</h2>
@@ -86,7 +53,7 @@
                             Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
-                        <a href="../Company.html">
+                        <a href="{{ route('companay') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
                     </div>
                 </div>
@@ -94,8 +61,8 @@
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure-2nd-card">
                     <div class="">
-                        <img src="/Assets/Images/landing-page-img/card-img-3.png" class="img-fluid img-siz-2" alt=""
-                            srcset="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-3.png"
+                            class="img-fluid img-siz-2" alt="" srcset="" />
                     </div>
                     <div class="card-iner-body">
                         <h2 class="cards-headig-midle-card">Freelancer</h2>
@@ -103,7 +70,7 @@
                             Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
-                        <a href="../Freelancer.html">
+                        <a href="{{ route('freelancer') }}">
                             <button class="buttonunfill go-btn">Let’s Go</button></a>
                     </div>
                 </div>
@@ -112,8 +79,8 @@
             <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure">
                     <div class="">
-                        <img src="/Assets/Images/landing-page-img/card-img-2.png" class="img-fluid img-size" alt=""
-                            srcset="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-2.png"
+                            class="img-fluid img-size" alt="" srcset="" />
                     </div>
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Individuals</h2>
@@ -121,7 +88,7 @@
                             Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
-                        <a href="../Individual.html">
+                        <a href="{{ route('individual') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
                     </div>
                 </div>
@@ -147,14 +114,14 @@
                 <div class="row mt-4">
                     <div class="col-12  col-lg-6 col-md-6 ">
                         <div class="input-container ">
-                            <img src="./Assets/Images/landing-page-img/Vector.png" alt="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" alt="">
                             <input class="input-fields" type="text" placeholder="First Name" name="usrnm">
                         </div>
 
                     </div>
                     <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                         <div class="input-container">
-                            <img src="./Assets/Images/landing-page-img/Vector.png" alt="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" alt="">
                             <input class="input-fields" type="text" placeholder="Last Name" name="usrnm">
                         </div>
 
@@ -163,14 +130,16 @@
                 <div class="row mt-2">
                     <div class="col-12  col-lg-6 col-md-6">
                         <div class="input-container">
-                            <img src="./Assets/Images/landing-page-img/Vectoremailblack.png" alt="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectoremailblack.png"
+                                alt="">
                             <input class="input-fields" type="text" placeholder="Email ID" name="usrnm">
                         </div>
 
                     </div>
                     <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                         <div class="input-container">
-                            <img src="./Assets/Images/landing-page-img/Vectorphoneblack.png" alt="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorphoneblack.png"
+                                alt="">
                             <input class="input-fields" type="text" placeholder="Phone Number" name="usrnm">
                         </div>
 
@@ -187,12 +156,14 @@
             <div class=" col-lg-6 col-md-6 col-10 ps-lg-5 pt-lg-0 pt-5">
                 <div class="form-images">
 
-                    <img src="/Assets/Images/landing-page-img/womenimg.png" width="100%" alt="" />
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/womenimg.png" width="100%"
+                        alt="" />
 
                     <i class="fas fa-solid fa-play playbutton"></i>
 
                     <div>
-                        <img src="/Assets/Images/landing-page-img/frame.png" width="100%" alt="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/frame.png" width="100%"
+                            alt="" />
                     </div>
                 </div>
             </div>
@@ -203,7 +174,8 @@
         <div class="row justify-content-center p-lg-5 p-md-4 p-2 mt-lg-0 mt-md-1 mt-5 foter-row">
             <div class="col-lg-5 col-12 offset-lg-1 left mt-5 mb-4">
                 <div class="d-flex">
-                    <img src="./Assets/Images/profile-imges/job-search-company.png" alt="w8" class="logo-img">
+                    <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
+                        class="logo-img">
                     <h4 class="Logo-text">Medulla
                         Effects</h4>
                 </div>

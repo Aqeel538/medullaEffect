@@ -8,8 +8,8 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="../Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                            srcset="">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 
@@ -26,12 +26,12 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                         <i style="cursor:pointer;" class="ri-logout-circle-line"
@@ -74,8 +74,8 @@
                                 <div class="row d-flex align-content-center justify-content-start">
                                     <div class="col-lg-3 col-md-3 col-12">
                                         <div class="img-holder"> <img
-                                                src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
-                                                class="w-5" alt="w8"></div>
+                                                src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                class="w-75" alt="w8"></div>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-12 ">
                                         <h3 class="m-0 p-0 inbox-chat-heading">{!! $postedJob->title ?? '' !!}</h3>
@@ -115,7 +115,7 @@
                                         style="background: #FFFFFF;;border-radius: 20px;">
                                         <div class="row">
                                             <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/jobview-img.png"
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                                     class="w-5" alt="w8">
                                             </div>
                                             <div class="col-lg-9 col-md-9 col-sm-9 col-7">

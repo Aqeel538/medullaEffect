@@ -8,8 +8,8 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="../Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                            srcset="">
+                        <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 
@@ -26,13 +26,13 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
-                                alt="" srcset="">
+                            <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png"
+                                class="bells" alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
-                                alt="" srcset="">
+                            <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/landing-page-img/Vector.png"
+                                class="bell" alt="" srcset="">
                         </a>
                         <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                 onclick="event.preventDefault();
@@ -71,12 +71,13 @@
         <!-- <div class="container"> -->
         <div class="row justify-content-center filter-trd-nav-row">
             <div class="col-lg-9 col-md-12 row-bg-color">
-                <form action="{{ route('company_freelancer.search') }}" method="GET">
+                <form action="{{ route('company_individual.search') }}" method="GET">
                     @csrf
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png"
+                                    alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -90,8 +91,8 @@
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="{{ asset('user') }}/Assets/Images/profile-imges/loction.png" alt=""
-                                    srcset="" />
+                                <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/profile-imges/loction.png"
+                                    alt="" srcset="" />
 
                                 <div class="pos">
                                     <input type="search" name="searchLocation" class="width" placeholder="Location" />
@@ -105,9 +106,10 @@
                             <button type="button" class="non">Filter</button>
                         </div>
                     </div>
+                </form>
             </div>
             <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
-                <a href="{{ route('company.advanceSearchFilter') }}">
+                <a href="{{ route('company.individualAdvanceSearchFilter') }}">
                     <button type="button" class="display-btn">Filter</button>
                 </a>
             </div>
@@ -119,7 +121,7 @@
 
         <!-- ------------row--1---Tab------------- -->
         <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
-            @foreach ($allIndividuals as $individual)
+            @foreach ($individuals as $individual)
                 <div class="col-lg-3 col-md-6 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
                     <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
                         <div class="freelancer-page pt-3">
@@ -136,7 +138,12 @@
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
 
-                            <button class="buttonfill mt-4 mb-4">Contact</button>
+
+                            <a href="{{ route('company.show.chat', $individual->id) }}">
+                                <button class="buttonfill mt-4 mb-4">
+                                    Contact
+                                </button>
+                            </a>
                         </div>
 
                     </div>
@@ -155,38 +162,39 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
         // --------Tabes-----------
-        $(".tab-link").click(function() {
-            var tabID = $(this).attr("data-tab");
+        //     $(".tab-link").click(function() {
+        //         var tabID = $(this).attr("data-tab");
 
-            $(this).addClass("active").siblings().removeClass("active");
+        //         $(this).addClass("active").siblings().removeClass("active");
 
-            $("#tab-" + tabID)
-                .addClass("active")
-                .siblings()
-                .removeClass("active");
-        });
-        // -----------active----class--------
-        // Add active class to the current button (highlight it)
-        var header = document.getElementById("myDIV");
-        var btns = header.getElementsByClassName("mylist");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
+        //         $("#tab-" + tabID)
+        //             .addClass("active")
+        //             .siblings()
+        //             .removeClass("active");
+        //     });
+        //     // -----------active----class--------
+        //     // Add active class to the current button (highlight it)
+        //     var header = document.getElementById("myDIV");
+        //     var btns = header.getElementsByClassName("mylist");
+        //     for (var i = 0; i < btns.length; i++) {
+        //         btns[i].addEventListener("click", function() {
+        //             var current = document.getElementsByClassName("active");
+        //             current[0].className = current[0].className.replace(" active", "");
+        //             this.className += " active";
+        //         });
+        //     }
 
-        //mbil toggle
+        //     //mbil toggle
 
-        const mobile_nav = document.querySelector(".mobile-navbar-btn");
-        const nav_header = document.querySelector(".header");
+        //     const mobile_nav = document.querySelector(".mobile-navbar-btn");
+        //     const nav_header = document.querySelector(".header");
 
-        const toggleNavbar = () => {
-            // alert("Plz ");
-            nav_header.classList.toggle("active");
-        };
+        //     const toggleNavbar = () => {
+        //         // alert("Plz ");
+        //         nav_header.classList.toggle("active");
+        //     };
 
-        mobile_nav.addEventListener("click", () => toggleNavbar());
+        //     mobile_nav.addEventListener("click", () => toggleNavbar());
+        //
     </script>
 @endsection

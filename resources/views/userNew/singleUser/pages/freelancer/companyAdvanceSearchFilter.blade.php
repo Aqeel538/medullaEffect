@@ -9,25 +9,24 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 
-                        <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
-                        <li><a class="navbar-link  mylist active"
-                                href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
+                        <li><a class="navbar-link mylist active" href="{{ route('businesses.list') }}">Businesses</a></li>
+                        <li><a class="navbar-link  " href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
                         <li><a class="navbar-link" href="#">Settings</a></li>
 
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                     </div>
@@ -82,7 +81,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}Assets/Images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" required style="width: 100%">
                                     <option value="" disabled selected hidden>
@@ -119,7 +118,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/calendar-icon.png" alt="" srcset="">
+                                <img src="../assets/images/profile-imges/calendar-icon.png" alt="" srcset="">
                                 <select name="created_at" required style="width: 100%">
                                     <option value="" disabled selected hidden>Date Posted</option>
                                     <option>2023</option>
@@ -156,13 +155,13 @@
     <div class="container-fluid mt-5 p-lg-3 p-md-3 p-sm-1 p-1">
         <!-- ------------row--1---Tab------------- -->
         <div class="row text-center ">
-            @foreach ($freelancers as $freelancer)
+            @foreach ($companies as $company)
                 <div class="col-lg-3 col-md-3 col-12 crd-row-one mt-5">
-                    <a href="{{ route('freelancer.details', $freelancer->id) }}"
+                    <a href="{{ route('freelancer.details', $company->id) }}"
                         style=" text-decoration: none !important;color: #141313;">
                         <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5 ">
                             <div class="img-holders">
-                                <img src="{{ asset('user') }}/assets/Images/profile-imges/jobview-img.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png" alt=""
                                     srcset="" />
                             </div>
                             <div class="text-center">

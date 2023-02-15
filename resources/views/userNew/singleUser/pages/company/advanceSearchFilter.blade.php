@@ -8,8 +8,8 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="../Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                            srcset="">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 
@@ -18,19 +18,19 @@
                         <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
                         <li><a class="navbar-link" href="{{ route('company.allApplicants') }}">Applicants</a></li>
                         <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
-                        <li><a class="navbar-link" href="{{ route('company.freelancer') }}">Freelancers</a>
+                        <li><a class="navbar-link mylist active" href="{{ route('company.freelancer') }}">Freelancers</a>
                         </li>
                         <li><a class="navbar-link" href="#">Settings</a></li>
 
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                                 alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                                 alt="" srcset="">
                         </a>
                         <i style="cursor:pointer;" class="ri-logout-circle-line"
@@ -89,7 +89,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}Assets/Images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" required style="width: 100%">
                                     <option value="" disabled selected hidden>
@@ -126,12 +126,11 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/calendar-icon.png" alt="" srcset="">
-                                <select name="created_at" required style="width: 100%">
-                                    <option value="" disabled selected hidden>Date Posted</option>
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                </select>
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
+                                    srcset="">
+                                <input class="" type="date" value="{{ old('created_at') }}" name="created_at"
+                                    placeholder="created_at" />
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
@@ -141,7 +140,7 @@
                                     <option value="" disabled selected hidden>
                                         Salary Range
                                     </option>
-                                    <option>50k-1000k</option>
+                                    <option>50-100</option>
                                     <option>10000k-2000k</option>
                                 </select>
                             </div>

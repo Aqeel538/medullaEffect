@@ -7,7 +7,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -20,10 +20,10 @@
 
                     </ul>
                     <div>
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                             alt="" srcset="">
                         &nbsp;
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                             alt="" srcset="">
                         <i style="cursor:pointer;" class="ri-logout-circle-line"
                             onclick="event.preventDefault();
@@ -126,7 +126,7 @@
                         <div class="row mt-2">
                             <div class="col-12 ">
                                 <div class="inputfield-profile">
-                                    <img src="../Assets/Images/profile-imges/Color.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/Color.png" alt="" srcset="">
                                     <select name="job_type" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}</option>
@@ -142,7 +142,7 @@
 
                             <div class="col-12 mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="../Assets/Images/profile-imges/loction.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt="" srcset="">
                                     <input class="input-field-profile" type="text" name="located_in"
                                         value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                         placeholder="In which city are you located?" />
@@ -152,7 +152,7 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="../Assets/Images/profile-imges/work.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt="" srcset="">
                                     <select name="work_type" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}</option>
@@ -167,7 +167,7 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="../Assets/Images/profile-imges/industry.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png" alt="" srcset="">
                                     <input class="input-field-profile" type="text" name="industry_and_position"
                                         placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                                 </div>
@@ -176,7 +176,7 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="../Assets/Images/profile-imges/payrange.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png" alt="" srcset="">
                                     <select name="pay_range" style="width: 100%;">
                                         <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
                                         </option>
@@ -197,7 +197,7 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="../Assets/Images/profile-imges/state.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/state.png" alt="" srcset="">
                                     <input class="input-field-profile" type="text" name="nationality"
                                         placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                                 </div>

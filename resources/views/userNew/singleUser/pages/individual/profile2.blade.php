@@ -7,7 +7,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -21,10 +21,10 @@
 
                     </ul>
                     <div>
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vectorbell.png" class="bells"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
                             alt="" srcset="">
                         &nbsp;
-                        <img src="{{ asset('user') }}/Assets/Images/landing-page-img/Vector.png" class="bell"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
                             alt="" srcset="">
                     </div>
                 </nav>
@@ -42,7 +42,7 @@
             <div class="col-lg-3 mt-md-5 mb-lg-0 mb-sm-4 mt-lg-0 mb-xs-4   col-10 text-center">
                 <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
                     <div class="img-holder">
-                        <img src="{{ asset('user') }}/Assets/Images/profile-imges/user.png" alt="" srcset="">
+                        <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" alt="" srcset="">
                     </div>
                     <h6 class="justify-content-center pt-2 john-text">John Doe</h6>
                     <p class="john-para">123 Avenue Park City, Bhurban

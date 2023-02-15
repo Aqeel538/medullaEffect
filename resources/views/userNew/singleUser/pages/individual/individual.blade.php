@@ -24,13 +24,14 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <img src="../Assets/Images/profile-imges/companysignup.png" class="company_img" alt="w8">
+                    <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
+                        alt="w8">
                 </div>
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center colum_2nd">
                 <div class="d-flex justify-content-center">
-                    <img src="../Assets/Images/profile-imges/job-search-company.png" alt="w8">
+                    <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8">
                     <h3 class="Poppins">Medulla
                         Effects</h3>
                 </div>

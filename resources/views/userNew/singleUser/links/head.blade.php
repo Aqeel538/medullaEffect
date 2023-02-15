@@ -26,4 +26,4 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
-<link rel="stylesheet" href="{{ asset('user') }}/assets/styles/styleNew.css" />
+<link rel="stylesheet" href="{{ asset('user') }}/assets/styles/style.css" />

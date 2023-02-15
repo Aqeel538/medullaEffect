@@ -6,8 +6,8 @@
             <div class="headers">
                 <nav class="navbar-questionare">
                     <div class="">
-                        <img src="../Assets/Images/landing-page-img/Vectorsearch.png" class="search-icon-index" alt=""
-                            srcset="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                            class="search-icon-index" alt="" srcset="" />
                     </div>
                     <ul class="navbar-lists" id="myDIV">
                         <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
@@ -16,11 +16,11 @@
                         <li><a class="navbar-link" href="#">Settings</a></li>
                     </ul>
                     <div>
-                        <img src="../Assets/Images/landing-page-img/Vectorbell.png" class="bells" alt=""
-                            srcset="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
+                            alt="" srcset="" />
                         &nbsp;
-                        <img src="../Assets/Images/landing-page-img/Vector.png" class="bell" alt=""
-                            srcset="" />
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
+                            alt="" srcset="" />
                     </div>
                 </nav>
 
@@ -41,7 +41,8 @@
         <div class="row crd-row-one">
             <div class="col-12 arrow ">
                 <a href="../Tagline.html">
-                    <img src="../Assets/Images/landing-page-img/Vectorarrow.png" alt="" srcset=""></a>
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
+                        srcset=""></a>
             </div>
             <br />
             <br />

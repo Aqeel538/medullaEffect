@@ -50,7 +50,7 @@ class SingleUserController extends Controller
     public function index()
     {
         $title = "Home";
-        return view('user.singleUser.pages.index', compact('title'));
+        return view('userNew.singleUser.pages.index', compact('title'));
     }
 
     public function profile()
