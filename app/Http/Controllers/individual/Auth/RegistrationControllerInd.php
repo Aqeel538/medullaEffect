@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Resume;
 use App\Models\User;
 use App\Models\VerifyToken;
+use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -270,9 +271,9 @@ class RegistrationControllerInd extends Controller
         //     "e" => "required",
         //     "r" => "required",
         // ]);
-        $token = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
-        dd($token);
-        $token = VerifyToken::where('token', $request->token)->first();
+        $requestToken = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
+        $token = VerifyToken::where('token', $requestToken)->first();
+        // dd($token);
         if (isset($token) && !empty($token)) {
             User::where('email', $token->email)->update([
                 'is_verified' => 1
@@ -330,5 +331,19 @@ class RegistrationControllerInd extends Controller
 
         //     return ['status' => true, 'message' => 'Invalid OTP'];
         // }
+    }
+
+    public function updatePassword(Request $request)
+    {
+        // dd($request);
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+
+        $passwordChanged = User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+
+        return redirect()->back()->with('success', 'Password updated successfully.');
     }
 }

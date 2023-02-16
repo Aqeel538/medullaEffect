@@ -20,6 +20,7 @@ class IndividualController extends Controller
         $title = "Profile";
 
         $user = Auth::user();
+        $jobsApplied = Application::where('applicant_id', $user)->count();
         return view('userNew.singleUser.pages.individual.profile', get_defined_vars());
     }
 

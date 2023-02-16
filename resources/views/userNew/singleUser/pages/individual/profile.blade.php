@@ -126,7 +126,8 @@
                         <div class="row mt-2">
                             <div class="col-12 ">
                                 <div class="inputfield-profile">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/Color.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/Color.png" alt=""
+                                        srcset="">
                                     <select name="job_type" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}</option>
@@ -142,7 +143,8 @@
 
                             <div class="col-12 mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
+                                        srcset="">
                                     <input class="input-field-profile" type="text" name="located_in"
                                         value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                         placeholder="In which city are you located?" />
@@ -152,7 +154,8 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt=""
+                                        srcset="">
                                     <select name="work_type" style="width: 100%;">
 
                                         <option value="" disabled selected hidden>{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}</option>
@@ -167,7 +170,8 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png"
+                                        alt="" srcset="">
                                     <input class="input-field-profile" type="text" name="industry_and_position"
                                         placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                                 </div>
@@ -176,7 +180,8 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
+                                        alt="" srcset="">
                                     <select name="pay_range" style="width: 100%;">
                                         <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
                                         </option>
@@ -197,7 +202,8 @@
                         <div class="row">
                             <div class="col-12  mt-2">
                                 <div class="inputfield-profile">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/state.png" alt="" srcset="">
+                                    <img src="{{ asset('user') }}/assets/images/profile-imges/state.png" alt=""
+                                        srcset="">
                                     <input class="input-field-profile" type="text" name="nationality"
                                         placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                                 </div>
@@ -225,7 +231,7 @@
                 <div class="">
                     <div class="mt-5 pt-2 pb-2 pr-3 pl-3" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                         <p class="aplied-jobs-para pt-4 pb-2">
-                            Jobs Applied<span style="color: #9A1029;">&nbsp;12</span> <br> <br>
+                            Jobs Applied<span style="color: #9A1029;">&nbsp;{{ $jobsApplied }}</span> <br> <br>
                             Resumes <br> Downloaded by Company <span style="color: #9A1029">10</span> <br><br>
                             Profile Views <span style="color: #9A1029;
                               ;">20</span>

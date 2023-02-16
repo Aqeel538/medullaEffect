@@ -50,132 +50,79 @@
     </div>
 
     <!-- 2nd nav end -->
-
-    <div class="container mb-5 mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
-                <div class="row ">
-                    <div class="col-12">
-                        <h1 class="headings">Applicant Resume</h1>
-                    </div>
-
+    <div class="container mt-4">
+        <div class="row crd-row-one">
+            <div class="col-12 arrow ">
+                <a href="../Tagline.html">
+                    <img src="../Assets/Images/landing-page-img/Vectorarrow.png" alt="" srcset=""></a>
+            </div>
+            <br />
+            <br />
+            <div class="col-lg-12 col-12">
+                <div class="col-12" style="padding: 0;">
+                    <h2 class="job-headings"> {!! $applicant->users->name ?? '' !!}</h2>
+                    <p class="job-view-para-2">{!! $applicant->users->email ?? '' !!}</p>
                 </div>
-                <div class="row">
-                    <div class="col-10 pt-2 pb-3 offset-1">
-                        <p class="descriptions">Post job Hire people through Medulla...nis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
-                    </div>
-                </div>
+                <div class="col-lg-12 col-12 ps-0">
+                    <div class="tabsrow d-flex justify-content-between">
+                        <div class="allitems d-flex">
+                            <div class="icon-text">
+                                <p class="job-view-para">
+                                    <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp; &nbsp;Applied
+                                        {{ \Carbon\Carbon::parse($applicant->created_at)->diffForHumans() }}</span>
+                                </p>
+                            </div> &nbsp; &nbsp; &nbsp;
 
-                <div class="row mt-4">
-                    <div class="col-12  col-lg-6 col-md-6">
-                        <div class="input-container">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" alt=""
-                                srcset="">
-                            <input value="{!! $applicantResume->name ?? '' !!}" class="input-fields" type="text"
-                                placeholder="Full Name" name="name">
+
+
                         </div>
 
                     </div>
-                    <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                        <div class="input-container">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vectoremailblack.png"
-                                alt="" srcset="">
-                            <input value="{!! $applicantResume->email ?? '' !!}" class="input-fields" type="email"
-                                placeholder="Email ID" name="email">
-                        </div>
 
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12  col-lg-6 col-md-6">
-                        <div class="input-container">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorphoneblack.png"
-                                alt="" srcset="">
-                            <input value="{!! $applicantResume->phone ?? '' !!}" class="input-fields" type="text"
-                                placeholder="Phone Number" name="phone">
-                        </div>
-
-                    </div>
-                    <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                        <div class="inputfield">
-                            <i class="fa-regular fa-user"></i>
-                            <input value="{!! $applicantResume->gender ?? '' !!}" class="input-fields" type="text"
-                                placeholder="Phone Number"name="gender">
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-12 form-group mt-3">
-                        <div class="inputfield">
-                            <i class="fa-regular fa-user"></i>
-
-                            <input value="{!! $applicantResume->job_type ?? '' !!}" class="input-fields" type="text"
-                                placeholder="Job type">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-12 form-group mt-3">
-                        <div class="inputfield">
-                            <i class="fa-regular fa-user"></i>
-                            <input class="input-field" type="text" value="{!! $applicantResume->located_in ?? '' !!}"
-                                placeholder="In which city are you located?" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-12 form-group">
-                        <div class="inputfield mt-3">
-                            <i class="fa-regular fa-user"></i>
-
-                            <input value="{!! $applicantResume->work_type ?? '' !!}" class="input-fields" type="text"
-                                placeholder="Phone Number" name="phone">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-12  mt-3">
-                        <div class="inputfield">
-                            <i class="fa-regular fa-user"></i>
-                            <input class="input-field" type="text" name="industry_and_position"
-                                placeholder="{!! $applicantResume->industry_and_position ?? 'State your desired industry and position' !!}" />
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-12 form-group mt-3">
-                        <div class="inputfield">
-                            <i class="fa-regular fa-user"></i>
-
-                            <input value="{!! $applicantResume->phone ?? '' !!}" class="input-fields" type="text"
-                                placeholder="Phone Number" name="phone">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-12 form-group mt-3">
-                        <div class="inputfield">
-                            <i class="fa-regular fa-user"></i>
-                            <input class="input-field" type="text" name="nationality"
-                                placeholder="{!! $applicantResume->nationality ?? 'State your nationality' !!}" />
-                        </div>
-                    </div>
                 </div>
 
 
-                <button type="submit" style="cursor: pointer;" class="buttonfill-update mt-4">Download resume</button>
 
+            </div>
+            <!-- right side of view job page -->
 
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-lg-7 col-md-7 col-12">
+                <div class="questionare-job-respond">
+                    <p>{!! $applicant->users->description ?? 'There is no description provided by the user yet!!!' !!}</p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-12 ">
+                <div class="questionare-job-respond">
+                    <h4 class="mb-4 resume-heading">Resume</h4>
+                    <div class="">
+                        <h6>Are you interested in full time or part time work?</h6>
+                        <p>{!! $applicant->users->work_type ?? '' !!}</p>
+                    </div>
+                    <div class="">
+                        <h6>State your desired pay range?</h6>
+                        <p>{!! $applicant->users->pay_range ?? '' !!}</p>
+                    </div>
+                    <div class="">
+                        <h6>State your nationality?</h6>
+                        <p>{!! $applicant->users->nationality ?? '' !!}</p>
+                    </div>
+                    <div class="">
+                        <h6>Where are you located??</h5>
+                            <p>{!! $applicant->users->located_in ?? '' !!}</p>
+                    </div>
+                    <div class="">
+                        <h6>State your desired industry and position?</h5>
+                            <p>{!! $applicant->users->industry ?? '' !!}</p>
+                    </div>
+                    <div class="">
+                        <h6>Are you interested to work In-person, remote or hybrid?</h5>
+                            <p>{!! $applicant->users->job_type ?? '' !!}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

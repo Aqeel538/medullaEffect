@@ -179,6 +179,11 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('company/messages/{id}', [ChatController::class, 'company_show'])->name('company.show.chat');
     Route::post('company/storeConversations',  [ChatController::class, 'company_store'])->name('company.storeConversations');
     Route::get('company/getConversations', [ChatController::class, 'company_getConversations'])->name('company.getConversations');
+
+    // SETTING PAGE
+    Route::get('company/setting', [CompanyController::class, 'comapny_setting'])->name('comapny.setting');
+
+    Route::post('change-password', [RegistrationControllerInd::class, 'updatePassword'])->name('change.password');
 });
 
 

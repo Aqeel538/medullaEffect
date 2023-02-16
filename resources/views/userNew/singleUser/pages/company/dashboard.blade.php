@@ -18,7 +18,7 @@
                         <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
                         <li><a class="navbar-link  " href="{{ route('company.freelancer') }}">Freelancers</a>
                         </li>
-                        <li><a class="navbar-link" href="#">Settings</a></li>
+                        <li><a class="navbar-link" href="{{ route('comapny.setting') }}">Settings</a></li>
 
                     </ul>
                     <div>

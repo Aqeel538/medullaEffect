@@ -313,7 +313,8 @@ class CompanyController extends Controller
 
         $title = 'Applicant Resume';
         $applicantResume = User::where('id', $id)->first();
-        // dd($applicantResume);
+        $applicant = Application::where('applicant_id', $id)->with('users')->first();
+        // dd($applicant);
         return view('userNew.singleUser.pages.company.applicantResume', get_defined_vars());
     }
 
@@ -323,5 +324,12 @@ class CompanyController extends Controller
         $title = "company Chat Bot";
 
         return view('userNew.singleUser.pages.company.chatbot', compact('title'));
+    }
+
+    public function comapny_setting()
+    {
+        $title = "Setting";
+        $user = Auth::user();
+        return view('userNew.singleUser.pages.company.setting', get_defined_vars());
     }
 }
