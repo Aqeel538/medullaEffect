@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LeadForm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 class SingleUserController extends Controller
@@ -51,6 +53,33 @@ class SingleUserController extends Controller
     {
         $title = "Home";
         return view('userNew.singleUser.pages.index', compact('title'));
+    }
+
+    public function submitLeadForm(Request $request)
+    {
+        
+        $validator = Validator::make($request->all(), [
+            "email" => "required",
+            "fname" => "required",
+            "lname" => "required",
+            "phone" => "required",
+        ]);
+        if (!$validator->passes()) {
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()], 200);
+        } else {
+            $user = new LeadForm();
+            $user->name = $request->name.' '.$request->lname;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $data = $user->save();
+            if($data){
+                return response()->json(['status' => 1, 'message' => "feedback succesfully submit"], 200);
+            }else{
+                return response()->json(['status' => 2, 'message' => "feedback Not succesfully submit"], 200);
+            }
+            
+
+        }
     }
 
     public function profile()
