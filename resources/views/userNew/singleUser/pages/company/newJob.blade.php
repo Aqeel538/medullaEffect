@@ -107,9 +107,39 @@
 
                     " />
                         </div>
+                        <div class="col-lg-6 col-md-6 col-12 mt-3">
+                            <select name="job_type" class="form-select form-select-sm"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
+                                aria-label=".form-select-sm example">
+                                <option value="{!! $obj->job_type ?? '' !!}" disabled selected hidden>{!! $obj->job_type ?? 'Job Type' !!}
+                                </option>
+                                <option value="In-person">In-person</option>
+                                <option value="Remote">Remote</option>
+                                <option value="Hybird">Hybird</option>
+                            </select>
+
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 mt-3">
+                            <select name="work_type" class="form-select form-select-sm"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
+                                aria-label=".form-select-sm example">
+                                <option value="{!! $obj->work_type ?? '' !!}" disabled selected hidden>{!! $obj->work_type ?? 'Work Type' !!}
+                                </option>
+                                <option value="Full time">Full time</option>
+                                <option value="Half time">Half time</option>
+                            </select>
+
+
+                        </div>
+                        <div class="col-12 mb-3 mt-3">
+                            <input type="text" class="form-control" name="hiring_type"
+                                value="<?= isset($obj->hiring_type) && !empty($obj->hiring_type) ? $obj->hiring_type : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
+                                placeholder="Hiring" style="background-color: #f4f4f4; border: none; padding: 12px" />
+                        </div>
                         <div class="form-group mt-3">
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
-                                value="<?= isset($obj->title) && !empty($obj->title) ? $obj->title : '' ?>" rows="6"
+                                value="<?= isset($obj->description) && !empty($obj->description) ? $obj->description : '' ?>" rows="6"
                                 style="background-color: #f4f4f4; border: none"></textarea>
                         </div>
                         <div class="mt-3 text-center">

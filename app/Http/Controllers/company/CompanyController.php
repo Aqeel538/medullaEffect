@@ -74,7 +74,9 @@ class CompanyController extends Controller
                 'user_id' => $user_id,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
-                'rate' => $req->rate,
+                'job_type' => $req->job_type,
+                'work_type' => $req->work_type,
+                'hiring_type' => $req->hiring_type,
                 'description' => $req->description,
 
             ]);
@@ -85,6 +87,9 @@ class CompanyController extends Controller
                 'title' => $req->title,
                 'category_id' => $req->category_id,
                 'rate' => $req->rate,
+                'job_type' => $req->job_type,
+                'work_type' => $req->work_type,
+                'hiring_type' => $req->hiring_type,
                 'description' => $req->description,
             ]);
         }
