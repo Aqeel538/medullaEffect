@@ -223,9 +223,19 @@
                     <h6 class="john-text justify-content-center">Resume</h6>
                     <p class="john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem accn.
                     </p>
-
+{{-- 
                     <label for="files" class="buttonunfillborder">Upload</label>
-                    <input id="files" style="visibility:hidden;" type="file">
+                    <input id="files" style="visibility:hidden;" type="file"> --}}
+
+
+
+
+                    <form id="resumeUpload">
+                        <label for="resume" class="buttonunfillborder">Upload</label>
+                        <input type='file' name="resume" id="resume" style="visibility:hidden;">
+                     </form>
+
+
                 </div>
                 <!-- 2nd col -->
                 <div class="">

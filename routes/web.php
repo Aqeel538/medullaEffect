@@ -110,6 +110,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/questinare', [SingleUserController::class, 'questinare'])->name('questinare');
     Route::post('/submit/questionair', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
     Route::post('individual/update/profileImage', [RegistrationControllerInd::class, 'edit_image']);
+    Route::post('individual/update/resume', [RegistrationControllerInd::class, 'upload_resume']);
 });
 
 // Individual Auth routes

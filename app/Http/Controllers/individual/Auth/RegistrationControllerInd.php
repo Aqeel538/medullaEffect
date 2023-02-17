@@ -188,6 +188,27 @@ class RegistrationControllerInd extends Controller
     // update resume
 
 
+    public function upload_resume(Request $request){
+        $id = Auth()->user()->id;
+        if ($id) {
+            if ($request->file('resume')) {
+                $imageName = time() . rand(9, 999) . '.' . $request->resume->extension();
+                $request->resume->move(public_path('uploads/user/resumes'), $imageName);
+                User::whereId($id)->update([
+                    'resume' => $imageName,
+                ]);
+                return response()->json([
+                    'status' => 200,
+                    'image' => $request->file(),
+                ]);
+            } else {
+                return response()->json([
+                    "status" => 404,
+                    'message' => 'resume not upload',
+                ]);
+            }
+        }
+    }
 
     // FORGOT PASSWORD
     public function forgot_password()

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'phone', 'address', 'image', 'status', 'company_name', 'website', 'industry', 'contact', 'gender', 'job_type', 'located_in', 'work_type', 'industry_and_position', 'pay_range', 'nationality', 'questionaire_submit'
+        'name', 'email', 'password', 'role', 'phone', 'address', 'image', 'status', 'company_name', 'website', 'industry', 'contact', 'gender', 'job_type', 'located_in', 'work_type', 'industry_and_position', 'pay_range', 'nationality', 'questionaire_submit', 'resume',
     ];
 
     /**
@@ -48,6 +48,11 @@ class User extends Authenticatable
     public function services()
     {
         return $this->hasMany(Service::class);
+    }
+
+    public function resumes()
+    {
+        return $this->hasMany(Resume::class);
     }
 
     public function jobs()
