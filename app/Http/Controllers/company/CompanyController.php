@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CompanyController extends Controller
 {
@@ -331,5 +332,27 @@ class CompanyController extends Controller
         $title = "Setting";
         $user = Auth::user();
         return view('userNew.singleUser.pages.company.setting', get_defined_vars());
+    }
+
+    public function userChangeStatus(Request $request)
+    {
+
+        Log::info($request->all());
+        $user = User::find($request->user_id);
+        $user->is_active = $request->status;
+        $user->save();
+
+        return response()->json(['success' => 'Status change successfully.']);
+    }
+
+    public function deactivate($id)
+    {
+
+        $user = User::find($id);
+        $user->deactivate = 1;
+        $user->save();
+
+        return back();
+        // return response()->json(['success' => 'Status change successfully.']);
     }
 }

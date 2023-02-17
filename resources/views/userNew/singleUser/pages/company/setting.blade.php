@@ -1,18 +1,5 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-    {{-- TOASTER LINKS HERE --}}
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
-alpha/css/bootstrap.css" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-    {{-- TOASTER LINKS END --}}
-
     <div class="container-fluid second-nav">
         <div class="container">
             <div class="headers">
@@ -24,19 +11,33 @@ alpha/css/bootstrap.css" rel="stylesheet">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
 
-                        <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
-                        <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
+                        <li><a class="navbar-link" href="{{ route('company.dashboard') }}">Dashboard</a>
                         </li>
-                        <li><a class="navbar-link" href="#">Saved Jobs</a></li>
-                        <li><a class="navbar-link" href="#">Resume</a></li>
+                        <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
+                        <li><a class="navbar-link" href="{{ route('company.allApplicants') }}">Applicants</a></li>
+                        <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
+                        <li><a class="navbar-link  " href="{{ route('company.freelancer') }}">Freelancers</a>
+                        </li>
+                        <li><a class="navbar-link mylist active" href="{{ route('comapny.setting') }}">Settings</a></li>
 
                     </ul>
                     <div>
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                            alt="" srcset="">
+                        <a class="navbar-link" href="{{ route('see.notifications') }}">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
+                                alt="" srcset="">
+                        </a>
                         &nbsp;
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                            alt="" srcset="">
+                        <a class="navbar-link" href="{{ route('company.jobPost') }}">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
+                                alt="" srcset="">
+                        </a>
+                        <i style="cursor:pointer;" class="ri-logout-circle-line"
+                            onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+                        </i>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </nav>
 
@@ -275,12 +276,21 @@ alpha/css/bootstrap.css" rel="stylesheet">
                         <div class="activestatus"></div>
                         <div>
                             <label type="button" class="switch mt-3">
-                                <input type="checkbox" onchange="myFunction()">
+                                <input type="checkbox" data-id="{{ $user->id }}" class="toggle-class"
+                                    type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
+                                    data-on="Active" data-off="InActive" {{ $user->is_active ? 'checked' : '' }}>
                                 <span class="slider round"></span>
                             </label>
-                            <div class="" id="activeStatusContent" style="display: none;">
-                                <p class="mt-3 text-success"><b> You are active now!</b></p>
-                            </div>
+                            @if ($user->is_active == 1)
+                                <div class="" id="activeStatusContent" style="display: none;">
+
+                                    <p class="mt-3 text-success"><b> You are active now!</b></p>
+
+
+                                </div>
+                            @else
+                                <div class="activestatus"></div>
+                            @endif
                         </div>
 
 
@@ -316,8 +326,9 @@ alpha/css/bootstrap.css" rel="stylesheet">
                                         take a break you can delete it. <b>Thanks.!</b>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="deletebtn" data-dismiss="modal"><i
-                                                class="fa-solid fa-trash"></i> Deactivate</button>
+                                        <a href="{{ route('deactivate', $user->id) }}"><button type="button"
+                                                class="deletebtn"><i class="fa-solid fa-trash"></i>
+                                                Deactivate</button></a>
 
                                     </div>
                                 </div>
@@ -330,37 +341,4 @@ alpha/css/bootstrap.css" rel="stylesheet">
             </div>
         </div>
     </div>
-    <script>
-        @if (Session::has('message'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.success("{{ session('message') }}");
-        @endif
-
-        @if (Session::has('error'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('error') }}");
-        @endif
-
-        @if (Session::has('info'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.info("{{ session('info') }}");
-        @endif
-
-        @if (Session::has('warning'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.warning("{{ session('warning') }}");
-        @endif
-    </script>
 @endsection
