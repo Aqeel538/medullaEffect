@@ -22,4 +22,8 @@ class Job extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+    public function applied_jobs()
+    {
+        return $this->hasMany(Application::class, 'job_id', 'id');
+    }
 }

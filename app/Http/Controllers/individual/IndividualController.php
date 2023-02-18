@@ -26,15 +26,26 @@ class IndividualController extends Controller
 
     public function individual_jobs()
     {
+        // public function individual_jobs($industry = null , $localtion = null)
         $title = 'All Job';
         $user_id = auth()->user()->id;
-        $allJobs = User::where('role', 'company')->with('jobs')->get('id');
+        // $allJobs = User::where('role', 'company')->with('jobs')->get('id');
+        $allJobs = Job::with('users', 'applied_jobs')->get();
+        // if($industry != null){
+        //     $allJobs->where()
+        // }
+        // if($localtion != null){
+        //     $allJobs->where()
+        // }
+        // dd($allJobs[0]->applied_jobs);
+
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
         // $industryOption = $freelancers;
         $industryOption = Job::with('users')->get();
 
         $savedJobs = SaveForLater::where('user_id', $user_id)->with('savedJobs')->get();
-        // dd($savedJobs);
+        $applied = Application::where('applicant_id', $user_id)->get();
+        // dd($applied[0]->job_id);
         return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
     }
     public function individual_jobs_search(Request $request)
@@ -138,15 +149,18 @@ class IndividualController extends Controller
     public function individual_apply_now($id)
     {
         $applicant_id = auth()->user()->id;
-        if ($checkService = Application::where('job_id', $id)->first()) {
-            return redirect()->back()->with('message', 'Updated');
-        }
-        $applyForJob = new Application();
-        $applyForJob->applicant_id = $applicant_id;
-        $applyForJob->job_id = $id;
-        $applyForJob->save();
+        $checkService = Application::where('job_id', $id)->where('applicant_id', $applicant_id)->first();
+        if ($checkService) {
 
-        return back();
+            return redirect()->back()->with('message', 'Updated');
+        } else {
+
+            $applyForJob = new Application();
+            $applyForJob->applicant_id = $applicant_id;
+            $applyForJob->job_id = $id;
+            $applyForJob->save();
+            return back();
+        }
     }
 
     public function individual_saveForLater($id)

@@ -130,44 +130,57 @@
                     {{-- @if ($matchSearch == 1)
                         <p>{{ $message }}</p>
                     @else --}}
-                    @foreach ($allJobs as $allJob)
-                        @foreach ($allJob->jobs as $getjobs)
-                            <div class="col-lg-4 col-md-4 col-12 mb-lg-0 mb-md-0 mb-3">
-                                <a href="{{ route('individual.jodDetails', $getjobs->id) }}">
-                                    <div class="p-3 mb-3" style="background: #f9f9f9; border-radius: 20px">
-                                        <div class="row">
-                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                                    class="w-5" alt="w8" />
-                                            </div>
-                                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                                <p class="single-job-heading" style="margin: 0; padding: 0 35px">
-                                                    <b> {!! $getjobs->title ?? '' !!}</b>
-                                                </p>
-                                                <p class="job-posted" style="margin: 0; padding: 0 35px">
-                                                    Most Popular
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                                <i class="fas-elip fa-solid fa-ellipsis"></i>
-                                            </div>
+                    @foreach ($allJobs as $getjobs)
+                        {{-- @foreach ($allJob->jobs as $getjobs) --}}
+                        <div class="col-lg-4 col-md-4 col-12 mb-lg-0 mb-md-0 mb-3">
+                            <a href="{{ route('individual.jodDetails', $getjobs->id) }}">
+                                <div class="p-3 mb-3" style="background: #f9f9f9; border-radius: 20px">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8" />
                                         </div>
-                                        <p class="abutnexa-text pt-4 pb-3"
-                                            style="height: 70px!important;
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                            <p class="single-job-heading" style="margin: 0; padding: 0 35px">
+                                                <b> {!! $getjobs->title ?? '' !!}</b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0; padding: 0 35px">
+                                                Most Popular
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                            <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                        </div>
+                                    </div>
+                                    <p class="abutnexa-text pt-4 pb-3"
+                                        style="height: 70px!important;
                                         overflow: hidden;">
-                                            {!! $getjobs->description ?? '' !!}
-                                        </p>
-                                        <div class="jobviewbtns mt-1 mb-1">
+                                        {!! $getjobs->description ?? '' !!}
+                                    </p>
+                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <?php
+                                        if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {
+                                            $check = $getjobs->applied_jobs->where('applicant_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonfill-apply">Applied</button>
+                                            </a>
+                                        @else
                                             <a href="{{ route('individual.apply.now', $getjobs->id) }}">
                                                 <button class="buttonfill-apply">Apply Now</button>
                                             </a>
-                                            <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
-                                                    class="buttonunfill-save">Save for Later</button></a>
-                                        </div>
+                                        @endif
+                                        <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
+                                                class="buttonunfill-save">Save for Later</button></a>
                                     </div>
-                                </a>
-                            </div>
-                        @endforeach
+                                </div>
+                            </a>
+                        </div>
+                        {{-- @endforeach --}}
                     @endforeach
                     {{-- @endif --}}
                 </div>
