@@ -51,11 +51,17 @@ class IndividualController extends Controller
 
                 return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
             } else {
-                $allJobs = User::where('role', 'freelancer')->where('located_in', $request->searchLocation)->with('jobs')->get('id');
+                $allJobs = User::where('role', 'company')->where('located_in', $request->searchLocation)->with('jobs')->get('id');
 
                 return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
             }
         }
+        // else {
+        //     $message = 'Search not found!';
+        //     $matchSearch = 1;
+        //     return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
+        // }
+
         if ($request->industry) {
             $allJobs = User::where('role', 'company')->where('industry', $request->industry)->with('jobs')->get('id');
 

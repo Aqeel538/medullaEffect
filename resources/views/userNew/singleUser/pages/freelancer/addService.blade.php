@@ -68,6 +68,11 @@
                             <input type="text" name="title" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="Service Name"
                                 style="background-color: #f4f4f4; border: none; padding: 12px" />
+                            <div class="text-danger d-flex">
+                                @error('title')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12">
@@ -81,9 +86,15 @@
                                     </option>
                                 @endforeach
                             </select>
+                            <div class="text-danger d-flex">
+                                @error('category_id')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
+
                         <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-3">
-                            <input class="rate-field form-control" type="text" name="rate" placeholder="Rate"
+                            <input class="rate-field form-control" type="number" name="rate" placeholder="Rate"
                                 style="
                         border: none;
                         background-color: #f4f4f4;
@@ -91,11 +102,23 @@
                         padding: 14px 10px;
 
                       " />
+                            <div class="text-danger d-flex">
+                                @error('rate')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
+
                         <div class="form-group mt-3">
                             <textarea class="form-control" name="description" id="exampleFormControlTextarea1" placeholder="Description"
                                 rows="6" style="background-color: #f4f4f4; border: none"></textarea>
+                            <div class="text-danger d-flex">
+                                @error('description')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
+
                         <div class="mt-3 text-center">
                             <button type="submit" class="buttonfilled">Create</button>
                         </div>

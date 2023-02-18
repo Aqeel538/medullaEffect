@@ -41,47 +41,69 @@
                         natus error sit
                         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                 </div>
-                <form>
+                <form action="{{ route('company.create') }}" method="POST" class="needs-validation" novalidate="">
+                    @csrf
+                    <input required type="hidden" name="check" value="1" />
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+                            <div class="input-group">
                                 <span class="input-group-text border border-0 phara_16"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control padd_12_input ps-0 border border-0"
+                                <input required type="text" name="name"
+                                    class="form-control padd_12_input ps-0 border border-0"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Full Name">
                             </div>
+                            <div class="text-danger d-flex">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+                            <div class="input-group">
                                 <span class="input-group-text border border-0 phara_16"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-envelope"></i></span>
-                                <input type="text" class="form-control padd_12_input ps-0 border border-0"
+                                <input required type="email" name="email"
+                                    class="form-control padd_12_input ps-0 border border-0"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Email ID">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
 
                     </div>
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+                            <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-solid fa-phone"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                    style="background-color: rgba(244, 244, 244, 1);">
+                                    <i class="ri-lock-unlock-line"></i>
+                                </span>
+                                <input type="password" name="password"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Phone Number">
+                                    placeholder="Enter Password">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+                            <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-envelope"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                        class="ri-map-pin-line"></i></span>
+                                <input required type="text" name="address"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Address">
                             </div>
@@ -90,21 +112,22 @@
                     </div>
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+                            <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                        class="ri-global-line"></i></span>
+                                <input required type="text" name="company_name"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Company Name">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+                            <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                    style="background-color: rgba(244, 244, 244, 1);"><i class="ri-earth-line"></i></span>
+                                <input required type="text" name="website"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Website (optional)">
                             </div>
@@ -112,12 +135,24 @@
 
                     </div>
                     <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12 dropdown">
-                            <div class="input-group mb-2">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                        class="fa-solid fa-phone"></i></span>
+                                <input required type="number" name="phone"
+                                    class="form-control ps-0 border border-0 padd_12_input"
+                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
+                                    placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 dropdown">
+                            <div class="input-group mt-3">
+                                <span class="input-group-text phara_16 border border-0"
+                                    style="background-color: rgba(244, 244, 244, 1);"><i
+                                        class="ri-service-line"></i></span>
+                                <input required type="text" name="industry"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Industry">
                                 <button type="button" class=" dropdown-toggle drop_btn border border-0"
@@ -132,12 +167,17 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mb-2">
+
+                    </div>
+
+                    <div class="row justify-content-center Poppins">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="input-group mt-3">
                                 <span class="input-group-text phara_16 border border-0"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                <input required type="text" name="contact"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="background-color: rgba(244, 244, 244, 1); border-left: none;"
                                     placeholder="Source of Contact">
                                 <button type="button" class=" dropdown-toggle drop_btn border border-0"
@@ -152,14 +192,15 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                     <div class="mt-3">
+
                         <button type="submit" class="buttonfilled">Register</button>
-                    </div>
-                    <div class="pt-3">
-                        <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span
-                                class="log_company"><a href="/login">Log In</a></span></p>
+
+                        <div class="pt-3">
+                            <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span
+                                    class="log_company"><a href="/login">Log In</a></span></p>
+                        </div>
                     </div>
 
                 </form>

@@ -56,6 +56,7 @@ class RegistrationControllerInd extends Controller
      */
     public function create(Request $data)
     {
+        // dd($data);
         $validate = $this->validate($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',

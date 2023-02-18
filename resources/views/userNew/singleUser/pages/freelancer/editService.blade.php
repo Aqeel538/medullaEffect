@@ -81,7 +81,7 @@
                       border: none;
                       background-color: #f4f4f4;
                     ">
-                                    <option value="{!! $service->Categories->id ?? '' !!}" disabled selected hidden>{!! $service->Categories->category ?? '' !!}
+                                    <option value="{!! $service->category_id ?? '' !!}">{!! $service->Categories->category ?? '' !!}
                                     </option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">
@@ -93,7 +93,7 @@
                             <div></div>
                         </div>
                         <div class="col-6">
-                            <input value="{!! $service->rate ?? '' !!}" class="rate-field form-control" type="text"
+                            <input value="{!! $service->rate ?? '' !!}" class="rate-field form-control" type="number"
                                 placeholder="Rate" name="rate"
                                 style="
                     border: none;

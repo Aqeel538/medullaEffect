@@ -41,16 +41,23 @@
                         natus error sit
                         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                 </div>
-                <form>
+                <form method="POST" action="{{ route('individual_register') }}">
+                    @csrf
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group mb-2">
                                 <span class="input-group-text border border-0 phara_16"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control padd_12_input ps-0 border border-0"
+                                <input name="name" type="text" class="form-control padd_12_input ps-0 border border-0"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Full Name">
+                                    placeholder="Full Name" required>
+
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
@@ -58,9 +65,14 @@
                                 <span class="input-group-text border border-0 phara_16"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-envelope"></i></span>
-                                <input type="text" class="form-control padd_12_input ps-0 border border-0"
+                                <input name="email" type="text" class="form-control padd_12_input ps-0 border border-0"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Email ID">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
 
@@ -71,9 +83,14 @@
                                 <span class="input-group-text phara_16 border border-0"
                                     style="background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-solid fa-phone"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                <input name="phone" type="text" class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
                                     placeholder="Phone Number">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('phone')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
@@ -81,22 +98,31 @@
                                 <span class="input-group-text phara_16 border border-0"
                                     style="    background-color: rgba(244, 244, 244, 1);"><i
                                         class="fa-regular fa-user"></i></span>
-                                <input type="text" class="form-control ps-0 border border-0 padd_12_input"
+                                <input name="password" type="password"
+                                    class="form-control ps-0 border border-0 padd_12_input"
                                     style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Source of Contact">
+                                    placeholder="Password">
+                            </div>
+                            <div class="text-danger d-flex">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
 
                     </div>
 
                     <div class="mt-3">
+
                         <button type="submit" class="buttonfilled">Register</button>
-                    </div>
-                    <div class="pt-3">
-                        <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span
-                                class="log_company"><a href="/login">Log In</a></span></p>
+
+                        <div class="pt-3">
+                            <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span
+                                    class="log_company"><a href="/login">Log In</a></span></p>
+                        </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

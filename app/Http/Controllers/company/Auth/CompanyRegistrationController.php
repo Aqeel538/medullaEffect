@@ -44,6 +44,6 @@ class CompanyRegistrationController extends Controller
 
         // \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
         $user_id = $user->id;
-        return redirect()->back();
+        return redirect('/login');
     }
 }

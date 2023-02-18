@@ -254,7 +254,7 @@ Route::get('/', [SingleUserController::class, 'index'])->name('index');
 Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profile2');
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');
-Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual.create');
+Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])->name('individual_register');
 Route::post('/freelancer/create', [FreelancerRegistrationController::class, 'create'])->name('freelancer.create');
 Route::post('/company/create', [CompanyRegistrationController::class, 'create'])->name('company.create');
 Route::post('/submit/lead/form', [SingleUserController::class, 'submitLeadForm'])->name('submit.lead.form');

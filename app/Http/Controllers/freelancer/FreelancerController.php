@@ -81,6 +81,14 @@ class FreelancerController extends Controller
     }
     public function add_new_service(Request $request)
     {
+        $validate = $this->validate($request, [
+            'category_id' => 'required',
+            'title' => 'required',
+            'rate' => 'required',
+            'description' => 'required',
+            // 'address'=>'required',
+        ]);
+
         $id = Auth::user()->id;
         $service = Service::create([
             'user_id' => $id,
@@ -120,6 +128,9 @@ class FreelancerController extends Controller
     }
     public function update_a_service(Request $request)
     {
+
+
+        // dd($request);
         $service = Service::find($request->id);
         $service->category_id = $request->category_id;
         $service->title = $request->title;

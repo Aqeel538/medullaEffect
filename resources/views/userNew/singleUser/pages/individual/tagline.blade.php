@@ -127,6 +127,9 @@
             <!-- ------------step--1---Tab------------- -->
             <div id="tab-1" class="tab-content active">
                 <div class="row mt-5 p-lg-4 p-md-3 p-2">
+                    {{-- @if ($matchSearch == 1)
+                        <p>{{ $message }}</p>
+                    @else --}}
                     @foreach ($allJobs as $allJob)
                         @foreach ($allJob->jobs as $getjobs)
                             <div class="col-lg-4 col-md-4 col-12 mb-lg-0 mb-md-0 mb-3">
@@ -166,6 +169,7 @@
                             </div>
                         @endforeach
                     @endforeach
+                    {{-- @endif --}}
                 </div>
             </div>
             <!-- ------------step--2---Tab------------- -->
@@ -174,7 +178,7 @@
                     @foreach ($savedJobs as $jobs)
                         <div class="col-lg-4 col-md-4 col-12 mb-lg-0 mb-md-0 mb-3">
                             <a href="{{ route('individual.jodDetails', $jobs->savedJobs->id) }}">
-                                <div class="p-3" style="background: #f9f9f9; border-radius: 20px">
+                                <div class="p-3 mt-3" style="background: #f9f9f9; border-radius: 20px">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
                                             <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
