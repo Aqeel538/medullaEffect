@@ -209,6 +209,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
+                                placeholder="{!! $user->description ?? 'Description' !!}"
+                                value="<?= isset($user->description) && !empty($user->description) ? $user->description : 'Description' ?>"
+                                rows="6" style="background-color: #f4f4f4; border: none"></textarea>
+                        </div>
                         <div class="row">
                             <div class="col-12  d-flex justify-content-end text-lg-right mt-4">
                                 <button type="submit" class="buttonfill">Update</button>
@@ -223,7 +229,7 @@
                     <h6 class="john-text justify-content-center">Resume</h6>
                     <p class="john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem accn.
                     </p>
-{{-- 
+                    {{--
                     <label for="files" class="buttonunfillborder">Upload</label>
                     <input id="files" style="visibility:hidden;" type="file"> --}}
 
@@ -233,7 +239,7 @@
                     <form id="resumeUpload">
                         <label for="resume" class="buttonunfillborder">Upload</label>
                         <input type='file' name="resume" id="resume" style="visibility:hidden;">
-                     </form>
+                    </form>
 
 
                 </div>

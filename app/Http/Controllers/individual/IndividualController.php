@@ -30,7 +30,9 @@ class IndividualController extends Controller
         $user_id = auth()->user()->id;
         $allJobs = User::where('role', 'company')->with('jobs')->get('id');
         $freelancers = User::where('role', 'freelancer')->where('status', 1)->get();
-        $industryOption = $freelancers;
+        // $industryOption = $freelancers;
+        $industryOption = Job::with('users')->get();
+
         $savedJobs = SaveForLater::where('user_id', $user_id)->with('savedJobs')->get();
         // dd($savedJobs);
         return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());
@@ -38,7 +40,9 @@ class IndividualController extends Controller
     public function individual_jobs_search(Request $request)
     {
         $title = 'All Freelancers';
-        $industryOption = User::where('role', 'freelancer')->get();
+        // $industryOption = User::where('role', 'company')->get();
+        $industryOption = Job::with('users')->get();
+        // dd($industryOption[1]->users->industry);
         $savedJobs = SaveForLater::get();
         if ($request->searchLocation) {
             if ($request->industry) {
@@ -141,14 +145,22 @@ class IndividualController extends Controller
 
     public function individual_saveForLater($id)
     {
+        // dd($id);
         $user_id = auth()->user()->id;
-        if ($checkService = SaveForLater::where('job_id', $id)->first()) {
+        $checkUser = SaveForLater::where('user_id', $user_id)->where('job_id', $id)->first();
+        // dd($checkUser);
+        if (isset($checkUser) && !empty($checkUser)) {
+
+
             return redirect()->back()->with('message', 'Updated');
+        } else {
+
+            $saveForLater = new SaveForLater();
+            $saveForLater->user_id = $user_id;
+            $saveForLater->job_id = $id;
+            $saveForLater->save();
         }
-        $saveForLater = new SaveForLater();
-        $saveForLater->user_id = $user_id;
-        $saveForLater->job_id = $id;
-        $saveForLater->save();
+
 
         return back();
     }

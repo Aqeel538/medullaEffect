@@ -10,6 +10,7 @@ use App\Models\Service;
 use Illuminate\Cache\RetrievesMultipleKeys;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class FreelancerController extends Controller
 {
@@ -138,16 +139,17 @@ class FreelancerController extends Controller
     // SAVE SERVICE
     public function save_service($id)
     {
-
+        // dd($id);
         $userId = auth()->user()->id;
-        if ($checkService = SaveService::where('service_id', $id)->first()) {
+        $checkService = SaveService::where('service_id', $id)->where('user_id', $userId)->first();
+        if (isset($checkService) && !empty($checkService)) {
             return redirect()->back()->with('message', 'Updated');
+        } else {
+            $saveService = new SaveService();
+            $saveService->user_id = $userId;
+            $saveService->service_id = $id;
+            $saveService->save();
         }
-        $saveService = new SaveService();
-        $saveService->user_id = $userId;
-        $saveService->service_id = $id;
-        $saveService->save();
-
         return back();
     }
 
@@ -284,5 +286,36 @@ class FreelancerController extends Controller
         }
         $companies = $query->get();
         return view('userNew.singleUser.pages.freelancer.companyAdvanceSearchFilter', get_defined_vars());
+    }
+
+
+    // company setting
+    public function freelancer_setting()
+    {
+        $title = "Setting";
+        $user = Auth::user();
+        return view('userNew.singleUser.pages.freelancer.setting', get_defined_vars());
+    }
+
+    public function userChangeStatus(Request $request)
+    {
+
+        Log::info($request->all());
+        $user = User::find($request->user_id);
+        $user->is_active = $request->status;
+        $user->save();
+
+        return response()->json(['success' => 'Status change successfully.']);
+    }
+
+    public function deactivate($id)
+    {
+
+        $user = User::find($id);
+        $user->deactivate = 1;
+        $user->save();
+
+        return back();
+        // return response()->json(['success' => 'Status change successfully.']);
     }
 }

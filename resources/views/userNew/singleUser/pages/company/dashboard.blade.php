@@ -193,7 +193,32 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
 
+                        <div class="col-12 form-group mt-3">
+                            <div class="inputfield">
+                                <i class="fa-regular fa-user"></i>
+                                <input class="input-field" type="text" name="employees"
+                                    placeholder="{!! $user->employees ?? 'Employees' !!}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12 form-group mt-3">
+                            <div class="inputfield">
+                                <i class="fa-regular fa-user"></i>
+                                <input class="input-field" type="text" name="employees"
+                                    placeholder="{!! $user->employees_limit ?? 'Employees' !!}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
+                            placeholder="{!! $obj->description ?? 'Description' !!}"
+                            value="<?= isset($obj->description) && !empty($obj->description) ? $obj->description : 'Description' ?>"
+                            rows="6" style="background-color: #f4f4f4; border: none"></textarea>
+                    </div>
 
                     <button type="submit" style="cursor: pointer;" class="buttonfill-update mt-4">Update</button>
                 </form>

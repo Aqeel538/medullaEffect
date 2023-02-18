@@ -44,6 +44,10 @@ class CompanyController extends Controller
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],
             'nationality' => $req['nationality'],
+            'employees' => $req['employees'],
+            'description' => $req['description'],
+
+
         ]);
         return back();
     }
@@ -52,7 +56,8 @@ class CompanyController extends Controller
     public function company_jobs()
     {
         $title = 'All Jobs';
-        $allJobs = Job::get();
+        $user_id = auth()->user()->id;
+        $allJobs = Job::where('user_id', $user_id)->get();
         return view('userNew.singleUser.pages.company.job', get_defined_vars());
     }
     public function company_jobs_form($id)
@@ -123,14 +128,16 @@ class CompanyController extends Controller
     {
 
         $userId = auth()->user()->id;
-        if ($checkJob = Archive::where('job_id', $id)->first()) {
+        // $checkJob = Archive::where('job_id', $id)->first();
+        $checkJob = Archive::where('job_id', $id)->where('user_id', $userId)->first();
+        if (isset($checkJob) && !empty($checkJob)) {
             return redirect()->back()->with('message', 'Updated');
+        } else {
+            $archiveJob = new Archive();
+            $archiveJob->user_id = $userId;
+            $archiveJob->job_id = $id;
+            $archiveJob->save();
         }
-        $archiveJob = new Archive();
-        $archiveJob->user_id = $userId;
-        $archiveJob->job_id = $id;
-        $archiveJob->save();
-
         return back();
     }
 
@@ -278,6 +285,8 @@ class CompanyController extends Controller
         $experience = $request->input('experience');
         $job_type = $request->input('job_type');
         $date_posted = $request->input('created_at');
+        // $date = \Carbon\Carbon::createFromFormat('m/d/Y', $date_posted)->format('Y-m-d');
+        // dd($date);
         $pay_range = $request->input('pay_range');
         $query = User::query();
         if ($location) {
@@ -323,6 +332,16 @@ class CompanyController extends Controller
         // dd($applicant);
         return view('userNew.singleUser.pages.company.applicantResume', get_defined_vars());
     }
+    public function delete_applicants($id = null)
+    {
+        $delete = Application::where('applicant_id', $id)->delete($id);
+        if ($delete) {
+
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
+    }
 
     // Chat
     public function company_chatBot_page()
@@ -332,6 +351,7 @@ class CompanyController extends Controller
         return view('userNew.singleUser.pages.company.chatbot', compact('title'));
     }
 
+    // company setting
     public function comapny_setting()
     {
         $title = "Setting";

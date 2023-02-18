@@ -90,20 +90,14 @@
                     </div>
 
                     <div class="mt-3">
-                        <a href="./Sana/Questinare.html">
-                            <button type="button" class="btn_fill Poppins phara_16">Register</button></a>
+                        <button type="submit" class="buttonfilled">Register</button>
                     </div>
                     <div class="pt-3">
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span
-                                class="log_company"><a href="#">Log In</a></span></p>
+                                class="log_company"><a href="/login">Log In</a></span></p>
                     </div>
-
                 </form>
-
-
-
             </div>
-
         </div>
     </div>
 @endsection

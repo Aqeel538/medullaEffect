@@ -70,21 +70,22 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="../assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
 
                                 <datalist id="browsers">
                                     @foreach ($industryOption->unique('industry') as $freelancer)
-                                        <option value="{{ $freelancer->industry }}"></option>
+                                        <option value="{{ $freelancer->users->industry }}"></option>
                                     @endforeach
                                 </datalist>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="../assets/images/profile-imges/loction.png" alt="" srcset="" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
+                                    srcset="" />
 
                                 <div class="pos">
                                     <input type="search" class="width" placeholder="Location" />
@@ -125,7 +126,7 @@
         <div class="content-wrapper">
             <!-- ------------step--1---Tab------------- -->
             <div id="tab-1" class="tab-content active">
-                <div class="row justify-content-center mt-5 p-lg-4 p-md-3 p-2">
+                <div class="row mt-5 p-lg-4 p-md-3 p-2">
                     @foreach ($allJobs as $allJob)
                         @foreach ($allJob->jobs as $getjobs)
                             <div class="col-lg-4 col-md-4 col-12 mb-lg-0 mb-md-0 mb-3">
@@ -169,7 +170,7 @@
             </div>
             <!-- ------------step--2---Tab------------- -->
             <div id="tab-2" class="tab-content">
-                <div class="row justify-content-center mt-5 p-lg-4 p-md-3 p-2">
+                <div class="row mt-5 p-lg-4 p-md-3 p-2">
                     @foreach ($savedJobs as $jobs)
                         <div class="col-lg-4 col-md-4 col-12 mb-lg-0 mb-md-0 mb-3">
                             <a href="{{ route('individual.jodDetails', $jobs->savedJobs->id) }}">

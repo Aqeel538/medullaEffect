@@ -64,7 +64,7 @@
             <div class="col-lg-8 col-12 job-view-crd-res-575">
                 <div class="col-12" style="padding: 0;">
                     <h2 class="job-headings">{!! $jobDetail->title ?? '' !!}</h2>
-                    <p class="job-view-para">Nexa - Digital Marketing</p>
+                    <p class="job-view-para">{!! $jobDetail->Users->company_name ?? '' !!} - {!! $jobDetail->Users->industry ?? '' !!}</p>
                 </div>
                 <div class="tabsrow">
                     <div class="allitems d-flex">
@@ -81,8 +81,8 @@
                         </div>
                         <div class="icon-text">
                             <p class="job-view-para ">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Urgent
-                                    Hiring</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->hiring_type ?? '' !!}</span>
                             </p>
                         </div>
                     </div>
@@ -121,16 +121,13 @@
                             </p>
 
                             <p class="res-p-1200">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;51-200
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->employees ?? '' !!}
                                     employees</span>
                             </p>
                         </div>
 
-                        <p class="abutnexa-text">Since 2005; we have been driving growth for hundreds of high profile
-                            clients throughout the region, and have since expanded our business on a global scale. Through
-                            digital marketing and growth marketing strategies, we help companies realize their true
-                            potential in a frictionless and innovative environment, where Sales, Marketing & Customer
-                            Service work together to increase sales and retain customers...
+                        <p class="abutnexa-text">{!! $jobDetail->Users->description ?? '' !!}
                             <a href="{{ route('individual.companyDetails', $jobDetail->Users->id) }}">
                                 <span class="fw-bolder" style="color: #7C2342;">Learn More</span>
                             </a>

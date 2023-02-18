@@ -165,8 +165,10 @@ class ChatController extends Controller
             );
         }
 
-        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
+        // $user_messages = Message::where('sender_id', '=', auth()->user()->id)->with('user')->get();
+        // dd($user_messages);
 
+        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
         $user = User::where('id', $user)->with('messagecomments')->first();
 
         $conversations =  MessageComment::where(['message_id' => $message_info->id])->get();

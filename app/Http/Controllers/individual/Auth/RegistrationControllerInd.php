@@ -157,6 +157,7 @@ class RegistrationControllerInd extends Controller
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],
             'nationality' => $req['nationality'],
+            'description' => $req['description'],
         ]);
         return redirect()->route('profile', $id);
     }
@@ -188,7 +189,8 @@ class RegistrationControllerInd extends Controller
     // update resume
 
 
-    public function upload_resume(Request $request){
+    public function upload_resume(Request $request)
+    {
         $id = Auth()->user()->id;
         if ($id) {
             if ($request->file('resume')) {

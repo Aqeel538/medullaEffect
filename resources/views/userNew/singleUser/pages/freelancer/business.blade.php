@@ -21,7 +21,7 @@
 
                         <li><a class="navbar-link mylist active" href="{{ route('businesses.list') }}">Businesses</a></li>
                         <li><a class="navbar-link  " href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
-                        <li><a class="navbar-link" href="#">Settings</a></li>
+                        <li><a class="navbar-link" href="{{ route('freelancer.setting') }}">Settings</a></li>
 
                     </ul>
                     <div>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt="icon"
                                     srcset="" />
 
                                 <div class="pos">

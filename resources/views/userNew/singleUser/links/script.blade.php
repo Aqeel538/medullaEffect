@@ -63,49 +63,49 @@
      });
  </script>
 
-{{-- resume upload --}}
-<script>
-    // function readURL(input) {
-    //     if (input.files && input.files[0]) {
-    //         var reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-    //             $('#imagePreview').hide();
-    //             $('#imagePreview').fadeIn(650);
-    //         }
-    //         reader.readAsDataURL(input.files[0]);
-    //     }
-    // }
-    $("#resume").change(function() {
-        console.log("ok");
-        readURL(this);
-        var formData = new FormData($("#resumeUpload")[0]);
-        formData.append('resume', $(this).val());
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "POST",
-            url: "/individual/update/resume",
-            data: formData,
-            contentType: false,
-            processData: false,
-            dataType: 'json',
-            success: function(response) {
-                if (response.status === 404) {
-                    console.log(response.message);
-                } else {
-                    console.log(response.message);
-                }
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-    });
-</script>
+ {{-- resume upload --}}
+ <script>
+     // function readURL(input) {
+     //     if (input.files && input.files[0]) {
+     //         var reader = new FileReader();
+     //         reader.onload = function(e) {
+     //             $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+     //             $('#imagePreview').hide();
+     //             $('#imagePreview').fadeIn(650);
+     //         }
+     //         reader.readAsDataURL(input.files[0]);
+     //     }
+     // }
+     $("#resume").change(function() {
+         console.log("ok");
+         // readURL(this);
+         var formData = new FormData($("#resumeUpload")[0]);
+         // formData.append('resume', $(this).val());
+         $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+         $.ajax({
+             type: "POST",
+             url: "/individual/update/resume",
+             data: formData,
+             contentType: false,
+             processData: false,
+             dataType: 'json',
+             success: function(response) {
+                 if (response.status === 404) {
+                     console.log(response.message);
+                 } else {
+                     console.log(response.message);
+                 }
+             },
+             error: function(data) {
+                 console.log(data);
+             }
+         });
+     });
+ </script>
 
  <!-- New script starts -->
  <script>

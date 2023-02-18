@@ -72,7 +72,7 @@
         <div class="content-wrapper crd-row-one">
             <!-- ------------step--1---Tab------------- -->
             <div id="tab-1" class="tab-content active">
-                <div class="row justify-content-center mt-5 mb-3">
+                <div class="row mt-5 mb-3">
                     @foreach ($jobsPosted as $job)
                         <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
                             <a href="{{ route('company.jodDetails', $job->id) }}">
@@ -93,9 +93,11 @@
                                             <i class="fas-elip fa-solid fa-ellipsis"></i>
                                         </div>
                                     </div>
-                                    <p class="abutnexa-text pt-4 pb-3"> {!! $job->description ?? '' !!}</p>
+                                    <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $job->description ?? '' !!}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
-                                        <button class="buttonfill-apply">Apply Now</button>
+                                        <a href="{{ route('company_jobs_form', $job->id) }}">
+                                            <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
+                                        </a>
                                         <a href="{{ route('company.archiveJob', $job->id) }}">
                                             <button class="buttonunfill-creates">Archive Job</button>
                                         </a>
@@ -109,7 +111,7 @@
             </div>
             <!-- ------------step--2---Tab------------- -->
             <div id="tab-2" class="tab-content ">
-                <div class="row justify-content-center mt-5 mb-3">
+                <div class="row  mt-5 mb-3">
                     @foreach ($archiveJobs as $archiveJob)
                         <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
                             <div class="p-3" style="background: #F4F4F4;border-radius: 20px;">
@@ -129,7 +131,7 @@
                                         <i class="fas-elip fa-solid fa-ellipsis"></i>
                                     </div>
                                 </div>
-                                <p class="abutnexa-text pt-4 pb-3"> {!! $archiveJob->getjob->description ?? '' !!}</p>
+                                <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $archiveJob->getjob->description ?? '' !!}</p>
                                 <div class="jobviewbtns mt-1 mb-1">
                                     <button class="buttonfill-apply">Apply Now</button>
                                 </div>

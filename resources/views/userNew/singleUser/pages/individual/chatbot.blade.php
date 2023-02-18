@@ -79,7 +79,9 @@
                                         na....</p>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-end">
-                                    <p class=" john-para-afer-ques-heading">14m</p>
+                                    <p class=" john-para-afer-ques-heading">
+                                        {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}
+                                    </p>
                                 </div>
                             </div>
                         @endforeach

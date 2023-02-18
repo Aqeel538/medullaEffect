@@ -13,7 +13,7 @@
                     <ul class="navbar-lists" id="myDIV">
 
                         <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
-                        <li><a class="navbar-link  mylist active"
+                        <li><a class="navbar-link"
                                 href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
                         <li><a class="navbar-link" href="#">Settings</a></li>
 

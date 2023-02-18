@@ -61,19 +61,21 @@
                     <div class="allitems d-flex ">
                         <div class="icon-text">
                             <p class="job-view-paras">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Marketing &
-                                    Advertising</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $company->industry ?? '' !!}</span>
                             </p>
                         </div> &nbsp; &nbsp; &nbsp;
                         <div class="icon-text">
                             <p class="job-view-paras">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;51-200
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $company->employees ?? '' !!}
                                     employees</span>
                             </p>
                         </div> &nbsp; &nbsp; &nbsp;
                         <div class="icon-text">
                             <p class="job-view-paras">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;51-200 employees
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $company->employees_limit ?? '' !!} employees
                                     Hiring</span>
                             </p>
                         </div>
@@ -215,34 +217,7 @@
             </div>
             <!-- right side of view job page -->
             <div class="col-lg-4 col-12 job-view-crd-res-575">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12  pt-3 pb-3 res"
-                        style="background-color: #F9F9F9;border-radius: 20px;">
-                        <div class=" abutnexa d-flex justify-content-between">
-                            <h4 class="about-nexa-heading ">About Nexa</h4>
-                            <button class=" buttonunfill-save-follow
-                              ">Follow</button>
-                        </div>
-                        <div class="mt-3 icon-text d-flex justify-content-between">
-                            <p class="me-2 job-view-paras">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Marketing &
-                                    Advertising</span>
-                            </p>
 
-                            <p class="res-p-1200">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;51-200
-                                    employees</span>
-                            </p>
-                        </div>
-
-                        <p class="abutnexa-text">Since 2005; we have been driving growth for hundreds of high profile
-                            clients throughout the region, and have since expanded our business on a global scale. Through
-                            digital marketing and growth marketing strategies, we help companies realize their true
-                            potential in a frictionless and innovative environment, where Sales, Marketing & Customer
-                            Service work together to increase sales and retain customers... <span class="fw-bolder"
-                                style="color: #7C2342;">Learn More</span> </p>
-                    </div>
-                </div>
                 <h4 class="pt-4 ml-0 other-job-txt">Others Jobs</h4>
                 <div class="row">
                     @foreach ($otherJobs as $otherJob)

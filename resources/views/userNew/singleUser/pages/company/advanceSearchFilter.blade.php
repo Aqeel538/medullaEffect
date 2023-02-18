@@ -128,8 +128,8 @@
                             <div class="inputfield">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
                                     srcset="">
-                                <input class="" type="date" value="{{ old('created_at') }}" name="created_at"
-                                    placeholder="created_at" />
+                                <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
+                                    placeholder="created_at" style="width: 100%!important" />
 
                             </div>
                         </div>
@@ -179,12 +179,16 @@
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
 
-                            <a href="{{ route('show_chat', $freelancer->id) }}">
+                            <a href="{{ route('company.show.chat', $freelancer->id) }}">
                                 <button class="buttonfill mt-4 mb-4">
                                     Contact
                                 </button>
                             </a>
-
+                            {{-- <a href="{{ route('company.show.chat', $freelancer->id) }}">
+                                <button class="buttonfill mt-4 mb-4">
+                                    Contact
+                                </button>
+                            </a> --}}
 
                         </div>
                     </a>

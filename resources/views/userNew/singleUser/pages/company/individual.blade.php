@@ -8,7 +8,7 @@
                 <nav class="navbar-questionare">
 
                     <div class="">
-                        <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
                             class="search-icon-index" alt="" srcset="">
                     </div>
                     <ul class="navbar-lists" id="myDIV">
@@ -26,13 +26,13 @@
                     </ul>
                     <div>
                         <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png"
-                                class="bells" alt="" srcset="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
+                                alt="" srcset="">
                         </a>
                         &nbsp;
                         <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/landing-page-img/Vector.png"
-                                class="bell" alt="" srcset="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
+                                alt="" srcset="">
                         </a>
                         <span><i style="cursor:pointer;" class="ri-logout-circle-line"
                                 onclick="event.preventDefault();
@@ -76,8 +76,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png"
-                                    alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -91,8 +90,8 @@
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="{{ asset('user') }}/{{ asset('user') }}/assets/images/profile-imges/loction.png"
-                                    alt="" srcset="" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
+                                    srcset="" />
 
                                 <div class="pos">
                                     <input type="search" name="searchLocation" class="width" placeholder="Location" />
@@ -128,11 +127,11 @@
                             <div class="img-holder-frelancer pt-4">
                                 <?php $image = isset($individual->image) && !empty($individual->image) ? $individual->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                <img src="<?= $image ?>" style="height: 90px;width: 90px;" alt="" srcset="" />
                             </div>
                         </div>
                         <div class="p-3">
-                            <h3 class="bus-heading mt-5 mb-3">{!! $individual->name ?? '' !!}</h3>
+                            <h3 class="bus-heading mt-5 mb-3" style="height: 70px;">{!! $individual->name ?? '' !!}</h3>
 
                             <h6 class="location-heading">Located in: <span class="place">{!! $individual->located_in ?? '' !!}</span>
                             </h6>

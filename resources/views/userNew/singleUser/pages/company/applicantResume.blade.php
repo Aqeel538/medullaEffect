@@ -122,6 +122,8 @@
                         <h6>Are you interested to work In-person, remote or hybrid?</h5>
                             <p>{!! $applicant->users->job_type ?? '' !!}</p>
                     </div>
+
+                    <a href="" class="text-danger" target="_blank">view resume</a>
                 </div>
             </div>
         </div>

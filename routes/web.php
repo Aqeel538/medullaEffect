@@ -169,6 +169,8 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     // Applicatns
     Route::get('/company/allApplicants/{id?}', [CompanyController::class, 'company_allApplicants'])->name('company.allApplicants');
     Route::get('/company/applicantResume/{id}', [CompanyController::class, 'company_applicantResume'])->name('company.applicantResume');
+    Route::get('/company/deleteApplicants/{id?}', [CompanyController::class, 'delete_applicants'])->name('delete.applicants');
+
 
     // ARCHIVE JOB
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
@@ -232,6 +234,14 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     // CHAT
 
     Route::get('/chat-room/{id}', [ChatController::class, 'chat_room'])->name('chat_room');
+
+    // SETTING PAGE
+    Route::get('freelancer/setting', [FreelancerController::class, 'freelancer_setting'])->name('freelancer.setting');
+
+    Route::post('change-password', [RegistrationControllerInd::class, 'updatePassword'])->name('change.password');
+
+    Route::get('userChangeStatus', [FreelancerController::class, 'userChangeStatus']);
+    Route::get('deactivate/{id}', [FreelancerController::class, 'deactivate'])->name('deactivate');
 });
 
 //--------------- Unauthenticated Routes Start ---------------\\

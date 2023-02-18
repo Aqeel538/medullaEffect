@@ -94,7 +94,7 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         <p class="job-details">
-                            {!! $service->discription ?? 'There is no description' !!}
+                            {!! $freelancer->description ?? 'There is no description' !!}
                         </p>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                                         <a href="">
                                             <button class="buttonfill-apply pl-4 pr-4">Contact</button>
                                         </a>
-                                        <a href="{{ route('save_service', $freelancer->id) }}">
+                                        <a href="{{ route('save_service', $service->id) }}">
                                             <button class="buttonunfill-save">Save for Later</button>
                                         </a>
                                     </div>

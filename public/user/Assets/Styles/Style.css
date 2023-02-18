@@ -173,7 +173,7 @@ body {
 .recent-applications {
     background-color: #F9F9F9;
     border-radius: 21.0305px;
-    height: 900px;
+    height: 700px;
     overflow: auto;
     position: relative;
     z-index: 1;
@@ -1254,7 +1254,7 @@ ion-icon {
 
 .mesages-row {
     overflow-y: auto;
-    height: 500px;
+    height: 300px;
     position: relative;
     z-index: 1;
 }

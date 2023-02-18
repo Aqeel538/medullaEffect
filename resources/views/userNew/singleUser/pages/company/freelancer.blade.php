@@ -74,7 +74,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -125,7 +125,7 @@
                             <div class="img-holder-frelancer pt-4">
                                 <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                <img src="<?= $image ?>" style="height: 90px;width: 90px;" alt="" srcset="" />
                             </div>
                         </div>
                         <div class="p-3">

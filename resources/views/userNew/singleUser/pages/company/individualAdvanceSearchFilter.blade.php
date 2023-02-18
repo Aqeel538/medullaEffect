@@ -17,8 +17,9 @@
                         </li>
                         <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
                         <li><a class="navbar-link" href="{{ route('company.allApplicants') }}">Applicants</a></li>
-                        <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
-                        <li><a class="navbar-link mylist active" href="{{ route('company.freelancer') }}">Freelancers</a>
+                        <li><a class="navbar-link mylist active" href="{{ route('company.individual') }}">Individuals</a>
+                        </li>
+                        <li><a class="navbar-link " href="{{ route('company.freelancer') }}">Freelancers</a>
                         </li>
                         <li><a class="navbar-link" href="#">Settings</a></li>
 
@@ -65,7 +66,7 @@
         </div>
     </div>
     <!-- --------------3rd nav ----------------- -->
-    <form id="filter" action="{{ route('company.freelancer.advanceSearch') }}" method="GET">
+    <form id="filter" action="{{ route('company.individual.advanceSearch') }}" method="GET">
         @csrf
 
         <div class="container-fluid">
@@ -127,7 +128,7 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
                                 <img src="../assets/images/profile-imges/calendar-icon.png" alt="" srcset="">
-                                <input class="" type="date" value="{{ old('created_at') }}" name="created_at"
+                                <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
                                     placeholder="created_at" />
 
                             </div>
@@ -173,12 +174,14 @@
                                 <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
                             </div>
 
-                            <h3 class="bus-heading mt-3 mb-3">{!! $individual->name ?? '' !!}</h3>
+                            <h3 class="bus-heading mt-3 mb-3" style="height:
+                            70px!important">
+                                {!! $individual->name ?? '' !!}</h3>
                             <h6 class="location-heading">Located in: <span class="place">{!! $individual->located_in ?? '' !!}</span>
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
 
-                            <a href="{{ route('show_chat', $individual->id) }}">
+                            <a href="{{ route('company.show.chat', $individual->id) }}">
                                 <button class="buttonfill mt-4 mb-4">
                                     Contact
                                 </button>

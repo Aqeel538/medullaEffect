@@ -75,7 +75,7 @@
                                     <div class="col-lg-3 col-md-3 col-12">
                                         <div class="img-holder"> <img
                                                 src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                                class="w-75" alt="w8"></div>
+                                                alt="w8" style="height: 75px;width:75px"></div>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-12 ">
                                         <h3 class="m-0 p-0 inbox-chat-heading">{!! $postedJob->title ?? '' !!}</h3>
@@ -134,7 +134,9 @@
                                             <a href="{{ route('company.applicantResume', $getAllApplicant->users->id) }}">
                                                 <button class="buttonfill-apply ">View Resume</button>
                                             </a>
-                                            <button class="buttonunfill-save ">Delete Application</button>
+                                            <a href="{{ route('delete.applicants', $getAllApplicant->users->id) }}">
+                                                <button class="buttonunfill-save ">Delete Application</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

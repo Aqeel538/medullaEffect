@@ -54,7 +54,7 @@
     <div class="container mt-4">
         <div class="row crd-row-one">
             <div class="col-12 arrow ">
-                <a href="../Tagline.html">
+                <a href="{{ url()->previous() }}">
                     <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
                         srcset=""></a>
             </div>
@@ -63,7 +63,7 @@
             <div class="col-lg-12 col-12">
                 <div class="col-12" style="padding: 0;">
                     <h2 class="job-headings">{{ $jobDetail->title }}</h2>
-                    <p class="job-view-para-2">Digital Marketing</p>
+                    <p class="job-view-para-2">{{ $jobDetail->industry }}</p>
                 </div>
                 <div class="col-lg-12 col-12 ps-0">
                     <div class="tabsrow d-flex justify-content-between">
@@ -77,7 +77,8 @@
                             </div> &nbsp; &nbsp; &nbsp;
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Full Time</span>
+                                    <span> <i class="fas-bag fa fa-briefcase"
+                                            aria-hidden="true"></i>&nbsp;{{ $jobDetail->work_type }}</span>
                                 </p>
                             </div>
 

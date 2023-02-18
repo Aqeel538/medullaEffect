@@ -28,19 +28,19 @@ class SingleUserController extends Controller
     public function companay()
     {
         $title = "Company Sign-up";
-        return view('user.singleUser.pages.company.companay', compact('title'));
+        return view('userNew.singleUser.pages.company.companay', compact('title'));
     }
 
     public function freelancer()
     {
         $title = "Freelancer Sign-up";
-        return view('user.singleUser.pages.freelancer.freelancer', compact('title'));
+        return view('userNew.singleUser.pages.freelancer.freelancer', compact('title'));
     }
 
     public function individual()
     {
         $title = "Individual Sign-up";
-        return view('user.singleUser.pages.individual.individual', compact('title'));
+        return view('userNew.singleUser.pages.individual.individual', compact('title'));
     }
 
     public function tagline()
@@ -57,7 +57,7 @@ class SingleUserController extends Controller
 
     public function submitLeadForm(Request $request)
     {
-        
+
         $validator = Validator::make($request->all(), [
             "email" => "required",
             "fname" => "required",
@@ -68,17 +68,15 @@ class SingleUserController extends Controller
             return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()], 200);
         } else {
             $user = new LeadForm();
-            $user->name = $request->name.' '.$request->lname;
+            $user->name = $request->name . ' ' . $request->lname;
             $user->email = $request->email;
             $user->phone = $request->phone;
             $data = $user->save();
-            if($data){
+            if ($data) {
                 return response()->json(['status' => 1, 'message' => "feedback succesfully submit"], 200);
-            }else{
+            } else {
                 return response()->json(['status' => 2, 'message' => "feedback Not succesfully submit"], 200);
             }
-            
-
         }
     }
 

@@ -62,8 +62,12 @@
                         @foreach ($user_messages as $single_message)
                             <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
                                 <div class="img-holder">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
-                                        style="width: 60px;" class="" alt="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
+                                        style="width: 60px;" class="" alt=""> --}}
+                                    <?php $image = isset($single_message->image) && !empty($single_message->image) ? $single_message->image : ''; ?>
+
+                                    <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt=""
+                                        srcset="" />
                                 </div>
                                 <div class="text-start ps-2">
                                     @if ($single_message->receiver_id == Auth::user()->id)
@@ -85,7 +89,8 @@
                                         na....</p>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-end">
-                                    <p class=" john-para-afer-ques-heading">14m</p>
+                                    <p class=" john-para-afer-ques-heading">
+                                        {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -102,8 +107,9 @@
                 <div class="p-4 fixed-top chat-header">
                     <div class="d-flex">
                         <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" style="width: 60px;"
-                                class="" alt="">
+                            <?php $image = isset($user->image) && !empty($user->image) ? $user->image : ''; ?>
+
+                            <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt="" srcset="" />
                         </div>
                         <div class="ps-2">
                             <p class="m-0  inbox-chat-heading">{!! $user->name ?? '' !!}</p>
