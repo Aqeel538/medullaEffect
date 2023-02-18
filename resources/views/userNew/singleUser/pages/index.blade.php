@@ -1,25 +1,40 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-<!----- ---------2st--Navbar------------- -->
+<!----- ---------2nd--Navbar------------- -->
 <div class="container-fluid second-nav">
     <div class="container">
-        <div class="header">
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li><a class="navbar-link" href="../frontEnd/bussiness/Freelancer.html">Home</a></li>
+        <div class="headers">
+            <nav class="navbar-questionares">
+
+        
+                <ul class="navbar-lists" id="myDIV">
+
+                    <li><a class="navbar-link" href="#">Home</a>
+                    </li>
                     <li><a class="navbar-link" href="#">Services</a></li>
                     <li><a class="navbar-link" href="#">Find Global Talent</a></li>
                     <li><a class="navbar-link" href="#">Contact</a></li>
-                    <li><a class="navbar-link" href="#">FAQs</a></li>
+                    <li><a class="navbar-link" href="#">FAQs</a>
+                    </li>
+
                 </ul>
+              
             </nav>
-            <div class="mobile-navbar-btn">
+
+            <div class="mobile-navbar-btns">
                 <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
                 <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
             </div>
         </div>
     </div>
 </div>
+
+
+{{-- 2nd nav end --}}
+
+
+
+
 <!-- hero section -->
 <div class="container herosecion mt-lg-5 mt-md-5 mt-2">
     <div class="row text-center justify-content-center">

@@ -33,7 +33,7 @@
                         </a>
                         <i style="cursor:pointer;" class="ri-logout-circle-line"
                             onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
+                            document.getElementById('logout-form').submit();">
                         </i>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

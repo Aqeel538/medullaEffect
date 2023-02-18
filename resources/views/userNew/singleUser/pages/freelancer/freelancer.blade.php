@@ -8,6 +8,7 @@
     <!-- -----------freelancer----signup------------ -->
     <div class="container-fluid">
         <div class="row justify-content-center">
+   
             <div class="col-lg-4 col-md-4 col-12 company_bg">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -28,7 +29,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center colum_2nd">
+            <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/job-search-company.png" alt="w8">
                     <h3 class="Poppins">Medulla
@@ -36,7 +37,7 @@
                 </div>
                 <div class="mt-3 Halvetica">
                     <h1 class="head_text">Freelancer Sign Up</h1>
-                    <p class="pt-2 pb-2 phara_16" style="font-weight: 400;">Post job Hire people through Medulla...nis iste
+                    <p class="pt-2 pb-2 sign-up-text-para">Post job Hire people through Medulla...nis iste
                         natus error sit
                         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                 </div>
