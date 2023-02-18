@@ -61,7 +61,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title">All Jobs</p>
+                    <p class="card-title">{!! $card_title ?? 'All Jobs' !!}</p>
                     <div class="row" style="justify-content: right; margin-top: -45px; margin-right: 10px;">
                         <a href="{{ route('jobs_form') }}" class="btn btn-primary">Add New</a>
                     </div>

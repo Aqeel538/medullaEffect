@@ -1,0 +1,107 @@
+.bus-heading {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 131.99%;
+    color: #000000;
+}
+
+.location-heading {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15.2949px;
+    line-height: 144.99%;
+    /* or 22px */
+}
+
+.place {
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(70, 65, 65);
+    font-size: 15.2949px;
+    line-height: 144.99%;
+}
+
+/* ==========responsivness========== */
+@media (max-width:1400px) {
+    .bus-heading {
+        font-size: 22px !important;
+    }
+}
+
+@media (max-width:1200px) {
+
+    .bus-heading {
+        font-size: 16px !important;
+    }
+
+    .crd-row-one {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width:1040px) {
+    .single-crd-row {
+        padding-left: 2 !important;
+        padding-right: 2 !important;
+    }
+
+    .crd-row-one {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .john-para-afer-ques-heading {
+
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width:992px) {
+    .bus-heading {
+        font-size: 15px !important;
+    }
+
+    .john-para-afer-ques-heading {
+        font-size: 12px !important;
+    }
+
+    .img-holder img {
+        width: 25% !important;
+
+    }
+
+    @media (max-width:768px) {
+
+        .img-holder img {
+
+            width: 15% !important;
+
+        }
+
+    }
+
+    @media (max-width:576px) {
+        .img-holder img {
+            width: 22% !important;
+        }
+
+    }
+
+    @media (max-width:468px) {}
+
+    @media (max-width:426px) {}
+
+    @media (max-width:375px) {}
+
+    @media (max-width:320px) {
+        .responsive-btn {
+            background-color: blue !important;
+        }
+    }
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Industry;
 use App\Models\Job;
 use App\Models\Service;
 use App\Models\User;
@@ -78,7 +79,7 @@ class AdminController extends Controller
     {
         $title = "Tag-View";
         $tags = Tag::get();
-        return view('admin.pages.users.tags',get_defined_vars());
+        return view('admin.pages.users.tags', get_defined_vars());
     }
 
     public function users_tag_edit(Request $request, $id)
@@ -123,6 +124,53 @@ class AdminController extends Controller
         }
     }
 
+
+        // Industry CRUD
+        public function users_industry()
+        {
+            $title = "Industry-View";
+            $industries = Industry::get();
+            return view('admin.pages.industry.industry', get_defined_vars());
+        }    
+        public function users_industry_form()
+        {
+            $title = "Industry-Create";
+            return view('admin.pages.industry.industryForm', get_defined_vars());
+        }
+        public function users_industry_store(Request $request)
+        {
+            $industry = new Industry();
+            $industry->title = $request->title;
+            $data = $industry->save();
+            if($data){
+                return redirect()->route('users_industry');
+            }
+        }
+        public function users_industry_edit($id)
+        {
+            $title = "Industry-Edit";
+            $industry = Industry::where('id', $id)->first();
+            // dd($industry);
+            return view('admin.pages.industry.editIndustry', get_defined_vars());
+        }
+        public function users_industry_editstore(Request $request)
+        {
+            $industry = Industry::where('id', $request->id)->first();
+            $industry->title = $request->title;
+            $data = $industry->save();
+            if($data){
+                return redirect()->route('users_industry');
+            }
+        }
+        public function users_industry_delete($id)
+        {
+           $delete = Industry::destroy($id);
+           if($delete){
+               return redirect()->back();
+           }
+        }
+
+
     // Category CRUD
     public function users_category()
     {
@@ -148,7 +196,7 @@ class AdminController extends Controller
 
     public function users_category_edit(Request $request, $id)
     {
-        $title = "Category-View";
+        $title = "Category-Edit";
         $category = Category::where('id', $id)->first();
         return view('admin.pages.category.editCategory',  get_defined_vars());
     }
@@ -170,14 +218,32 @@ class AdminController extends Controller
     }
 
 
+
     // Service CRUD
     public function services()
     {
         $title = "Service-View";
+        $card_title = "All Services";
         $services = Service::with('Categories', 'Users')->get();
-       
         return view('admin.pages.users.services.services', get_defined_vars());
     }
+
+    public function singleService($id)
+    {
+        // dd($id);
+        $title = "Service-View";
+        $services = Service::where('user_id', $id)->with('Categories', 'Users')->get();
+        // dd($services[0]->Users->name);
+        if ($services->count() > 0) {
+            $card_title = $services[0]->Users->name . " " . "Services";
+            return view('admin.pages.users.services.services', get_defined_vars());
+        } else {
+            $user = User::where('id', $id)->first();
+            $card_title = $user->name . ' ' . "Services";
+            return view('admin.pages.users.services.services', get_defined_vars());
+        }
+    }
+
     public function service_form()
     {
         $title = "Service-Create";
@@ -189,7 +255,7 @@ class AdminController extends Controller
     {
         $user = new Service();
         $user->user_id = $request->user_id;
-        $user->	category_id = $request->category_id;
+        $user->category_id = $request->category_id;
         $user->title = $request->title;
         $user->discription = $request->discription;
 
@@ -217,7 +283,7 @@ class AdminController extends Controller
 
     public function service_editstore(Request $request)
     {
-        
+
         $user = Service::where('id', $request->id)->first();
         $user->user_id = $request->user_id;
         $user->category_id = $request->category_id;
@@ -239,7 +305,7 @@ class AdminController extends Controller
     {
         $data = Service::destroy($id);
         if ($data) {
-            return redirect()->route('services');
+            return redirect()->back();
         }
     }
 
@@ -247,9 +313,27 @@ class AdminController extends Controller
     public function jobs()
     {
         $title = "Job-View";
+        $card_title = "All Jobs";
         $jobs = Job::with('Categories', 'Users')->get();
         return view('admin.pages.users.jobs.jobs', get_defined_vars());
     }
+    public function singleJobs($id)
+    {
+        // dd($id);
+        $title = "Job-View";
+
+        $jobs = Job::where('user_id', $id)->with('Categories', 'Users')->get();
+        // dd($jobs[0]->Users);
+        if ($jobs->count() > 0) {
+            $card_title = $jobs[0]->Users->company_name . ' ' . "Jobs";
+            return view('admin.pages.users.jobs.jobs', get_defined_vars());
+        } else {
+            $user = User::where('id', $id)->first();
+            $card_title = $user->company_name . ' ' . "Jobs";
+            return view('admin.pages.users.jobs.jobs', get_defined_vars());
+        }
+    }
+
     public function jobs_form()
     {
         $title = "Job-Create";
@@ -261,7 +345,7 @@ class AdminController extends Controller
     {
         $user = new Job();
         $user->user_id = $request->user_id;
-        $user->	category_id = $request->category_id;
+        $user->category_id = $request->category_id;
         $user->title = $request->title;
         $user->discription = $request->discription;
 
@@ -322,7 +406,7 @@ class AdminController extends Controller
         $user = User::where('role', 'individual')->get();
         return view('admin.pages.users.userseen.individual',  get_defined_vars());
     }
-    
+
     // Active / Deactive user
     public function changeStatus($status, $id)
     {

@@ -127,7 +127,8 @@
                             <div class="img-holder-frelancer pt-4">
                                 <?php $image = isset($individual->image) && !empty($individual->image) ? $individual->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 90px;width: 90px;" alt="" srcset="" />
+                                <img src="<?= $image ?>" style="height: 75px; width: 75px;" alt="" srcset="" />
+
                             </div>
                         </div>
                         <div class="p-3">

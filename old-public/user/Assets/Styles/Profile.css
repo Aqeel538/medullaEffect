@@ -1,0 +1,613 @@
+/* ------------Navbar------------------ */
+.profile_list li {
+    list-style: none;
+    margin-inline: 22px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #303030;
+}
+
+.profile_list li a {
+    text-decoration: none;
+    color: black;
+}
+
+.just_colorhead {
+    color: rgba(124, 35, 66, 1);
+
+}
+
+.land_page_head h4 {
+    font-size: 25.3775px;
+    font-weight: 500;
+}
+
+.land_page_head img {
+    width: 37px;
+}
+
+.img-holder{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+ 
+}
+.img-holder img{
+  
+border: 2px solid #7C2342;
+    width: 35%;
+    border-radius: 50%;
+margin-bottom: 10px;
+padding: 2px;
+ 
+}
+
+.input-icons i {
+    position: absolute;
+    left: 11px;
+    top: 2px;
+}
+  
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.icon {
+    padding: 10px;
+    color: rgb(23, 26, 23);
+    min-width: 50px;
+
+}
+  
+.input-field {
+    width: 100%;
+    padding: 8px 30px;
+
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    color: #9A9A9A;
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 136.99%;
+letter-spacing: 0.02em;
+}
+.input-field::placeholder{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 136.99%;
+letter-spacing: 0.02em;
+
+color: #9A9A9A;
+}
+.inputfield{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ced4da;
+   border-radius: 4px;
+   padding: 0 10px;
+   background-color: #FFFFFF;
+}
+.inputfield input{
+    /* background-color: #b897a3; */
+    border: none;
+   
+}
+.buttonunfillborder{
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    border: 1px dashed #7C2342;
+    border-radius: 6px;
+}
+.profile-left-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputfield select{
+    border: none;
+    border: none;
+    padding: 8px 7px;
+    background: #FFFFFF;
+        color: #9A9A9A;
+        font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 136.99%;
+letter-spacing: 0.02em;
+
+color: #9A9A9A;
+}
+.inputfield select:focus{
+    /* background-color: #b897a3; */
+  
+    outline: none;
+}
+
+
+
+.headings-profile{
+    display: flex;
+    justify-content: center;
+align-items: center;
+text-align: center;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 43px;
+
+}
+.john-text{
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 131.99%;
+/* identical to box height, or 33px */
+display: flex;
+align-items: center;
+text-align: center;
+color: #000000;
+}
+.john-para{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 144.99%;
+/* or 22px */
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+letter-spacing: 0.02em;
+color: #303030;
+}
+.profile-text-ques-heading{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 131.99%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+.john-para-afer-ques-heading
+{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 144.99%;
+    letter-spacing: 0.02em;
+    color: #303030;
+    opacity: 0.8;
+
+
+
+}
+
+
+.aplied-jobs-para{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 27px;
+line-height: 131.99%;
+/* or 36px */
+
+}
+.input-group-text {
+    background-color: white;
+    border-right: none !important;
+
+}
+.buttonfill{
+
+padding: 16px 30px;
+gap: 10px;
+left: 882px;
+top: 1150px;
+border: none;
+color: #FFFFFF;
+background: #7C2342;
+border-radius: 6px;
+}
+.buttonunfill-create{
+    color: #7C2342;
+    background-color:  white;
+    padding: 9px 30px;
+    border: 0.648723px solid #9A1029;
+    border-radius: 6px;
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16.2181px;
+line-height: 136.99%;
+}
+
+.buttonfill-apply{
+  
+    background-color:  #7C2342;
+    padding: 10px 15px;
+    border: none;
+  border-radius: 5px;
+color: #FFFFFF;
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16.2181px;
+line-height: 136.99%;
+
+}
+
+
+
+/* CARDS css */
+.buttonunfill-save{
+    color: #7C2342;
+    background-color:  white;
+    padding: 9px 8px;
+    border: 0.648723px solid #9A1029;
+    border-radius: 5px;
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16.2181px;
+line-height: 136.99%;
+}
+.buttonunfill-save:focus
+    {
+outline: none;
+    }
+
+    .buttonfill-apply:focus{
+        outline: none;
+    }
+    .buttonunfill-save-follow{
+        color: #7C2342;
+        background-color:  white;
+        padding: 4px 15px;
+        border: 1px solid #af3c64;
+        border-radius: 5px; 
+    }
+    .abutnexa-text{
+      font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 144.99%;
+letter-spacing: 0.02em;
+color: #303030;
+opacity: 0.8;
+    }
+
+    .cardsimg img
+    {
+        border: 2px solid #7C2342;
+        border-radius: 50%;
+    }
+
+.job-posted{
+  font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 144.99%;
+letter-spacing: 0.02em;
+color: #303030;
+opacity: 0.8;
+}
+.single-job-heading{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 700;
+font-size: 19px;
+line-height: 131.99%;
+/* identical to box height, or 25px */
+
+display: flex;
+align-items: center;
+
+color: #000000;
+
+
+
+
+  }
+
+
+
+/* -------------Responsivness------------ */
+
+/* ==========responsivness========== */
+
+
+
+@media (max-width:1240px){
+   
+}
+@media (max-width:1200px){
+   
+}
+@media (max-width:1040px){
+    .john-para-afer-ques-heading {
+
+        font-size: 13px; 
+    }
+    .profile-text-ques-heading{
+        
+    font-size: 39px;
+
+    }
+}
+@media (max-width:992px){
+    .land_page_head h4 {
+        font-size: 24px;
+    }
+
+    .img-holder img{
+            width: 15%;}
+    .profile-text-ques-heading{
+        
+    font-size: 37px;
+
+    }
+   
+}
+@media (max-width:768px){
+    
+    .land_page_head h4 {
+        font-size: 23px;
+    }
+
+    .start_16_respons {
+        font-size: 15px;
+    }
+
+    .profile_list li {
+
+        font-size: 14px;
+
+    }
+    .john-para-afer-ques-heading {
+
+        font-size: 15px; 
+    }
+    .profile-text-ques-heading{
+        
+        font-size: 35px;
+    
+        }
+        .inputfield select{
+            font-size: 15px;
+          
+        } 
+        .inputfield input::placeholder{
+            font-size: 15px;    
+            }
+}
+@media (max-width:576px){
+    .descriptions{
+
+        font-size: 14px; 
+    }
+    .img-holder img{
+        width: 20%;}
+    .left-card{
+        margin-bottom: 30px;
+      
+    }
+    .right-card{
+        margin-top: 30px;
+    }
+    .profile-text-ques-heading{
+        
+    font-size: 33px;
+
+    }
+    .buttonfill{
+        font-size: 14px;
+    }
+    .inputfield select{
+        font-size: 14px;
+      
+    } 
+    .inputfield input::placeholder{
+        font-size: 14px;    
+        }
+        .buttonfill{
+            font-size: 15px;
+        }
+        .res-top-margin{
+            margin-top: 10px;
+                    }
+                    .land_page_head h4 {
+                        font-size: 22px;
+                    }
+                
+                    .land_page_head img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                
+                    .start_16_respons {
+                        font-size: 14px;
+                    }
+                
+                    .profile_list li {
+                
+                        font-size: 13px;
+                
+                    }
+    
+}
+@media (max-width:468px){
+    .land_page_head h4 {
+        font-size: 20px;
+    }
+
+    .land_page_head img {
+        width: 25px;
+        height: 27px;
+    }
+
+    .start_16_respons {
+        font-size: 13px;
+    }
+
+    .profile_list li {
+
+        font-size: 12px;
+        margin-inline: 13px;
+
+    }
+    .john-para{
+
+        font-size: 13px; 
+    }
+    .profile-text-ques-heading{
+        
+    font-size: 23px !important;
+
+    }
+    .john-para-afer-ques-heading{
+        font-size: 12px;
+    }
+    .inputfield select{
+        font-size: 12px;
+      
+    } 
+    .inputfield input::placeholder{
+        font-size: 12px;   
+       
+        }
+        .buttonfill{
+            font-size: 13px;
+        }
+}
+@media (max-width:426px){
+    .inputfield select{
+        font-size: 11px;
+   
+    } 
+    .img-holder img{
+        width: 20%;} 
+
+    .inputfield input::placeholder{
+        font-size: 12px; 
+     
+        }
+   
+        .buttonfill{
+            font-size: 12px;
+        }
+        .inputfield{
+            padding: 0 2px;
+        }
+        .profile_list li {
+
+            font-size: 11px;
+            margin-inline: 11px;
+    
+        }
+}
+@media (max-width:375px){
+  
+   
+     .inputfield select{
+   
+        padding:  15px 5px;
+    } 
+    .inputfield select::placeholder{
+   
+       font-size: 8px !important;
+    } 
+    .inputfield input{
+        padding:  10px 5px;
+    } 
+    .inputfield input::placeholder{
+    
+        padding:  10px 5px;
+        }
+        .buttonfill{
+            font-size: 11px;
+        }
+        .res-top-margin{
+margin-top: 10px;
+        }
+        .land_page_head h4 {
+            font-size: 18px;
+        }
+    
+        .land_page_head img {
+            width: 22px;
+            height: 24px;
+            margin-top: 2px;
+        }
+    
+        .profile_list li {
+    
+            font-size: 11px;
+            margin-inline: 11px;
+    
+        }
+
+}
+@media (max-width:320px){
+    .john-para-afer-ques-heading {
+
+        font-size: 10px; 
+    }
+    .profile-text-ques-heading{
+        
+    font-size: 20px;
+
+    }
+    .inputfield select{
+        font-size: 8px;
+  
+    } 
+    .inputfield input::placeholder{
+        font-size: 8px; 
+        padding: 0 4px;   
+        }
+        .buttonfill{
+            font-size: 8px;
+        }
+        .land_page_head h4 {
+            font-size: 17px;
+        }
+    
+        .land_page_head img {
+            width: 20px;
+            height: 22px;
+            margin-top: 3px;
+        }
+    
+        .profile_list li {
+    
+            font-size: 10px;
+            margin-inline: 10px;
+    
+        }
+        .single-job-heading{
+            font-size: 15px;
+        }
+        .job-posted {
+font-size: 11px;
+        }
+} 
+

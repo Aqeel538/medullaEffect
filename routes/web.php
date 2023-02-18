@@ -82,8 +82,18 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('admin/category-editstore', [AdminController::class, 'users_category_editstore'])->name('users_category_editstore');
     Route::any('admin/category-delete/{id}', [AdminController::class, 'users_category_delete'])->name('users_category_delete');
 
+    // Industry
+    Route::get('admin/industry-list', [AdminController::class, 'users_industry'])->name('users_industry');
+    Route::get('admin/industry-form', [AdminController::class, 'users_industry_form'])->name('users_industry_form');
+    Route::post('admin/industry-store', [AdminController::class, 'users_industry_store'])->name('users_industry_store');
+    Route::get('admin/industry-edit/{id}', [AdminController::class, 'users_industry_edit'])->name('users_industry_edit');
+    Route::post('admin/industry-editstore', [AdminController::class, 'users_industry_editstore'])->name('users_industry_editstore');
+    Route::any('admin/industry-delete/{id}', [AdminController::class, 'users_industry_delete'])->name('users_industry_delete');
+
+
     // Services
     Route::get('services', [AdminController::class, 'services'])->name('services');
+    Route::get('single/service/{id}', [AdminController::class, 'singleService'])->name('single.service');
     Route::get('service/form', [AdminController::class, 'service_form'])->name('service_form');
     Route::post('service/store', [AdminController::class, 'service_store'])->name('service_store');
     Route::get('service/edit/{id}', [AdminController::class, 'service_edit'])->name('service_edit');
@@ -92,6 +102,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     // Jobs
     Route::get('jobs', [AdminController::class, 'jobs'])->name('jobs');
+    Route::get('single/jobs/{id}', [AdminController::class, 'singleJobs'])->name('single.jobs');
     Route::get('jobs/form', [AdminController::class, 'jobs_form'])->name('jobs_form');
     Route::post('jobs/store', [AdminController::class, 'jobs_store'])->name('jobs_store');
     Route::get('jobs/edit/{id}', [AdminController::class, 'jobs_edit'])->name('jobs_edit');

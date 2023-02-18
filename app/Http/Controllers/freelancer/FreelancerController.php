@@ -4,6 +4,7 @@ namespace App\Http\Controllers\freelancer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Notification;
 use App\Models\SaveService;
 use App\Models\User;
 use App\Models\Service;
@@ -144,7 +145,11 @@ class FreelancerController extends Controller
     public function see_notifications()
     {
         $title = 'Notifications';
-        return view('userNew.singleUser.pages.freelancer.notifications', compact('title'));
+
+        $notifications = Notification::with('companyGet')->get();
+        // dd($notifications[0]->companyGet->image);
+
+        return view('userNew.singleUser.pages.freelancer.notifications', get_defined_vars());
     }
 
     // SAVE SERVICE

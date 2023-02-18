@@ -7,6 +7,7 @@ use App\Models\Application;
 use App\Models\Archive;
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -73,6 +74,7 @@ class CompanyController extends Controller
 
     public function company_jobs_store(Request $req, $id)
     {
+
         $user_id = auth()->user()->id;
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->update([
@@ -97,6 +99,23 @@ class CompanyController extends Controller
                 'hiring_type' => $req->hiring_type,
                 'description' => $req->description,
             ]);
+            $jobId = $obj->id;
+            $notification = Notification::create([
+                'userId' => $user_id,
+                'jobId' => $jobId,
+                'title' => $req->title,
+                'subject' => $req->description,
+            ]);
+
+            // for relation write in migration
+            // $table->foreign('user_id')
+            // ->references('id')
+            // ->on('users')
+            // ->onDelete('cascade');
+            //  public function user()
+            //  {
+            //      return $this->belongsTo(User::class);
+            //  }
         }
         return redirect(route('company.jobs'));
     }

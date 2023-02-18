@@ -53,7 +53,7 @@
             <div class="col-lg-5 col-12 text-center" style="max-height: 513px;
             overflow: auto;">
                 <div class=" p-4" style="background-color: #F9F9F9; border-radius: 21.0305px;">
-                    <h1 class="profile-text-ques-heading mb-5">All Messages</h1>
+                    <h1 class="profile-text-ques-heading mb-5">All Users</h1>
                     @if (count($user_messages) > 0)
                         @foreach ($user_messages as $single_message)
                             <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">

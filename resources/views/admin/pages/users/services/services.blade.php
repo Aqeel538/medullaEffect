@@ -60,7 +60,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title">All Services</p>
+                    <p class="card-title">{!! $card_title ?? 'All Services' !!}</p>
                     <div class="row" style="justify-content: right; margin-top: -45px; margin-right: 10px;">
                         <a href="{{ route('service_form') }}" class="btn btn-primary">Add New</a>
                     </div>
@@ -80,6 +80,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if($services->count() > 0)
                                         @foreach($services as $service)
                                         <tr>
                                             <td class="py-1">
@@ -91,16 +92,18 @@
 
                                             <td>{!! $service->created_at ?? '' !!}</td>
                                             <td>
-                                                <a href="{{ route('service_edit', $service->id) }}">
+                                                <a href="{!! route('service_edit', $service->id) ?? '' !!}">
                                                     <i style="margin-right: 5px; color: darkblue; font-size: 17px;" class="mdi mdi-tooltip-edit"></i>
                                                 </a>
-                                                <a href="{{ route('service_delete', $service->id) }}">
+                                                <a href="{!! route('service_delete', $service->id) ?? '' !!}">
                                                     <i style="margin-left: 5px; color: brown; font-size: 20px;" class="mdi mdi-delete-sweep"></i>
                                                 </a>
+
                                             </td>
 
                                         </tr>
                                         @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
