@@ -104,7 +104,7 @@ class SingleUserController extends Controller
         //     return redirect(route('verify'));
         // }
         // dd($user);
-        return view('user.singleUser.pages.individual.questinare', compact('user', 'title'));
+        return view('userNew.singleUser.pages.individual.questinare', compact('user', 'title'));
     }
 
     public function viewJob()

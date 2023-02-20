@@ -106,6 +106,7 @@ class RegistrationControllerInd extends Controller
             'gender' => $req['gender'],
             'job_type' => $req['job_type'],
             'located_in' => $req['located_in'],
+            'relocate' => $req['relocate'],
             'work_type' => $req['work_type'],
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],
@@ -146,6 +147,21 @@ class RegistrationControllerInd extends Controller
     }
     public function update_user_profile(Request $req)
     {
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'gender' => 'required',
+            'phone' => 'required',
+            'job_type' => 'required',
+            'located_in' => 'required',
+            'relocate' => 'required',
+            'work_type' => 'required',
+            'industry_and_position' => 'required',
+            'pay_range' => 'required',
+            'nationality' => 'required',
+
+        ]);
+
         $id = Auth::user()->id;
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
@@ -154,6 +170,7 @@ class RegistrationControllerInd extends Controller
             'phone' => $req['phone'],
             'job_type' => $req['job_type'],
             'located_in' => $req['located_in'],
+            'relocate' => $req['relocate'],
             'work_type' => $req['work_type'],
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],

@@ -21,13 +21,11 @@ class FreelancerMiddleware
             if (Auth::user()->status == 0) {
                 Auth::logout();
                 return redirect('/login')->with('error', 'Your account is deactivated');
-            }
-            // elseif (Auth::user()->questionaire_submit == 1) {
-                // return $next($request);
-            // }
-            else {
+            } elseif (Auth::user()->questionaire_submit == 1) {
                 return $next($request);
-                // return redirect('/questinare');
+            } else {
+                // return $next($request);
+                return redirect('/questinare');
             }
         } else {
             return redirect('/login');

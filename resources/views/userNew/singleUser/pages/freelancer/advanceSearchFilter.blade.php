@@ -2,48 +2,7 @@
 @section('content')
     <!----- ---------2nd--Navbar------------- -->
 
-
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
-
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link" href="{{ route('businesses.list') }}">Businesses</a></li>
-                        <li><a class="navbar-link  mylist active"
-                                href="{{ route('freelancer.listing.frontend') }}">Freelancers</a></li>
-                        <li><a class="navbar-link" href="#">Settings</a></li>
-
-                    </ul>
-                    <div>
-                        <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                                alt="" srcset="">
-                        </a>
-                        &nbsp;
-                        <a class="navbar-link" href="">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                                alt="" srcset="">
-                        </a>
-                    </div>
-
-
-
-
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('userNew.singleUser.pages.freelancer.secondNav')
     <!---------------- -Navend--------------- -->
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">

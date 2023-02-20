@@ -64,8 +64,8 @@ class FreelancerController extends Controller
     public function chatBot_page()
     {
         $title = "Chat Bot";
-
-        return view('userNew.singleUser.pages.freelancer.chatbot', compact('title'));
+        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
+        return view('userNew.singleUser.pages.freelancer.chatbot', compact('title','user_messages'));
     }
     public function about_service($id)
     {

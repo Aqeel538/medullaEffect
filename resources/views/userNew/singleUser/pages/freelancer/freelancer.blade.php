@@ -8,7 +8,6 @@
     <!-- -----------freelancer----signup------------ -->
     <div class="container-fluid">
         <div class="row justify-content-center">
-   
             <div class="col-lg-4 col-md-4 col-12 company_bg">
                 <div class="d-flex justify-content-between">
                     <div>
@@ -24,183 +23,166 @@
                     </div>
 
                 </div>
-                <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/assets/images/Copany-bg-img.png" class="company_img" alt="w8">
+                <div class="d-flex justify-content-center align-item-center">
+                    <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
+                        alt="w8">
                 </div>
 
             </div>
-            <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
-                <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/assets/images/job-search-company.png" alt="w8">
-                    <h3 class="Poppins">Medulla
-                        Effects</h3>
+            <div class="col-lg-8 col-md-8 col-12 ">
+                <div class="row form-row text-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
+                            class="logo-img">
+                        &nbsp; <h4 class="Logo-text">Medulla
+                            Effects</h4>
+                    </div>
+                    <div class="col-9 central-data-signup ">
+                        <div>
+                            <h5 class="job-headings pb-4">Freelancer Sign Up</h5>
+                            <p class="job-view-para-2 pb-4">Post job Hire people through Post job Hire people through
+                                Medulla...nis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                                aperiam, eaque ipsa qua.</p>
+                        </div>
+                        <form action="{{ route('freelancer.create') }}" method="POST" class="needs-validation"
+                            novalidate="">
+                            @csrf
+                            <input required type="hidden" name="check" value="1" />
+                            <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                        <input class="input-fields" type="text" name="name" placeholder="First Name">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('name')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                        <input class="input-fields" type="email" name="email" placeholder="Email ID">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('email')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <i class="ri-lock-unlock-line" style="font-size: 20px"></i>
+                                        <input class="input-fields" type="password" name="password"placeholder="Password">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('password')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <ion-icon name="call-outline"></ion-icon>
+                                        <input class="input-fields" type="number" name="phone"
+                                            placeholder="Phone Number">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('phone')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <span><i class="ri-global-line" style="font-size: 20px"></i></span>
+                                        <input class="input-fields" type="text" name="company_name"
+                                            placeholder="Company Name">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('company_name')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <span><i class="ri-earth-line" style="font-size: 20px"></i></span>
+                                        <input class="input-fields" type="text" name="website"
+                                            placeholder="Website(Optional)">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('website')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row justify-content-center Poppins">
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container " style="font-size: 20px">
+                                        <span><i class="ri-service-line"></i></span>
+                                        <input class="input-fields" type="text" name="industry" placeholder="industry">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('industry')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <span><i class="fa-regular fa-user" style="font-size: 20px"></i></span>
+                                        <input class="input-fields" type="text" name="contact"
+                                            placeholder="Source of contact">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('contact')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12  mb-lg-0 mb-md-0 mb-3 mt-2">
+                                <div class="input-container ">
+                                    <span><i class="ri-map-pin-line" style="font-size: 20px"></i></span>
+                                    <input class="input-fields" type="text" name="address" placeholder="Adress">
+                                </div>
+                                <div class="text-danger d-flex">
+                                    @error('address')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="mt-4">
+
+                                <button type="submit" class="buttonfilled">Register</button>
+                            </div>
+                            <div class="pt-5">
+                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account?
+                                    <span class="log_company"><a href="/login">Log In</a></span>
+                                </p>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-                <div class="mt-3 Halvetica">
-                    <h1 class="head_text">Freelancer Sign Up</h1>
-                    <p class="pt-2 pb-2 sign-up-text-para">Post job Hire people through Medulla...nis iste
-                        natus error sit
-                        voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
-                </div>
-                <form action="{{ route('freelancer.create') }}" method="POST" class="needs-validation" novalidate="">
-                    @csrf
-                    <input required type="hidden" name="check" value="1" />
-                    <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-text border border-0 phara_16"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-user"></i></span>
-                                <input required type="text" name="name"
-                                    class="form-control padd_12_input ps-0 border border-0"
-                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Full Name">
-                            </div>
-                            <div class="text-danger d-flex">
-                                @error('name')
-                                    {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-text border border-0 phara_16"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-envelope"></i></span>
-                                <input required type="email" name="email"
-                                    class="form-control padd_12_input ps-0 border border-0"
-                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Email ID">
-                            </div>
-                            <div class="text-danger d-flex">
-                                @error('email')
-                                    {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="ri-lock-unlock-line"></i></span>
-                                <input required type="password" name="password"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Enter Password">
-                            </div>
-                            <div class="text-danger d-flex">
-                                @error('password')
-                                    {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="ri-map-pin-line"></i></span>
-                                <input required type="text" name="address"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Address">
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="ri-global-line"></i></i></span>
-                                <input required type="text" name="company_name"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Company Name">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i class="ri-earth-line"></i></span>
-                                <input required type="text" name="website"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="background-color: rgba(244, 244, 244, 1); border-left: none;"
-                                    placeholder="Website (optional)">
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="row justify-content-center Poppins">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-solid fa-phone"></i></span>
-                                <input required type="number" name="phone"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="border-left: none; background-color: rgba(244, 244, 244, 1);"
-                                    placeholder="Phone Number">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 dropdown">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);"><i
-                                        class="ri-service-line"></i></span>
-                                <input required type="text" name="industry"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="background-color: rgba(244, 244, 244, 1); border-left: none;"
-                                    placeholder="Industry">
-                                <button type="button" class=" dropdown-toggle drop_btn border border-0"
-                                    style="background-color: rgba(244, 244, 244, 1);" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropend</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Action two</a></li>
-                                    <li><a class="dropdown-item" href="#">Action three</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                    </div>
 
-                    <div class="row justify-content-center Poppins">
-                        <div class="col-lg-12 col-md-12 col-12">
-                            <div class="input-group mt-3">
-                                <span class="input-group-text phara_16 border border-0"
-                                    style="    background-color: rgba(244, 244, 244, 1);"><i
-                                        class="fa-regular fa-user"></i></span>
-                                <input required type="text" name="contact"
-                                    class="form-control ps-0 border border-0 padd_12_input"
-                                    style="background-color: rgba(244, 244, 244, 1); border-left: none;"
-                                    placeholder="Source of Contact">
-                                <button type="button" class=" dropdown-toggle drop_btn border border-0"
-                                    style="    background-color: rgba(244, 244, 244, 1);" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropend</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Action two</a></li>
-                                    <li><a class="dropdown-item" href="#">Action three</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <button type="submit" class="buttonfilled">Register</button>
-                    </div>
-                    <div class="pt-4">
-                        <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account? <span
-                                class="log_company"><a href="/login">Log In</a></span></p>
-                    </div>
-                </form>
+
             </div>
+
         </div>
     </div>
 @endsection

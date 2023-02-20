@@ -1,56 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!----- ---------2nd--Navbar------------- -->
+    @include('userNew.singleUser.pages.company.secondNav')
 
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
-
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link" href="{{ route('company.dashboard') }}">Dashboard</a>
-                        </li>
-                        <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
-                        <li><a class="navbar-link mylist active" href="{{ route('company.allApplicants') }}">Applicants</a>
-                        </li>
-                        <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
-                        <li><a class="navbar-link  " href="{{ route('company.freelancer') }}">Freelancers</a>
-                        </li>
-                        <li><a class="navbar-link" href="#">Settings</a></li>
-
-                    </ul>
-                    <div>
-                        <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                                alt="" srcset="">
-                        </a>
-                        &nbsp;
-                        <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                                alt="" srcset="">
-                        </a>
-                        <i style="cursor:pointer;" class="ri-logout-circle-line"
-                            onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
-                        </i>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container mb-5 mt-5">
         <div class="container-fluid tagline-1">
             <div class="row justify-content-center">
@@ -66,7 +18,7 @@
         </div>
         <div class="row mt-lg-3 mt-md-3 mt-3 ">
             <div class="col-lg-5 col-12 ">
-                <div class="recent-applications p-4">
+                <div class="recent-applications p-4" style="height: auto;">
                     <h1 class="profile-text-ques-heading-2 res-768 mb-5">All Jobs Listed</h1>
                     @foreach ($postedJobs as $postedJob)
                         <a href="{{ route('company.allApplicants', $postedJob->id) }}">
@@ -101,7 +53,7 @@
 
             </div>
             <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 ">
-                <div class="recent-applications p-4">
+                <div class="recent-applications p-4" style="height: auto;">
                     <div class="pr-2 pl-2">
                         <h1 class=" profile-text-ques-heading">All Jobs</h1>
                         <p class="john-para-afer-ques-heading-2">Sed ut perspiciatis unde omnis iste natus error sit

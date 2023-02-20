@@ -1,56 +1,7 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
-
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link mylist active" href="{{ route('company.dashboard') }}">Dashboard</a>
-                        </li>
-                        <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
-                        <li><a class="navbar-link" href="{{ route('company.allApplicants') }}">Applicants</a></li>
-                        <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
-                        <li><a class="navbar-link  " href="{{ route('company.freelancer') }}">Freelancers</a>
-                        </li>
-                        <li><a class="navbar-link" href="{{ route('comapny.setting') }}">Settings</a></li>
-
-                    </ul>
-                    <div>
-                        <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                                alt="" srcset="">
-                        </a>
-                        &nbsp;
-                        <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                                alt="" srcset="">
-                        </a>
-                        <i style="cursor:pointer;" class="ri-logout-circle-line"
-                            onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-                        </i>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- 2nd nav end -->
-
+    @include('userNew.singleUser.pages.company.secondNav')
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
@@ -76,6 +27,11 @@
                                 <input value="{!! $user->name ?? '' !!}" class="input-fields" type="text"
                                     placeholder="Full Name" name="name">
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </span>
 
                         </div>
                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
@@ -85,6 +41,11 @@
                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
                                     placeholder="Email ID" name="email">
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </span>
 
                         </div>
                     </div>
@@ -96,18 +57,29 @@
                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="text"
                                     placeholder="Phone Number" name="phone">
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('phone')
+                                    {{ $message }}
+                                @enderror
+                            </span>
 
                         </div>
                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                             <div class="inputfield">
                                 <i class="fa-regular fa-user"></i>
-                                <select name="gender" required style="width: 100%;">
-                                    <option value="" disabled selected hidden>{!! $user->gender ?? 'Gender' !!}</option>
+                                <select name="gender" style="width: 100%;">
+                                    <option value="{!! $user->gender ?? '' !!}">{!! $user->gender ?? 'Gender' !!}
+                                    </option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('gender')
+                                    {{ $message }}
+                                @enderror
+                            </span>
 
                         </div>
                     </div>
@@ -115,12 +87,19 @@
 
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <select name="job_type" required style="width: 100%;">
-                                    <option value="" disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}</option>
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/Color.png" alt=""
+                                    srcset="">
+                                <select name="job_type" style="width: 100%;">
+                                    <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
+                                    </option>
                                     <option value="Full Time">Full time</option>
                                     <option value="Part Time">Part Time</option>
                                 </select>
+                                <span class="text-danger d-flex">
+                                    @error('job_type')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
 
                             </div>
                         </div>
@@ -129,24 +108,56 @@
 
                         <div class="col-12 form-group">
                             <div class="inputfield mt-3">
-                                <i class="fa-regular fa-user"></i>
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/loction.png" alt=""
+                                    srcset="">
                                 <input class="input-field" type="text" name="located_in"
                                     value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                     placeholder="In which city are you located?" />
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('located_in')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="col-12 form-group">
                             <div class="inputfield mt-3">
-                                <i class="fa-regular fa-user"></i>
-                                <select name="work_type" required style="width: 100%;">
-                                    <option value="" disabled selected hidden>{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}</option>
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/relocate.png" alt=""
+                                    srcset="">
+                                <select name="relocate" style="width: 100%;">
+                                    <option value="{!! $user->relocate ?? '' !!}">{!! $user->relocate ?? 'Are you willing to relocate?' !!}</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <span class="text-danger d-flex">
+                                    @error('relocate')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12 form-group">
+                            <div class="inputfield mt-3">
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/work.png" alt=""
+                                    srcset="">
+                                <select name="work_type" style="width: 100%;">
+                                    <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                    </option>
                                     <option value="In-person">In-person</option>
                                     <option value="Remote">Remote</option>
                                     <option value="Hybird">Hybird</option>
                                 </select>
+                                <span class="text-danger d-flex">
+                                    @error('work_type')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -154,20 +165,27 @@
 
                         <div class="col-12  mt-3">
                             <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="industry_and_position"
-                                    placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
-
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/industry.png" alt=""
+                                    srcset="">
+                                <input value="{!! $user->industry_and_position ?? '' !!}" class="input-field" type="text"
+                                    name="industry_and_position" placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('industry_and_position')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
                     </div>
                     <div class="row">
 
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <select name="pay_range" required style="width: 100%;">
-                                    <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/payrange.png" alt=""
+                                    srcset="">
+                                <select name="pay_range" style="width: 100%;">
+                                    <option value="{!! $user->pay_range ?? '' !!}">
+                                        {!! $user->pay_range ?? 'State your desired pay range' !!}
                                     </option>
                                     <option value="0-50">0-50</option>
                                     <option value="50-100">50-100</option>
@@ -180,6 +198,11 @@
                                     <option value="4000-4500">4000-4500</option>
                                     <option value="4500-5000">4500-5000</option>
                                 </select>
+                                <span class="text-danger d-flex">
+                                    @error('pay_range')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -187,10 +210,16 @@
 
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
-                                <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="nationality"
-                                    placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
+                                <img src="{{ asset('user') }}/assets/Images/profile-imges/state.png" alt=""
+                                    srcset="">
+                                <input value="{!! $user->nationality ?? '' !!}" class="input-field" type="text"
+                                    name="nationality" placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('nationality')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -198,26 +227,36 @@
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
                                 <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="employees"
-                                    placeholder="{!! $user->employees ?? 'Employees' !!}" />
+                                <input value="{!! $user->employees ?? '' !!}" class="input-field" type="text"
+                                    name="employees" placeholder="{!! $user->employees ?? 'Total Employees' !!}" />
                             </div>
                         </div>
+                        <span class="text-danger d-flex">
+                            @error('employees')
+                                {{ $message }}
+                            @enderror
+                        </span>
                     </div>
                     <div class="row">
 
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
                                 <i class="fa-regular fa-user"></i>
-                                <input class="input-field" type="text" name="employees"
-                                    placeholder="{!! $user->employees_limit ?? 'Employees' !!}" />
+                                <input value="{!! $user->employees_limit ?? '' !!}" class="input-field" type="text"
+                                    name="employees_limit" placeholder="{!! $user->employees_limit ?? 'Employees limit' !!}" />
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('employees_limit')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
                     </div>
                     <div class="form-group mt-3">
                         <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
-                            placeholder="{!! $obj->description ?? 'Description' !!}"
-                            value="<?= isset($obj->description) && !empty($obj->description) ? $obj->description : 'Description' ?>"
-                            rows="6" style="background-color: #f4f4f4; border: none"></textarea>
+                            placeholder="{!! $user->description ?? 'Description' !!}"
+                            value="<?= isset($user->description) && !empty($user->description) ? $user->description : 'Description' ?>"
+                            rows="6" style="background-color: #f4f4f4; border: none">{!! $user->description ?? '' !!}</textarea>
                     </div>
 
                     <button type="submit" style="cursor: pointer;" class="buttonfill-update mt-4">Update</button>

@@ -8,7 +8,7 @@
     <!-- -----1st--Navbar--------- -->
     <!-- 2nd nav -->
 
-    <div class="container-fluid second-nav">
+    {{-- <div class="container-fluid second-nav">
         <div class="container">
             <div class="headers">
                 <nav class="navbar-questionare">
@@ -42,7 +42,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    @include('userNew.singleUser.pages.freelancer.secondNav')
 
 
     <!-- -------Heading--------- -->
@@ -140,4 +141,28 @@
         </div>
 
     </div>
+    <script>
+        // --------Tabes-----------
+        $(".tab-link").click(function() {
+            var tabID = $(this).attr("data-tab");
+
+            $(this).addClass("active").siblings().removeClass("active");
+
+            $("#tab-" + tabID)
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+        });
+        // -----------active----class--------
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("businesslist");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
 @endsection

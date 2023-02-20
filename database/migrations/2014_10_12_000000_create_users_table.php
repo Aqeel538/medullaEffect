@@ -31,11 +31,16 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable(true);
             $table->string('job_type')->nullable(true);
             $table->string('located_in')->nullable(true);
+            $table->string('relocate')->nullable(true);
+            $table->string('employees')->nullable(true);
+            $table->string('employees_limit')->nullable(true);
             $table->string('work_type')->nullable(true);
             $table->string('industry_and_position')->nullable(true);
             $table->string('pay_range')->nullable(true);
+            $table->string('experience')->nullable(true);
             $table->string('nationality')->nullable(true);
             $table->string('questionaire_submit')->nullable(true);
+            $table->string('resume')->nullable(true);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -3,48 +3,7 @@
     <!-- -----1st--Navbar--------- -->
 
     <!----- ---------2nd--Navbar------------- -->
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
-
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link mylist active" href="{{ route('individual.jobs') }}">View Jobs</a></li>
-                        <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
-                        </li>
-                        <li><a class="navbar-link" href="#">Saved Jobs</a></li>
-                        <li><a class="navbar-link" href="#">Resume</a></li>
-
-                    </ul>
-                    <div>
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                            alt="" srcset="">
-                        &nbsp;
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                            alt="" srcset="">
-                        <i style="cursor:pointer;" class="ri-logout-circle-line"
-                            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-                        </i>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('userNew.singleUser.pages.individual.secondNav')
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
@@ -88,7 +47,7 @@
                                     srcset="" />
 
                                 <div class="pos">
-                                    <input type="search" class="width" placeholder="Location" />
+                                    <input type="search" name="searchLocation" class="width" placeholder="Location" />
                                 </div>
                             </div>
                         </div>
@@ -174,8 +133,24 @@
                                                 <button class="buttonfill-apply">Apply Now</button>
                                             </a>
                                         @endif
-                                        <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
-                                                class="buttonunfill-save">Save for Later</button></a>
+                                        {{-- CHECK IF JOB IS SAVED --}}
+                                        <?php
+                                        if (isset($getjobs->saved_jobs) && !empty($getjobs->saved_jobs)) {
+                                            $check = $getjobs->saved_jobs->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Saved</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
+                                                    class="buttonunfill-save">Save for Later</button></a>
+                                        @endif
+                                        {{-- <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
+                                                class="buttonunfill-save">Save for Later</button></a> --}}
                                     </div>
                                 </div>
                             </a>

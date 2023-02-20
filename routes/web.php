@@ -147,6 +147,12 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
 
     // Company
     Route::get('/individual/companyDetails/{id}', [IndividualController::class, 'individual_companyDetails'])->name('individual.companyDetails');
+
+    // Follow company
+    Route::get('/individual/followCompany/{id}', [IndividualController::class, 'follow_company'])->name('follow.company');
+
+    // Notification
+    Route::get('individual/notifications', [IndividualController::class, 'individual_notifications'])->name('individual.notifications');
 });
 
 // Company Route
@@ -199,8 +205,11 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
 
     Route::post('change-password', [RegistrationControllerInd::class, 'updatePassword'])->name('change.password');
 
-    Route::get('userChangeStatus', [CompanyController::class, 'userChangeStatus']);
+    Route::get('company/userChangeStatus', [CompanyController::class, 'company_userChangeStatus']);
     Route::get('deactivate/{id}', [CompanyController::class, 'deactivate'])->name('deactivate');
+
+    // Notification
+    Route::get('company/notifications', [CompanyController::class, 'company_notifications'])->name('company.notifications');
 });
 
 

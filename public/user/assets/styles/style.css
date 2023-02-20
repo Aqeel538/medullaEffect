@@ -1260,8 +1260,10 @@ ion-icon {
 }
 
 .mesages-row {
+    /* overflow-y: auto;
+    height: 500px; */
     overflow-y: auto;
-    height: 500px;
+    height: 312px;
     position: relative;
     z-index: 1;
 }
@@ -1352,8 +1354,15 @@ ion-icon {
 
 .company_img {
     width: 100%;
-    padding: 160px 17px 52px 14px;
+    padding: 90px 17px 122px 14px;
 }
+.form-row{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 
 .div1 {
     background: #F4F4F4;
@@ -2756,6 +2765,13 @@ input:checked+.slider:before {
     .widths {
         width: 300%;
     }
+    .company_img {
+        width: 55%;}
+        .form-row {
+
+            margin-top: 52px;
+
+        }
 
     .descriptions {
         font-size: 15px;
@@ -3020,7 +3036,10 @@ input:checked+.slider:before {
     .res-top-margin {
         margin-top: 10px;
     }
+    .company_img {
+        width: 65%;
 
+    }
 
     .width {
         width: 200%;
@@ -3158,7 +3177,9 @@ input:checked+.slider:before {
     .widths {
         width: 150%;
     }
-
+    .company_img {
+        width: 76%;
+    }
     .non {
 
         padding: 10px 26px;
@@ -3325,6 +3346,10 @@ input:checked+.slider:before {
     .inputfield input::placeholder {
         font-size: 12px;
     }
+    .job-headings {
+
+        font-size: 34px;
+      }
 
     .buttonfill {
         font-size: 12px;

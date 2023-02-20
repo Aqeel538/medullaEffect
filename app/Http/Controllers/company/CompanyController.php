@@ -33,6 +33,24 @@ class CompanyController extends Controller
 
     public function update_company_profile(Request $req)
     {
+        // dd($req);
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'gender' => 'required',
+            'phone' => 'required',
+            'job_type' => 'required',
+            'located_in' => 'required',
+            // 'relocate' => 'required',
+            'work_type' => 'required',
+            'industry_and_position' => 'required',
+            'pay_range' => 'required',
+            'nationality' => 'required',
+            // 'employees' => 'required',
+            // 'employees_limit' => 'required',
+
+        ]);
+
         $id = Auth::user()->id;
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
@@ -41,15 +59,20 @@ class CompanyController extends Controller
             'phone' => $req['phone'],
             'job_type' => $req['job_type'],
             'located_in' => $req['located_in'],
+            'relocate' => $req['relocate'],
             'work_type' => $req['work_type'],
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],
             'nationality' => $req['nationality'],
             'employees' => $req['employees'],
+            'employees_limit' => $req['employees_limit'],
             'description' => $req['description'],
 
 
         ]);
+
+
+
         return back();
     }
 
@@ -74,7 +97,6 @@ class CompanyController extends Controller
 
     public function company_jobs_store(Request $req, $id)
     {
-
         $user_id = auth()->user()->id;
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->update([
@@ -338,6 +360,7 @@ class CompanyController extends Controller
         $title = 'All Applicants';
         $user = auth()->user()->id;
         $postedJobs = Job::where('user_id', $user)->with('Categories')->get();
+        // dd($postedJobs);
         $getAllApplicants = Application::where('job_id', $id)->with('users')->get();
         // dd($getAllApplicants);
         return view('userNew.singleUser.pages.company.applicants', get_defined_vars());
@@ -378,9 +401,9 @@ class CompanyController extends Controller
         return view('userNew.singleUser.pages.company.setting', get_defined_vars());
     }
 
-    public function userChangeStatus(Request $request)
+    public function company_userChangeStatus(Request $request)
     {
-
+        // dd($request);
         Log::info($request->all());
         $user = User::find($request->user_id);
         $user->is_active = $request->status;
@@ -398,5 +421,17 @@ class CompanyController extends Controller
 
         return back();
         // return response()->json(['success' => 'Status change successfully.']);
+    }
+
+
+    // Notification
+    public function company_notifications()
+    {
+        $title = 'Company|Notifications';
+
+        $notifications = Notification::with('companyGet')->get();
+        // dd($notifications[0]->companyGet->image);
+
+        return view('userNew.singleUser.pages.company.notifications', get_defined_vars());
     }
 }

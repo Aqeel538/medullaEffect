@@ -26,4 +26,8 @@ class Job extends Model
     {
         return $this->hasMany(Application::class, 'job_id', 'id');
     }
+    public function saved_jobs()
+    {
+        return $this->hasMany(SaveForLater::class, 'job_id', 'id');
+    }
 }

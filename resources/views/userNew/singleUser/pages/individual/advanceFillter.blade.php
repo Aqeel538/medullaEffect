@@ -1,40 +1,7 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!----- ---------2nd--Navbar------------- -->
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
-
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
-                        <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
-                        </li>
-                        <li><a class="navbar-link" href="#">Saved Jobs</a></li>
-                        <li><a class="navbar-link" href="#">Resume</a></li>
-
-                    </ul>
-                    <div>
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                            alt="" srcset="">
-                        &nbsp;
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                            alt="" srcset="">
-                    </div>
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('userNew.singleUser.pages.individual.secondNav')
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
@@ -132,33 +99,66 @@
     <!-- ---------cards-------------- -->
     <div class="container-fluid mt-5 p-lg-3 p-md-3 p-sm-1 p-1">
         <div class="row">
-            @foreach ($allJobs as $allJob)
-                @foreach ($allJob->jobs as $getjobs)
-                    <div class="col-lg-4 col-md-4 col-12 mt-lg-0 mt-4 pt-0 ">
-                        <div class="p-3 mb-3" style="background: #F9F9F9;;border-radius: 20px;">
-                            <div class="row">
-                                <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                        class="w-5" alt="w8" />
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                    <p class="single-job-heading" style="margin: 0; padding: 0 35px;">
-                                        <b>{!! $getjobs->title ?? '' !!} </b>
-                                    </p>
-                                    <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                    <i class="fas-elip fa-solid fa-ellipsis"></i>
-                                </div>
+            @foreach ($allJobs as $getjobs)
+                {{-- @foreach ($allJob->jobs as $getjobs) --}}
+                <div class="col-lg-4 col-md-4 col-12 mt-lg-0 mt-4 pt-0 ">
+                    <div class="p-3 mb-3" style="background: #F9F9F9;;border-radius: 20px;">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png" class="w-5"
+                                    alt="w8" />
                             </div>
-                            <p class="abutnexa-text pt-4 pb-3"> {!! $getjobs->description ?? '' !!}</p>
-                            <div class="jobviewbtns mt-1 mb-1">
-                                <a href="{{ route('individual.apply.now', $getjobs->id) }}"><button
-                                        class="buttonfill-apply">Apply Now</button></a>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                <p class="single-job-heading" style="margin: 0; padding: 0 35px;">
+                                    <b>{!! $getjobs->title ?? '' !!} </b>
+                                </p>
+                                <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                <i class="fas-elip fa-solid fa-ellipsis"></i>
                             </div>
                         </div>
+                        <p class="abutnexa-text pt-4 pb-3"
+                            style="height: 90px!important;
+                        overflow: hidden;">
+                            {!! $getjobs->description ?? '' !!}</p>
+                        <div class="jobviewbtns mt-1 mb-1">
+                            <?php
+                            if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {
+                                $check = $getjobs->applied_jobs->where('applicant_id', auth()->user()->id)->first();
+                            } else {
+                                $check = null;
+                            }
+                            ?>
+                            @if (isset($check) && !empty($check))
+                                <a href="#">
+                                    <button class="buttonfill-apply">Applied</button>
+                                </a>
+                            @else
+                                <a href="{{ route('individual.apply.now', $getjobs->id) }}">
+                                    <button class="buttonfill-apply">Apply Now</button>
+                                </a>
+                            @endif
+                            {{-- CHECK IF JOB IS SAVED --}}
+                            <?php
+                            if (isset($getjobs->saved_jobs) && !empty($getjobs->saved_jobs)) {
+                                $check = $getjobs->saved_jobs->where('user_id', auth()->user()->id)->first();
+                            } else {
+                                $check = null;
+                            }
+                            ?>
+                            @if (isset($check) && !empty($check))
+                                <a href="#">
+                                    <button class="buttonunfill-save">Saved</button>
+                                </a>
+                            @else
+                                <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
+                                        class="buttonunfill-save">Save for Later</button></a>
+                            @endif
+                        </div>
                     </div>
-                @endforeach
+                </div>
+                {{-- @endforeach --}}
             @endforeach
         </div>
         <script>

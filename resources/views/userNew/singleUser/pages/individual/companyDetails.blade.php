@@ -9,40 +9,7 @@
         }
     </style>
     <!----- ---------2nd--Navbar------------- -->
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
-
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link" href="{{ route('individual.jobs') }}">View Jobs</a></li>
-                        <li><a class="navbar-link" href="{{ route('individual.appliedJobs') }}">View Applications</a>
-                        </li>
-                        <li><a class="navbar-link" href="#">Saved Jobs</a></li>
-                        <li><a class="navbar-link" href="#">Resume</a></li>
-
-                    </ul>
-                    <div>
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                            alt="" srcset="">
-                        &nbsp;
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                            alt="" srcset="">
-                    </div>
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('userNew.singleUser.pages.individual.secondNav')
     <div class="container mt-4">
         <div class="row">
             <div class="col-12 job-view-crd-res-575">

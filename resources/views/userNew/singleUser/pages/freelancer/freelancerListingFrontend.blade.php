@@ -8,7 +8,7 @@
         }
     </style>
     <!-- 2nd nav -->
-
+    {{--
     <div class="container-fluid second-nav">
         <div class="container">
             <div class="headers">
@@ -56,7 +56,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    @include('userNew.singleUser.pages.freelancer.secondNav')
 
 
     <!-- -------Heading--------- -->
@@ -100,7 +101,7 @@
                                     srcset="" />
 
                                 <div class="pos">
-                                    <input type="search" class="width" name="searchLocation" />
+                                    <input type="search" class="width" name="searchLocation" placeholder="Location" />
                                 </div>
                             </div>
                         </div>
@@ -134,10 +135,10 @@
                             <div class="img-holder">
                                 <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                <img src="<?= $image ?>" style="height: 75px; width: 75px" alt="" srcset="" />
                             </div>
 
-                            <h3 class="bus-heading mt-3 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+                            <h3 class="bus-heading mt-3 mb-3" style="height: 70px !important;">{!! $freelancer->name ?? '' !!}</h3>
                             <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>

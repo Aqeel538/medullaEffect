@@ -1,55 +1,9 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!-- -----1st--Navbar--------- -->
+    @include('userNew.singleUser.pages.company.secondNav')
 
-    <div class="container-fluid second-nav">
-        <div class="container">
-            <div class="headers">
-                <nav class="navbar-questionare">
 
-                    <div class="">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorsearch.png"
-                            class="search-icon-index" alt="" srcset="">
-                    </div>
-                    <ul class="navbar-lists" id="myDIV">
-
-                        <li><a class="navbar-link" href="{{ route('company.dashboard') }}">Dashboard</a>
-                        </li>
-                        <li><a class="navbar-link" href="{{ route('company.jobs') }}">Jobs</a></li>
-                        <li><a class="navbar-link" href="{{ route('company.allApplicants') }}">Applicants</a></li>
-                        <li><a class="navbar-link" href="{{ route('company.individual') }}">Individuals</a></li>
-                        <li><a class="navbar-link  mylist active" href="{{ route('company.freelancer') }}">Freelancers</a>
-                        </li>
-                        <li><a class="navbar-link" href="#">Settings</a></li>
-
-                    </ul>
-                    <div>
-                        <a class="navbar-link" href="{{ route('see.notifications') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorbell.png" class="bells"
-                                alt="" srcset="">
-                        </a>
-                        &nbsp;
-                        <a class="navbar-link" href="{{ route('company.jobPost') }}">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" class="bell"
-                                alt="" srcset="">
-                        </a>
-                        <i style="cursor:pointer;" class="ri-logout-circle-line"
-                            onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
-                        </i>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </nav>
-
-                <div class="mobile-navbar-btns">
-                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
@@ -129,7 +83,7 @@
                             </div>
                         </div>
                         <div class="p-3">
-                            <h3 class="bus-heading mt-5 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+                            <h3 class="bus-heading mt-5 mb-3" style="height: 70px;">{!! $freelancer->name ?? '' !!}</h3>
 
                             <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                             </h6>
