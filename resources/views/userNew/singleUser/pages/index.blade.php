@@ -38,7 +38,7 @@
     <!-- hero section -->
     <div class="container herosecion mt-lg-5 mt-md-5 mt-2">
         <div class="row text-center justify-content-center">
-            <div class="col-lg-8 col-md-12 col-12 ">
+            <div class="col-lg-12 col-md-10 col-12 ">
                 <h1>
                     The Home Of Business Opportunities.
                 </h1>

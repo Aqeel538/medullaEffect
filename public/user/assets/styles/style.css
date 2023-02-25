@@ -37,6 +37,9 @@ body {
     width: 35px;
     height: 40px;
 }
+.arrow-back{
+    padding: 20px;
+}
 
 /* =====Top Nav & 2nd nav css===== */
 
@@ -124,12 +127,23 @@ body {
 }
 
 .topnav-medulla {
-
+padding: 10px 0;
     display: flex;
-    justify-content: center;
+justify-content: space-between;
     align-items: center;
 }
 
+.oki{
+align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.phone-colum{
+   
+    display: flex;
+    text-align: end;
+    justify-content: flex-end;
+}
 .display-btn {
     padding: 14px 42px;
     background: #ffffff;
@@ -188,7 +202,7 @@ body {
     font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 40px;
     line-height: 131.99%;
     color: #000000;
 }
@@ -1529,7 +1543,7 @@ ion-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+ 
 }
 
 .div1 {

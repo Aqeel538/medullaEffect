@@ -37,8 +37,12 @@
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 ">
+            <div class="arrow-back">
+                    <a href="{{route('index')}}">  <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" 
+                        alt="w8"></a>
+                </div>
                 <div class="row form-row text-center">
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mb-5">
                         <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
                             class="logo-img">
                         &nbsp; <h4 class="Logo-text">Medulla

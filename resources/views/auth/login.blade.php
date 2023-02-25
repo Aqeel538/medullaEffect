@@ -30,6 +30,11 @@
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 ">
+            <div class="arrow-back">
+                    <a href="{{route('companay')}}">  <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" 
+                        alt="w8"></a>
+                </div>
+
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center">
                         <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
@@ -39,7 +44,7 @@
                     </div>
                     <div class="col-9 central-data-signup ">
                         <div>
-                            <h5 class="job-headings pb-4">Login</h5>
+                            <h5 class="job-headings pb-4 mt-5">Login</h5>
                             <p class="job-view-para-2 pb-4">Post job Hire people through Medulla...nis iste
                                 natus error sit
                                 voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>

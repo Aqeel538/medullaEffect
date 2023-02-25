@@ -17,6 +17,10 @@
             </div>
         </div>
     </div>
+
+
+
+     
     <!-- --------------3rd nav ----------------- -->
     <form id="filter" action="{{ route('company.freelancer.advanceSearch') }}" method="GET">
         @csrf
