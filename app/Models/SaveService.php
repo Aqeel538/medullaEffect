@@ -12,4 +12,14 @@ class SaveService extends Model
         'user_id',
         'service_id',
     ];
+
+    public function services()
+    {
+        return $this->hasOne(Service::class,  'id', 'service_id');
+    }
+
+    public function saved_freelancer()
+    {
+        return $this->hasOne(User::class, 'id', 'service_id');
+    }
 }

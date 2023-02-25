@@ -179,189 +179,6 @@
                             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                     </div>
                 </div>
-                {{-- <form action="{{ route('submit.questionair', $user->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row mt-4">
-                        <div class="col-12  col-lg-6 col-md-6">
-                            <div class="input-container  ">
-                                <ion-icon name="person-outline"></ion-icon>
-                                <input class="input-fields"type="text" name="name"
-                                    value="<?= isset($user->name) && !empty($user->name) ? $user->name : '' ?>"
-                                    placeholder="Full Name">
-                            </div>
-
-                        </div>
-
-                        <div class="col-12  col-lg-6 col-md-6 ">
-                            <div class="input-container ">
-                                <ion-icon name="mail-outline"></ion-icon>
-                                <input class="input-fields" type="email" name="email"
-                                    value="<?= isset($user->email) && !empty($user->email) ? $user->email : '' ?>"
-                                    placeholder="Email ID">
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="row mt-3">
-
-                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                            <div class="input-container ">
-                                <ion-icon name="call-outline"></ion-icon>
-                                <input class="input-fields" type="text" name="phone"
-                                    value="<?= isset($user->phone) && !empty($user->phone) ? $user->phone : '' ?>"
-                                    placeholder="Phone Number">
-                            </div>
-
-                        </div>
-                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                            <div class="input-container ">
-                                <ion-icon name="person-outline"></ion-icon>
-
-                                <select class="input-fields" name="gender" style="width: 100%;">
-
-                                    <option value="" disabled selected hidden>{!! $user->gender ?? 'Gender' !!}</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="other">Other</option>
-
-                                </select>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group mt-3">
-                            <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/Color.png" alt="" srcset="">
-                                <select required name="job_type" style="width: 100%;">
-                                    <option
-                                        value="  <?= isset($user->job_type) && !empty($user->job_type) ? $user->job_type : '' ?>"
-                                        disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
-
-                                    </option>
-                                    <option value="Full Time">Full Time</option>
-                                    <option value="Part Time">Part Time</option>
-                                </select>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield mt-3">
-                                <img src="../Assets/Images/profile-imges/loction.png" alt="" srcset="">
-                                <input class="input-fields" type="text" name="located_in"
-                                    value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
-                                    placeholder="In which city are you located?" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield mt-3">
-                                <img src="{{ asset('user') }}/assets/Images/profile-imges/relocate.png" alt=""
-                                    srcset="">
-                                <select name="relocate" style="width: 100%;">
-                                    <option value="{!! $user->relocate ?? '' !!}">{!! $user->relocate ?? 'Are you willing to relocate?' !!}</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select>
-                                <span class="text-danger d-flex">
-                                    @error('relocate')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield mt-3">
-                                <img src="../Assets/Images/profile-imges/relocate.png" alt="" srcset="">
-                                <select name="work_type" required style="width: 100%;">
-                                    <option
-                                        value="  <?= isset($user->work_type) && !empty($user->work_type) ? $user->work_type : '' ?>"
-                                        disabled selected hidden>Are you willing to relocate?</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12  mt-3">
-                            <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/work.png" alt="" srcset="">
-                                <select name="work_type" required style="width: 100%;">
-                                    <option
-                                        value="<?= isset($user->work_type) && !empty($user->work_type) ? $user->work_type : '' ?>"
-                                        disabled selected hidden>{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}</option>
-                                    <option value="In-Person">In-Person</option>
-                                    <option value="Remote">Remote</option>
-                                    <option value="Hybrid">Hybrid</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group mt-3">
-                            <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/industry.png" alt="" srcset="">
-                                <select name="industry_and_position" required style="width: 100%;">
-                                    <option
-                                        value="  <?= isset($user->industry_and_position) && !empty($user->industry_and_position) ? $user->industry_and_position : '' ?>"
-                                        disabled selected hidden>{!! $user->industry_and_position ?? 'State your desired industry and position' !!}</option>
-                                    <option value="IT">IT</option>
-                                    <option value="other">other</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group mt-3">
-                            <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/payrange.png" alt="" srcset="">
-                                <select name="pay_range" required style="width: 100%;">
-                                    <option
-                                        value="<?= isset($user->pay_range) && !empty($user->pay_range) ? $user->pay_range : '' ?>"
-                                        disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
-                                    </option>
-                                    <option value="0-50">0-50</option>
-                                    <option value="50-100">50-100</option>
-                                    <option value="100-1500">100-1500</option>
-                                    <option value="1500-2000">1500-2000</option>
-                                    <option value="2000-2500">2000-2500</option>
-                                    <option value="2500-3000">2500-3000</option>
-                                    <option value="3000-3500">3000-3500</option>
-                                    <option value="3500-4000">3500-4000</option>
-                                    <option value="4000-4500">4000-4500</option>
-                                    <option value="4500-5000">4500-5000</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group mt-3">
-                            <div class="inputfield">
-                                <img src="../Assets/Images/profile-imges/state.png" alt="" srcset="">
-                                <input class="input-fields" type="text" name="nationality"
-                                    placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" style="cursor: pointer;" class="buttonfill-update mt-4">Update</button>
-
-                </form> --}}
                 <form action="{{ route('submit.questionair', $user->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mt-4">
@@ -455,7 +272,7 @@
                             <div class="inputfield mt-3">
                                 <img src="{{ asset('user') }}/assets/Images/profile-imges/loction.png" alt=""
                                     srcset="">
-                                <input class="input-field" type="text" name="located_in"
+                                <input class="input-fields" type="text" name="located_in"
                                     value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                     placeholder="In which city are you located?" />
                             </div>
@@ -512,7 +329,7 @@
                             <div class="inputfield">
                                 <img src="{{ asset('user') }}/assets/Images/profile-imges/industry.png" alt=""
                                     srcset="">
-                                <input value="{!! $user->industry_and_position ?? '' !!}" class="input-field" type="text"
+                                <input value="{!! $user->industry_and_position ?? '' !!}" class="input-fields" type="text"
                                     name="industry_and_position" placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                             </div>
                             <span class="text-danger d-flex">
@@ -557,7 +374,7 @@
                             <div class="inputfield">
                                 <img src="{{ asset('user') }}/assets/Images/profile-imges/state.png" alt=""
                                     srcset="">
-                                <input value="{!! $user->nationality ?? '' !!}" class="input-field" type="text"
+                                <input value="{!! $user->nationality ?? '' !!}" class="input-fields" type="text"
                                     name="nationality" placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                             </div>
                             <span class="text-danger d-flex">

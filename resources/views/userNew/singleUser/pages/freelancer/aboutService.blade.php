@@ -61,16 +61,18 @@
                 </div>
 
                 <div class="jobviewbtns mt-5 mb-4">
-                    <a href="{{ route('edit.service', $aboutService->id) }}">
-                        <button class="buttonfill-apply pl-4 pr-4">Edit Service</button>
-                    </a>
-                    @if ($aboutService->status == 1)
-                        <a href="{{ route('pouse.service', $aboutService->id) }}">
-                            <button class="buttonunfill-save">Pause for now</button>
+                    @if (auth()->user()->id == $aboutService->user_id)
+                        <a href="{{ route('edit.service', $aboutService->id) }}">
+                            <button class="buttonfill-apply pl-4 pr-4">Edit Service</button>
                         </a>
-                    @else
-                        <a href="{{ route('pouse.service', $aboutService->id) }}"><button
-                                class="buttonunfill-save">Enable</button></a>
+                        @if ($aboutService->status == 1)
+                            <a href="{{ route('pouse.service', $aboutService->id) }}">
+                                <button class="buttonunfill-save">Pause for now</button>
+                            </a>
+                        @else
+                            <a href="{{ route('pouse.service', $aboutService->id) }}"><button
+                                    class="buttonunfill-save">Enable</button></a>
+                        @endif
                     @endif
                 </div>
             </div>

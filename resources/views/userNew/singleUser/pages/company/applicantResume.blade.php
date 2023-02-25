@@ -6,8 +6,9 @@
     <div class="container mt-4">
         <div class="row crd-row-one">
             <div class="col-12 arrow ">
-                <a href="../Tagline.html">
-                    <img src="../Assets/Images/landing-page-img/Vectorarrow.png" alt="" srcset=""></a>
+                <a href="{{ url()->previous() }}">
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" alt=""
+                        srcset=""></a>
             </div>
             <br />
             <br />
@@ -25,17 +26,9 @@
                                         {{ \Carbon\Carbon::parse($applicant->created_at)->diffForHumans() }}</span>
                                 </p>
                             </div> &nbsp; &nbsp; &nbsp;
-
-
-
                         </div>
-
                     </div>
-
                 </div>
-
-
-
             </div>
             <!-- right side of view job page -->
 
@@ -47,7 +40,53 @@
                 <div class="questionare-job-respond">
                     <p>{!! $applicant->users->description ?? 'There is no description provided by the user yet!!!' !!}</p>
                 </div>
+                <div class="jobviewbtns mt-3 mb-1">
+                    <?php
+                    if (isset($applicant) && !empty($applicant)) {
+                        $check = $applicant
+                            ->where('applicant_id', $applicant->users->id)
+                            ->where('status', 1)
+                            ->first();
+                    } else {
+                        $check = null;
+                    }
+                    ?>
+                    @if (isset($check) && !empty($check))
+                        <a href="#">
+                            <button class="buttonunfill-save">Accepted</button>
+                        </a>
+                    @else
+                        <a href="{{ route('accept.applicants', $applicant->users->id) }}">
+                            <button class="buttonfill-apply pl-4 pr-4">Accept</button>
+                        </a>
+                    @endif
+
+                    {{-- <a href="">
+                        <button class="buttonunfill-save">Archive</button>
+                    </a> --}}
+
+                    <?php
+                    if (isset($applicant->archivedApplication) && !empty($applicant->archivedApplication)) {
+                        $check = $applicant->archivedApplication->where('user_id', auth()->user()->id)->first();
+                    } else {
+                        $check = null;
+                    }
+                    ?>
+                    @if (isset($check) && !empty($check))
+                        <a href="#">
+                            <button class="buttonunfill-save">Archived</button>
+                        </a>
+                    @else
+                        <a href="{{ route('company.archiveJob', $applicant->id) }}">
+                            <button class="buttonunfill-save">Archive</button>
+                        </a>
+                    @endif
+                    <a href="{{ route('delete.applicants', $applicant->users->id) }}">
+                        <button class="buttonunfill-save">Delete</button>
+                    </a>
+                </div>
             </div>
+
             <div class="col-lg-5 col-md-5 col-12 ">
                 <div class="questionare-job-respond">
                     <h4 class="mb-4 resume-heading">Resume</h4>
@@ -76,7 +115,9 @@
                             <p>{!! $applicant->users->job_type ?? '' !!}</p>
                     </div>
 
-                    <a href="" class="text-danger" target="_blank">view resume</a>
+                    <a href="{{ asset('uploads') }}/user/resumes/{{ $applicant->users->resume }}" class=""
+                        target="_blank" style="color: #7C2342;
+                        ">View uploaded resume</a>
                 </div>
             </div>
         </div>

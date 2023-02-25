@@ -8,6 +8,8 @@ use App\Models\Archive;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Notification;
+use App\Models\SaveForLater;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -37,7 +39,7 @@ class CompanyController extends Controller
         $req->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'gender' => 'required',
+            // 'gender' => 'required',
             'phone' => 'required',
             'job_type' => 'required',
             'located_in' => 'required',
@@ -55,9 +57,12 @@ class CompanyController extends Controller
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
             'email' => $req['email'],
-            'gender' => $req['gender'],
+            // 'gender' => $req['gender'],
             'phone' => $req['phone'],
             'job_type' => $req['job_type'],
+            'city' => $req['city'],
+            'state' => $req['state'],
+            'zip_code' => $req['zip_code'],
             'located_in' => $req['located_in'],
             'relocate' => $req['relocate'],
             'work_type' => $req['work_type'],
@@ -70,6 +75,7 @@ class CompanyController extends Controller
 
 
         ]);
+
 
 
 
@@ -104,6 +110,9 @@ class CompanyController extends Controller
                 'title' => $req->title,
                 'category_id' => $req->category_id,
                 'job_type' => $req->job_type,
+                'city' => $req->city,
+                'state' => $req->state,
+                'zip_code' => $req->zip_code,
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
                 'description' => $req->description,
@@ -117,6 +126,9 @@ class CompanyController extends Controller
                 'category_id' => $req->category_id,
                 'rate' => $req->rate,
                 'job_type' => $req->job_type,
+                'city' => $req->city,
+                'state' => $req->state,
+                'zip_code' => $req->zip_code,
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
                 'description' => $req->description,
@@ -268,6 +280,22 @@ class CompanyController extends Controller
         return view('userNew.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
     }
 
+    public function company_freelancer_services($id)
+    {
+        $title = 'Freelancer Services';
+        $freelancerServices = User::where('id', $id)->with('services')->first();
+        $count = $freelancerServices->services->count();
+        // dd($freelancerServices);
+        return view('userNew.singleUser.pages.company.freelancerServices', get_defined_vars());
+    }
+    public function service_detail($id)
+    {
+        $title = 'Service detail';
+        $aboutService = Service::where('id', $id)->with('Categories')->first();
+        // dd($aboutService);
+        return view('userNew.singleUser.pages.company.serviceDetail', get_defined_vars());
+    }
+
     // Individual
     public function allIndividual()
     {
@@ -370,7 +398,7 @@ class CompanyController extends Controller
 
         $title = 'Applicant Resume';
         $applicantResume = User::where('id', $id)->first();
-        $applicant = Application::where('applicant_id', $id)->with('users')->first();
+        $applicant = Application::where('applicant_id', $id)->with('users', 'archivedApplication')->first();
         // dd($applicant);
         return view('userNew.singleUser.pages.company.applicantResume', get_defined_vars());
     }
@@ -379,6 +407,18 @@ class CompanyController extends Controller
         $delete = Application::where('applicant_id', $id)->delete($id);
         if ($delete) {
 
+            return redirect('/company/allApplicants');
+        } else {
+            return redirect('/company/allApplicants');
+        }
+    }
+
+    public function accept_applicants($id = null)
+    {
+        $user_id = Application::where('applicant_id', $id)->first();
+        if ($user_id) {
+            $user_id->status = '1';
+            $user_id->save();
             return redirect()->back();
         } else {
             return redirect()->back();

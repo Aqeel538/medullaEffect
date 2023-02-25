@@ -101,12 +101,29 @@ class ChatController extends Controller
                 ]
             );
         }
-
+        $user_messages_show = 1;
         $user_messages = User::where('id', '!=', auth()->user()->id)->get();
 
         $user = User::where('id', $user)->with('messagecomments')->first();
 
         $conversations =  MessageComment::where(['message_id' => $message_info->id])->get();
+
+        return view('userNew.singleUser.pages.freelancer.chatbot', get_defined_vars());
+    }
+
+    public function freelancer_inbox()
+    {
+        $title = 'All Chats';
+        $auth_user = auth()->user()->id;
+        $user = $auth_user;
+
+        $user_messages_show = 0;
+
+        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
+
+        $user = User::where('id', $user)->with('messagecomments')->first();
+
+
 
         return view('userNew.singleUser.pages.freelancer.chatbot', get_defined_vars());
     }
@@ -167,7 +184,7 @@ class ChatController extends Controller
 
         // $user_messages = Message::where('sender_id', '=', auth()->user()->id)->with('user')->get();
         // dd($user_messages);
-
+        $user_messages_show = 1;
         $user_messages = User::where('id', '!=', auth()->user()->id)->get();
         $user = User::where('id', $user)->with('messagecomments')->first();
 
@@ -176,7 +193,138 @@ class ChatController extends Controller
         return view('userNew.singleUser.pages.company.chatbot', get_defined_vars());
     }
 
+    public function company_inbox()
+    {
+        $title = 'All company Chats';
+        $auth_user = auth()->user()->id;
+        $user = $auth_user;
+
+        // check if user and auth already have a message if not create
+        // if (Message::where(['sender_id' => $auth_user, 'receiver_id' => $user])->first()) {
+
+        //     $message_info = Message::where(['sender_id' => $auth_user, 'receiver_id' => $user])->first();
+        // } else if (Message::where(['sender_id' => $user, 'receiver_id' => $auth_user])->first()) {
+
+        //     $message_info = Message::where(['sender_id' => $user, 'receiver_id' => $auth_user])->first();
+        // } else {
+        //     $message_info = Message::create(
+        //         [
+        //             'sender_id' => auth()->user()->id,
+        //             'receiver_id' => $user
+        //         ]
+        //     );
+        // }
+
+        $user_messages_show = 0;
+
+        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
+        $user = User::where('id', $user)->with('messagecomments')->first();
+
+        // $conversations =  MessageComment::where(['message_id' => $message_info->id])->get();
+
+        return view('userNew.singleUser.pages.company.chatbot', get_defined_vars());
+    }
+
     public function company_getConversations(Request $request)
+    {
+        $id = $request->input('id');
+        $conversations =  MessageComment::where(['message_id' => $id])->with('user')->get();
+        // dd($conversations->toArray());
+        // return response('data', $conversations);
+        return response()->json(['status' => 1, 'data' => $conversations->toArray()], 200);
+    }
+
+
+    // INDIVIDUAL CHAT
+    // COMPANY CHAT
+    public function individual_index()
+    {
+        return view('userNew.singleUser.pages.individual.chatbot');
+    }
+
+    public function individual_store(Request $request)
+    {
+        // dd('ok');
+        $validator = Validator::make($request->all(), [
+            "message" => "required",
+        ]);
+        $conversation = new MessageComment();
+        $conversation->user_id = auth()->user()->id;
+        $conversation->message = $request->message;
+        $conversation->message_id = $request->message_id;
+        $store = $conversation->save();
+        if ($store) {
+            return response()->json(['status' => 1, 'message' => 'message send']);
+        } else {
+            return response()->json(['status' => 0, 'message' => 'You cant send Empty message']);
+        }
+    }
+
+    public function individual_show($user)
+    {
+        $title = 'All individual Chats';
+        $auth_user = auth()->user()->id;
+
+        // check if user and auth already have a message if not create
+        if (Message::where(['sender_id' => $auth_user, 'receiver_id' => $user])->first()) {
+
+            $message_info = Message::where(['sender_id' => $auth_user, 'receiver_id' => $user])->first();
+        } else if (Message::where(['sender_id' => $user, 'receiver_id' => $auth_user])->first()) {
+
+            $message_info = Message::where(['sender_id' => $user, 'receiver_id' => $auth_user])->first();
+        } else {
+            $message_info = Message::create(
+                [
+                    'sender_id' => auth()->user()->id,
+                    'receiver_id' => $user
+                ]
+            );
+        }
+
+        // $user_messages = Message::where('sender_id', '=', auth()->user()->id)->with('user')->get();
+        // dd($user_messages);
+        $user_messages_show = 1;
+        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
+        $user = User::where('id', $user)->with('messagecomments')->first();
+
+        $conversations =  MessageComment::where(['message_id' => $message_info->id])->get();
+
+        return view('userNew.singleUser.pages.individual.chatbot', get_defined_vars());
+    }
+
+    public function individual_inbox()
+    {
+        $title = 'All individual Chats';
+        $auth_user = auth()->user()->id;
+        $user = $auth_user;
+
+        // check if user and auth already have a message if not create
+        // if (Message::where(['sender_id' => $auth_user, 'receiver_id' => $user])->first()) {
+
+        //     $message_info = Message::where(['sender_id' => $auth_user, 'receiver_id' => $user])->first();
+        // } else if (Message::where(['sender_id' => $user, 'receiver_id' => $auth_user])->first()) {
+
+        //     $message_info = Message::where(['sender_id' => $user, 'receiver_id' => $auth_user])->first();
+        // } else {
+        //     $message_info = Message::create(
+        //         [
+        //             'sender_id' => auth()->user()->id,
+        //             'receiver_id' => $user
+        //         ]
+        //     );
+        // }
+
+        $user_messages_show = 0;
+
+        $user_messages = User::where('id', '!=', auth()->user()->id)->get();
+        $user = User::where('id', $user)->with('messagecomments')->first();
+
+        // $conversations =  MessageComment::where(['message_id' => $message_info->id])->get();
+
+        return view('userNew.singleUser.pages.individual.chatbot', get_defined_vars());
+    }
+
+    public function individual_getConversations(Request $request)
     {
         $id = $request->input('id');
         $conversations =  MessageComment::where(['message_id' => $id])->with('user')->get();

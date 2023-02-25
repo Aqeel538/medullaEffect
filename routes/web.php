@@ -44,6 +44,11 @@ Route::post('otpVerification', [RegistrationControllerInd::class, 'otp_verificat
 Route::get('resetPasswordPage', [RegistrationControllerInd::class, 'reset_password_page'])->name('reset.password.page');
 Route::post('resetPassword', [RegistrationControllerInd::class, 'reset_password'])->name('reset.password');
 
+// COMPANY REGISTER OTP
+Route::get('otpVerificationPage', [CompanyRegistrationController::class, 'otp_verification_page'])->name('otp.verification.page');
+Route::post('company/otpVerification', [CompanyRegistrationController::class, 'company_otp_verification'])->name('company.otp.verification');
+Route::post('register/sendEmail', [CompanyRegistrationController::class, 'register_send_email'])->name('register.send.email');
+
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -153,6 +158,14 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
 
     // Notification
     Route::get('individual/notifications', [IndividualController::class, 'individual_notifications'])->name('individual.notifications');
+
+    Route::get('individual/resume', [IndividualController::class, 'individual_resume'])->name('individual.resume');
+
+    // CHAT
+    Route::get('individual/messages/{id}', [ChatController::class, 'individual_show'])->name('individual.show.chat');
+    Route::get('individual/inbox', [ChatController::class, 'individual_inbox'])->name('individual.inbox');
+    Route::post('individual/storeConversations',  [ChatController::class, 'individual_store'])->name('individual.storeConversations');
+    Route::get('individual/getConversations', [ChatController::class, 'individual_getConversations'])->name('individual.getConversations');
 });
 
 // Company Route
@@ -163,6 +176,8 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     // FREELANCER
     Route::get('/company/all-freelancer', [CompanyController::class, 'allFreelancer'])->name('company.freelancer');
     Route::get('/company/freelancer/search', [CompanyController::class, 'company_freelancer_search'])->name('company_freelancer.search');
+    Route::get('/company/freelancer/services/{id}', [CompanyController::class, 'company_freelancer_services'])->name('company.freelancer.services');
+    Route::get('/company/freelancer/serviceDetail/{id}', [CompanyController::class, 'service_detail'])->name('service.detail');
 
     // Individual
     Route::get('/company/all-individual', [CompanyController::class, 'allIndividual'])->name('company.individual');
@@ -187,6 +202,8 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/allApplicants/{id?}', [CompanyController::class, 'company_allApplicants'])->name('company.allApplicants');
     Route::get('/company/applicantResume/{id}', [CompanyController::class, 'company_applicantResume'])->name('company.applicantResume');
     Route::get('/company/deleteApplicants/{id?}', [CompanyController::class, 'delete_applicants'])->name('delete.applicants');
+    Route::get('/company/acceptApplication/{id?}', [CompanyController::class, 'accept_applicants'])->name('accept.applicants');
+
 
 
     // ARCHIVE JOB
@@ -195,21 +212,25 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/jobPost', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
 
     // CHAT
-    Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');
+    // Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');
     Route::get('company/messages/{id}', [ChatController::class, 'company_show'])->name('company.show.chat');
+    Route::get('company/inbox', [ChatController::class, 'company_inbox'])->name('company.inbox');
     Route::post('company/storeConversations',  [ChatController::class, 'company_store'])->name('company.storeConversations');
     Route::get('company/getConversations', [ChatController::class, 'company_getConversations'])->name('company.getConversations');
 
     // SETTING PAGE
     Route::get('company/setting', [CompanyController::class, 'comapny_setting'])->name('comapny.setting');
 
-    Route::post('change-password', [RegistrationControllerInd::class, 'updatePassword'])->name('change.password');
+    Route::post('company/change-password', [CompanyRegistrationController::class, 'company_updatePassword'])->name('company.change.password');
 
     Route::get('company/userChangeStatus', [CompanyController::class, 'company_userChangeStatus']);
     Route::get('deactivate/{id}', [CompanyController::class, 'deactivate'])->name('deactivate');
 
     // Notification
     Route::get('company/notifications', [CompanyController::class, 'company_notifications'])->name('company.notifications');
+
+    // otpVerification
+
 });
 
 
@@ -223,8 +244,13 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     // CHAT
     Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');
     Route::get('messages/{id}', [ChatController::class, 'show'])->name('show_chat');
+    Route::get('freelancer/inbox', [ChatController::class, 'freelancer_inbox'])->name('freelancer.inbox');
+    Route::get('freelancer/inbox', [ChatController::class, 'freelancer_inbox'])->name('freelancer.inbox');
     Route::post('storeConversations',  [ChatController::class, 'store'])->name('storeConversations');
     Route::get('getConversations', [ChatController::class, 'getConversations'])->name('getConversations');
+
+
+
 
     Route::get('/freelancer/listing', [FreelancerController::class, 'freelancers_listing'])->name('freelancer.listing.frontend');
     Route::get('/freelancer/details/{id}', [FreelancerController::class, 'freelancer_details'])->name('freelancer.details');
@@ -262,6 +288,9 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
 
     Route::get('userChangeStatus', [FreelancerController::class, 'userChangeStatus']);
     Route::get('deactivate/{id}', [FreelancerController::class, 'deactivate'])->name('deactivate');
+
+    // Book a service
+    Route::get('/freelancer/bookService/{id}', [FreelancerController::class, 'book_service'])->name('book.service');
 });
 
 //--------------- Unauthenticated Routes Start ---------------\\

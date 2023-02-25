@@ -47,50 +47,61 @@
             </div>
 
 
-            <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 "
-                style="background-color: #F9F9F9;  border-radius: 21.0305px; ">
+            @if ($user_messages_show == 1)
+                <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 "
+                    style="background-color: #F9F9F9;  border-radius: 21.0305px; ">
 
-                <div class="p-4 fixed-top chat-header">
-                    <div class="d-flex">
-                        <div class="img-holder">
-                            <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" style="width: 60px;"
-                                class="" alt="">
+                    <div class="p-4 fixed-top chat-header">
+                        <div class="d-flex">
+                            <div class="img-holder">
+                                <?php $image = isset($user->image) && !empty($user->image) ? $user->image : ''; ?>
+
+                                <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt="" srcset="" />
+                            </div>
+                            <div class="ps-2">
+                                <p class="m-0  inbox-chat-heading">{!! $user->name ?? '' !!}</p>
+                                <p class="p-0 m-0 ">Online</p>
+                            </div>
+
                         </div>
-                        <div class="ps-2">
-                            <p class="m-0  inbox-chat-heading">{!! $user->name ?? '' !!}</p>
-                            <p class="p-0 m-0 ">Online</p>
+                    </div>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    <div class="container mesages-row" id="dataContainer">
+                        <div class="mid-div-top-margin">
                         </div>
 
                     </div>
-                </div>
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                <div class="container mesages-row" id="dataContainer">
-                    <div class="mid-div-top-margin">
-                    </div>
 
-                </div>
+                    <form id="myForm" class="form-group" style="margin-top: 20px">
+                        @csrf
+                        <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}">
+                        <div class="input-text d-flex justify-content-end">
+                            <input type="text" id="empty" name="message" autocomplete="off" chat-box
+                                style="width: 100%;">
+                            <span class="text-danger error-text message_error"></span>
 
-                <form id="myForm" class="form-group" style="margin-top: 20px">
-                    @csrf
-                    <input type="hidden" id="message_id" name="message_id" value="{{ $message_info->id }}">
-                    <div class="input-text d-flex justify-content-end">
-                        <input type="text" id="empty" name="message" autocomplete="off" chat-box
-                            style="width: 100%;">
-                        <span class="text-danger error-text message_error"></span>
-
-                        {{-- <button type="submit" id="getData" data-id="{{ $message_info->id }}"
+                            {{-- <button type="submit" id="getData" data-id="{{ $message_info->id }}"
                             class="input-group-text">send</button> --}}
 
-                        <button type="submit" id="getData" data-id="{{ $message_info->id }}"
-                            class="input-group-text">Send</button>
-                    </div>
-                </form>
+                            <button type="submit" id="getData" data-id="{!! $message_info->id ?? '' !!}"
+                                class="input-group-text">Send</button>
+                        </div>
+                    </form>
 
-            </div>
+                </div>
+            @else
+                <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 "
+                    style="background-color: #F9F9F9;  border-radius: 21.0305px; height: 100px;">
+
+                    <div class="p-4 fixed-top chat-header" style="height: auto!important">
+                        <p>No conversation so far...</p>
+                    </div>
+                </div>
+            @endif
 
         </div>
     </div>

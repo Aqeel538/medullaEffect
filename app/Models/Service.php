@@ -10,7 +10,7 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id','category_id','title', 'rate','discription','image'
+        'user_id', 'category_id', 'title', 'rate', 'discription', 'image'
     ];
 
     public function Categories()
@@ -22,7 +22,13 @@ class Service extends Model
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function getImageAttribute(){
-        return asset('uploads/ServiceImages').'/'. $this->attributes['image'];
+    public function getImageAttribute()
+    {
+        return asset('uploads/ServiceImages') . '/' . $this->attributes['image'];
+    }
+
+    public function saved_services()
+    {
+        return $this->hasMany(SaveService::class, 'service_id', 'id');
     }
 }

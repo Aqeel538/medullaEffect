@@ -211,12 +211,38 @@
                                     </div>
                                     <p class="abutnexa-text pt-4 pb-3"> {{ $getjobs->description }}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="{{ route('individual.apply.now', $getjobs->id) }}">
-                                            <button class="buttonfill-apply">Apply Now</button>
-                                        </a>
-                                        <a href="{{ route('individual.saveForLater', $getjobs->id) }}">
-                                            <button class="buttonunfill-save">Save for Later</button>
-                                        </a>
+                                        <?php
+                                        if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {
+                                            $check = $getjobs->applied_jobs->where('applicant_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonfill-apply">Applied</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('individual.apply.now', $getjobs->id) }}">
+                                                <button class="buttonfill-apply">Apply Now</button>
+                                            </a>
+                                        @endif
+                                        {{-- CHECK IF JOB IS SAVED --}}
+                                        <?php
+                                        if (isset($getjobs->saved_jobs) && !empty($getjobs->saved_jobs)) {
+                                            $check = $getjobs->saved_jobs->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Saved</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('individual.saveForLater', $getjobs->id) }}"><button
+                                                    class="buttonunfill-save">Save for Later</button></a>
+                                        @endif
                                     </div>
                                 </div>
                             </a>

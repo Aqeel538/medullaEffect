@@ -58,7 +58,8 @@ class RegistrationControllerInd extends Controller
     {
         // dd($data);
         $validate = $this->validate($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|',
             'phone' => 'required',
@@ -66,7 +67,7 @@ class RegistrationControllerInd extends Controller
         ]);
         if ($validate) {
             $user =  User::create([
-                'name' => $data['name'],
+                'name' => $data['first_name'] . ' ' . $data['last_name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'address' => $data['address'],
@@ -160,6 +161,7 @@ class RegistrationControllerInd extends Controller
             'pay_range' => 'required',
             'nationality' => 'required',
 
+
         ]);
 
         $id = Auth::user()->id;
@@ -173,6 +175,7 @@ class RegistrationControllerInd extends Controller
             'relocate' => $req['relocate'],
             'work_type' => $req['work_type'],
             'industry_and_position' => $req['industry_and_position'],
+            'experience' => $req['experience'],
             'pay_range' => $req['pay_range'],
             'nationality' => $req['nationality'],
             'description' => $req['description'],

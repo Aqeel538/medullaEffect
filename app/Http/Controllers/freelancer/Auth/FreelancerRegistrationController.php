@@ -22,14 +22,15 @@ class FreelancerRegistrationController extends Controller
     public function create(Request $data)
     {
         $validate = $this->validate($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
         if ($validate) {
             // dd($data);
             $user =  User::create([
-                'name' => $data['name'],
+                'name' => $data['first_name'] . ' ' . $data['last_name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'address' => $data['address'],
@@ -42,8 +43,7 @@ class FreelancerRegistrationController extends Controller
                 'status' => 1,
             ]);
             return redirect()->route('login');
-        }
-        else{
+        } else {
             echo 'Errors';
         }
         // $validToken = rand(10, 100..'2023');
@@ -56,6 +56,6 @@ class FreelancerRegistrationController extends Controller
         // $get_user_name = $data['name'];
 
         // \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
-        
+
     }
 }

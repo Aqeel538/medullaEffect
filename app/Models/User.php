@@ -85,4 +85,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Application::class);
     }
+
+    public function followers()
+    {
+        return $this->hasMany(Follower::class, 'company_id', 'id');
+    }
+
+    public function save_freelancer_service()
+    {
+        return $this->hasMany(SaveService::class, 'service_id', 'id');
+    }
+
+    public function bookedServices()
+    {
+        return $this->hasMany(BookService::class, 'service_id', 'id');
+    }
 }

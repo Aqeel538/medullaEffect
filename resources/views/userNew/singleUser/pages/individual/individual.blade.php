@@ -51,14 +51,29 @@
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <ion-icon name="person-outline"></ion-icon>
-                                        <input class="input-fields" type="text" name="name" placeholder="First Name">
+                                        <input class="input-fields" type="text" name="first_name"
+                                            placeholder="First Name">
                                     </div>
                                     <div class="text-danger d-flex">
-                                        @error('name')
+                                        @error('first_name')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                        <input class="input-fields" type="text" name="last_name"
+                                            placeholder="First Name">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('last_name')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <ion-icon name="mail-outline"></ion-icon>
@@ -70,9 +85,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="ri-lock-unlock-line" style="font-size: 20px"></i>
@@ -84,7 +96,10 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                            </div>
+
+                            <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
+                                <div class="col-lg-12 col-md-12 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <ion-icon name="call-outline"></ion-icon>
                                         <input class="input-fields" type="number" name="phone"

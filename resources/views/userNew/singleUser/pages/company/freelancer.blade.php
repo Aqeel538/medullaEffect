@@ -28,7 +28,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -74,29 +74,37 @@
         <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
             @foreach ($freelancers as $freelancer)
                 <div class="col-lg-3 col-md-6 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
-                    <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
-                        <div class="freelancer-page pt-3">
-                            <div class="img-holder-frelancer pt-4">
-                                <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
+                    <a href="{{ route('company.freelancer.services', $freelancer->id) }}"
+                        style=" text-decoration: none !important;color: #141313;">
+                        <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
+                            <div class="freelancer-page pt-3">
+                                <div class="img-holder-frelancer pt-4">
+                                    <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 90px;width: 90px;" alt="" srcset="" />
+                                    <img src="<?= $image ?>" style="height: 90px;width: 90px;" alt=""
+                                        srcset="" />
+                                </div>
                             </div>
+                            <div class="p-3">
+                                <h3 class="bus-heading mt-5 mb-3" style="height: 70px;overflow:hidden">
+                                    {!! $freelancer->name ?? '' !!}
+                                </h3>
+
+                                <h6 class="location-heading">Industry: <span class="place">{!! $freelancer->industry ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+
+                                <a href="{{ route('company.show.chat', $freelancer->id) }}">
+                                    <button class="buttonfill mt-4 mb-4">
+                                        Contact
+                                    </button>
+                                </a>
+                            </div>
+
                         </div>
-                        <div class="p-3">
-                            <h3 class="bus-heading mt-5 mb-3" style="height: 70px;">{!! $freelancer->name ?? '' !!}</h3>
-
-                            <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
-                            </h6>
-                            <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
-
-                            <a href="{{ route('company.show.chat', $freelancer->id) }}">
-                                <button class="buttonfill mt-4 mb-4">
-                                    Contact
-                                </button>
-                            </a>
-                        </div>
-
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>

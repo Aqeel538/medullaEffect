@@ -30,6 +30,9 @@ class CreateUsersTable extends Migration
             $table->integer('status')->default(0)->nullable(true);
             $table->string('gender')->nullable(true);
             $table->string('job_type')->nullable(true);
+            $table->string('city')->nullable(true);
+            $table->string('state')->nullable(true);
+            $table->integer('zip_code')->nullable(true);
             $table->string('located_in')->nullable(true);
             $table->string('relocate')->nullable(true);
             $table->string('employees')->nullable(true);

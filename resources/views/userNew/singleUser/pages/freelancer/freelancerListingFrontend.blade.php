@@ -83,7 +83,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>

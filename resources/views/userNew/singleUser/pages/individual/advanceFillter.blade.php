@@ -69,7 +69,7 @@
                             <div class="inputfield">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
                                     srcset="">
-                                <input class="" type="date" name="created_at" placeholder="created_at" />
+                                <input class="w-100" type="date" name="created_at" placeholder="created_at" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">

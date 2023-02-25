@@ -123,6 +123,13 @@ body {
     align-items: center;
 }
 
+.topnav-medulla {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .display-btn {
     padding: 14px 42px;
     background: #ffffff;
@@ -135,6 +142,24 @@ body {
     display: none;
 }
 
+.phone-num {
+    /* font-family: "Helvetica"; */
+    font-style: normal;
+    font-weight: 500;
+    /* font-size: 20px; */
+    /* color: #7c2342; */
+    /* opacity: 0.8; */
+    text-align: center;
+
+    font-family: "Poppins";
+
+    font-size: 21.3775px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #7c2342;
+}
+
 /* /*================ Top Nav Css end *======== */
 
 /* ibdex page css */
@@ -143,7 +168,7 @@ body {
     font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 20px;
     color: #000000;
     opacity: 0.8;
     text-align: center;
@@ -348,6 +373,7 @@ body {
     outline: none;
     border: none;
     background: #f4f4f4;
+
 }
 
 .input-fields::placeholder {
@@ -862,7 +888,7 @@ ion-icon {
     line-height: 136.99%;
     letter-spacing: 0.02em;
     padding: 0 5px;
-    color: #9a9a9a;
+
 }
 
 .input-field-profile::placeholder {
@@ -1004,7 +1030,8 @@ ion-icon {
     line-height: 136.99%;
     letter-spacing: 0.02em;
 
-    color: #9a9a9a;
+    color: black !important;
+    /* color: #9a9a9a; */
 }
 
 .inputfield {
@@ -1063,7 +1090,7 @@ ion-icon {
     line-height: 136.99%;
     letter-spacing: 0.02em;
 
-    color: #9a9a9a;
+    color: black;
 }
 
 .inputfield-profile select {
@@ -1356,13 +1383,14 @@ ion-icon {
     width: 100%;
     padding: 90px 17px 122px 14px;
 }
-.form-row{
+
+.form-row {
 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-  }
+}
 
 .div1 {
     background: #F4F4F4;
@@ -2328,6 +2356,12 @@ input:checked+.slider:before {
     .width {
         width: 200%;
     }
+
+    .company_img {
+
+        width: 450px;
+        padding: 171px 17px 122px 14px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -2447,9 +2481,15 @@ input:checked+.slider:before {
     .buttonfill {
         padding: 12px 17px;
     }
+
+    .company_img {
+        width: 350px;
+        padding: 191px 17px 122px 14px;
+    }
 }
 
 @media (max-width: 992px) {
+
     .bus-heading {
         font-size: 15px !important;
     }
@@ -2519,6 +2559,10 @@ input:checked+.slider:before {
 
 /* 768px  */
 @media (max-width: 768px) {
+    .again_respons {
+        display: none;
+    }
+
     .second-nav {
         overflow: hidden;
         height: 76px;
@@ -2765,13 +2809,17 @@ input:checked+.slider:before {
     .widths {
         width: 300%;
     }
+
     .company_img {
-        width: 55%;}
-        .form-row {
+        width: 455px;
+        padding: 79px 17px 122px 14px;
+    }
 
-            margin-top: 52px;
+    .form-row {
 
-        }
+        margin-top: 52px;
+
+    }
 
     .descriptions {
         font-size: 15px;
@@ -3036,6 +3084,7 @@ input:checked+.slider:before {
     .res-top-margin {
         margin-top: 10px;
     }
+
     .company_img {
         width: 65%;
 
@@ -3177,9 +3226,11 @@ input:checked+.slider:before {
     .widths {
         width: 150%;
     }
+
     .company_img {
         width: 76%;
     }
+
     .non {
 
         padding: 10px 26px;
@@ -3313,6 +3364,11 @@ input:checked+.slider:before {
         font-size: 35px;
     }
 
+    .phone-num {
+
+        font-size: 18px;
+    }
+
     .job-view-para span {
         font-size: 11px;
     }
@@ -3346,10 +3402,11 @@ input:checked+.slider:before {
     .inputfield input::placeholder {
         font-size: 12px;
     }
+
     .job-headings {
 
         font-size: 34px;
-      }
+    }
 
     .buttonfill {
         font-size: 12px;
@@ -3413,6 +3470,9 @@ input:checked+.slider:before {
         top: 100px;
     }
 
+    .phone-num {
+        font-size: 15px;
+    }
 
     .navbar-link:link,
     .navbar-link:visited {
@@ -3521,6 +3581,10 @@ input:checked+.slider:before {
 
     .second-nav {
         height: 57px;
+    }
+
+    .phone-num {
+        font-size: 13px;
     }
 
     .navbar-link:link,

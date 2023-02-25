@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\freelancer;
 
 use App\Http\Controllers\Controller;
+use App\Models\BookService;
 use App\Models\Category;
 use App\Models\Notification;
 use App\Models\SaveService;
@@ -18,7 +19,7 @@ class FreelancerController extends Controller
     public function freelancers_listing()
     {
         $title = 'All Freelancers';
-        $freelancers = User::where('role', 'freelancer')->get();
+        $freelancers = User::where('role', 'freelancer')->where('id', "!=", auth()->user()->id)->get();
         $industryOption = $freelancers;
 
         return view('userNew.singleUser.pages.freelancer.freelancerListingFrontend', get_defined_vars());
@@ -26,8 +27,9 @@ class FreelancerController extends Controller
     public function freelancer_details($id)
     {
         $title = 'Freelancer Details';
-        $freelancer = User::where('id', $id)->with('services')->first();
-        $freelancerServices = User::where('id', $id)->with('services')->get();
+        $freelancer = User::where('id', $id)->with('services', 'save_freelancer_service')->first();
+        $freelancerServices = User::where('id', $id)->with('services.saved_services')->get();
+        // dd($freelancerServices);
         $allfreelancers = User::where('role', 'freelancer')->with('services')->get();
         $countServices = User::where('id', $id)->with('services')->first();
         $count = $countServices->services->count();
@@ -56,8 +58,8 @@ class FreelancerController extends Controller
     public function business_details($id)
     {
         $title = 'Business Details';
-        $company = User::where('id', $id)->first();
-        $companies = User::where('role', 'company')->get();
+        $company = User::where('id', $id)->with('save_freelancer_service')->first();
+        $companies = User::where('role', 'company')->with('save_freelancer_service')->get();
         // dd($companies);
         return view('userNew.singleUser.pages.freelancer.singleBusinessDetail', get_defined_vars());
     }
@@ -65,7 +67,7 @@ class FreelancerController extends Controller
     {
         $title = "Chat Bot";
         $user_messages = User::where('id', '!=', auth()->user()->id)->get();
-        return view('userNew.singleUser.pages.freelancer.chatbot', compact('title','user_messages'));
+        return view('userNew.singleUser.pages.freelancer.chatbot', compact('title', 'user_messages'));
     }
     public function about_service($id)
     {
@@ -333,5 +335,23 @@ class FreelancerController extends Controller
 
         return back();
         // return response()->json(['success' => 'Status change successfully.']);
+    }
+
+    // Book a service
+    public function book_service($id)
+    {
+        $user_id = auth()->user()->id;
+        $checkService = BookService::where('service_id', $id)->where('user_id', $user_id)->first();
+        if ($checkService) {
+
+            return redirect()->back()->with('message', 'Updated');
+        } else {
+
+            $bookService = new BookService();
+            $bookService->user_id = $user_id;
+            $bookService->service_id = $id;
+            $bookService->save();
+            return back();
+        }
     }
 }

@@ -140,9 +140,10 @@ class IndividualController extends Controller
     public function individual_jodDetails($id)
     {
         $title = 'Job Detail';
-        $jobDetail = Job::where('id', $id)->with('Users')->first();
+        $jobDetail = Job::where('id', $id)->with('Users.followers')->first();
+        // dd($jobDetail->Users->followers[0]);
         $otherJobs = User::where('role', 'company')->with('jobs')->get();
-        $createdAt = $otherJobs[2]->jobs[0]->created_at->diffForHumans();
+        // $createdAt = $otherJobs[2]->jobs[0]->created_at->diffForHumans();
 
         // $hours = $jobDetail->created_at->diffForHumans();
 
@@ -238,5 +239,16 @@ class IndividualController extends Controller
         // dd($notifications[0]->companyGet->image);
 
         return view('userNew.singleUser.pages.individual.notifications', get_defined_vars());
+    }
+
+    // RESUME
+    public function individual_resume()
+    {
+        $id = auth()->user()->id;
+        $title = 'Applicant Resume';
+        $resume = User::where('id', $id)->first();
+        $applicant = Application::where('applicant_id', $id)->with('users')->first();
+        // dd($applicant);
+        return view('userNew.singleUser.pages.individual.resume', get_defined_vars());
     }
 }

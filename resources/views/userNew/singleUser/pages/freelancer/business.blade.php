@@ -69,7 +69,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -115,27 +115,27 @@
         <div class="row text-center ps-lg-0 pe-lg-0 pl-md-2 pr-md-2 ">
             @foreach ($companies as $company)
                 <div class="col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3 mt-4 crd-row-one">
+                    <a href="{{ route('business.details', $company->id) }}"
+                        style=" text-decoration: none !important;color: #141313;">
+                        <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5 ">
+                            <div class="img-holders">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png" alt=""
+                                    srcset="" />
+                            </div>
+                            <div class="text-center">
+                                <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
+                                <p class="john-para-afer-ques-heading">
+                                    {!! $company->description ?? 'There is no description about company!' !!}
+                                </p>
+                            </div>
 
-                    <div style="background-color: #f9f9f9; border-radius: 20px" class="p-5 ">
-                        <div class="img-holders">
-                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png" alt=""
-                                srcset="" />
+                            <a href="{{ route('show_chat', $company->id) }}">
+                                <button class="buttonfill mt-4 mb-4">
+                                    Contact
+                                </button>
+                            </a>
                         </div>
-                        <div class="text-center">
-                            <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
-                            <p class="john-para-afer-ques-heading">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium loru.
-                            </p>
-                        </div>
-
-                        <a href="{{ route('show_chat', $company->id) }}">
-                            <button class="buttonfill mt-4 mb-4">
-                                Contact
-                            </button>
-                        </a>
-                    </div>
-
+                    </a>
                 </div>
             @endforeach
         </div>

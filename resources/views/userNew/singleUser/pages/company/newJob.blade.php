@@ -1,6 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     @include('userNew.singleUser.pages.company.secondNav')
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center crd-row-one">
@@ -20,7 +22,7 @@
                 </div>
                 <?php
                 $update_id = 0;
-
+                
                 if (isset($obj->id) && !empty($obj->id)) {
                     $update_id = $obj->id;
                 }
@@ -63,16 +65,15 @@
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="job_type" class="form-select form-select-sm"
                                 style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
-                                aria-label=".form-select-sm example">
+                                aria-label=".form-select-sm example" id="inPerson">
                                 <option value="{!! $obj->job_type ?? '' !!}" disabled selected hidden>{!! $obj->job_type ?? 'Job Type' !!}
                                 </option>
                                 <option value="In-person">In-person</option>
                                 <option value="Remote">Remote</option>
                                 <option value="Hybird">Hybird</option>
                             </select>
-
-
                         </div>
+
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="work_type" class="form-select form-select-sm"
                                 style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
@@ -80,15 +81,25 @@
                                 <option value="{!! $obj->work_type ?? '' !!}" disabled selected hidden>{!! $obj->work_type ?? 'Work Type' !!}
                                 </option>
                                 <option value="Full time">Full time</option>
-                                <option value="Half time">Half time</option>
+                                <option value="Part time">Part time</option>
                             </select>
 
 
                         </div>
-                        <div class="col-12 mb-3 mt-3">
-                            <input type="text" class="form-control" name="hiring_type"
-                                value="<?= isset($obj->hiring_type) && !empty($obj->hiring_type) ? $obj->hiring_type : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
-                                placeholder="Hiring" style="background-color: #f4f4f4; border: none; padding: 12px" />
+                        <div class="col-lg-4 col-md-4 col-12  mt-3" id="city">
+                            <input class="rate-field form-control" name="city" type="text"
+                                value="<?= isset($obj->city) && !empty($obj->city) ? $obj->city : '' ?>"placeholder="City"
+                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12  mt-3" id="state">
+                            <input class="rate-field form-control" name="state" type="text"
+                                value="<?= isset($obj->state) && !empty($obj->state) ? $obj->state : '' ?>"placeholder="State"
+                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12  mt-3" id="zipCode">
+                            <input class="rate-field form-control" name="zip_code" type="number"
+                                value="<?= isset($obj->zip_code) && !empty($obj->zip_code) ? $obj->zip_code : '' ?>"placeholder="Zip code"
+                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
                         </div>
                         <div class="form-group mt-3">
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
@@ -103,4 +114,20 @@
             </div>
         </div>
     </div>
+    <script>
+        $("#inPerson").on("change", function() {
+            if ($('#inPerson').val() == "In-person") {
+                // $("#tax").val('');
+
+                $("#city").show(1000);
+                $("#state").show(1000);
+                $("#zipCode").show(1000);
+            } else {
+
+                $("#city").hide(1000);
+                $("#state").hide(1000);
+                $("#zipCode").hide(1000);
+            }
+        })
+    </script>
 @endsection

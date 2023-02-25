@@ -10,7 +10,8 @@ class Application extends Model
     use HasFactory;
     protected $fillable = [
         'applicant_id',
-        'job_id'
+        'job_id',
+        'status'
     ];
 
     public function getAppliedJobs()
@@ -21,5 +22,10 @@ class Application extends Model
     public function users()
     {
         return $this->hasOne(User::class, 'id', 'applicant_id');
+    }
+
+    public function archivedApplication()
+    {
+        return $this->hasMany(Archive::class, 'job_id', 'id');
     }
 }

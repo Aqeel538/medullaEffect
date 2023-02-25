@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" required style="width: 100%">
                                     <option value="" disabled selected hidden>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
                             <div class="inputfield">
-                                <i class="fa-solid fa-sack-dollar"></i>
+                                <i class="fa-solid fa-dollar"></i>
                                 <select name="pay_range" required style="width: 100%">
                                     <option value="" disabled selected hidden>
                                         Salary Range
@@ -118,19 +118,20 @@
         <div class="row text-center ">
             @foreach ($freelancers as $freelancer)
                 <div class="col-lg-3 col-md-3 col-12 crd-row-one mt-5">
-                    <a href="{{ route('freelancer.details', $freelancer->id) }}"
-                        style=" text-decoration: none !important;color: #141313;">
+                    <a href="#" style=" text-decoration: none !important;color: #141313;">
                         <div style="background-color: #F9F9F9 ; border-radius: 21.0305px;" class="pt-4 pb-2 ps-2 pe-2">
                             <div class="img-holder">
                                 <?php $image = isset($freelancer->image) && !empty($freelancer->image) ? $freelancer->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                <img src="<?= $image ?>" style="height: 75px;width:75px" alt="" srcset="" />
                             </div>
 
-                            <h3 class="bus-heading mt-3 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+                            <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow: hidden">{!! $freelancer->name ?? '' !!}
+                            </h3>
                             <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                             </h6>
-                            <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+                            <h6 class="location-heading">Experience: <span class="place">{!! $freelancer->experience ?? '' !!}
+                                    Years</span> </h6>
 
                             <a href="{{ route('company.show.chat', $freelancer->id) }}">
                                 <button class="buttonfill mt-4 mb-4">

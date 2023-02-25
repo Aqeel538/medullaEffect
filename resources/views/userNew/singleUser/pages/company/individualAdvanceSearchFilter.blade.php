@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" required style="width: 100%">
                                     <option value="" disabled selected hidden>
@@ -79,7 +79,8 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../assets/images/profile-imges/calendar-icon.png" alt="" srcset="">
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
+                                    srcset="">
                                 <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
                                     placeholder="created_at" />
 
@@ -87,7 +88,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
                             <div class="inputfield">
-                                <i class="fa-solid fa-sack-dollar"></i>
+                                <i class="fa-solid fa-dollar"></i>
                                 <select name="pay_range" required style="width: 100%">
                                     <option value="" disabled selected hidden>
                                         Salary Range
@@ -123,11 +124,10 @@
                             <div class="img-holder">
                                 <?php $image = isset($individual->image) && !empty($individual->image) ? $individual->image : ''; ?>
 
-                                <img src="<?= $image ?>" style="height: 75px;" alt="" srcset="" />
+                                <img src="<?= $image ?>" style="height: 75px;width: 75px;" alt="" srcset="" />
                             </div>
 
-                            <h3 class="bus-heading mt-3 mb-3" style="height:
-                            70px!important">
+                            <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow:hidden">
                                 {!! $individual->name ?? '' !!}</h3>
                             <h6 class="location-heading">Located in: <span class="place">{!! $individual->located_in ?? '' !!}</span>
                             </h6>

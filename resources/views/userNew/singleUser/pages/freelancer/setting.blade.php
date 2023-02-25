@@ -58,10 +58,10 @@
                                     </div>
                                     <div class="row mt-3">
 
-                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
                                             <div class="input-container ">
                                                 <ion-icon name="call-outline"></ion-icon>
-                                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="text"
+                                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
                                                     placeholder="Phone Number" name="phone">
                                             </div>
 
@@ -70,7 +70,7 @@
                                             <div class="inputfield">
                                                 <i class="fa-regular fa-user"></i>
                                                 <select name="gender" required style="width: 100%;">
-                                                    <option value="" disabled selected hidden>{!! $user->gender ?? 'Gender' !!}
+                                                    <option value="">{!! $user->gender ?? 'Gender' !!}
                                                     </option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -86,7 +86,7 @@
                                                 <img src="../Assets/Images/profile-imges/Color.png" alt=""
                                                     srcset="">
                                                 <select name="job_type" required style="width: 100%;">
-                                                    <option value="" disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
+                                                    <option value="">{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
                                                     </option>
                                                     <option value="Full Time">Full time</option>
                                                     <option value="Part Time">Part Time</option>
@@ -101,7 +101,7 @@
                                             <div class="inputfield mt-3">
                                                 <img src="../Assets/Images/profile-imges/loction.png" alt=""
                                                     srcset="">
-                                                <input class="input-field" type="text" name="located_in"
+                                                <input class="input-container" type="text" name="located_in"
                                                     value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                                     placeholder="In which city are you located?" />
                                             </div>
@@ -114,7 +114,7 @@
                                                 <img src="../Assets/Images/profile-imges/relocate.png" alt=""
                                                     srcset="">
                                                 <select name="work_type" required style="width: 100%;">
-                                                    <option value="" disabled selected hidden>{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                                    <option value="">{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
                                                     </option>
                                                     <option value="In-person">In-person</option>
                                                     <option value="Remote">Remote</option>
@@ -129,8 +129,10 @@
                                             <div class="inputfield">
                                                 <img src="../Assets/Images/profile-imges/work.png" alt=""
                                                     srcset="">
-                                                <input class="input-field" type="text" name="industry_and_position"
-                                                    placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
+                                                <input class="input-container" type="text"
+                                                    name="industry_and_position"
+                                                    placeholder="State your desired industry and position"
+                                                    value="{!! $user->industry_and_position ?? '' !!}" />
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +143,7 @@
                                                 <img src="../Assets/Images/profile-imges/industry.png" alt=""
                                                     srcset="">
                                                 <select name="pay_range" required style="width: 100%;">
-                                                    <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
+                                                    <option value="">{!! $user->pay_range ?? 'State your desired pay range' !!}
                                                     </option>
                                                     <option value="0-50">0-50</option>
                                                     <option value="50-100">50-100</option>
@@ -163,8 +165,9 @@
                                             <div class="inputfield">
                                                 <img src="../Assets/Images/profile-imges/payrange.png" alt=""
                                                     srcset="">
-                                                <input class="input-field" type="text" name="nationality"
-                                                    placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
+                                                <input class="input-container" type="text" name="nationality"
+                                                    placeholder="State your nationality"
+                                                    value="{!! $user->nationality ?? '' !!}" />
                                             </div>
                                         </div>
                                     </div>

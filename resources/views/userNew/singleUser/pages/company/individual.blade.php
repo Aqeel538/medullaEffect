@@ -27,7 +27,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -83,19 +83,28 @@
                             </div>
                         </div>
                         <div class="p-3">
-                            <h3 class="bus-heading mt-5 mb-3" style="height: 70px;">{!! $individual->name ?? '' !!}</h3>
+                            <h3 class="bus-heading mt-5 mb-1" style="height: 70px;overflow:hidden">{!! $individual->name ?? '' !!}
+                            </h3>
 
+                            <h6 class="location-heading">Industry: <span class="place">{!! $individual->industry ?? '' !!}</span>
+                            </h6>
                             <h6 class="location-heading">Located in: <span class="place">{!! $individual->located_in ?? '' !!}</span>
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
 
 
                             <a href="{{ route('company.show.chat', $individual->id) }}">
-                                <button class="buttonfill mt-4 mb-4">
+                                <button class="buttonfill mt-4 mb-2" style="padding: 16px 23px!important;">
                                     Contact
                                 </button>
                             </a>
+                            <a href="{{ route('company.applicantResume', $individual->id) }}" class="">
+                                <button class="buttonfill mb-2" style="padding: 16px 23px!important;">
+                                    View resume
+                                </button></a>
+
                         </div>
+
 
                     </div>
                 </div>

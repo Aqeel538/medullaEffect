@@ -60,12 +60,27 @@
                 </div>
 
                 <div class="jobviewbtns mt-5 mb-4">
-                    <a href="{{ route('chatbot') }}">
+                    <a href="{{ route('show_chat', $freelancer->id) }}">
                         <button class="buttonfill-apply pl-4 pr-4">Contact</button>
                     </a>
-                    <a href="{{ route('save_service', $freelancer->id) }}">
-                        <button class="buttonunfill-save">Save for Later</button>
-                    </a>
+
+                    <?php
+                    if (isset($freelancer->save_freelancer_service) && !empty($freelancer->save_freelancer_service)) {
+                        $check = $freelancer->save_freelancer_service->where('user_id', auth()->user()->id)->first();
+                    } else {
+                        $check = null;
+                    }
+                    ?>
+                    @if (isset($check) && !empty($check))
+                        <a href="#">
+                            <button class="buttonunfill-save">Saved</button>
+                        </a>
+                    @else
+                        <a href="{{ route('save_service', $freelancer->id) }}">
+                            <button class="buttonunfill-save">Save for Later</button>
+                        </a>
+                    @endif
+
                 </div>
             </div>
             <!-- right side of view job page -->
@@ -95,12 +110,26 @@
                                         {!! $service->discription ?? 'There is no description' !!}
                                     </p>
                                     <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="">
+                                        <a href="{{ route('show_chat', $freelancers->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Contact</button>
                                         </a>
-                                        <a href="{{ route('save_service', $service->id) }}">
-                                            <button class="buttonunfill-save">Save for Later</button>
-                                        </a>
+
+                                        <?php
+                                        if (isset($service->saved_services) && !empty($service->saved_services)) {
+                                            $check = $service->saved_services->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Saved</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('save_service', $service->id) }}">
+                                                <button class="buttonunfill-save">Save for Later</button>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
 

@@ -29,7 +29,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/Vectorbag.png" alt="icon" />
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -190,9 +190,22 @@
                                         {!! $jobs->savedJobs->description ?? '' !!}
                                     </p>
                                     <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="{{ route('individual.apply.now', $jobs->id) }}">
-                                            <button class="buttonfill-apply">Apply Now</button>
-                                        </a>
+                                        <?php
+                                        if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {
+                                            $check = $getjobs->applied_jobs->where('applicant_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonfill-apply">Applied</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('individual.apply.now', $getjobs->id) }}">
+                                                <button class="buttonfill-apply">Apply Now</button>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                         </div>

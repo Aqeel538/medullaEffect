@@ -66,25 +66,10 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-12  col-lg-6 col-md-6 ">
+                                        <div class="col-12 col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                                             <div class="inputfield">
-                                                <i class="fa-regular fa-user"></i>
-                                                <select name="gender" required style="width: 100%;">
-                                                    <option value="" disabled selected hidden>{!! $user->gender ?? 'Gender' !!}
-                                                    </option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-12 form-group mt-3">
-                                            <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/Color.png" alt=""
-                                                    srcset="">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/color.png"
+                                                    alt="" srcset="">
                                                 <select name="job_type" required style="width: 100%;">
                                                     <option value="" disabled selected hidden>{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
                                                     </option>
@@ -95,13 +80,14 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
 
                                         <div class="col-12 form-group">
                                             <div class="inputfield mt-3">
-                                                <img src="../Assets/Images/profile-imges/loction.png" alt=""
-                                                    srcset="">
-                                                <input class="input-field" type="text" name="located_in"
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png"
+                                                    alt="" srcset="">
+                                                <input class="input-fields" type="text" name="located_in"
                                                     value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                                     placeholder="In which city are you located?" />
                                             </div>
@@ -111,14 +97,14 @@
 
                                         <div class="col-12 form-group">
                                             <div class="inputfield mt-3">
-                                                <img src="../Assets/Images/profile-imges/relocate.png" alt=""
-                                                    srcset="">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/relocate.png"
+                                                    alt="" srcset="">
                                                 <select name="work_type" required style="width: 100%;">
                                                     <option value="" disabled selected hidden>{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
                                                     </option>
                                                     <option value="In-person">In-person</option>
                                                     <option value="Remote">Remote</option>
-                                                    <option value="Hybird">Hybird</option>
+                                                    <option value="Hybrid">Hybrid</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -127,8 +113,8 @@
 
                                         <div class="col-12  mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/work.png" alt=""
-                                                    srcset="">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/work.png"
+                                                    alt="" srcset="">
                                                 <input class="input-field" type="text" name="industry_and_position"
                                                     placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                                             </div>
@@ -138,8 +124,8 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/industry.png" alt=""
-                                                    srcset="">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png"
+                                                    alt="" srcset="">
                                                 <select name="pay_range" required style="width: 100%;">
                                                     <option value="" disabled selected hidden>{!! $user->pay_range ?? 'State your desired pay range' !!}
                                                     </option>
@@ -161,8 +147,8 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/payrange.png" alt=""
-                                                    srcset="">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
+                                                    alt="" srcset="">
                                                 <input class="input-field" type="text" name="nationality"
                                                     placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                                             </div>
@@ -179,7 +165,7 @@
                     <div id="Paris" class=" city" style="display:none">
                         <h5 class="card-title">Password</h5>
                         <div class="" id="password" role="tabpanel">
-                            <form method="POST" action="{{ route('change.password') }}">
+                            <form method="POST" action="{{ route('company.change.password') }}">
                                 @csrf
                                 <div class="form-group ">
 
@@ -229,13 +215,13 @@
                         <div class="activestatus"></div>
                         <div>
                             <label type="button" class="switch mt-3">
-                                <input type="checkbox" data-id="{{ $user->id }}" class="toggle-class"
+                                <input type="checkbox" data-id="{{ $user->id }}" class="company-toggle-class"
                                     type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
                                     data-on="Active" data-off="InActive" {{ $user->is_active ? 'checked' : '' }}>
                                 <span class="slider round"></span>
                             </label>
                             @if ($user->is_active == 1)
-                                <div class="" id="activeStatusContent" style="display: none;">
+                                <div class="" id="comapnyActiveStatusContent" style="display: none;">
 
                                     <p class="mt-3 text-success"><b> You are active now!</b></p>
 

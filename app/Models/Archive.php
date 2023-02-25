@@ -17,4 +17,9 @@ class Archive extends Model
     {
         return $this->hasOne(Job::class,  'id', 'job_id');
     }
+
+    public function getApplication()
+    {
+        return $this->hasOne(Application::class,  'id', 'job_id');
+    }
 }

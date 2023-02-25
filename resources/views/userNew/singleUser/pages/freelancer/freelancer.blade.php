@@ -47,26 +47,28 @@
                         <form action="{{ route('freelancer.create') }}" method="POST" class="needs-validation"
                             novalidate="">
                             @csrf
+
                             <input required type="hidden" name="check" value="1" />
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <ion-icon name="person-outline"></ion-icon>
-                                        <input class="input-fields" type="text" name="name" placeholder="First Name">
+                                        <input class="input-fields" type="text" name="first_name"
+                                            placeholder="First Name">
                                     </div>
                                     <div class="text-danger d-flex">
-                                        @error('name')
+                                        @error('first_name')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <ion-icon name="mail-outline"></ion-icon>
-                                        <input class="input-fields" type="email" name="email" placeholder="Email ID">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                        <input class="input-fields" type="text" name="last_name" placeholder="Last Name">
                                     </div>
                                     <div class="text-danger d-flex">
-                                        @error('email')
+                                        @error('last_name')
                                             {{ $message }}
                                         @enderror
                                     </div>
@@ -74,7 +76,20 @@
 
                             </div>
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
+
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                        <input class="input-fields" type="email" name="email"placeholder="Email">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('email')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+
                                     <div class="input-container ">
                                         <i class="ri-lock-unlock-line" style="font-size: 20px"></i>
                                         <input class="input-fields" type="password" name="password"placeholder="Password">
@@ -85,25 +100,14 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
-                                    <div class="input-container ">
-                                        <ion-icon name="call-outline"></ion-icon>
-                                        <input class="input-fields" type="number" name="phone"
-                                            placeholder="Phone Number">
-                                    </div>
-                                    <div class="text-danger d-flex">
-                                        @error('phone')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <span><i class="ri-global-line" style="font-size: 20px"></i></span>
-                                        <input class="input-fields" type="text" name="company_name"
-                                            placeholder="Company Name">
+                                        <i class="ri-global-line" style="font-size: 20px"></i>
+                                        <input class="input-fields" type="text"
+                                            name="company_name"placeholder="Company Name">
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('company_name')
@@ -127,8 +131,8 @@
                             </div>
                             <div class="row justify-content-center Poppins">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
-                                    <div class="input-container " style="font-size: 20px">
-                                        <span><i class="ri-service-line"></i></span>
+                                    <div class="input-container ">
+                                        <span><i class="ri-service-line" style="font-size: 20px"></i></span>
                                         <input class="input-fields" type="text" name="industry" placeholder="industry">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -137,24 +141,24 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <span><i class="fa-regular fa-user" style="font-size: 20px"></i></span>
-                                        <input class="input-fields" type="text" name="contact"
-                                            placeholder="Source of contact">
+                                        <ion-icon name="call-outline"></ion-icon>
+                                        <input class="input-fields" type="number" name="phone"
+                                            placeholder="Phone Number">
                                     </div>
                                     <div class="text-danger d-flex">
-                                        @error('contact')
+                                        @error('phone')
                                             {{ $message }}
                                         @enderror
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-lg-12 col-md-12 col-12  mb-lg-0 mb-md-0 mb-3 mt-2">
                                 <div class="input-container ">
                                     <span><i class="ri-map-pin-line" style="font-size: 20px"></i></span>
-                                    <input class="input-fields" type="text" name="address" placeholder="Adress">
+                                    <input class="input-fields" type="text" name="address" placeholder="Address">
                                 </div>
                                 <div class="text-danger d-flex">
                                     @error('address')

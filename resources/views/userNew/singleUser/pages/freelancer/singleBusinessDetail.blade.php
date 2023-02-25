@@ -9,7 +9,7 @@
     <div class="container mt-4 crd-row-one">
         <div class="row ">
             <div class="col-12  ">
-                <a href="../Tagline.html">
+                <a href="#">
                     <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
                         srcset="">
             </div>
@@ -79,12 +79,32 @@
                     </div>
 
                     <div class="jobviewbtns mt-5 mb-4">
-                        <a href="{{ route('chatbot') }}">
+                        <a href="{{ route('show_chat', $company->id) }}">
                             <button class="buttonfill-apply pl-4 pr-4">Contact</button>
                         </a>
-                        <a href="{{ route('save_service', $company->id) }}">
+                        {{-- <a href="{{ route('save_service', $company->id) }}">
                             <button class="buttonunfill-save">Save for Later</button>
-                        </a>
+                        </a> --}}
+
+
+                        <?php
+                        if (isset($company->save_freelancer_service) && !empty($company->save_freelancer_service)) {
+                            $check = $company->save_freelancer_service->where('user_id', auth()->user()->id)->first();
+                        } else {
+                            $check = null;
+                        }
+                        ?>
+                        @if (isset($check) && !empty($check))
+                            <a href="#">
+                                <button class="buttonunfill-save">Saved</button>
+                            </a>
+                        @else
+                            <a href="{{ route('save_service', $company->id) }}">
+                                <button class="buttonunfill-save">Save for Later</button>
+                            </a>
+                        @endif
+
+
                         <a href=""> <button class="buttonunfill-saves">Share</button></a>
                     </div>
                 </div>
@@ -117,12 +137,26 @@
                                         perspiciatis
                                         unde omnis ie natnatusus error... </p>
                                     <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="">
+                                        <a href="{{ route('show_chat', $company->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Contact</button>
                                         </a>
-                                        <a href="{{ route('save_service', $company->id) }}">
-                                            <button class="buttonunfill-save">Save for Later</button>
-                                        </a>
+
+                                        <?php
+                                        if (isset($companies->save_freelancer_service) && !empty($companies->save_freelancer_service)) {
+                                            $check = $companies->save_freelancer_service->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Saved</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('save_service', $companies->id) }}">
+                                                <button class="buttonunfill-save">Save for Later</button>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
 

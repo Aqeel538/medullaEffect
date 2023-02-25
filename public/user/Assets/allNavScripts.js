@@ -94,6 +94,51 @@ $(function () {
 })
 
 
+// Company active/inactive
+function myFunction() {
+    //  alert("ok");
+    var x = document.getElementById("comapnyActiveStatusContent");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+
+        x.style.display = "none";
+    }
+}
+
+
+$(function () {
+    $('.company-toggle-class').change(function () {
+        var status = $(this).prop('checked') == true ? 1 : 0;
+        var user_id = $(this).data('id');
+        console.log(status);
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/company/userChangeStatus',
+            data: {
+                'status': status,
+                'user_id': user_id
+            },
+            success: function (data) {
+                console.log(data.success)
+            }
+        });
+    })
+})
+
+// User profile icon
+function userprofile() {
+    let user = $('.userdata').css('visibility')
+
+
+    if (user === "hidden") {
+        $('.userdata').css('visibility', 'visible')
+    } else {
+        $('.userdata').css('visibility', 'hidden')
+    }
+}
+
 
 
 
