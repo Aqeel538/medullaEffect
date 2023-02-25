@@ -23,7 +23,12 @@
     rel="stylesheet">
 
 {{-- SWeet Alert --}}
+
+<!-- phone library -->
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 
 <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">

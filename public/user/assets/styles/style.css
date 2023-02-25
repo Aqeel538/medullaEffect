@@ -1528,6 +1528,22 @@ ion-icon {
     margin-bottom: 40px;
 }
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: transparent !important;
+}
+
 .company_bg {
     background-color: rgba(124, 35, 66, 1);
     padding: 26px;

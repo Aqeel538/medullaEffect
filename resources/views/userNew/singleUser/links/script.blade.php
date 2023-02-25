@@ -13,7 +13,13 @@
  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
+<!-- Use as a jQuery plugin -->
+<script src="build/js/intlTelInput.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script> 
+
+<!--  Use as a jQuery plugin end -->
  <script
      type="module"
      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -131,4 +137,18 @@
          });
      }
  </script>
+
+
+
+
+<script>
+
+// -----Country Code Selection
+$("#mobile_code").intlTelInput({
+	initialCountry: "in",
+	separateDialCode: true,
+	// utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
+});
+
+</script>
  <!-- New script ends -->
