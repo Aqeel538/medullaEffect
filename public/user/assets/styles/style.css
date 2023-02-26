@@ -38,7 +38,14 @@ body {
     height: 40px;
 }
 .arrow-back{
-    padding: 20px;
+   display: flex;
+   justify-content: center;
+        padding: 8px;
+        margin-top: 10px;
+        background-color: rgba(124, 35, 66, 1);
+        width: 40px;
+        border-radius: 50px;
+        color: white;
 }
 
 /* =====Top Nav & 2nd nav css===== */
@@ -187,7 +194,15 @@ align-items: center;
     opacity: 0.8;
     text-align: center;
 }
-
+.abt-para{
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    opacity: 0.8;
+    text-align: justify;
+}
 /* hero section */
 
 .herosecion {
@@ -197,7 +212,15 @@ align-items: center;
     align-items: center;
     text-align: center;
 }
+.abt-uls li{
+    font-family: "Helvetica" !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
 
+    
+    color: #303030 !important;
+}
 .herosecion h1 {
     font-family: "Helvetica";
     font-style: normal;
@@ -206,7 +229,14 @@ align-items: center;
     line-height: 131.99%;
     color: #000000;
 }
-
+.abt-heading{
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 131.99%;
+    color: #000000;  
+}
 .heading-span-text {
     color: #7c2342;
 }
@@ -311,7 +341,6 @@ align-items: center;
     text-align: center;
     letter-spacing: 0.02em;
 
-    color: #303030;
 }
 
 .text-para-midle-card {
@@ -523,11 +552,19 @@ p {
 }
 
 #footer .footer-top .footer-contact p {
-    font-size: 14px;
-    line-height: 24px;
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    color: #000000;
+    opacity: 0.8;
+    text-align: justify;
+ 
+    letter-spacing: 0.02em;
+    
+  
     margin-bottom: 0;
-    font-family: "Jost", sans-serif;
-    color: #5e5e5e;
+  
 }
 
 #footer .footer-top h4 {
@@ -564,10 +601,19 @@ p {
 }
 
 #footer .footer-top .footer-links ul a {
-    color: #777777;
+    
     transition: 0.3s;
     display: inline-block;
     line-height: 1;
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 136.99%;
+
+letter-spacing: 0.02em;
+
+color: #303030;
 }
 
 #footer .footer-top .footer-links ul a:hover {
@@ -605,11 +651,24 @@ p {
 
 #footer .copyright {
     float: left;
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    opacity: 0.8;
+   
 }
 
 #footer .credits {
     float: right;
-    font-size: 13px;
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    opacity: 0.8;
+   
 }
 
 #footer .credits a {
@@ -625,6 +684,13 @@ p {
 
     color: #730116;
     font-weight: bold;
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+    opacity: 0.8;
+    text-align: justify;
 }
 
 /* Footer CSS End  */
@@ -1692,7 +1758,17 @@ input[type=number] {
     background: #f1f1f1;
     border-color: #d6d6d6;
 }
+.intl-tel-input,
+.iti{
+  width: 100%;
+}
+.iti__country {
+    padding: 5px 10px;
+    outline: none;
 
+    width: 350px;
+    overflow-x: hidden;
+}
 .avatar-upload .avatar-edit input+label:after {
     content: "\f040";
     font-family: "FontAwesome";
@@ -2540,7 +2616,9 @@ input:checked+.slider:before {
     .john-para-afer-ques-heading {
         font-size: 14px !important;
     }
-
+    .iner-servc-crd{
+        height: 550px !important;
+    }
     .width {
         width: 170%;
     }
@@ -2590,6 +2668,9 @@ input:checked+.slider:before {
     .bus-heading {
 
         font-size: 21px;
+    }
+    .iner-servc-crd {
+        height: 550px !important;
     }
 }
 
@@ -2732,7 +2813,9 @@ input:checked+.slider:before {
     .again_respons {
         display: none;
     }
-
+    .iner-servc-crd {
+        height: 450px !important;
+    }
     .second-nav {
         overflow: hidden;
         height: 76px;
@@ -3387,14 +3470,9 @@ input:checked+.slider:before {
     }
 
     .Logo-text {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 21.3775px;
-        line-height: 13px;
-        display: flex;
-        align-items: center;
-        color: #7c2342;
+  
+        font-size: 20.3775px;
+      
     }
 
     .logo-img {
@@ -3523,7 +3601,9 @@ input:checked+.slider:before {
         width: 30px;
         height: 30px;
     }
-
+    .iner-servc-crd {
+        height: 520px !important;
+    }
     .mobile-nav-icon {
         width: 25px;
         height: 25px;
@@ -3557,7 +3637,7 @@ input:checked+.slider:before {
 
     .phone-num {
 
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .job-view-para span {
@@ -3654,6 +3734,11 @@ input:checked+.slider:before {
         top: 70%;
         right: 30%;
     }
+    .Logo-text {
+ 
+        font-size: 17.3775px;
+
+    }
 }
 
 @media (max-width: 376px) {
@@ -3662,23 +3747,14 @@ input:checked+.slider:before {
     }
 
     .phone-num {
-        font-size: 15px;
+        font-size: 14px;
+    }
+    .Logo-text {
+ 
+        font-size: 14.3775px;
+
     }
 
-    .navbar-link:link,
-    .navbar-link:visited {
-        font-size: 10.5px !important;
-    }
-
-    .mobile-navbar-btn {
-        width: 30px;
-        height: 30px;
-    }
-
-    .mobile-nav-icon {
-        width: 25px;
-        height: 25px;
-    }
 
     .icon-img {
         width: 15px;
@@ -3759,17 +3835,48 @@ input:checked+.slider:before {
     .tab-link {
         padding: 10px 27px;
     }
+    .navbar-link:link,
+    .navbar-link:visited {
+        font-size: 10.5px !important;
+    }
+
+    .mobile-navbar-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .mobile-nav-icon {
+        width: 25px;
+        height: 25px;
+    }
+    .input-subscribe button {
+    
+        width: 34%;}
 }
+
+   
+
+ 
 
 @media (max-width: 320px) {
     .responsive-btn {
         background-color: blue !important;
     }
-
+    .iner-servc-crd {
+        height: 700px !important;
+    }
     .navbar {
         top: 90px;
     }
-
+    .input-subscribe button {
+        padding: 7px;
+        margin-top: 10px;
+         margin-left: 0; 
+        border: none;
+        border-radius: 50px;
+        width: 40%;
+  
+    }
     .second-nav {
         height: 57px;
     }
@@ -3979,12 +4086,24 @@ input:checked+.slider:before {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 5px 6px -1px rgba(141, 32, 32, 0.1), 0 2px 17px -2px rgba(146, 13, 13, 0.1);
-    height: 450px;
+    height: 480px;
     padding: 30px;
 }
 
 .servc-detail {
     text-align: justify;
+    font-family: "Helvetica" !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.2949px;
+    line-height: 144.99%;
+
+    letter-spacing: 0.02em;
+  
+   
+    letter-spacing: 0.02em;
+    color: #525050;
+    
 }
 
 
