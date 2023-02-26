@@ -911,7 +911,41 @@ a {
 .btn-searcs {
     display: flex;
 }
+.form-control:focus {
+    color: #212529;
+ 
+    outline: 0;
+    box-shadow: none !important;
+}
 
+
+.form-select:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: none;
+}
+.form-control::placeholder{
+    font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 136.99%;
+
+letter-spacing: 0.02em;
+
+color: #9A9A9A;
+}
+.form-select {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+    
+    letter-spacing: 0.02em;
+    
+    color: #9A9A9A;
+}
 .industry-dropdown-input {
     display: flex;
     align-items: center;

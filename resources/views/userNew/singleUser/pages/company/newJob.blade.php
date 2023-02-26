@@ -38,9 +38,9 @@
 
                         <div class="col-lg-6 col-md-6 col-12">
                             <select name="category_id" class="form-select form-select-sm"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
-                                aria-label=".form-select-sm example">
-                                <option value="{!! $obj->Categories->id ?? '' !!}">{!! $obj->Categories->category ?? 'Category' !!}
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                aria-label=".form-select-sm example" >
+                                <option value="{!! $obj->Categories->id ?? '' !!}" disabled selected hidden>{!! $obj->Categories->category ?? 'Category' !!}
                                 </option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">
@@ -64,7 +64,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="job_type" class="form-select form-select-sm"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
                                 aria-label=".form-select-sm example" id="inPerson">
                                 <option value="{!! $obj->job_type ?? '' !!}" disabled selected hidden>{!! $obj->job_type ?? 'Job Type' !!}
                                 </option>
@@ -76,7 +76,7 @@
 
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="work_type" class="form-select form-select-sm"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
                                 aria-label=".form-select-sm example">
                                 <option value="{!! $obj->work_type ?? '' !!}" disabled selected hidden>{!! $obj->work_type ?? 'Work Type' !!}
                                 </option>
