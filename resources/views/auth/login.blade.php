@@ -7,22 +7,9 @@
     </style>
     <!-- -----------Login---------------- -->
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
-                        <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
-                        </span>
-
-                    </div>
-                    <div>
-                        <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
-                        <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
-
-                    </div>
-
-                </div>
+              
                 <div class="d-flex justify-content-center align-item-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8">
@@ -31,8 +18,7 @@
             </div>
             <div class="col-lg-8 col-md-8 col-12 ">
             <div class="arrow-back">
-                    <a href="{{route('companay')}}">  <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" 
-                        alt="w8"></a>
+                    <a href="{{route('index')}}"> <i class="fa-solid fa-arrow-left"></i></a>
                 </div>
 
                 <div class="row form-row text-center">
@@ -55,7 +41,7 @@
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <ion-icon name="person-outline"></ion-icon>
+                                    <ion-icon name="mail-outline"></ion-icon>
                                         <input class="input-fields"required type="email" name="email"
                                             placeholder="Email ID">
                                     </div>

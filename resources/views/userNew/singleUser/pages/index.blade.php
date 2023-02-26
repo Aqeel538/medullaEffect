@@ -344,7 +344,7 @@
 
 
             <div class="about-nexa-heading text-center">
-                <h1 class="herosecion pt-2">Contact Us</h1>
+                <h1 class="herosecion pt-5">Contact Us</h1>
                 <div class="botom-hr">
                     <div class="iner-btom"></div>
                 </div>

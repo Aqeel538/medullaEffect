@@ -62,7 +62,7 @@
                                             <div class="input-container ">
                                                 <ion-icon name="call-outline"></ion-icon>
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="text"
-                                                    placeholder="Phone Number" name="phone">
+                                                    placeholder="Phone Number" name="phone"  id="mobile_code">
                                             </div>
 
                                         </div>

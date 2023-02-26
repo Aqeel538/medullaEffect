@@ -19,22 +19,9 @@
         rel="stylesheet">
     <!-- -----------company----signup------------ -->
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
-                        <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
-                        </span>
-
-                    </div>
-                    <div>
-                        <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
-                        <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
-
-                    </div>
-
-                </div>
+          
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8">

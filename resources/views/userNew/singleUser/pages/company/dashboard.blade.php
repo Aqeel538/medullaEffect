@@ -54,7 +54,7 @@
                             <div class="input-container">
 
                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                    placeholder="Phone Number" name="phone">
+                                    placeholder="Phone Number" name="phone"  id="mobile_code">
                             </div>
                             <span class="text-danger d-flex">
                                 @error('phone')
