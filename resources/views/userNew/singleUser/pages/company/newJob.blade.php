@@ -102,7 +102,7 @@
                                 style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description" name="description"
                                 value="<?= isset($obj->description) && !empty($obj->description) ? $obj->description : '' ?>" rows="6"
                                 style="background-color: #f4f4f4; border: none"></textarea>
                         </div>
