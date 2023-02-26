@@ -90,9 +90,9 @@
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-12 col-md-12 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <ion-icon name="call-outline"></ion-icon>
+                                 
                                         <input class="input-fields" type="number" name="phone"
-                                            placeholder="Phone Number">
+                                            placeholder="Phone Number"  id="mobile_code">
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('phone')
