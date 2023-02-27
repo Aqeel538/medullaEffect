@@ -494,7 +494,11 @@
                     <h4>Join Our Newsletter</h4>
                     <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
                     <form action="" method="post">
-                        <input type="email" name="email" class='footer_email' required><input type="submit" value="Subscribe">
+                        <div class="input-subscribe">
+                            <br>
+                            <input type="text" placeholder="Your-Email">
+                            <button>Subscribe now</button>
+                        </div>
                     </form>
                 </div>
             </div>

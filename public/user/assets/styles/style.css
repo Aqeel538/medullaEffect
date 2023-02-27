@@ -461,54 +461,34 @@ p {
   color: white;
 }
 
-#footer .footer-newsletter form {
-  margin-top: 30px;
-  background: #fff;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.06);
-  text-align: left;
-}
 
-#footer .footer-newsletter form input[type=email] {
-  border: 0;
-  background-color: transparent !important;
-  padding: 4px 8px;
-  width: calc(100% - 100px);
-}
-#footer .footer-newsletter form input[type=email]:focus {
-background-color: transparent !important;
-border: none !important;
-outline: none !important;
-  }
-  .footer_email:focus{
-      background-color: transparent !important;
-      border: None !important;
-      box-sizing: none !important;
-  }
-  .footer_email:active{
-    background-color: transparent !important;
-}
-#footer .footer-newsletter form input[type=submit] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 41px;
-  background: #ebe8e8;
-  color: #730116;
-  transition: 0.3s;
-  border-radius: 50px;
-}
 
-#footer .footer-newsletter form input[type=submit]:hover {
-  background: white;
-  box-shadow: 0 5px 6px -1px rgba(141, 32, 32, 0.1), 0 2px 17px -2px rgba(146, 13, 13, 0.1);
-}
+
+.input-subscribe input{
+
+    padding: 9px;
+    border: 3px solid white;
+    border-radius:50px;
+    width: 70%;
+    background-color: #7c2342;
+  }
+  .input-subscribe input::placeholder{
+    color: white;
+   
+  }
+  .input-subscribe input:focus{
+  outline: none;
+   
+  }
+  .input-subscribe button{
+    padding: 11px;
+    margin-left: -50px;
+    border: none;
+    border-radius: 50px;
+    width: 30%;
+    background-color: #F9F9F9;
+  
+  }
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
