@@ -30,4 +30,9 @@ class Job extends Model
     {
         return $this->hasMany(SaveForLater::class, 'job_id', 'id');
     }
+
+    public function archived_jobs()
+    {
+        return $this->hasMany(Archive::class, 'job_id', 'id');
+    }
 }

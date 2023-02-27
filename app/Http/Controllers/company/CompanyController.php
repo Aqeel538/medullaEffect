@@ -156,18 +156,22 @@ class CompanyController extends Controller
 
     public function company_jobs_delete(Request $req)
     {
+        // $validate = $this->validate($req, [
+        //     'id' => 'required|exists:jobs,id',
 
+        // ]);
         $archiveDetele = Archive::where('job_id', $req->id)->delete();
 
+        $archiveDetele = SaveForLater::where('job_id', $req->id)->delete();
         $delete = Job::destroy($req->id);
 
         // check data deleted or not
         if ($delete == 1) {
             $success = true;
-            $message = "User deleted successfully";
+            $message = "Job deleted successfully";
         } else {
             $success = true;
-            $message = "User not found";
+            $message = "Job not found";
         }
 
         //  return response
@@ -198,7 +202,7 @@ class CompanyController extends Controller
     {
         $title = 'Job post';
         $user_id = Auth::user()->id;
-        $jobsPosted = Job::where('user_id', $user_id)->get();
+        $jobsPosted = Job::where('user_id', $user_id)->with('archived_jobs')->get();
         $archiveJobs = Archive::where('user_id', $user_id)->with('getjob')->get();
         // dd($archiveJobs->job->title);
         return view('userNew.singleUser.pages.company.jobPost', get_defined_vars());

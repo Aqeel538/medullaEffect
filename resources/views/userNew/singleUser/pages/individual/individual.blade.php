@@ -11,14 +11,22 @@
             <div class="col-lg-4 col-md-4 col-12 company_bg">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
-                        <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
-                        </span>
+                        <a href="#">
+                            <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
+                        </a>
+                        <a href="#">
+                            <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
+                            </span>
+                        </a>
 
                     </div>
                     <div>
-                        <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
-                        <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
+                        <a href="#">
+                            <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
+                        </a>
+                        <a href="#">
+                            <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
+                        </a>
 
                     </div>
 

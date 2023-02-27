@@ -192,7 +192,10 @@
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <?php
                                         if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {
-                                            $check = $getjobs->applied_jobs->where('applicant_id', auth()->user()->id)->first();
+                                            $check = $getjobs->applied_jobs
+                                                ->where('applicant_id', auth()->user()->id)
+                                                ->where('job_id', auth()->user()->id)
+                                                ->first();
                                         } else {
                                             $check = null;
                                         }
@@ -202,7 +205,7 @@
                                                 <button class="buttonfill-apply">Applied</button>
                                             </a>
                                         @else
-                                            <a href="{{ route('individual.apply.now', $getjobs->id) }}">
+                                            <a href="{{ route('individual.apply.now', $jobs->savedJobs->id) }}">
                                                 <button class="buttonfill-apply">Apply Now</button>
                                             </a>
                                         @endif

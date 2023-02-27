@@ -25,7 +25,7 @@
                             alt="" srcset="" />
                     </a>
                     <img src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
-                        class="bell" alt="" srcset="">
+                        class="bell" alt="" srcset="" style="cursor: pointer;">
                     <div class="userdata " id="userdata">
                         <div class="olp">
                             <i class="fa-solid fa-xmark " id="close" onclick="userprofile()"></i>

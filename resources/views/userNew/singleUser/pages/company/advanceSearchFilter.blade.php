@@ -62,6 +62,7 @@
                                     <option>Remote</option>
                                     <option>OnSite</option>
                                     <option>Hybrid</option>
+                                    <option value="No-preference">No-preference</option>
                                 </select>
                             </div>
                         </div>
@@ -128,6 +129,8 @@
 
                             <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow: hidden">{!! $freelancer->name ?? '' !!}
                             </h3>
+                            <h6 class="location-heading">Industry: <span class="place">{!! $freelancer->job_type ?? '' !!}</span></h6>
+                            <h6 class="location-heading">Job type: <span class="place">{!! $freelancer->job_type ?? '' !!}</span></h6>
                             <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                             </h6>
                             <h6 class="location-heading">Experience: <span class="place">{!! $freelancer->experience ?? '' !!}

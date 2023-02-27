@@ -22,7 +22,7 @@
                 </div>
                 <?php
                 $update_id = 0;
-                
+
                 if (isset($obj->id) && !empty($obj->id)) {
                     $update_id = $obj->id;
                 }
@@ -52,7 +52,7 @@
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-3">
-                            <input class="rate-field form-control" name="rate" type="text"
+                            <input class="rate-field form-control" name="rate" type="number"
                                 value="<?= isset($obj->rate) && !empty($obj->rate) ? $obj->rate : '' ?>"placeholder="Salary"
                                 style="
                       border: none;

@@ -14,8 +14,8 @@
             <br />
             <div class="col-lg-12 col-12">
                 <div class="col-12" style="padding: 0;">
-                    <h2 class="job-headings"> {!! $applicant->users->name ?? '' !!}</h2>
-                    <p class="job-view-para-2">{!! $applicant->users->email ?? '' !!}</p>
+                    <h2 class="job-headings"> {!! $applicantResume->name ?? '' !!}</h2>
+                    <p class="job-view-para-2">{!! $applicantResume->email ?? '' !!}</p>
                 </div>
                 <div class="col-lg-12 col-12 ps-0">
                     <div class="tabsrow d-flex justify-content-between">
@@ -23,7 +23,7 @@
                             <div class="icon-text">
                                 <p class="job-view-para">
                                     <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp; &nbsp;Applied
-                                        {{ \Carbon\Carbon::parse($applicant->created_at)->diffForHumans() }}</span>
+                                        {!! \Carbon\Carbon::parse($applicantResume->created_at)->diffForHumans() ?? '' !!}</span>
                                 </p>
                             </div> &nbsp; &nbsp; &nbsp;
                         </div>
@@ -38,7 +38,7 @@
         <div class="row mt-4">
             <div class="col-lg-7 col-md-7 col-12">
                 <div class="questionare-job-respond">
-                    <p>{!! $applicant->users->description ?? 'There is no description provided by the user yet!!!' !!}</p>
+                    <p>{!! $applicantResume->description ?? 'There is no description provided by the user yet!!!' !!}</p>
                 </div>
                 <div class="jobviewbtns mt-3 mb-1">
                     <?php
@@ -56,7 +56,7 @@
                             <button class="buttonunfill-save">Accepted</button>
                         </a>
                     @else
-                        <a href="{{ route('accept.applicants', $applicant->users->id) }}">
+                        <a href="{{ route('accept.applicants', $applicantResume->id) }}">
                             <button class="buttonfill-apply pl-4 pr-4">Accept</button>
                         </a>
                     @endif
@@ -77,11 +77,11 @@
                             <button class="buttonunfill-save">Archived</button>
                         </a>
                     @else
-                        <a href="{{ route('company.archiveJob', $applicant->id) }}">
+                        <a href="{{ route('company.archiveJob', $applicantResume->id) }}">
                             <button class="buttonunfill-save">Archive</button>
                         </a>
                     @endif
-                    <a href="{{ route('delete.applicants', $applicant->users->id) }}">
+                    <a href="{{ route('delete.applicants', $applicantResume->id) }}">
                         <button class="buttonunfill-save">Delete</button>
                     </a>
                 </div>
@@ -92,30 +92,30 @@
                     <h4 class="mb-4 resume-heading">Resume</h4>
                     <div class="">
                         <h6>Are you interested in full time or part time work?</h6>
-                        <p>{!! $applicant->users->work_type ?? '' !!}</p>
+                        <p>{!! $applicantResume->work_type ?? '' !!}</p>
                     </div>
                     <div class="">
                         <h6>State your desired pay range?</h6>
-                        <p>{!! $applicant->users->pay_range ?? '' !!}</p>
+                        <p>{!! $applicantResume->pay_range ?? '' !!}</p>
                     </div>
                     <div class="">
                         <h6>State your nationality?</h6>
-                        <p>{!! $applicant->users->nationality ?? '' !!}</p>
+                        <p>{!! $applicantResume->nationality ?? '' !!}</p>
                     </div>
                     <div class="">
                         <h6>Where are you located??</h5>
-                            <p>{!! $applicant->users->located_in ?? '' !!}</p>
+                            <p>{!! $applicantResume->located_in ?? '' !!}</p>
                     </div>
                     <div class="">
                         <h6>State your desired industry and position?</h5>
-                            <p>{!! $applicant->users->industry ?? '' !!}</p>
+                            <p>{!! $applicantResume->industry ?? '' !!}</p>
                     </div>
                     <div class="">
                         <h6>Are you interested to work In-person, remote or hybrid?</h5>
-                            <p>{!! $applicant->users->job_type ?? '' !!}</p>
+                            <p>{!! $applicantResume->job_type ?? '' !!}</p>
                     </div>
 
-                    <a href="{{ asset('uploads') }}/user/resumes/{{ $applicant->users->resume }}" class=""
+                    <a href="{{ asset('uploads') }}/user/resumes/{{ $applicantResume->resume }}" class=""
                         target="_blank" style="color: #7C2342;
                         ">View uploaded resume</a>
                 </div>

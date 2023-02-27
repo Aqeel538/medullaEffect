@@ -32,6 +32,7 @@
                                     <option value="" disabled selected hidden>
                                         Location
                                     </option>
+                                    <option>Rahim yar khan</option>
                                     <option>USA</option>
                                     <option>UAE</option>
                                     <option>Paris</option>
@@ -62,6 +63,7 @@
                                     <option>Remote</option>
                                     <option>OnSite</option>
                                     <option>Hybrid</option>
+                                    <option value="No-preference">No-preference</option>
                                 </select>
                             </div>
                         </div>
@@ -129,15 +131,19 @@
 
                             <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow:hidden">
                                 {!! $individual->name ?? '' !!}</h3>
-                            <h6 class="location-heading">Located in: <span class="place">{!! $individual->located_in ?? '' !!}</span>
-                            </h6>
-                            <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+                            <h6 class="location-heading">Industry: <span class="place">{!! $individual->industry ?? '' !!}</span>
+                                <h6 class="location-heading">Job type: <span class="place">{!! $individual->job_type ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Located in: <span class="place">{!! $individual->located_in ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Experience: <span class="place">{!! $individual->experience ?? '' !!}</span>
+                                </h6>
 
-                            <a href="{{ route('company.show.chat', $individual->id) }}">
-                                <button class="buttonfill mt-4 mb-4">
-                                    Contact
-                                </button>
-                            </a>
+                                <a href="{{ route('company.show.chat', $individual->id) }}">
+                                    <button class="buttonfill mt-4 mb-4">
+                                        Contact
+                                    </button>
+                                </a>
 
 
                         </div>

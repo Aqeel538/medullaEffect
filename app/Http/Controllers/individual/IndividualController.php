@@ -46,6 +46,7 @@ class IndividualController extends Controller
         $industryOption = Job::with('users')->get();
 
         $savedJobs = SaveForLater::where('user_id', $user_id)->with('savedJobs')->get();
+
         $applied = Application::where('applicant_id', $user_id)->get();
         // dd($applied[0]->job_id);
         return view('userNew.singleUser.pages.individual.tagline', get_defined_vars());

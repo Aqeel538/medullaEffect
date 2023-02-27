@@ -54,23 +54,32 @@ class SingleUserController extends Controller
         $title = "Home";
         return view('userNew.singleUser.pages.index', compact('title'));
     }
+    public function faq()
+    {
+        $title = "FAQ";
+        return view('userNew.singleUser.pages.faq', compact('title'));
+    }
 
     public function submitLeadForm(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
+            "name" => "required",
             "email" => "required",
-            "fname" => "required",
-            "lname" => "required",
+            // "fname" => "required",
+            // "lname" => "required",
             "phone" => "required",
+            "message" => "required",
         ]);
         if (!$validator->passes()) {
             return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()], 200);
         } else {
             $user = new LeadForm();
-            $user->name = $request->name . ' ' . $request->lname;
+            // $user->name = $request->name . ' ' . $request->lname;
+            $user->name = $request->name;
             $user->email = $request->email;
             $user->phone = $request->phone;
+            $user->message = $request->message;
             $data = $user->save();
             if ($data) {
                 return response()->json(['status' => 1, 'message' => "feedback succesfully submit"], 200);

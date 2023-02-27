@@ -11,15 +11,21 @@
             <div class="col-lg-4 col-md-4 col-12 company_bg">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
-                        <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
-                        </span>
-
+                        <a href="#">
+                            <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
+                        </a>
+                        <a href="#">
+                            <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
+                            </span>
+                        </a>
                     </div>
                     <div>
-                        <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
-                        <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
-
+                        <a href="#">
+                            <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
+                        </a>
+                        <a href="#">
+                            <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
+                        </a>
                     </div>
 
                 </div>
@@ -129,7 +135,7 @@
                             <div class="row justify-content-center Poppins">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <span><i class="ri-service-line" style="font-size: 20px"></i></span>
+                                        <span><i class="fa-solid fa-business-time"></i></span>
                                         <input class="input-fields" type="text" name="industry" placeholder="industry">
                                     </div>
                                     <div class="text-danger d-flex">

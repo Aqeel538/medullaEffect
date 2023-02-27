@@ -45,7 +45,7 @@ Route::get('resetPasswordPage', [RegistrationControllerInd::class, 'reset_passwo
 Route::post('resetPassword', [RegistrationControllerInd::class, 'reset_password'])->name('reset.password');
 
 // COMPANY REGISTER OTP
-Route::get('otpVerificationPage', [CompanyRegistrationController::class, 'otp_verification_page'])->name('otp.verification.page');
+Route::get('otp-verification-page', [CompanyRegistrationController::class, 'otp_verification_page'])->name('company.otp.verification.page');
 Route::post('company/otpVerification', [CompanyRegistrationController::class, 'company_otp_verification'])->name('company.otp.verification');
 Route::post('register/sendEmail', [CompanyRegistrationController::class, 'register_send_email'])->name('register.send.email');
 
@@ -209,7 +209,7 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     // ARCHIVE JOB
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
 
-    Route::get('/company/jobPost', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
+    Route::get('/company/job-post', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
 
     // CHAT
     // Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');
@@ -296,10 +296,11 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
 //--------------- Unauthenticated Routes Start ---------------\\
 Route::get('/advance/fillter', [SingleUserController::class, 'advance_fillter'])->name('advance.fillter');
 Route::get('/applied', [SingleUserController::class, 'applied'])->name('applied');
-Route::get('/companay', [SingleUserController::class, 'companay'])->name('companay');
+Route::get('/company', [SingleUserController::class, 'companay'])->name('companay');
 Route::get('/freelancer', [SingleUserController::class, 'freelancer'])->name('freelancer');
 Route::get('/tagline', [SingleUserController::class, 'tagline'])->name('tagline');
 Route::get('/', [SingleUserController::class, 'index'])->name('index');
+Route::get('/faq', [SingleUserController::class, 'faq'])->name('faq');
 Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profile2');
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');

@@ -1,9 +1,33 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-@include('userNew.singleUser.pages.company.secondNav')
+    @include('userNew.singleUser.pages.company.secondNav')
     <!---------------- -Navend--------------- -->
     <div class="container-fluid mt-5 plg-4 p-md-4 p-sm-3 p-1">
 
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
+                <div class="row ">
+                    <div class="col-12">
+                        <h1 class="headings">Jobs</h1>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-10 pt-2 pb-3 offset-1">
+                        <p class="descriptions">Post job Hire people through Medulla...nis iste natus error sit voluptatem
+                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 pt-2 pb-3 offset-1">
+                        <a href="{{ route('company_jobs_form', 0) }}">
+                            <button class="buttonfill-apply pl-4 pr-4">Post job</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <div class="tab-wrapper">
             <ul class="tabs Halvetica">
 
@@ -51,10 +75,33 @@
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
                                         </a>
-                                        <a href="{{ route('company.archiveJob', $job->id) }}">
+                                        {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
                                             <button class="buttonunfill-creates">Archive Job</button>
-                                        </a>
+                                        </a> --}}
 
+
+
+                                        <?php
+                                        if (isset($job->archived_jobs) && !empty($job->archived_jobs)) {
+                                            $check = $job->archived_jobs->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Archived</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('company.archiveJob', $job->id) }}">
+                                                <button class="buttonunfill-save">Archive job</button>
+                                            </a>
+                                        @endif
+
+
+
+                                        <button class="buttonunfill-save"
+                                            onclick="deleteConfirmation({{ $job->id }})">Delete</button>
                                     </div>
                                 </div>
 
@@ -67,7 +114,7 @@
                 <div class="row  mt-5 mb-3">
                     @foreach ($archiveJobs as $archiveJob)
                         <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
-                            <div class="p-3" style="background: #F4F4F4;border-radius: 20px;">
+                            <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
                                         <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
@@ -86,7 +133,26 @@
                                 </div>
                                 <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $archiveJob->getjob->description ?? '' !!}</p>
                                 <div class="jobviewbtns mt-1 mb-1">
-                                    <button class="buttonfill-apply">Apply Now</button>
+                                    <a href="{{ route('company_jobs_form', $job->id) }}">
+                                        <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
+                                    </a>
+
+                                    <?php
+                                    if (isset($archiveJob) && !empty($archiveJob)) {
+                                        $check = $archiveJob->where('user_id', auth()->user()->id)->first();
+                                    } else {
+                                        $check = null;
+                                    }
+                                    ?>
+                                    @if (isset($check) && !empty($check))
+                                        <a href="#">
+                                            <button class="buttonunfill-save">Unarchive</button>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('company.archiveJob', $job->id) }}">
+                                            <button class="buttonunfill-save">Archive job</button>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
 
@@ -119,6 +185,65 @@
                 current[0].className = current[0].className.replace(" active", "");
                 this.className += " active";
             });
+        }
+    </script>
+    <script>
+        // -----------active----class--------
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("mylist");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        function deleteConfirmation(id) {
+            swal.fire({
+                title: "Delete?",
+                icon: 'question',
+                text: "Please ensure and then confirm!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: !0
+            }).then(function(e) {
+
+                if (e.value === true) {
+                    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{ url('/company/jobs/delete') }}/" + id,
+                        data: {
+                            _token: CSRF_TOKEN
+                        },
+                        dataType: 'JSON',
+                        success: function(results) {
+                            if (results.success === true) {
+                                swal.fire("Done!", results.message, "success");
+                                // refresh page after 2 seconds
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1000);
+                            } else {
+                                swal.fire("Error!", results.message, "error");
+                            }
+                        }
+                    });
+
+                } else {
+                    e.dismiss;
+                }
+
+            }, function(dismiss) {
+                return false;
+            })
         }
     </script>
 @endsection

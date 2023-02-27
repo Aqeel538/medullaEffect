@@ -92,6 +92,8 @@
 
                                 <h6 class="location-heading">Industry: <span class="place">{!! $freelancer->industry ?? '' !!}</span>
                                 </h6>
+                                <h6 class="location-heading">Job type: <span class="place">{!! $freelancer->job_type ?? '' !!}</span>
+                                </h6>
                                 <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                                 </h6>
                                 <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>

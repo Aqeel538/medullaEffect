@@ -25,8 +25,8 @@
                     <li><a class="navbar-link {{ request()->routeIs('company.dashboard') ? 'mylist active' : '' }}"
                             href="{{ route('company.dashboard') }}">Dashboard</a>
                     </li>
-                    <li><a class="navbar-link {{ request()->routeIs('company.jobs') ? 'mylist active' : '' }}"
-                            href="{{ route('company.jobs') }}">Jobs</a></li>
+                    <li><a class="navbar-link {{ request()->routeIs('company.jobPost') ? 'mylist active' : '' }}"
+                            href="{{ route('company.jobPost') }}">Jobs</a></li>
                     <li><a class="navbar-link {{ request()->routeIs('company.allApplicants') ? 'mylist active' : '' }}"
                             href="{{ route('company.allApplicants') }}">Applicants</a></li>
                     <li><a class="navbar-link {{ request()->routeIs('company.individual') ? 'mylist active' : '' }}"

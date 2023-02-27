@@ -15,6 +15,6 @@ class SaveForLater extends Model
 
     public function savedJobs()
     {
-        return $this->hasOne(Job::class,  'id', 'job_id');
+        return $this->hasOne(Job::class, 'id', 'job_id');
     }
 }
