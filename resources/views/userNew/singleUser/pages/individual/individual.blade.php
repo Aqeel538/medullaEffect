@@ -38,9 +38,9 @@
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 ">
-            <div class="arrow-back">
-                    <a href="{{route('index')}}">  <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" 
-                        alt="w8"></a>
+                <div class="arrow-back">
+                    <a href="{{ route('index') }}"> <img
+                            src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" alt="w8"></a>
                 </div>
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
@@ -75,8 +75,7 @@
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <ion-icon name="person-outline"></ion-icon>
-                                        <input class="input-fields" type="text" name="last_name"
-                                            placeholder="First Name">
+                                        <input class="input-fields" type="text" name="last_name" placeholder="Last Name">
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('last_name')
