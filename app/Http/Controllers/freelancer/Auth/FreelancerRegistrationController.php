@@ -4,9 +4,12 @@ namespace App\Http\Controllers\freelancer\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\VerifyToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class FreelancerRegistrationController extends Controller
 {
@@ -46,16 +49,27 @@ class FreelancerRegistrationController extends Controller
         } else {
             echo 'Errors';
         }
-        // $validToken = rand(10, 100..'2023');
-        // $get_token = new VerifyToken();
-        // $get_token->token = $validToken;
-        // $get_token->email = $data['email'];
-        // $get_token->save();
+        VerifyToken::where('email', $data->email)->delete();
+        $user = User::where('email', $data->email)->first();
+        Session::put('userMail', $user);
+        if ($user) {
+            $token = rand(111111, 999999);
+            VerifyToken::insert([
+                'email' => $user->email,
+                'token' => $token
+            ]);
+            Mail::send('emails.verification', ['user' => $user, 'token' => $token], function ($m) use ($user, $token) {
+                $m->from('info@dwive758.com', 'medullaEffect');
 
-        // $get_user_email = $data['email'];
-        // $get_user_name = $data['name'];
+                $m->to($user->email, $user->name)->subject('Verify email');
+            });
+            return redirect('/otp-verification-page');
+        } else {
 
-        // \Mail::to($data['email'])->send(new EmailVerificationMail($get_user_email, $get_user_name, $validToken));
+            return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
+        }
+        $user_id = $user->id;
 
+        return redirect('/otp-verification-page');
     }
 }

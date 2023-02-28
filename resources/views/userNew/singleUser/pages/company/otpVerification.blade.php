@@ -140,6 +140,7 @@
 
                 </form>
                 <div class="pt-5">
+                    <?php $user = session()->get('userMail'); ?>
                     <form id="resendEmail" method="POST" action="{{ route('register.send.email') }}">
                         @csrf
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700">

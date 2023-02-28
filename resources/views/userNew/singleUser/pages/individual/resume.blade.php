@@ -22,7 +22,7 @@
                             <div class="icon-text">
                                 <p class="job-view-para">
                                     <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp; &nbsp;Applied
-                                        {{ \Carbon\Carbon::parse($applicant->created_at)->diffForHumans() }}</span>
+                                        {{ \Carbon\Carbon::parse($resume->created_at)->diffForHumans() }}</span>
                                 </p>
                             </div> &nbsp; &nbsp; &nbsp;
 
@@ -78,7 +78,8 @@
 
 
 
-                    <a href="{{asset('uploads')}}/user/resumes/{{ $resume->resume }}" class="text-danger" target="_blank">view
+                    <a href="{{ asset('uploads') }}/user/resumes/{{ $resume->resume }}" class="text-danger"
+                        target="_blank">view
                         resume</a>
                 </div>
             </div>

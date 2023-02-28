@@ -123,7 +123,8 @@
                                     srcset="" />
                             </div>
                             <div class="text-center">
-                                <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
+                                <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow:hidden">
+                                    {!! $company->company_name ?? '' !!}</h3>
                                 <p class="john-para-afer-ques-heading">
                                     {!! $company->description ?? 'There is no description about company!' !!}
                                 </p>

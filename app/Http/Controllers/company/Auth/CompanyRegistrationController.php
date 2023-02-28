@@ -9,6 +9,7 @@ use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class CompanyRegistrationController extends Controller
 {
@@ -42,6 +43,7 @@ class CompanyRegistrationController extends Controller
 
         VerifyToken::where('email', $data->email)->delete();
         $user = User::where('email', $data->email)->first();
+        Session::put('userMail', $user);
         if ($user) {
             $token = rand(111111, 999999);
             VerifyToken::insert([
@@ -56,7 +58,8 @@ class CompanyRegistrationController extends Controller
 
             // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
 
-            return view('userNew.singleUser.pages.company.otpVerification', get_defined_vars());
+            // return view('userNew.singleUser.pages.company.otpVerification', get_defined_vars());
+            return redirect('/otp-verification-page');
         } else {
 
             return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
@@ -77,7 +80,8 @@ class CompanyRegistrationController extends Controller
 
         $user_id = $user->id;
         // return redirect('/login');
-        return view('userNew.singleUser.pages.company.otpVerification', get_defined_vars());
+        // return view('userNew.singleUser.pages.company.otpVerification', get_defined_vars());
+        return redirect('/otp-verification-page');
     }
 
     function company_otp_verification(Request $request)

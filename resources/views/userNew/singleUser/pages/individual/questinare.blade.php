@@ -201,7 +201,7 @@
                                 <img src="{{ asset('user') }}/assets/images/landing-page-img/vectoremailblack.png"
                                     alt="" srcset="">
                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
-                                    placeholder="Email ID" name="email">
+                                    placeholder="Email" name="email">
                             </div>
                             <span class="text-danger d-flex">
                                 @error('email')
@@ -216,7 +216,7 @@
                             <div class="input-container">
                                 <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorphoneblack.png"
                                     alt="" srcset="">
-                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="text"
+                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
                                     placeholder="Phone Number" name="phone">
                             </div>
                             <span class="text-danger d-flex">
@@ -251,14 +251,14 @@
                             <div class="inputfield">
                                 <img src="{{ asset('user') }}/assets/Images/profile-imges/Color.png" alt=""
                                     srcset="">
-                                <select name="job_type" style="width: 100%;">
-                                    <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
+                                <select name="work_type" style="width: 100%;">
+                                    <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                     </option>
                                     <option value="Full Time">Full time</option>
                                     <option value="Part Time">Part Time</option>
                                 </select>
                                 <span class="text-danger d-flex">
-                                    @error('job_type')
+                                    @error('work_type')
                                         {{ $message }}
                                     @enderror
                                 </span>
@@ -308,15 +308,16 @@
                             <div class="inputfield mt-3">
                                 <img src="{{ asset('user') }}/assets/Images/profile-imges/work.png" alt=""
                                     srcset="">
-                                <select name="work_type" style="width: 100%;">
-                                    <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                <select name="job_type" style="width: 100%;">
+                                    <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
                                     </option>
                                     <option value="In-person">In-person</option>
                                     <option value="Remote">Remote</option>
                                     <option value="Hybird">Hybird</option>
+                                    <option value="No-preference">No-preference</option>
                                 </select>
                                 <span class="text-danger d-flex">
-                                    @error('work_type')
+                                    @error('job_type')
                                         {{ $message }}
                                     @enderror
                                 </span>

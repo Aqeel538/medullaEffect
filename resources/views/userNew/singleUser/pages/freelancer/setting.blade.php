@@ -41,7 +41,7 @@
                                     <div class="row mt-4">
                                         <div class="col-12  col-lg-6 col-md-6">
                                             <div class="input-container  ">
-                                                <ion-icon name="person-outline"></ion-icon>
+                                                {{-- <ion-icon name="person-outline"></ion-icon> --}}
                                                 <input value="{!! $user->name ?? '' !!}" class="input-fields" type="text"
                                                     placeholder="Full Name" name="name">
                                             </div>
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                                             <div class="input-container ">
-                                                <ion-icon name="mail-outline"></ion-icon>
+                                                {{-- <ion-icon name="mail-outline"></ion-icon> --}}
                                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
                                                     placeholder="Email ID" name="email">
                                             </div>
@@ -60,7 +60,7 @@
 
                                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
                                             <div class="input-container ">
-                                                <ion-icon name="call-outline"></ion-icon>
+                                                {{-- <ion-icon name="call-outline"></ion-icon> --}}
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
                                                     placeholder="Phone Number" name="phone">
                                             </div>
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-12  col-lg-6 col-md-6 ">
                                             <div class="inputfield">
-                                                <i class="fa-regular fa-user"></i>
+                                                {{-- <i class="fa-regular fa-user"></i> --}}
                                                 <select name="gender" required style="width: 100%;">
                                                     <option value="">{!! $user->gender ?? 'Gender' !!}
                                                     </option>
@@ -83,10 +83,8 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/Color.png" alt=""
-                                                    srcset="">
-                                                <select name="job_type" required style="width: 100%;">
-                                                    <option value="">{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
+                                                <select name="work_type" required style="width: 100%;">
+                                                    <option value="">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                                     </option>
                                                     <option value="Full Time">Full time</option>
                                                     <option value="Part Time">Part Time</option>
@@ -99,8 +97,7 @@
 
                                         <div class="col-12 form-group">
                                             <div class="inputfield mt-3">
-                                                <img src="../Assets/Images/profile-imges/loction.png" alt=""
-                                                    srcset="">
+
                                                 <input class="input-container" type="text" name="located_in"
                                                     value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                                     placeholder="In which city are you located?" />
@@ -111,14 +108,13 @@
 
                                         <div class="col-12 form-group">
                                             <div class="inputfield mt-3">
-                                                <img src="../Assets/Images/profile-imges/relocate.png" alt=""
-                                                    srcset="">
-                                                <select name="work_type" required style="width: 100%;">
-                                                    <option value="">{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                                <select name="job_type" required style="width: 100%;">
+                                                    <option value="">{!! $user->job_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
                                                     </option>
                                                     <option value="In-person">In-person</option>
                                                     <option value="Remote">Remote</option>
                                                     <option value="Hybird">Hybird</option>
+                                                    <option value="No-preference">No-preference</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -127,10 +123,7 @@
 
                                         <div class="col-12  mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/work.png" alt=""
-                                                    srcset="">
-                                                <input class="input-container" type="text"
-                                                    name="industry_and_position"
+                                                <input class="input-container" type="text" name="industry_and_position"
                                                     placeholder="State your desired industry and position"
                                                     value="{!! $user->industry_and_position ?? '' !!}" />
                                             </div>
@@ -140,8 +133,6 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/industry.png" alt=""
-                                                    srcset="">
                                                 <select name="pay_range" required style="width: 100%;">
                                                     <option value="">{!! $user->pay_range ?? 'State your desired pay range' !!}
                                                     </option>
@@ -163,8 +154,6 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <img src="../Assets/Images/profile-imges/payrange.png" alt=""
-                                                    srcset="">
                                                 <input class="input-container" type="text" name="nationality"
                                                     placeholder="State your nationality"
                                                     value="{!! $user->nationality ?? '' !!}" />
@@ -187,7 +176,6 @@
                                 <div class="form-group ">
 
                                     <div class="input-container  ">
-                                        <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" placeholder="Current Password"
                                             name="current_password" id="current_password">
                                         @error('current_password')
@@ -198,7 +186,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="input-container  ">
-                                        <i class="fa-solid fa-lock"></i>
+
                                         <input class="input-fields" type="password" placeholder="NewPassword"
                                             name="new_password" id="new_password">
                                         @error('new_password')
@@ -208,7 +196,7 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
-                                        <i class="fa-solid fa-lock"></i>
+
                                         <input class="input-fields" type="password" placeholder="Verify Password"
                                             name="new_confirm_password" id="new_confirm_password">
                                         @error('new_confirm_password')

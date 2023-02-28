@@ -70,14 +70,14 @@
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
 
-                                <select name="job_type" style="width: 100%;">
-                                    <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
+                                <select name="work_type" style="width: 100%;">
+                                    <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                     </option>
                                     <option value="Full Time">Full time</option>
                                     <option value="Part Time">Part Time</option>
                                 </select>
                                 <span class="text-danger d-flex">
-                                    @error('job_type')
+                                    @error('work_type')
                                         {{ $message }}
                                     @enderror
                                 </span>
@@ -124,8 +124,8 @@
                         <div class="col-12 form-group">
                             <div class="inputfield mt-3">
 
-                                <select name="work_type" style="width: 100%;" id="workingCapitalLoan">
-                                    <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
+                                <select name="job_type" style="width: 100%;" id="workingCapitalLoan">
+                                    <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
                                     </option>
                                     <option value="In-person">In-person</option>
                                     <option value="Remote">Remote</option>
@@ -133,7 +133,7 @@
                                     <option value="No-preference">No-preference</option>
                                 </select>
                                 <span class="text-danger d-flex">
-                                    @error('work_type')
+                                    @error('job_type')
                                         {{ $message }}
                                     @enderror
                                 </span>

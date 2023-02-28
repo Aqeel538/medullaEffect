@@ -61,6 +61,7 @@
                                     <option>Remote</option>
                                     <option>OnSite</option>
                                     <option>Hybrid</option>
+                                    <option>No-preference</option>
                                 </select>
                             </div>
                         </div>
@@ -80,11 +81,8 @@
                             <div class="inputfield">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
                                     srcset="">
-                                <select name="created_at" required style="width: 100%">
-                                    <option value="" disabled selected hidden>Date Posted</option>
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                </select>
+                                <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
+                                    placeholder="created_at" style="width: 100%!important" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
@@ -128,9 +126,14 @@
                             </div>
 
                             <h3 class="bus-heading mt-3 mb-3">{!! $freelancer->name ?? '' !!}</h3>
+                            <h6 class="location-heading">Industry: <span class="place">{!! $freelancer->industry ?? '' !!}</span>
+                            </h6>
+                            <h6 class="location-heading">Job type: <span class="place">{!! $freelancer->job_type ?? '' !!}</span>
+                            </h6>
                             <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                             </h6>
-                            <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+                            <h6 class="location-heading">Experience: <span class="place">{!! $freelancer->experience ?? '' !!}</span>
+                            </h6>
 
                             <a href="{{ route('show_chat', $freelancer->id) }}">
                                 <button class="buttonfill mt-4 mb-4">

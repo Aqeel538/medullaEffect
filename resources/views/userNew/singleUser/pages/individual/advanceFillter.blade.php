@@ -50,6 +50,7 @@
                                     <option>Remote</option>
                                     <option>OnSite</option>
                                     <option>Hybrid</option>
+                                    <option value="No-preference">No-preference</option>
                                 </select>
                             </div>
                         </div>

@@ -62,6 +62,7 @@
                                     <option>Remote</option>
                                     <option>OnSite</option>
                                     <option>Hybrid</option>
+                                    <option>No-preference</option>
                                 </select>
                             </div>
                         </div>
@@ -79,12 +80,10 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="../assets/images/profile-imges/calendar-icon.png" alt="" srcset="">
-                                <select name="created_at" required style="width: 100%">
-                                    <option value="" disabled selected hidden>Date Posted</option>
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                </select>
+                                <img src="{{ asset('user') }}}/assets/images/profile-imges/calendar-icon.png" alt=""
+                                    srcset="">
+                                <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
+                                    placeholder="created_at" style="width: 100%!important" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
@@ -126,7 +125,8 @@
                                     srcset="" />
                             </div>
                             <div class="text-center">
-                                <h3 class="bus-heading mt-3 mb-3">{!! $company->company_name ?? '' !!}</h3>
+                                <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow:hidden">
+                                    {!! $company->company_name ?? '' !!}</h3>
                                 <p class="john-para-afer-ques-heading">
                                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                                     accusantium loru.

@@ -42,8 +42,8 @@
                         <div class="row mt-4">
                             <div class="col-12  col-lg-6 col-md-6">
                                 <div class="input-container">
-                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" alt=""
-                                        srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" alt=""
+                                        srcset=""> --}}
                                     <input value="{!! $user->name ?? '' !!}" class="input-fields" type="text"
                                         placeholder="Full Name" name="name">
                                 </div>
@@ -56,8 +56,8 @@
                             </div>
                             <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                                 <div class="input-container">
-                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vectoremailblack.png"
-                                        alt="" srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectoremailblack.png"
+                                        alt="" srcset=""> --}}
                                     <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
                                         placeholder="Email ID" name="email">
                                 </div>
@@ -72,9 +72,9 @@
                         <div class="row mt-3">
                             <div class="col-12  col-lg-6 col-md-6">
                                 <div class="input-container">
-                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorphoneblack.png"
-                                        alt="" srcset="">
-                                    <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="text"
+                                    {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorphoneblack.png"
+                                        alt="" srcset=""> --}}
+                                    <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
                                         placeholder="Phone Number" name="phone">
                                 </div>
                                 <span class="text-danger d-flex">
@@ -86,7 +86,7 @@
                             </div>
                             <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                                 <div class="inputfield">
-                                    <i class="fa-regular fa-user"></i>
+                                    {{-- <i class="fa-regular fa-user"></i> --}}
                                     <select name="gender" style="width: 100%;">
                                         <option value="{!! $user->gender ?? '' !!}">{!! $user->gender ?? 'Gender' !!}
                                         </option>
@@ -107,16 +107,16 @@
 
                             <div class="col-12 form-group mt-3">
                                 <div class="inputfield">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/color.png" alt=""
-                                        srcset="">
-                                    <select name="job_type" style="width: 100%;">
-                                        <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested in full time or part time work?' !!}
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/color.png" alt=""
+                                        srcset=""> --}}
+                                    <select name="work_type" style="width: 100%;">
+                                        <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                         </option>
                                         <option value="Full Time">Full time</option>
                                         <option value="Part Time">Part Time</option>
                                     </select>
                                     <span class="text-danger d-flex">
-                                        @error('job_type')
+                                        @error('work_type')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -128,8 +128,8 @@
 
                             <div class="col-12 form-group">
                                 <div class="inputfield mt-3">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
-                                        srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
+                                        srcset=""> --}}
                                     <input class="input-fields" type="text" name="located_in"
                                         value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                         placeholder="In which city are you located?" />
@@ -145,8 +145,8 @@
 
                             <div class="col-12 form-group">
                                 <div class="inputfield mt-3">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/relocate.png"
-                                        alt="" srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/relocate.png" alt=""
+                                        srcset=""> --}}
                                     <select name="relocate" style="width: 100%;">
                                         <option value="{!! $user->relocate ?? '' !!}">{!! $user->relocate ?? 'Are you willing to relocate?' !!}</option>
                                         <option value="yes">Yes</option>
@@ -164,17 +164,18 @@
 
                             <div class="col-12 form-group">
                                 <div class="inputfield mt-3">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt=""
-                                        srcset="">
-                                    <select name="work_type" style="width: 100%;">
-                                        <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt=""
+                                        srcset=""> --}}
+                                    <select name="job_type" style="width: 100%;">
+                                        <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
                                         </option>
                                         <option value="In-person">In-person</option>
                                         <option value="Remote">Remote</option>
                                         <option value="Hybird">Hybird</option>
+                                        <option value="No-preference">No-preference</option>
                                     </select>
                                     <span class="text-danger d-flex">
-                                        @error('work_type')
+                                        @error('job_type')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -185,8 +186,8 @@
 
                             <div class="col-12  mt-3">
                                 <div class="inputfield">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png"
-                                        alt="" srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png"
+                                        alt="" srcset=""> --}}
                                     <input value="{!! $user->industry_and_position ?? '' !!}" class="input-fields" type="text"
                                         name="industry_and_position" placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                                 </div>
@@ -201,7 +202,7 @@
 
                             <div class="col-12  mt-3">
                                 <div class="inputfield">
-                                    <i class="fa fa-suitcase" aria-hidden="true" style="font-size: 20px"></i>
+                                    {{-- <i class="fa fa-suitcase" aria-hidden="true" style="font-size: 20px"></i> --}}
                                     <input value="{!! $user->experience ?? '' !!}" class="input-field" type="text"
                                         name="experience" placeholder="{!! $user->experience ?? 'Experience' !!}" />
                                 </div>
@@ -216,8 +217,8 @@
 
                             <div class="col-12 form-group mt-3">
                                 <div class="inputfield">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
-                                        alt="" srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
+                                        alt="" srcset=""> --}}
                                     <select name="pay_range" style="width: 100%;">
                                         <option value="{!! $user->pay_range ?? '' !!}">
                                             {!! $user->pay_range ?? 'State your desired pay range' !!}
@@ -245,8 +246,8 @@
 
                             <div class="col-12 form-group mt-3">
                                 <div class="inputfield">
-                                    <img src="{{ asset('user') }}/assets/images/profile-imges/state.png" alt=""
-                                        srcset="">
+                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/state.png" alt=""
+                                        srcset=""> --}}
                                     <input value="{!! $user->nationality ?? '' !!}" class="input-fields" type="text"
                                         name="nationality" placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                                 </div>
