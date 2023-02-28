@@ -100,6 +100,10 @@ class RegistrationControllerInd extends Controller
                 $m->to($user->email, $user->name)->subject('Verify email');
             });
             return redirect('/otp-verification-page');
+
+
+
+            
         } else {
 
             return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
