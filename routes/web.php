@@ -49,6 +49,11 @@ Route::get('otp-verification-page', [CompanyRegistrationController::class, 'otp_
 Route::post('company/otpVerification', [CompanyRegistrationController::class, 'company_otp_verification'])->name('company.otp.verification');
 Route::post('register/sendEmail', [CompanyRegistrationController::class, 'register_send_email'])->name('register.send.email');
 
+// Individual REGISTER OTP
+// Route::get('individaul/otp-verification-page', [RegistrationControllerInd::class, 'individual_otp_verification_page'])->name('individual.otp.verification.page');
+// Route::post('Individual/otpVerification', [RegistrationControllerInd::class, 'individual_otp_verification'])->name('individual.otp.verification');
+// Route::post('individual/register/sendEmail', [RegistrationControllerInd::class, 'individual_register_send_email'])->name('register.send.email');
+
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -240,6 +245,8 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::get('control/panel', [FreelancerController::class, 'control_panel'])->name('control.panel');
     Route::get('/all/businesses', [FreelancerController::class, 'businesses_list'])->name('businesses.list');
     Route::get('/business/details/{id}', [FreelancerController::class, 'business_details'])->name('business.details');
+
+    Route::post('/freelancer/update/profile', [FreelancerController::class, 'update_freelancer_profile'])->name('update.freelancer.profile');
 
     // CHAT
     Route::get('/chatbot', [FreelancerController::class, 'chatBot_page'])->name('chatbot');

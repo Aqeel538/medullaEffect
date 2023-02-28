@@ -354,4 +354,54 @@ class FreelancerController extends Controller
             return back();
         }
     }
+
+    // update user profile
+    public function update_freelancer_profile(Request $req)
+    {
+        // dd($req);
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            // 'gender' => 'required',
+            'phone' => 'required',
+            // 'job_type' => 'required',
+            // 'located_in' => 'required',
+            // 'relocate' => 'required',
+            // 'work_type' => 'required',
+            // 'industry_and_position' => 'required',
+            // 'pay_range' => 'required',
+            // 'nationality' => 'required',
+            // 'employees' => 'required',
+            // 'employees_limit' => 'required',
+
+        ]);
+
+        $id = Auth::user()->id;
+        $profile = User::whereId($id)->update([
+            'name' => $req['name'],
+            'email' => $req['email'],
+            // 'gender' => $req['gender'],
+            'phone' => $req['phone'],
+            'job_type' => $req['job_type'],
+            'city' => $req['city'],
+            'state' => $req['state'],
+            'zip_code' => $req['zip_code'],
+            'located_in' => $req['located_in'],
+            'relocate' => $req['relocate'],
+            'work_type' => $req['work_type'],
+            'industry_and_position' => $req['industry_and_position'],
+            'pay_range' => $req['pay_range'],
+            'nationality' => $req['nationality'],
+            'employees' => $req['employees'],
+            'employees_limit' => $req['employees_limit'],
+            'description' => $req['description'],
+
+
+        ]);
+
+
+
+
+        return back();
+    }
 }

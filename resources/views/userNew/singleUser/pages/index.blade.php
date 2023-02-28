@@ -62,7 +62,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Company</h2>
                         <p class="cards-text-para">
-                          hello  Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                            hello Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
                         <a href="{{ route('companay') }}">
@@ -109,124 +109,6 @@
 
         </div>
     </div>
-
-    <!-- form section -->
-
-    <!-- <div id="aboutUs" class="container-fluid p-lg-5  p-md-5 p-0 modullaeffetsform">
-                                                                                                                                            <div class="row  p-lg-5 p-0 form-main-row justify-content-center">
-
-                                                                                                                                                <div class=" col-lg-6 col-md-6 col-10 form-left-side modulaeff">
-                                                                                                                                                    <h6 class="modula-hash">#MedullaEffects</h6>
-                                                                                                                                                    <h4 class="submit-lead-form">Submit lead Form</h4>
-                                                                                                                                                    <p class="form-index-submir-para">
-                                                                                                                                                        Get Consultation From Medulla Expert and Get your Carrier in Right
-                                                                                                                                                        Way ... Sed ut perspiciatis unde omnis iste natus error sit
-                                                                                                                                                        voluptatem accusantium loremque laudantium, totam rem aperiam,
-                                                                                                                                                        eaque ipsa quae ab illo inventore veritatis.
-                                                                                                                                                    </p>
-                                                                                                                                                    <form id="submitLeadForm">
-                                                                                                                                                        @csrf
-                                                                                                                                                        <div class="row mt-4">
-                                                                                                                                                            <div class="col-12  col-lg-6 col-md-6 ">
-                                                                                                                                                                <div class="input-container ">
-                                                                                                                                                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" alt="">
-                                                                                                                                                                    <input class="input-fields" type="text" placeholder="First Name" name="fname">
-                                                                                                                                                                </div>
-                                                                                                                                                                <span style="color:rgb(124, 35, 66);" class=" error-text fname_error"></span>
-
-                                                                                                                                                            </div>
-                                                                                                                                                            <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                                                                                                                                                                <div class="input-container">
-                                                                                                                                                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vector.png" alt="">
-                                                                                                                                                                    <input class="input-fields" type="text" placeholder="Last Name" name="lname">
-                                                                                                                                                                </div>
-                                                                                                                                                                <span style="color:rgb(124, 35, 66);" class=" error-text lname_error"></span>
-
-                                                                                                                                                            </div>
-                                                                                                                                                        </div>
-                                                                                                                                                        <div class="row mt-2">
-                                                                                                                                                            <div class="col-12  col-lg-6 col-md-6">
-                                                                                                                                                                <div class="input-container">
-                                                                                                                                                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectoremailblack.png"
-                                                                                                                                                                        alt="">
-                                                                                                                                                                    <input class="input-fields" type="text" placeholder="Email ID" name="email">
-                                                                                                                                                                </div>
-                                                                                                                                                                <span style="color:rgb(124, 35, 66);" class=" error-text email_error"></span>
-
-                                                                                                                                                            </div>
-                                                                                                                                                            <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                                                                                                                                                                <div class="input-container">
-                                                                                                                                                                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorphoneblack.png"
-                                                                                                                                                                        alt="">
-                                                                                                                                                                    <input class="input-fields" type="text" placeholder="Phone Number" name="phone">
-                                                                                                                                                                </div>
-                                                                                                                                                                <span style="color:rgb(124, 35, 66);" class=" error-text phone_error"></span>
-
-                                                                                                                                                            </div>
-                                                                                                                                                        </div>
-                                                                                                                                                        <div class="d-flex justify-content-end">
-                                                                                                                                                            <button type="submit" class="submit-btn mt-3">Submit</button>
-                                                                                                                                                        </div>
-                                                                                                                                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
-                                                                                                                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-                                                                                                                                                        <script>
-                                                                                                                                                            $(function() {
-                                                                                                                                                                $("#submitLeadForm").on('submit', function(e) {
-                                                                                                                                                                    e.preventDefault();
-                                                                                                                                                                    $.ajax({
-                                                                                                                                                                        url: "/submit/lead/form",
-                                                                                                                                                                        method: "post",
-                                                                                                                                                                        data: new FormData(this),
-                                                                                                                                                                        processData: false,
-                                                                                                                                                                        dataType: 'json',
-                                                                                                                                                                        contentType: false,
-                                                                                                                                                                        beforeSend: function() {
-                                                                                                                                                                            $(document).find('span.error-text').text('');
-                                                                                                                                                                        },
-                                                                                                                                                                        success: function(data) {
-                                                                                                                                                                            if (data.status == 0) {
-                                                                                                                                                                                $('.fname_error').html(data.error.fname);
-                                                                                                                                                                                $('.lname_error').html(data.error.lname);
-                                                                                                                                                                                $('.email_error').html(data.error.email);
-                                                                                                                                                                                $('.phone_error').html(data.error.phone);
-                                                                                                                                                                            } else if (data.status == 1) {
-                                                                                                                                                                                toastr.success(data.message, data.title);
-                                                                                                                                                                                $('#submitLeadForm').each(function() {
-                                                                                                                                                                                    this.reset();
-                                                                                                                                                                                });
-                                                                                                                                                                            } else {
-                                                                                                                                                                                toastr.error(data.message, data.title);
-                                                                                                                                                                            }
-                                                                                                                                                                        }
-                                                                                                                                                                    });
-                                                                                                                                                                });
-                                                                                                                                                            });
-                                                                                                                                                        </script>
-                                                                                                                                                    </form>
-
-
-
-                                                                                                                                                </div>
-
-
-
-                                                                                                                                                <div class=" col-lg-6 col-md-6 col-10 ps-lg-5 pt-lg-0 pt-5">
-                                                                                                                                                    <div class="form-images">
-
-                                                                                                                                                        <img src="{{ asset('user') }}/assets/images/landing-page-img/womenimg.png" width="100%"
-                                                                                                                                                            alt="" />
-
-                                                                                                                                                        <i class="fas fa-solid fa-play playbutton"></i>
-
-                                                                                                                                                        <div>
-                                                                                                                                                            <img src="{{ asset('user') }}/assets/images/landing-page-img/frame.png" width="100%"
-                                                                                                                                                                alt="" />
-                                                                                                                                                        </div>
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                            </div>
-                                                                                                                                        </div> -->
-
 
     <!-- about us page -->
     <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
@@ -310,13 +192,13 @@
 
                 <div class="col-lg-6 col-md-12 col-12">
                     <div>
-                        <img src="{{ asset('user') }}/assets/Images/landing-page-img/Group 39.png" class="w-100"
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/group 39.png" class="w-100"
                             alt="" srcset="">
                     </div>
                     <div class="row">
                         <div class="col-12 text-end">
                             <div class="mt-5 ">
-                                <img src="{{ asset('user') }}/assets/Images/landing-page-img/Group 40.png" class="w-75"
+                                <img src="{{ asset('user') }}/assets/images/landing-page-img/group 40.png" class="w-75"
                                     alt="" srcset="">
                             </div>
 
@@ -325,7 +207,7 @@
                     <div class="row">
                         <div class="col-12 text-start">
                             <div class="mt-5 ">
-                                <img src="{{ asset('user') }}/assets/Images/landing-page-img/Group 41.png" class="w-75"
+                                <img src="{{ asset('user') }}/assets/images/landing-page-img/group 41.png" class="w-75"
                                     alt="" srcset="">
                             </div>
 
@@ -357,7 +239,7 @@
                     <div class="iner-servc-crd">
 
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/Images/landing-page-img/group.png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group.png" alt=""
                                 srcset="">
                         </div>
                         <div>
@@ -373,7 +255,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-5">
                     <div class="iner-servc-crd ">
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/Images/landing-page-img/job.png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/job.png" alt=""
                                 srcset="">
                         </div>
                         <div>
@@ -388,7 +270,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-5">
                     <div class="iner-servc-crd">
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/Images/landing-page-img/Group (2).png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group (2).png" alt=""
                                 srcset="">
                         </div>
                         <div>
@@ -406,7 +288,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-5">
                     <div class="iner-servc-crd ">
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/Images/landing-page-img/networking.png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/networking.png" alt=""
                                 srcset="">
                         </div>
                         <div>
@@ -422,7 +304,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-5">
                     <div class="iner-servc-crd">
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/Images/landing-page-img/group (4).png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group (4).png" alt=""
                                 srcset="">
                         </div>
                         <div>
@@ -438,7 +320,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-5">
                     <div class="iner-servc-crd">
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/Images/landing-page-img/group 36.png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group 36.png" alt=""
                                 srcset="">
                         </div>
                         <div>
@@ -574,7 +456,7 @@
 
                     <div class="col-lg-4 col-md-6 footer-contact">
                         <div class="d-flex">
-                            <img src="{{ asset('user') }}/assets/Images/profile-imges/job-search-company.png"
+                            <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png"
                                 alt="w8" class="logo-img">
                             <h4 class="Logo-text">Medulla
                                 Effects</h4>

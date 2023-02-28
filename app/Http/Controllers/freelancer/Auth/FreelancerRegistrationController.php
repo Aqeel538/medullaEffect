@@ -45,7 +45,7 @@ class FreelancerRegistrationController extends Controller
                 'role' => 'freelancer',
                 'status' => 1,
             ]);
-            return redirect()->route('login');
+            // return redirect()->route('login');
         } else {
             echo 'Errors';
         }

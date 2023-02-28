@@ -70,19 +70,30 @@
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
 
-                                <select name="work_type" style="width: 100%;">
-                                    <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
+
+                                <select class="greyColor" name="work_type" style="width: 100%;" id="workTypeSelect">
+                                    <?php
+                                    if($user->work_type){
+                                        ?>
+                                    <script>
+                                        $('#workTypeSelect').removeClass('greyColor')
+                                        $('#workTypeSelect').addClass('black')
+                                    </script>
+                                    <?php
+                                    }
+
+                                    ?>
+                                    <option value="{!! $user->work_type ?? '' !!}" selected hidden>{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                     </option>
                                     <option value="Full Time">Full time</option>
                                     <option value="Part Time">Part Time</option>
                                 </select>
-                                <span class="text-danger d-flex">
-                                    @error('work_type')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('work_type')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -104,11 +115,25 @@
                     <div class="row">
 
                         <div class="col-12 form-group">
-                            <div class="inputfield mt-3">
+                            <div class="inputfield mt-3 ">
 
-                                <select name="relocate" style="width: 100%;">
-                                    <option value="{!! $user->relocate ?? '' !!}">{!! $user->relocate ?? 'Are you willing to relocate?' !!}</option>
-                                    <option value="yes">Yes</option>
+                                <select class="w-100 greyColor" name="relocate" id="relocateSelect">
+                                    <?php
+                                        if($user->relocate){
+                                            ?>
+                                    <script>
+                                        $('#relocateSelect').removeClass('greyColor')
+                                        $('#relocateSelect').addClass('black')
+                                    </script>
+                                    <?php
+                                        }
+
+                                        ?>
+
+                                    <option style="color:blue !important" value="{!! $user->relocate ?? '' !!}" selected hidden>
+                                        {!! $user->relocate ?? 'Are you willing to relocate?' !!}
+                                    </option>
+                                    <option style="color:black;" value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
                                 <span class="text-danger d-flex">
@@ -124,20 +149,33 @@
                         <div class="col-12 form-group">
                             <div class="inputfield mt-3">
 
-                                <select name="job_type" style="width: 100%;" id="workingCapitalLoan">
-                                    <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
+                                <select class="w-100 greyColor" name="job_type" style="width: 100%;"
+                                    id="workingCapitalLoan">
+                                    <?php
+                                    if($user->job_type){
+                                        ?>
+                                    <script>
+                                        $('#workingCapitalLoan').removeClass('greyColor')
+                                        $('#workingCapitalLoan').addClass('black')
+                                    </script>
+                                    <?php
+                                    }
+
+                                    ?>
+                                    <option value="{!! $user->job_type ?? '' !!}" selected hidden>{!! $user->job_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
                                     </option>
                                     <option value="In-person">In-person</option>
                                     <option value="Remote">Remote</option>
                                     <option value="Hybrid">Hybrid</option>
                                     <option value="No-preference">No-preference</option>
                                 </select>
-                                <span class="text-danger d-flex">
-                                    @error('job_type')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+
                             </div>
+                            <span class="text-danger d-flex">
+                                @error('job_type')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
                         <div class="col-12 col-lg-4 col-md-4 form-group" id="city">
                             <div class="inputfield mt-3">
@@ -184,8 +222,19 @@
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
 
-                                <select name="pay_range" style="width: 100%;">
-                                    <option value="{!! $user->pay_range ?? '' !!}">
+                                <select class="w-100 greyColor" name="pay_range" style="width: 100%;" id="payRange">
+                                    <?php
+                                    if($user->pay_range){
+                                        ?>
+                                    <script>
+                                        $('#payRange').removeClass('greyColor')
+                                        $('#payRange').addClass('black')
+                                    </script>
+                                    <?php
+                                    }
+
+                                    ?>
+                                    <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
                                         {!! $user->pay_range ?? 'State your desired pay range' !!}
                                     </option>
                                     <option value="0-50">0-50</option>
@@ -280,6 +329,32 @@
                 $("#state").hide(1000);
                 $("#zipCode").hide(1000);
             }
+        })
+
+        $('#relocateSelect').on('change', () => {
+            // alert("ok")
+            $('#relocateSelect').removeClass('greyColor')
+            $('#relocateSelect').addClass('black')
+
+        })
+        $('#workTypeSelect').on('change', () => {
+            // alert("ok")
+            $('#workTypeSelect').removeClass('greyColor')
+            $('#workTypeSelect').addClass('black')
+
+        })
+        $('#workingCapitalLoan').on('change', () => {
+            // alert("ok")
+            $('#workingCapitalLoan').removeClass('greyColor')
+            $('#workingCapitalLoan').addClass('black')
+
+        })
+
+        $('#payRange').on('change', () => {
+            // alert("ok")
+            $('#payRange').removeClass('greyColor')
+            $('#payRange').addClass('black')
+
         })
     </script>
     <!-- navbar res js end -->

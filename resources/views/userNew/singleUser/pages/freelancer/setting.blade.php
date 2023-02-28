@@ -36,7 +36,7 @@
                         <h2>Profile Info</h2>
                         <div class="row">
                             <div class="col-12">
-                                <form action="{{ route('update.company.profile') }}" method="POST">
+                                <form action="{{ route('update.freelancer.profile') }}" method="POST">
                                     @csrf
                                     <div class="row mt-4">
                                         <div class="col-12  col-lg-6 col-md-6">
@@ -83,13 +83,25 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <select name="work_type" required style="width: 100%;">
-                                                    <option value="">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
+                                                <select class="greyColor" name="work_type" style="width: 100%;"
+                                                    id="workTypeSelect">
+                                                    <?php
+                                                    if($user->work_type){
+                                                        ?>
+                                                    <script>
+                                                        $('#workTypeSelect').removeClass('greyColor')
+                                                        $('#workTypeSelect').addClass('black')
+                                                    </script>
+                                                    <?php
+                                                    }
+
+                                                    ?>
+                                                    <option value="{!! $user->work_type ?? '' !!}" selected hidden>
+                                                        {!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                                     </option>
                                                     <option value="Full Time">Full time</option>
                                                     <option value="Part Time">Part Time</option>
                                                 </select>
-
                                             </div>
                                         </div>
                                     </div>
@@ -108,12 +120,25 @@
 
                                         <div class="col-12 form-group">
                                             <div class="inputfield mt-3">
-                                                <select name="job_type" required style="width: 100%;">
-                                                    <option value="">{!! $user->job_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                                <select class="w-100 greyColor" name="job_type" style="width: 100%;"
+                                                    id="workingCapitalLoan">
+                                                    <?php
+                                                if($user->job_type){
+                                                    ?>
+                                                    <script>
+                                                        $('#workingCapitalLoan').removeClass('greyColor')
+                                                        $('#workingCapitalLoan').addClass('black')
+                                                    </script>
+                                                    <?php
+                                                }
+
+                                                ?>
+                                                    <option value="{!! $user->job_type ?? '' !!}" selected hidden>
+                                                        {!! $user->job_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
                                                     </option>
                                                     <option value="In-person">In-person</option>
                                                     <option value="Remote">Remote</option>
-                                                    <option value="Hybird">Hybird</option>
+                                                    <option value="Hybrid">Hybrid</option>
                                                     <option value="No-preference">No-preference</option>
                                                 </select>
                                             </div>
@@ -133,8 +158,21 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
-                                                <select name="pay_range" required style="width: 100%;">
-                                                    <option value="">{!! $user->pay_range ?? 'State your desired pay range' !!}
+                                                <select class="w-100 greyColor" name="pay_range" style="width: 100%;"
+                                                    id="payRange">
+                                                    <?php
+                                                    if($user->pay_range){
+                                                        ?>
+                                                    <script>
+                                                        $('#payRange').removeClass('greyColor')
+                                                        $('#payRange').addClass('black')
+                                                    </script>
+                                                    <?php
+                                                    }
+
+                                                    ?>
+                                                    <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
+                                                        {!! $user->pay_range ?? 'State your desired pay range' !!}
                                                     </option>
                                                     <option value="0-50">0-50</option>
                                                     <option value="50-100">50-100</option>

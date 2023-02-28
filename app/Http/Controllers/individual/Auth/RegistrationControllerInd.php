@@ -55,10 +55,10 @@ class RegistrationControllerInd extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    public function create(Request $data)
+    public function create(Request $request)
     {
         // dd($data);
-        $validate = $this->validate($data, [
+        $validate = $this->validate($request, [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -68,15 +68,15 @@ class RegistrationControllerInd extends Controller
         ]);
         if ($validate) {
             $user =  User::create([
-                'name' => $data['first_name'] . ' ' . $data['last_name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'address' => $data['address'],
-                'company_name' => $data['company_name'],
-                'website' => $data['website'],
-                'phone' => $data['phone'],
-                'industry' => $data['industry'],
-                'contact' => $data['contact'],
+                'name' => $request['first_name'] . ' ' . $request['last_name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+                'address' => $request['address'],
+                'company_name' => $request['company_name'],
+                'website' => $request['website'],
+                'phone' => $request['phone'],
+                'industry' => $request['industry'],
+                'contact' => $request['contact'],
                 'role' => 'individual',
                 'status' => 1,
             ]);
@@ -85,8 +85,8 @@ class RegistrationControllerInd extends Controller
         }
 
         $user_id = $user->id;
-        VerifyToken::where('email', $data->email)->delete();
-        $user = User::where('email', $data->email)->first();
+        VerifyToken::where('email', $request->email)->delete();
+        $user = User::where('email', $request->email)->first();
         Session::put('userMail', $user);
         if ($user) {
             $token = rand(111111, 999999);
@@ -100,10 +100,6 @@ class RegistrationControllerInd extends Controller
                 $m->to($user->email, $user->name)->subject('Verify email');
             });
             return redirect('/otp-verification-page');
-
-
-
-            
         } else {
 
             return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
@@ -112,7 +108,7 @@ class RegistrationControllerInd extends Controller
 
         return redirect('/otp-verification-page');
 
-        return redirect()->route('questinare');
+        // return redirect()->route('questinare');
     }
 
     public function submit_questionair(Request $req)

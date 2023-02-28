@@ -1208,7 +1208,6 @@ ion-icon {
     border: none;
     padding: 8px 7px;
     background: transparent;
-    color: #9a9a9a;
     font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
@@ -1216,8 +1215,15 @@ ion-icon {
     line-height: 136.99%;
     letter-spacing: 0.02em;
 
-    color: black;
+
 }
+
+.inputfield select option {
+    color: #000;
+}
+
+
+
 
 .inputfield-profile select {
     border: none;
@@ -1237,6 +1243,14 @@ ion-icon {
     /* background-color: #b897a3; */
 
     outline: none;
+}
+
+.greyColor {
+    color: #9a9a9a !important;
+}
+
+.black {
+    color: black !important;
 }
 
 .headings-profile {
