@@ -74,8 +74,9 @@
                                 <div class="input-container">
                                     {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorphoneblack.png"
                                         alt="" srcset=""> --}}
-                                    <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                        placeholder="Phone Number" name="phone">
+                                    <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"
+                                        name="phone" id="mobile_code">
+                                    <input type="hidden" name="dial_code" class="dial">
                                 </div>
                                 <span class="text-danger d-flex">
                                     @error('phone')
@@ -109,19 +110,36 @@
                                 <div class="inputfield">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/color.png" alt=""
                                         srcset=""> --}}
-                                    <select name="work_type" style="width: 100%;">
+                                    {{-- <select name="work_type" style="width: 100%;">
                                         <option value="{!! $user->work_type ?? '' !!}">{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
                                         </option>
                                         <option value="Full Time">Full time</option>
                                         <option value="Part Time">Part Time</option>
-                                    </select>
-                                    <span class="text-danger d-flex">
-                                        @error('work_type')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+                                    </select> --}}
 
+                                    <select class="greyColor" name="work_type" style="width: 100%;" id="workTypeSelect">
+                                        <?php
+                                        if($user->work_type){
+                                            ?>
+                                        <script>
+                                            $('#workTypeSelect').removeClass('greyColor')
+                                            $('#workTypeSelect').addClass('black')
+                                        </script>
+                                        <?php
+                                        }
+
+                                        ?>
+                                        <option value="{!! $user->work_type ?? '' !!}" selected hidden>{!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
+                                        </option>
+                                        <option value="Full Time">Full time</option>
+                                        <option value="Part Time">Part Time</option>
+                                    </select>
                                 </div>
+                                <span class="text-danger d-flex">
+                                    @error('work_type')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="row">
@@ -147,17 +165,33 @@
                                 <div class="inputfield mt-3">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/relocate.png" alt=""
                                         srcset=""> --}}
-                                    <select name="relocate" style="width: 100%;">
-                                        <option value="{!! $user->relocate ?? '' !!}">{!! $user->relocate ?? 'Are you willing to relocate?' !!}</option>
-                                        <option value="yes">Yes</option>
+                                    <select class="w-100 greyColor" name="relocate" id="relocateSelect">
+                                        <?php
+                                                if($user->relocate){
+                                                    ?>
+                                        <script>
+                                            $('#relocateSelect').removeClass('greyColor')
+                                            $('#relocateSelect').addClass('black')
+                                        </script>
+                                        <?php
+                                                }
+
+                                                ?>
+
+                                        <option style="color:blue !important" value="{!! $user->relocate ?? '' !!}" selected
+                                            hidden>
+                                            {!! $user->relocate ?? 'Are you willing to relocate?' !!}
+                                        </option>
+                                        <option style="color:black;" value="yes">Yes</option>
                                         <option value="no">No</option>
                                     </select>
-                                    <span class="text-danger d-flex">
-                                        @error('relocate')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+
                                 </div>
+                                <span class="text-danger d-flex">
+                                    @error('relocate')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="row">
@@ -166,19 +200,56 @@
                                 <div class="inputfield mt-3">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt=""
                                         srcset=""> --}}
-                                    <select name="job_type" style="width: 100%;">
-                                        <option value="{!! $user->job_type ?? '' !!}">{!! $user->job_type ?? 'Are you interested to work In-person, remote or hybrid?' !!}
+                                    <select class="w-100 greyColor" name="job_type" style="width: 100%;"
+                                        id="workingCapitalLoan">
+                                        <?php
+                                        if($user->job_type){
+                                            ?>
+                                        <script>
+                                            $('#workingCapitalLoan').removeClass('greyColor')
+                                            $('#workingCapitalLoan').addClass('black')
+                                        </script>
+                                        <?php
+                                        }
+
+                                        ?>
+                                        <option value="{!! $user->job_type ?? '' !!}" selected hidden>{!! $user->job_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
                                         </option>
                                         <option value="In-person">In-person</option>
                                         <option value="Remote">Remote</option>
-                                        <option value="Hybird">Hybird</option>
+                                        <option value="Hybrid">Hybrid</option>
                                         <option value="No-preference">No-preference</option>
                                     </select>
-                                    <span class="text-danger d-flex">
-                                        @error('job_type')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+
+                                </div>
+                                <span class="text-danger d-flex">
+                                    @error('job_type')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-12 col-lg-4 col-md-4 form-group" id="city">
+                                <div class="inputfield mt-3">
+
+                                    <input value="{!! $user->city ?? '' !!}" class="input-fields" type="text"
+                                        placeholder="City" name="city" id="city">
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 col-md-4 form-group" id="state">
+                                <div class="inputfield mt-3">
+
+                                    <input value="{!! $user->state ?? '' !!}" class="input-fields" type="text"
+                                        placeholder="State" name="state" id="state">
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 col-md-4 form-group" id="zipCode">
+                                <div class="inputfield mt-3">
+
+                                    <input value="{!! $user->zip_code ?? '' !!}" class="input-fields" type="number"
+                                        placeholder="Zip code" name="zip_code" id="zopCode">
+
                                 </div>
                             </div>
                         </div>
@@ -203,7 +274,7 @@
                             <div class="col-12  mt-3">
                                 <div class="inputfield">
                                     {{-- <i class="fa fa-suitcase" aria-hidden="true" style="font-size: 20px"></i> --}}
-                                    <input value="{!! $user->experience ?? '' !!}" class="input-field" type="text"
+                                    <input value="{!! $user->experience ?? '' !!}" class="input-fields" type="text"
                                         name="experience" placeholder="{!! $user->experience ?? 'Experience' !!}" />
                                 </div>
                                 <span class="text-danger d-flex">
@@ -219,8 +290,20 @@
                                 <div class="inputfield">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
                                         alt="" srcset=""> --}}
-                                    <select name="pay_range" style="width: 100%;">
-                                        <option value="{!! $user->pay_range ?? '' !!}">
+                                    <select class="w-100 greyColor" name="pay_range" style="width: 100%;"
+                                        id="payRange">
+                                        <?php
+                                            if($user->pay_range){
+                                                ?>
+                                        <script>
+                                            $('#payRange').removeClass('greyColor')
+                                            $('#payRange').addClass('black')
+                                        </script>
+                                        <?php
+                                            }
+
+                                            ?>
+                                        <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
                                             {!! $user->pay_range ?? 'State your desired pay range' !!}
                                         </option>
                                         <option value="0-50">0-50</option>
@@ -234,12 +317,13 @@
                                         <option value="4000-4500">4000-4500</option>
                                         <option value="4500-5000">4500-5000</option>
                                     </select>
-                                    <span class="text-danger d-flex">
-                                        @error('pay_range')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+
                                 </div>
+                                <span class="text-danger d-flex">
+                                    @error('pay_range')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="row">
@@ -295,4 +379,46 @@
 
         </div>
     </div>
+    <script>
+        $("#workingCapitalLoan").on("change", function() {
+            if ($('#workingCapitalLoan').val() == "In-person") {
+                // $("#tax").val('');
+
+                $("#city").show(1000);
+                $("#state").show(1000);
+                $("#zipCode").show(1000);
+            } else {
+
+                $("#city").hide(1000);
+                $("#state").hide(1000);
+                $("#zipCode").hide(1000);
+            }
+        })
+
+        $('#relocateSelect').on('change', () => {
+            // alert("ok")
+            $('#relocateSelect').removeClass('greyColor')
+            $('#relocateSelect').addClass('black')
+
+        })
+        $('#workTypeSelect').on('change', () => {
+            // alert("ok")
+            $('#workTypeSelect').removeClass('greyColor')
+            $('#workTypeSelect').addClass('black')
+
+        })
+        $('#workingCapitalLoan').on('change', () => {
+            // alert("ok")
+            $('#workingCapitalLoan').removeClass('greyColor')
+            $('#workingCapitalLoan').addClass('black')
+
+        })
+
+        $('#payRange').on('change', () => {
+            // alert("ok")
+            $('#payRange').removeClass('greyColor')
+            $('#payRange').addClass('black')
+
+        })
+    </script>
 @endsection

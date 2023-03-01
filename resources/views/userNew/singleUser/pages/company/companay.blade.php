@@ -143,8 +143,9 @@
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
 
-                                        <input class="input-fields" type="number" name="phone"
+                                        <input class="input-fields int" type="text" name="phone"
                                             placeholder="Phone Number" id="mobile_code">
+                                        <input type="hidden" name="dial_code" class="dial">
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('phone')

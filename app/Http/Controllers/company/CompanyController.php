@@ -35,7 +35,9 @@ class CompanyController extends Controller
 
     public function update_company_profile(Request $req)
     {
-        // dd($req);
+
+
+        // dd($req->dial_code);
         $req->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -58,7 +60,7 @@ class CompanyController extends Controller
             'name' => $req['name'],
             'email' => $req['email'],
             // 'gender' => $req['gender'],
-            'phone' => $req['phone'],
+            'phone' => '+' . $req->dial_code . $req['phone'],
             'job_type' => $req['job_type'],
             'city' => $req['city'],
             'state' => $req['state'],

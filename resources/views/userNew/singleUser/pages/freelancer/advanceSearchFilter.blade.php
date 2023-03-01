@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" style="width: 100%">
                                     <option value="" disabled selected hidden>
