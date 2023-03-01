@@ -1,5 +1,7 @@
 @extends('userNew.singleUser.layouts.main2')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <style>
         body {
             background-color: red
@@ -70,7 +72,17 @@
             width: 140px
         }
     </style>
-
+    <script>
+        function toaster() {
+            toastr.success('registered successfully! Please enter opt for verification.');
+        }
+    </script>
+    @if ($toasterValue == 1)
+        <script>
+            toaster()
+        </script>
+    @else
+    @endif
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-4 col-12 company_bg">

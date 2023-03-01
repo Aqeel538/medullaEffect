@@ -1,5 +1,7 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!----- ---------2nd--Navbar------------- -->
     <div class="container-fluid second-nav">
         <div class="container">
@@ -124,8 +126,10 @@
 
                 <div class="col-lg-6 col-md-12 col-12">
                     <div class="abut-crd">
-                        <h4 class="abt-heading">What Started The <span class="heading-span-text"> Medulla Effect ?</span></h4>
-                        <p class="abt-para">The labor shortage is the leading factor why companies struggle to build and grow their business
+                        <h4 class="abt-heading">What Started The <span class="heading-span-text"> Medulla Effect ?</span>
+                        </h4>
+                        <p class="abt-para">The labor shortage is the leading factor why companies struggle to build and
+                            grow their business
                             in
                             today's economy. The Medulla Effect works with companies struggling to hire and builds their
                             workforce
@@ -136,10 +140,12 @@
 
                     </div>
                     <div class="abut-crd">
-                        <h4 class="abt-heading">How The Medulla Effect is<span class="heading-span-text"> Empowering Employers &
+                        <h4 class="abt-heading">How The Medulla Effect is<span class="heading-span-text"> Empowering
+                                Employers &
                                 Individuals..</span>
                         </h4>
-                        <p class="abt-para">With the difficulty of employer's trying to find workers to fill their job openings, employer's
+                        <p class="abt-para">With the difficulty of employer's trying to find workers to fill their job
+                            openings, employer's
                             have
                             essentially stopped laying off or firing people who don't exactly have the talent they are
                             looking for.
@@ -152,9 +158,11 @@
                             to you the best candidates that qualify for the position. </p>
                     </div>
                     <div class="abut-crd">
-                        <h4 class="abt-heading">The Medulla Effect Has Created <span class="heading-span-text">Industry Wide Success.</span>
+                        <h4 class="abt-heading">The Medulla Effect Has Created <span class="heading-span-text">Industry Wide
+                                Success.</span>
                         </h4>
-                        <p class="abt-para">The Medulla Effect incorporates their strategic system into 68% of big corporations. The Medulla
+                        <p class="abt-para">The Medulla Effect incorporates their strategic system into 68% of big
+                            corporations. The Medulla
                             Effect
                             provides </p>
 
@@ -171,11 +179,12 @@
                         </ul>
                     </div>
                     <div class="abut-crd">
-                        <h4  class="abt-heading">The The Medulla Effect Has Given Individuals A <span class="heading-span-text">World Of
+                        <h4 class="abt-heading">The The Medulla Effect Has Given Individuals A <span
+                                class="heading-span-text">World Of
                                 Opportunity</span> </h4>
                         <p class="abt-para">The Medulla Effect Will </p>
                         <ul class="abt-uls">
-                            <li >Increase Chances Of Landing Your Dream Job
+                            <li>Increase Chances Of Landing Your Dream Job
                             </li>
 
 
@@ -372,8 +381,9 @@
                                 <input type="email" name="email" class="" placeholder="Email" id="email">
                             </div>
                             <div class="col-12 okssksk">
-                         
-                                <input type="number" name="phone"  id="mobile_code" class="" placeholder="Phone" id="phone">
+
+                                <input type="number" name="phone" id="mobile_code" class=""
+                                    placeholder="Phone" id="phone">
                             </div>
                             <div class="col-12 okssksk">
 
@@ -386,9 +396,7 @@
                                 <button class="buttonsend">Send </button>
                             </div>
                         </form>
-                        <link rel="stylesheet"
-                            href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
                         <script>
                             $(function() {
                                 $("#submitLeadForm").on('submit', function(e) {
@@ -472,7 +480,8 @@
                                 <a href=""><i class="fa-solid fa-phone"></i>&nbsp;(305) 400 - 4033</a>
                             </div>
                             <div class="mt-2">
-                                <a href=""><i class="fa-solid fa-envelope"></i>&nbsp; &nbsp;Sales@medullaeffect.com</a>
+                                <a href=""><i class="fa-solid fa-envelope"></i>&nbsp;
+                                    &nbsp;Sales@medullaeffect.com</a>
                             </div>
                         </div>
                         </p>
@@ -481,7 +490,8 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4 class="abt-heading">Useful Links</h4>
                         <ul>
-                            <li class="footer-nav-links"><i class="fa-solid fa-angle-right"></i> &nbsp;<a href="#">Home</a></li>
+                            <li class="footer-nav-links"><i class="fa-solid fa-angle-right"></i> &nbsp;<a
+                                    href="#">Home</a></li>
                             <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">About us</a></li>
                             <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">Services</a></li>
                             <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">Terms of service</a></li>
@@ -493,7 +503,8 @@
 
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4 class="abt-heading">Our Social Networks</h4>
-                        <p class="abt-para">Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                        <p class="abt-para">Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies
+                        </p>
                         <div class="social-links">
                             <a href="" class="social-icon-bg"><i class="fa-brands fa-facebook-f"></i></a>
                             <a href="" class="social-icon-bg"><i class="fa-brands fa-instagram"></i></a>

@@ -57,16 +57,19 @@ class RegistrationControllerInd extends Controller
      */
     public function create(Request $request)
     {
-        // dd($data);
-        $validate = $this->validate($request, [
+
+        $validator = Validator::make($request->all(), [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|',
-            'phone' => 'required',
-            // 'address'=>'required',
+            'password' => 'required|string|min:8',
         ]);
-        if ($validate) {
+
+
+        if (!$validator->passes()) {
+
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()]);
+        } else {
             $user =  User::create([
                 'name' => $request['first_name'] . ' ' . $request['last_name'],
                 'email' => $request['email'],
@@ -80,36 +83,29 @@ class RegistrationControllerInd extends Controller
                 'role' => 'individual',
                 'status' => 1,
             ]);
-        } else {
-            echo 'Errors';
+
+            VerifyToken::where('email', $request->email)->delete();
+            $user = User::where('email', $request->email)->first();
+            Session::put('userMail', $user);
+            if ($user) {
+                $token = rand(111111, 999999);
+                VerifyToken::insert([
+                    'email' => $user->email,
+                    'token' => $token
+                ]);
+                Mail::send('emails.verification', ['user' => $user, 'token' => $token], function ($m) use ($user, $token) {
+                    $m->from('info@dwive758.com', 'medullaEffect');
+
+                    $m->to($user->email, $user->name)->subject('Verify email');
+                });
+                if ($user) {
+                    return response()->json(['status' => 1, 'message' => "User Has Been Successfully Register"]);
+                }
+                // return response()->json(['status' => 0, 'message' => "User Not Register"]);
+            }
         }
-
-        $user_id = $user->id;
-        VerifyToken::where('email', $request->email)->delete();
-        $user = User::where('email', $request->email)->first();
-        Session::put('userMail', $user);
-        if ($user) {
-            $token = rand(111111, 999999);
-            VerifyToken::insert([
-                'email' => $user->email,
-                'token' => $token
-            ]);
-            Mail::send('emails.verification', ['user' => $user, 'token' => $token], function ($m) use ($user, $token) {
-                $m->from('info@dwive758.com', 'medullaEffect');
-
-                $m->to($user->email, $user->name)->subject('Verify email');
-            });
-            return redirect('/otp-verification-page');
-        } else {
-
-            return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
-        }
-        $user_id = $user->id;
-
-        return redirect('/otp-verification-page');
-
-        // return redirect()->route('questinare');
     }
+
 
     public function submit_questionair(Request $req)
     {
