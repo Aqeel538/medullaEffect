@@ -17,7 +17,7 @@
 <script src="build/js/intlTelInput.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
 
 <!--  Use as a jQuery plugin end -->
  <script
@@ -83,7 +83,7 @@
     //     }
     // }
     $("#resume").change(function() {
-        
+
         var formData = new FormData($("#resumeUpload")[0]);
         // formData.append('resume', $(this).val());
         $.ajaxSetup({

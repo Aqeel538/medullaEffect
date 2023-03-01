@@ -190,7 +190,7 @@ class CompanyRegistrationController extends Controller
             'email' => 'required|email|exists:users'
         ]);
 
-        $toasterValue = 1;
+        $toasterValue = 2;
         VerifyToken::where('email', $request->email)->delete();
         $user = User::where('email', $request->email)->first();
         if ($user) {
