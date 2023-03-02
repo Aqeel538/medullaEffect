@@ -66,7 +66,12 @@
                             </div>
                             <div class="ps-2">
                                 <p class="m-0  inbox-chat-heading">{!! $user->name ?? '' !!}</p>
-                                <p class="p-0 m-0 ">Online</p>
+                                @if ($user->is_active == 1)
+                                    <p class="p-0 m-0 ">Online</p>
+                                @else
+                                    <p class="p-0 m-0 ">Offline</p>
+                                @endif
+
                             </div>
 
                         </div>

@@ -53,7 +53,7 @@
                     @foreach ($jobsPosted as $job)
                         <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
                             <a href="{{ route('company.jodDetails', $job->id) }}">
-                                <div class="p-3" style="background: #F4F4F4;border-radius: 20px;">
+                                <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
                                             <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
@@ -70,7 +70,9 @@
                                             <i class="fas-elip fa-solid fa-ellipsis"></i>
                                         </div>
                                     </div>
-                                    <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $job->description ?? '' !!}</p>
+                                    <p class="abutnexa-text pt-4 pb-3" maxlength="40"
+                                        style="height: 70px;overflow: hidden;">
+                                        {!! $job->short_description ?? '' !!}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>

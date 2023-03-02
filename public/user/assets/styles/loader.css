@@ -33,3 +33,7 @@
         transform: rotate(360deg);
     }
 }
+
+.mce-content-body {
+    background: #8b8484
+}

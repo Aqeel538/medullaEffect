@@ -117,6 +117,7 @@ class CompanyController extends Controller
                 'zip_code' => $req->zip_code,
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
+                'short_description' => $req->short_description,
                 'description' => $req->description,
 
             ]);
@@ -133,6 +134,7 @@ class CompanyController extends Controller
                 'zip_code' => $req->zip_code,
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
+                'short_description' => $req->short_description,
                 'description' => $req->description,
             ]);
             $jobId = $obj->id;

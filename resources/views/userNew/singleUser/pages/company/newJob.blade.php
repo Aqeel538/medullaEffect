@@ -3,6 +3,20 @@
     @include('userNew.singleUser.pages.company.secondNav')
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    {{-- text editor --}}
+
+    <script src="https://cdn.tiny.cloud/1/bspj4ezdo93lra1ka4inty3gt1slgmos7nq606newkvs5z1q/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            height: 300,
+            statusbar: false,
+            // toolbar: false,
+        });
+    </script>
+    {{-- text editor end --}}
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center crd-row-one">
@@ -22,7 +36,7 @@
                 </div>
                 <?php
                 $update_id = 0;
-
+                
                 if (isset($obj->id) && !empty($obj->id)) {
                     $update_id = $obj->id;
                 }
@@ -33,14 +47,29 @@
                         <div class="col-12 mb-3">
                             <input type="text" class="form-control" name="title"
                                 value="<?= isset($obj->title) && !empty($obj->title) ? $obj->title : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
-                                placeholder="Job title" style="background-color: #f4f4f4; border: none; padding: 12px" />
+                                placeholder="Job title" style="background-color: #f4f4f4; border: none; padding: 12px"
+                                required />
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12">
-                            <select name="category_id" class="form-select form-select-sm"
+                            <select name="category_id" class="form-select form-select-sm greyColor" id="category"
                                 style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
-                                aria-label=".form-select-sm example" >
-                                <option value="{!! $obj->Categories->id ?? '' !!}" disabled selected hidden>{!! $obj->Categories->category ?? 'Category' !!}
+                                aria-label=".form-select-sm example">
+
+                                <?php
+                                    if(isset( $obj->Categories->id ) && !empty( $obj->Categories->id ) ?  $obj->Categories->id  : '' ){
+                                        ?>
+                                <script>
+                                    $('#category').removeClass('greyColor')
+                                    $('#category').addClass('black')
+                                </script>
+                                <?php
+                                    }else {
+
+                                    }
+
+                                    ?>
+                                <option value="{!! $obj->Categories->id ?? '' !!}" selected hidden>{!! $obj->Categories->category ?? 'Category' !!}
                                 </option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">
@@ -54,18 +83,25 @@
                         <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-3">
                             <input class="rate-field form-control" name="rate" type="number"
                                 value="<?= isset($obj->rate) && !empty($obj->rate) ? $obj->rate : '' ?>"placeholder="Salary"
-                                style="
-                      border: none;
-                      background-color: #f4f4f4;
-                      width: 100%;
-                      padding: 14px 10px;
-
-                    " />
+                                style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required />
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
-                            <select name="job_type" class="form-select form-select-sm"
+                            <select name="job_type" class="form-select form-select-sm greyColor" id="job_type"
                                 style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
-                                aria-label=".form-select-sm example" id="inPerson">
+                                aria-label=".form-select-sm example" id="inPerson" required>
+                                <?php
+                                if(isset($obj->job_type ) && !empty($obj->job_type ) ? $obj->job_type  : '' ){
+                                    ?>
+                                <script>
+                                    $('#job_type').removeClass('greyColor')
+                                    $('#job_type').addClass('black')
+                                </script>
+                                <?php
+                                }else {
+
+                                }
+
+                                ?>
                                 <option value="{!! $obj->job_type ?? '' !!}" disabled selected hidden>{!! $obj->job_type ?? 'Job Type' !!}
                                 </option>
                                 <option value="In-person">In-person</option>
@@ -75,9 +111,22 @@
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
-                            <select name="work_type" class="form-select form-select-sm"
+                            <select name="work_type" class="form-select form-select-sm greyColor" id="work_type"
                                 style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
                                 aria-label=".form-select-sm example">
+                                <?php
+                                if(isset($obj->work_type ) && !empty($obj->work_type ) ? $obj->work_type  : '' ){
+                                    ?>
+                                <script>
+                                    $('#work_type').removeClass('greyColor')
+                                    $('#work_type').addClass('black')
+                                </script>
+                                <?php
+                                }else {
+
+                                }
+
+                                ?>
                                 <option value="{!! $obj->work_type ?? '' !!}" disabled selected hidden>{!! $obj->work_type ?? 'Work Type' !!}
                                 </option>
                                 <option value="Full time">Full time</option>
@@ -102,9 +151,14 @@
                                 style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description" name="description"
+                            <input class="form-control" placeholder="Short description" name="short_description"
+                                value="<?= isset($obj->short_description) && !empty($obj->short_description) ? $obj->short_description : '' ?>"
+                                rows="6" style="background-color: #f4f4f4; border: none">
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" id="myEditorid" placeholder="Description" name="description"
                                 value="<?= isset($obj->description) && !empty($obj->description) ? $obj->description : '' ?>" rows="6"
-                                style="background-color: #f4f4f4; border: none"></textarea>
+                                style="background-color: #f4f4f4; border: none">{!! $obj->description ?? '' !!}</textarea>
                         </div>
                         <div class="mt-3 text-center">
                             <button type="submit" class="buttonfilled">Post job</button>
@@ -128,6 +182,24 @@
                 $("#state").hide(1000);
                 $("#zipCode").hide(1000);
             }
+        })
+        $('#category').on('change', () => {
+            // alert("ok")
+            $('#category').removeClass('greyColor')
+            $('#category').addClass('black')
+
+        })
+        $('#job_type').on('change', () => {
+            // alert("ok")
+            $('#job_type').removeClass('greyColor')
+            $('#job_type').addClass('black')
+
+        })
+        $('#work_type').on('change', () => {
+            // alert("ok")
+            $('#work_type').removeClass('greyColor')
+            $('#work_type').addClass('black')
+
         })
     </script>
 @endsection

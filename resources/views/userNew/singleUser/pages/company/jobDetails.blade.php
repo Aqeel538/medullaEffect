@@ -42,7 +42,7 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         <p class="job-details">
-                            {{ $jobDetail->description }}
+                            {!! $jobDetail->description ?? 'There is no description for this job...' !!}
                         </p>
                     </div>
                 </div>
