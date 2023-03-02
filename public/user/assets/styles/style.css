@@ -2615,7 +2615,7 @@ input:checked+.slider:before {
     background-color: #ffffff;
     position: absolute;
     top: 13%;
-    right: 13%;
+    right: 9%;
     color: black;
     display: flex;
     flex-direction: column;
@@ -2746,7 +2746,10 @@ input:checked+.slider:before {
 
 }
 
-
+@media (min-width: 1985px) {
+    .userdata {
+right: 24%;    }
+}
 /* all res */
 @media (max-width: 1400px) {
     .widths {
@@ -2762,6 +2765,10 @@ input:checked+.slider:before {
         width: 450px;
         padding: 171px 17px 122px 14px;
     }
+    .userdata {
+    
+        top: 13%;
+        right: 3%;}
 }
 
 @media (max-width: 1200px) {
@@ -3341,7 +3348,7 @@ input:checked+.slider:before {
 
     .userdata {
 
-        top: 70%;
+        top: 60%;
         right: 38%;
     }
 
@@ -3885,7 +3892,7 @@ input:checked+.slider:before {
     }
 
     .userdata {
-        top: 70%;
+        top: 60%;
         right: 30%;
     }
     .Logo-text {
