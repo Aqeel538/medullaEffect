@@ -363,7 +363,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <iframe class="w-100 " style="height: -webkit-fill-available;"
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58365.19068196581!2d89.1033283!3d23.8958441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe965536b7d61f%3A0x28fea367efdb38c9!2sKushtia!5e0!3m2!1sen!2sbd!4v1588845495032!5m2!1sen!2sbd"
-                        height="" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                        height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></iframe>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-4">
