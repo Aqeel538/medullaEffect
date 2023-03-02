@@ -16,6 +16,7 @@ html {
 
 body {
     overflow-x: hidden !important;
+    font-smooth: auto;
 }
 
 
@@ -23,7 +24,7 @@ body {
 /* ------------1st Navbar------------------ */
 
 .Logo-text {
-    font-family: "Poppins";
+   -moz-font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 25.3775px;
@@ -4230,6 +4231,9 @@ input:checked+.slider:before {
     line-height: 136.99%;
 
 
+}
+.fa-angle-right{
+    color: black !important;
 }
 
 .contct-frm {
