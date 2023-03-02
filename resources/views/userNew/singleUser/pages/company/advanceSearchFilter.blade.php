@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-7 col-sm-9 col-12 text-center">
                 <h1 class="advnc-search-heading mt-5">Advanced Search Filters</h1>
-                <p class="mt-4 mb-5 john-para-afer-ques-heading">
+                <p class="mt-4 mb-5 jjohn-para-afer-ques-heading-filter">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                     quae ab illo inventore veritatis.

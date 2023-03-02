@@ -135,7 +135,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+.iti__selected-flag{
+    padding: 0 !important;
+}
 .topnav-medulla {
 padding: 10px 0;
     display: flex;
@@ -155,7 +157,7 @@ align-items: center;
     justify-content: flex-end;
 }
 .display-btn {
-    padding: 14px 42px;
+    padding: 16px 42px;
     background: #ffffff;
     color: #7c2342;
     border: 0.665455px solid #7c2342;
@@ -183,7 +185,10 @@ align-items: center;
     align-items: center;
     color: #7c2342;
 }
+.jobviewbtns a{
 
+    margin: 0px 8px 0px 0;
+}
 /* /*================ Top Nav Css end *======== */
 
 /* ibdex page css */
@@ -315,7 +320,19 @@ align-items: center;
     line-height: 131.99%;
     color: #000000;
 }
+.john-para-afer-ques-heading-filter{
+    -webkit-font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 144.99%;
+/* or 23px */
 
+text-align: center;
+letter-spacing: 0.02em;
+
+color: #303030;
+}
 .cards-headig-midle-card {
     font-family: "Poppins";
     font-style: normal;
@@ -364,6 +381,15 @@ align-items: center;
     display: flex;
     width: 100%;
     background: #f4f4f4;
+    border-radius: 8px;
+    align-items: center;
+    padding: 5px 10px;
+}
+.input-container-2 {
+    display: flex;
+    width: 100%;
+    background: #FFFFFF;
+    border: 0.2px solid #ebe3e3;
     border-radius: 8px;
     align-items: center;
     padding: 5px 10px;
@@ -421,6 +447,15 @@ align-items: center;
     background: #f4f4f4;
 
 }
+.input-fields-2 {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    border: none;
+  
+
+}
 
 .input-fields::placeholder {
     font-family: "Poppins";
@@ -435,6 +470,20 @@ align-items: center;
     letter-spacing: 0.02em;
 
     color: #9a9a9a;
+}
+.input-fields-2::placeholder {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+    /* identical to box height, or 22px */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+
+    color: #9a9a9a !important;
 }
 
 .form-main-row {
@@ -756,7 +805,7 @@ a {
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
-    line-height: 136.99%;
+  
     padding: 12.2949px 28.678px;
     background: #7c2342;
     border-radius: 5.73559px;
@@ -817,7 +866,7 @@ a {
 .buttonunfill-clear {
     color: #7c2342;
     background-color: white;
-    padding: 9px 20px;
+    padding: 10px 19px;
     border: 1px solid #7c2342;
     border-radius: 5px;
     cursor: pointer;
@@ -1181,13 +1230,23 @@ ion-icon {
     padding: 5px 5px;
     background-color: #f4f4f4;
 }
+.inputfield-2 input {
+    /* background-color: #b897a3; */
+    border: none;
+    padding: 5px 5px;
+    background-color: #f4f4f4;
+}
 
 .inputfield input:focus {
     /* background-color: #b897a3; */
     border: none;
     outline: none;
 }
-
+.inputfield-2 input:focus {
+    /* background-color: #b897a3; */
+    border: none;
+    outline: none;
+}
 .inputfield input::placeholder {
     -webkit-font-family:"Helvetica";
     font-style: normal;
@@ -1285,10 +1344,32 @@ ion-icon {
     padding: 10px;
     background-color: #f4f4f4;
 }
+.inputfield-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+.inputfield-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 0.2px solid #ebe3e3;
+}
 
 .inputfield input {
     background-color: transparent;
     border: none;
+}
+.inputfield-2 input {
+    background-color: transparent;
+    border: none;
+    padding: 8px 5px;
 }
 
 .inputfield-profile {
@@ -1335,6 +1416,34 @@ ion-icon {
 
 }
 
+.inputfield-1 select {
+    border: none;
+    border: none;
+    padding: 8px 7px;
+    background: transparent;
+    -webkit-font-family:"Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+    letter-spacing: 0.02em;
+
+
+}
+.inputfield-2 select {
+    border: none;
+    border: none;
+    padding: 8px 7px;
+    background: transparent;
+    -webkit-font-family:"Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+    letter-spacing: 0.02em;
+
+
+}
 .inputfield select option {
     color: #000;
 }
@@ -1361,6 +1470,14 @@ ion-icon {
 
     outline: none;
 }
+
+
+.inputfield-2 select:focus {
+    /* background-color: #b897a3; */
+
+    outline: none;
+}
+
 
 .greyColor {
     color: #9a9a9a !important;
@@ -2092,7 +2209,7 @@ input[type="radio"]#sav {
     -webkit-font-family:"Helvetica";
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 131.99%;
     display: flex;
     align-items: center;

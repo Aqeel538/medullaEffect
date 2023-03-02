@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-7 col-sm-9 col-12 text-center">
                 <h1 class="advnc-search-heading mt-5">Advanced Search Filters</h1>
-                <p class="mt-4 mb-5 john-para-afer-ques-heading">
+                <p class="mt-4 mb-5 john-para-afer-ques-heading-filter">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                     quae ab illo inventore veritatis.
@@ -23,13 +23,22 @@
                 <div class="col-lg-9 col-md-8 col-10">
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
-                            <div class="location-row">
-                                <i class="fa-solid fa-location-dot"></i>&nbsp;
-                                <input class="" type="text" name="searchLocation" placeholder="Location" />
+                        <div class="inputfield-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <select name="searchLocation" style="width: 100%">
+                                    <option value="" disabled selected hidden>
+                                        Location
+                                    </option>
+                                    <option>Rahim yar khan</option>
+                                    <option>USA</option>
+                                    <option>UAE</option>
+                                    <option>Paris</option>
+                                    <option>Landon</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" required style="width: 100%">
@@ -43,7 +52,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-user-tie"></i>
                                 <select name="job_type" required style="width: 100%">
                                     <option value="" disabled selected hidden>Job Type</option>
@@ -57,7 +66,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-industry"></i>
                                 <select name="industry" required style="width: 100%">
                                     <option value="" disabled selected hidden>Industry</option>
@@ -67,14 +76,14 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
                                     srcset="">
                                 <input class="w-100" type="date" name="created_at" placeholder="created_at" />
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-sack-dollar"></i>
                                 <select name="pay_range" required style="width: 100%">
                                     <option value="" disabled selected hidden>

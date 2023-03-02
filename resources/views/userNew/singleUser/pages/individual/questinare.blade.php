@@ -11,7 +11,7 @@
             <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
                 <div class="row ">
                     <div class="col-12">
-                        <h1 class="headings">Fill Out Questionnaire</h1>
+                        <h1 class="headings mb-3">Fill Out Questionnaire</h1>
                     </div>
 
                 </div>
@@ -139,7 +139,7 @@
 
                                 <input class="input-fields" type="text" name="located_in"
                                     value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
-                                    placeholder="In which city are you located?" />
+                                    placeholder="Where are you located?" />
                             </div>
                             <span class="text-danger d-flex">
                                 @error('located_in')

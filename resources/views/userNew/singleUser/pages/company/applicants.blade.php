@@ -55,7 +55,7 @@
             <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 ">
                 <div class="recent-applications p-4" style="height: auto;">
                     <div class="pr-2 pl-2">
-                        <h1 class=" profile-text-ques-heading">All Jobs</h1>
+                        <h1 class=" profile-text-ques-heading">All Applicants</h1>
                         <p class="john-para-afer-ques-heading-2">Sed ut perspiciatis unde omnis iste natus error sit
                             voluptatem accusantium lorue laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
                             veritatis.</p>

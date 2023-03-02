@@ -23,15 +23,13 @@
                         <div class="allitems d-flex">
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span> <i class="fas-bag fa fa-briefcase"
-                                            aria-hidden="true"></i>&nbsp;${{ $jobDetail->rate }}
+                                    <span> <i class="fa-solid fa-money-bill-1-wave"></i>&nbsp;${{ $jobDetail->rate }}
                                         Salary</span>
                                 </p>
                             </div> &nbsp; &nbsp; &nbsp;
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span> <i class="fas-bag fa fa-briefcase"
-                                            aria-hidden="true"></i>&nbsp;{{ $jobDetail->work_type }}</span>
+                                    <span><i class="fa-solid fa-clock"></i>&nbsp;{{ $jobDetail->work_type }}</span>
                                 </p>
                             </div>
 

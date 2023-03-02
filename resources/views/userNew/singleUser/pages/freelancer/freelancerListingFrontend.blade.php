@@ -65,7 +65,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-7 col-sm-9 col-12 text-center Halvetica">
                 <h1 class="headings-profile mt-5">Freelancers</h1>
-                <p class="mt-4 john-para-afer-ques-heading mb-5">
+                <p class="mt-4 john-para-afer-ques-heading-filter mb-5">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                     quae ab illo inventore veritatis.

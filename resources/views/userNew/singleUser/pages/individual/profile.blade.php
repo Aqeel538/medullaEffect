@@ -41,10 +41,10 @@
                         @csrf
                         <div class="row mt-4">
                             <div class="col-12  col-lg-6 col-md-6">
-                                <div class="input-container">
+                                <div class="input-container-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" alt=""
                                         srcset=""> --}}
-                                    <input value="{!! $user->name ?? '' !!}" class="input-fields" type="text"
+                                    <input value="{!! $user->name ?? '' !!}" class="input-fields-2" type="text"
                                         placeholder="Full Name" name="name">
                                 </div>
                                 <span class="text-danger d-flex">
@@ -55,10 +55,10 @@
 
                             </div>
                             <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                                <div class="input-container">
+                                <div class="input-container-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectoremailblack.png"
                                         alt="" srcset=""> --}}
-                                    <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
+                                    <input value="{!! $user->email ?? '' !!}" class="input-fields-2" type="email"
                                         placeholder="Email ID" name="email">
                                 </div>
                                 <span class="text-danger d-flex">
@@ -71,10 +71,10 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-12  col-lg-6 col-md-6">
-                                <div class="input-container">
+                                <div class="input-container-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorphoneblack.png"
                                         alt="" srcset=""> --}}
-                                    <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"
+                                    <input value="{!! $user->phone ?? '' !!}" class="input-fields-2 int" type="text"
                                         name="phone" id="mobile_code">
                                     <input type="hidden" name="dial_code" class="dial">
                                 </div>
@@ -86,7 +86,7 @@
 
                             </div>
                             <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
-                                <div class="inputfield">
+                                <div class="inputfield-2">
                                     {{-- <i class="fa-regular fa-user"></i> --}}
                                     <select name="gender" style="width: 100%;">
                                         <option value="{!! $user->gender ?? '' !!}">{!! $user->gender ?? 'Gender' !!}
@@ -107,7 +107,7 @@
                         <div class="row">
 
                             <div class="col-12 form-group mt-3">
-                                <div class="inputfield">
+                                <div class="inputfield-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/color.png" alt=""
                                         srcset=""> --}}
                                     {{-- <select name="work_type" style="width: 100%;">
@@ -145,10 +145,10 @@
                         <div class="row">
 
                             <div class="col-12 form-group">
-                                <div class="inputfield mt-3">
+                                <div class="inputfield-2 mt-3">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
                                         srcset=""> --}}
-                                    <input class="input-fields" type="text" name="located_in"
+                                    <input class="input-fields-2" type="text" name="located_in"
                                         value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
                                         placeholder="In which city are you located?" />
                                 </div>
@@ -162,7 +162,7 @@
                         <div class="row">
 
                             <div class="col-12 form-group">
-                                <div class="inputfield mt-3">
+                                <div class="inputfield-2 mt-3">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/relocate.png" alt=""
                                         srcset=""> --}}
                                     <select class="w-100 greyColor" name="relocate" id="relocateSelect">
@@ -197,7 +197,7 @@
                         <div class="row">
 
                             <div class="col-12 form-group">
-                                <div class="inputfield mt-3">
+                                <div class="inputfield-2 mt-3">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/work.png" alt=""
                                         srcset=""> --}}
                                     <select class="w-100 greyColor" name="job_type" style="width: 100%;"
@@ -229,25 +229,25 @@
                                 </span>
                             </div>
                             <div class="col-12 col-lg-4 col-md-4 form-group" id="city">
-                                <div class="inputfield mt-3">
+                                <div class="inputfield-2 mt-3">
 
-                                    <input value="{!! $user->city ?? '' !!}" class="input-fields" type="text"
+                                    <input value="{!! $user->city ?? '' !!}" class="input-fields-2" type="text"
                                         placeholder="City" name="city" id="city">
 
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 col-md-4 form-group" id="state">
-                                <div class="inputfield mt-3">
+                                <div class="inputfield-2 mt-3">
 
-                                    <input value="{!! $user->state ?? '' !!}" class="input-fields" type="text"
+                                    <input value="{!! $user->state ?? '' !!}" class="input-fields-2" type="text"
                                         placeholder="State" name="state" id="state">
 
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 col-md-4 form-group" id="zipCode">
-                                <div class="inputfield mt-3">
+                                <div class="inputfield-2 mt-3">
 
-                                    <input value="{!! $user->zip_code ?? '' !!}" class="input-fields" type="number"
+                                    <input value="{!! $user->zip_code ?? '' !!}" class="input-fields-2" type="number"
                                         placeholder="Zip code" name="zip_code" id="zopCode">
 
                                 </div>
@@ -256,10 +256,10 @@
                         <div class="row">
 
                             <div class="col-12  mt-3">
-                                <div class="inputfield">
+                                <div class="inputfield-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png"
                                         alt="" srcset=""> --}}
-                                    <input value="{!! $user->industry_and_position ?? '' !!}" class="input-fields" type="text"
+                                    <input value="{!! $user->industry_and_position ?? '' !!}" class="input-fields-2" type="text"
                                         name="industry_and_position" placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
                                 </div>
                                 <span class="text-danger d-flex">
@@ -272,9 +272,9 @@
                         <div class="row">
 
                             <div class="col-12  mt-3">
-                                <div class="inputfield">
+                                <div class="inputfield-2">
                                     {{-- <i class="fa fa-suitcase" aria-hidden="true" style="font-size: 20px"></i> --}}
-                                    <input value="{!! $user->experience ?? '' !!}" class="input-fields" type="text"
+                                    <input value="{!! $user->experience ?? '' !!}" class="input-fields-2" type="text"
                                         name="experience" placeholder="{!! $user->experience ?? 'Experience' !!}" />
                                 </div>
                                 <span class="text-danger d-flex">
@@ -287,7 +287,7 @@
                         <div class="row">
 
                             <div class="col-12 form-group mt-3">
-                                <div class="inputfield">
+                                <div class="inputfield-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
                                         alt="" srcset=""> --}}
                                     <select class="w-100 greyColor" name="pay_range" style="width: 100%;"
@@ -329,10 +329,10 @@
                         <div class="row">
 
                             <div class="col-12 form-group mt-3">
-                                <div class="inputfield">
+                                <div class="inputfield-2">
                                     {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/state.png" alt=""
                                         srcset=""> --}}
-                                    <input value="{!! $user->nationality ?? '' !!}" class="input-fields" type="text"
+                                    <input value="{!! $user->nationality ?? '' !!}" class="input-fields-2" type="text"
                                         name="nationality" placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                                 </div>
                                 <span class="text-danger d-flex">

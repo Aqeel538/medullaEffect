@@ -44,7 +44,7 @@
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <ion-icon name="person-outline"></ion-icon>
+                                    <i class="fa-solid fa-user"></i>
                                         <input class="input-fields" type="text" name="first_name"
                                             placeholder="First Name">
                                     </div>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <ion-icon name="person-outline"></ion-icon>
+                                    <i class="fa-solid fa-user"></i>
                                         <input class="input-fields" type="text" name="last_name" placeholder="Last Name">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -65,7 +65,7 @@
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <ion-icon name="mail-outline"></ion-icon>
+                                    <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields" type="email" name="email" placeholder="Email">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <i class="ri-lock-unlock-line" style="font-size: 20px"></i>
+                                    <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" name="password"placeholder="Password">
                                     </div>
                                     <div class="text-danger d-flex">

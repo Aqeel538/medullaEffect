@@ -41,7 +41,7 @@
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <ion-icon name="mail-outline"></ion-icon>
+                                    <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields"required type="email" name="email"
                                             placeholder="Email ID">
                                     </div>
@@ -55,7 +55,7 @@
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-8 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <i class="ri-lock-unlock-line" style="font-size: 20px"></i>
+                                    <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" name="password"
                                             placeholder="Enter Password">
                                     </div>
@@ -69,7 +69,7 @@
                             <div class="pt-4">
                                 <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
                                     <span class="log_company"><a href="{{ route('forgot.password') }}">Forgot
-                                            password?</a></span>
+                                            password ?</a></span>
                                 </p>
                             </div>
                             <div class="mt-4">
