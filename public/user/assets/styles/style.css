@@ -2614,8 +2614,8 @@ input:checked+.slider:before {
     height: 130px;
     background-color: #ffffff;
     position: absolute;
-    top: 23%;
-    right: 7%;
+    top: 13%;
+    right: 13%;
     color: black;
     display: flex;
     flex-direction: column;
