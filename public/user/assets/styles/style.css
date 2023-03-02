@@ -1,5 +1,5 @@
 @font-face {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     src: url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("woff"),
         url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("opentype"),
         url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("truetype");
@@ -24,7 +24,7 @@ body {
 /* ------------1st Navbar------------------ */
 
 .Logo-text {
-   -moz-font-family: "Poppins";
+    -moz-font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 25.3775px;
@@ -38,15 +38,16 @@ body {
     width: 35px;
     height: 40px;
 }
-.arrow-back{
-   display: flex;
-   justify-content: center;
-        padding: 8px;
-        margin-top: 10px;
-        background-color: rgba(124, 35, 66, 1);
-        width: 40px;
-        border-radius: 50px;
-        color: white;
+
+.arrow-back {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: rgba(124, 35, 66, 1);
+    width: 40px;
+    border-radius: 50px;
+    color: white;
 }
 
 /* =====Top Nav & 2nd nav css===== */
@@ -95,7 +96,7 @@ body {
 
 .navbar-link:link,
 .navbar-link:visited {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -118,9 +119,11 @@ body {
     background: transparent;
     cursor: pointer;
 }
-.fa-angle-right{
+
+.fa-angle-right {
     color: black !important;
 }
+
 .mobile-navbar-btns {
     display: none;
     background: transparent;
@@ -135,27 +138,31 @@ body {
     justify-content: center;
     align-items: center;
 }
-.iti__selected-flag{
+
+.iti__selected-flag {
     padding: 0 !important;
 }
+
 .topnav-medulla {
-padding: 10px 0;
+    padding: 10px 0;
     display: flex;
-justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
 }
 
-.oki{
-align-items: center;
+.oki {
+    align-items: center;
     display: flex;
     justify-content: center;
 }
-.phone-colum{
-   
+
+.phone-colum {
+
     display: flex;
     text-align: end;
     justify-content: flex-end;
 }
+
 .display-btn {
     padding: 16px 42px;
     background: #ffffff;
@@ -185,16 +192,18 @@ align-items: center;
     align-items: center;
     color: #7c2342;
 }
-.jobviewbtns a{
+
+.jobviewbtns a {
 
     margin: 0px 8px 0px 0;
 }
+
 /* /*================ Top Nav Css end *======== */
 
 /* ibdex page css */
 /* hero section of index page*/
 .hero-sec-paragrph {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -202,8 +211,9 @@ align-items: center;
     opacity: 0.8;
     text-align: center;
 }
-.abt-para{
-    -webkit-font-family:"Helvetica";
+
+.abt-para {
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -211,6 +221,7 @@ align-items: center;
     opacity: 0.8;
     text-align: justify;
 }
+
 /* hero section */
 
 .herosecion {
@@ -220,31 +231,35 @@ align-items: center;
     align-items: center;
     text-align: center;
 }
-.abt-uls li{
-    -webkit-font-family:"Helvetica" !important;
+
+.abt-uls li {
+    -webkit-font-family: "Helvetica" !important;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
 
-    
+
     color: #303030 !important;
 }
+
 .herosecion h1 {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
     line-height: 131.99%;
     color: #000000;
 }
-.abt-heading{
-    -webkit-font-family:"Helvetica";
+
+.abt-heading {
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 131.99%;
-    color: #000000;  
+    color: #000000;
 }
+
 .heading-span-text {
     color: #7c2342;
 }
@@ -320,19 +335,21 @@ align-items: center;
     line-height: 131.99%;
     color: #000000;
 }
-.john-para-afer-ques-heading-filter{
+
+.john-para-afer-ques-heading-filter {
     -webkit-font-family: 'Helvetica';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 144.99%;
-/* or 23px */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 144.99%;
+    /* or 23px */
 
-text-align: center;
-letter-spacing: 0.02em;
+    text-align: center;
+    letter-spacing: 0.02em;
 
-color: #303030;
+    color: #303030;
 }
+
 .cards-headig-midle-card {
     font-family: "Poppins";
     font-style: normal;
@@ -385,6 +402,7 @@ color: #303030;
     align-items: center;
     padding: 5px 10px;
 }
+
 .input-container-2 {
     display: flex;
     width: 100%;
@@ -447,13 +465,14 @@ color: #303030;
     background: #f4f4f4;
 
 }
+
 .input-fields-2 {
     width: 100%;
     border-radius: 8px;
     padding: 10px;
     outline: none;
     border: none;
-  
+
 
 }
 
@@ -471,6 +490,7 @@ color: #303030;
 
     color: #9a9a9a;
 }
+
 .input-fields-2::placeholder {
     font-family: "Poppins";
     font-style: normal;
@@ -604,19 +624,19 @@ p {
 }
 
 #footer .footer-top .footer-contact p {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     color: #000000;
     opacity: 0.8;
     text-align: justify;
- 
+
     letter-spacing: 0.02em;
-    
-  
+
+
     margin-bottom: 0;
-  
+
 }
 
 #footer .footer-top h4 {
@@ -653,19 +673,19 @@ p {
 }
 
 #footer .footer-top .footer-links ul a {
-    
+
     transition: 0.3s;
     display: inline-block;
     line-height: 1;
     font-family: 'Helvetica';
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 136.99%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 136.99%;
 
-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
 
-color: #303030;
+    color: #303030;
 }
 
 #footer .footer-top .footer-links ul a:hover {
@@ -703,24 +723,24 @@ color: #303030;
 
 #footer .copyright {
     float: left;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     color: #ffffff;
     opacity: 0.8;
-   
+
 }
 
 #footer .credits {
     float: right;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     color: #ffffff;
     opacity: 0.8;
-   
+
 }
 
 #footer .credits a {
@@ -736,7 +756,7 @@ color: #303030;
 
     color: #730116;
     font-weight: bold;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -754,7 +774,7 @@ color: #303030;
     justify-content: center;
     align-items: center;
     text-align: center;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 43px;
@@ -805,7 +825,7 @@ a {
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
-  
+
     padding: 12.2949px 28.678px;
     background: #7c2342;
     border-radius: 5.73559px;
@@ -870,14 +890,14 @@ a {
     border: 1px solid #7c2342;
     border-radius: 5px;
     cursor: pointer;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
 }
 
 .inbox-chat-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
@@ -890,7 +910,7 @@ a {
 }
 
 .advnc-search-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 38px;
@@ -901,7 +921,7 @@ a {
 }
 
 .john-para-afer-ques-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -913,7 +933,7 @@ a {
 }
 
 .john-para-afer-ques-heading-2 {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -963,9 +983,10 @@ a {
 .btn-searcs {
     display: flex;
 }
+
 .form-control:focus {
     color: #212529;
- 
+
     outline: 0;
     box-shadow: none !important;
 }
@@ -976,28 +997,31 @@ a {
     outline: 0;
     box-shadow: none;
 }
-.form-control::placeholder{
+
+.form-control::placeholder {
     font-family: 'Helvetica';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 136.99%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
 
-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
 
-color: #9A9A9A;
+    color: #9A9A9A;
 }
+
 .form-select {
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 136.99%;
-    
+
     letter-spacing: 0.02em;
-    
+
     color: #9A9A9A;
 }
+
 .industry-dropdown-input {
     display: flex;
     align-items: center;
@@ -1065,7 +1089,7 @@ color: #9A9A9A;
     padding: 13px 33px;
     border-radius: 5px;
     cursor: pointer;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1085,7 +1109,7 @@ color: #9A9A9A;
     border: none;
     border-radius: 5px;
     color: #ffffff;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -1113,7 +1137,7 @@ ion-icon {
 }
 
 .location-row ::placeholder {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1144,7 +1168,7 @@ ion-icon {
     border-radius: 8px;
 
     color: #9a9a9a;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1160,7 +1184,7 @@ ion-icon {
     border-radius: 8px;
 
     color: #9a9a9a;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1173,7 +1197,7 @@ ion-icon {
 }
 
 .input-field::placeholder {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1184,7 +1208,7 @@ ion-icon {
 }
 
 .input-field-profile::placeholder {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1204,7 +1228,7 @@ ion-icon {
 }
 
 .headings {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 43px;
@@ -1213,7 +1237,7 @@ ion-icon {
 }
 
 .descriptions {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15.5px;
@@ -1230,6 +1254,7 @@ ion-icon {
     padding: 5px 5px;
     background-color: #f4f4f4;
 }
+
 .inputfield-2 input {
     /* background-color: #b897a3; */
     border: none;
@@ -1242,13 +1267,15 @@ ion-icon {
     border: none;
     outline: none;
 }
+
 .inputfield-2 input:focus {
     /* background-color: #b897a3; */
     border: none;
     outline: none;
 }
+
 .inputfield input::placeholder {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1316,7 +1343,7 @@ ion-icon {
     border-radius: 4px;
     border: 1px solid #ced4da;
     color: #9a9a9a;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1325,7 +1352,7 @@ ion-icon {
 }
 
 .input-field::placeholder {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1344,6 +1371,7 @@ ion-icon {
     padding: 10px;
     background-color: #f4f4f4;
 }
+
 .inputfield-1 {
     display: flex;
     align-items: center;
@@ -1352,6 +1380,7 @@ ion-icon {
     padding: 10px;
     background-color: #f4f4f4;
 }
+
 .inputfield-2 {
     display: flex;
     align-items: center;
@@ -1366,6 +1395,7 @@ ion-icon {
     background-color: transparent;
     border: none;
 }
+
 .inputfield-2 input {
     background-color: transparent;
     border: none;
@@ -1379,7 +1409,7 @@ ion-icon {
     border-radius: 8px;
     padding: 10px;
     background-color: white;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1406,7 +1436,7 @@ ion-icon {
     border: none;
     padding: 8px 7px;
     background: transparent;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1421,7 +1451,7 @@ ion-icon {
     border: none;
     padding: 8px 7px;
     background: transparent;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1430,12 +1460,13 @@ ion-icon {
 
 
 }
+
 .inputfield-2 select {
     border: none;
     border: none;
     padding: 8px 7px;
     background: transparent;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1444,6 +1475,7 @@ ion-icon {
 
 
 }
+
 .inputfield select option {
     color: #000;
 }
@@ -1457,7 +1489,7 @@ ion-icon {
     padding: 8px 7px;
     background: white;
     color: #9a9a9a;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1492,14 +1524,14 @@ ion-icon {
     justify-content: center;
     align-items: center;
     text-align: center;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 43px;
 }
 
 .john-text {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
@@ -1512,7 +1544,7 @@ ion-icon {
 }
 
 .john-para {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -1527,7 +1559,7 @@ ion-icon {
 }
 
 .profile-text-ques-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -1536,7 +1568,7 @@ ion-icon {
 }
 
 .aplied-jobs-para {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -1566,7 +1598,7 @@ ion-icon {
     padding: 9px 30px;
     border: 0.648723px solid #9a1029;
     border-radius: 6px;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -1579,7 +1611,7 @@ ion-icon {
     padding: 9px 10px;
     border: 0.648723px solid #9a1029;
     border-radius: 6px;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -1592,7 +1624,7 @@ ion-icon {
     border: none;
     border-radius: 5px;
     color: #ffffff;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -1606,7 +1638,7 @@ ion-icon {
     padding: 9px 8px;
     border: 0.648723px solid #9a1029;
     border-radius: 5px;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -1630,7 +1662,7 @@ ion-icon {
 }
 
 .abutnexa-text {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1641,7 +1673,7 @@ ion-icon {
 }
 
 .single-job-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 19px;
@@ -1734,7 +1766,7 @@ ion-icon {
 .mylist.active {
     color: rgba(124, 35, 66, 1);
     border-bottom: 2px solid rgba(124, 35, 66, 1);
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
@@ -1751,13 +1783,13 @@ ion-icon {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .iti--separate-dial-code .iti__selected-flag {
@@ -1779,7 +1811,7 @@ input[type=number] {
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
 }
 
 .div1 {
@@ -1912,10 +1944,12 @@ input[type=number] {
     background: #f1f1f1;
     border-color: #d6d6d6;
 }
+
 .intl-tel-input,
-.iti{
-  width: 100%;
+.iti {
+    width: 100%;
 }
+
 .iti__country {
     padding: 5px 10px;
     outline: none;
@@ -1923,6 +1957,7 @@ input[type=number] {
     width: 350px;
     overflow-x: hidden;
 }
+
 .avatar-upload .avatar-edit input+label:after {
     content: "\f040";
     font-family: "FontAwesome";
@@ -2206,7 +2241,7 @@ input[type="radio"]#sav {
 
 /* job view css strt */
 .job-view-para-2 {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2227,7 +2262,7 @@ input[type="radio"]#sav {
 }
 
 .about-nexa-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -2235,7 +2270,7 @@ input[type="radio"]#sav {
 }
 
 .job-headings {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 35px;
@@ -2246,7 +2281,7 @@ input[type="radio"]#sav {
 }
 
 .job-view-para span {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -2256,7 +2291,7 @@ input[type="radio"]#sav {
 }
 
 .job-view-para {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2266,7 +2301,7 @@ input[type="radio"]#sav {
 }
 
 .job-view-paras {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -2280,7 +2315,7 @@ input[type="radio"]#sav {
 }
 
 .job-view-paras span {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -2290,7 +2325,7 @@ input[type="radio"]#sav {
 }
 
 .job-details {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2304,7 +2339,7 @@ input[type="radio"]#sav {
 }
 
 .job-details ul li {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2317,7 +2352,7 @@ input[type="radio"]#sav {
 }
 
 .other-job-txt {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
@@ -2347,7 +2382,7 @@ input[type="radio"]#sav {
     border: none;
     border-radius: 5px;
     color: #ffffff;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -2355,7 +2390,7 @@ input[type="radio"]#sav {
 }
 
 .time p {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -2375,7 +2410,7 @@ input[type="radio"]#sav {
     padding: 9px 15px;
     border: 0.648723px solid #9a1029;
     border-radius: 5px;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -2388,7 +2423,7 @@ input[type="radio"]#sav {
     padding: 9px 8px;
     border: 0.648723px solid #9a1029;
     border-radius: 5px;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -2419,7 +2454,7 @@ input[type="radio"]#sav {
 }
 
 .abutnexa-text {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -2435,7 +2470,7 @@ input[type="radio"]#sav {
 }
 
 .job-posted {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -2450,7 +2485,7 @@ input[type="radio"]#sav {
 /* bussines page css strt  */
 
 .bus-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
@@ -2459,7 +2494,7 @@ input[type="radio"]#sav {
 }
 
 .location-heading {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 700;
     font-size: 15.2949px;
@@ -2468,7 +2503,7 @@ input[type="radio"]#sav {
 }
 
 .place {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     color: rgb(70, 65, 65);
@@ -2777,9 +2812,11 @@ right: 24%;    }
     .john-para-afer-ques-heading {
         font-size: 14px !important;
     }
-    .iner-servc-crd{
+
+    .iner-servc-crd {
         height: 550px !important;
     }
+
     .width {
         width: 170%;
     }
@@ -2830,6 +2867,7 @@ right: 24%;    }
 
         font-size: 21px;
     }
+
     .iner-servc-crd {
         height: 550px !important;
     }
@@ -2974,9 +3012,11 @@ right: 24%;    }
     .again_respons {
         display: none;
     }
+
     .iner-servc-crd {
         height: 450px !important;
     }
+
     .second-nav {
         overflow: hidden;
         height: 76px;
@@ -3631,9 +3671,9 @@ right: 24%;    }
     }
 
     .Logo-text {
-  
+
         font-size: 20.3775px;
-      
+
     }
 
     .logo-img {
@@ -3762,9 +3802,11 @@ right: 24%;    }
         width: 30px;
         height: 30px;
     }
+
     .iner-servc-crd {
         height: 520px !important;
     }
+
     .mobile-nav-icon {
         width: 25px;
         height: 25px;
@@ -3895,8 +3937,9 @@ right: 24%;    }
         top: 60%;
         right: 30%;
     }
+
     .Logo-text {
- 
+
         font-size: 17.3775px;
 
     }
@@ -3910,8 +3953,9 @@ right: 24%;    }
     .phone-num {
         font-size: 14px;
     }
+
     .Logo-text {
- 
+
         font-size: 14.3775px;
 
     }
@@ -3996,6 +4040,7 @@ right: 24%;    }
     .tab-link {
         padding: 10px 27px;
     }
+
     .navbar-link:link,
     .navbar-link:visited {
         font-size: 10.5px !important;
@@ -4010,34 +4055,40 @@ right: 24%;    }
         width: 25px;
         height: 25px;
     }
+
     .input-subscribe button {
-    
-        width: 34%;}
+
+        width: 34%;
+    }
 }
 
-   
 
- 
+
+
 
 @media (max-width: 320px) {
     .responsive-btn {
         background-color: blue !important;
     }
+
     .iner-servc-crd {
         height: 700px !important;
     }
+
     .navbar {
         top: 90px;
     }
+
     .input-subscribe button {
         padding: 7px;
         margin-top: 10px;
-         margin-left: 0; 
+        margin-left: 0;
         border: none;
         border-radius: 50px;
         width: 40%;
-  
+
     }
+
     .second-nav {
         height: 57px;
     }
@@ -4221,7 +4272,7 @@ right: 24%;    }
 }
 
 .hero-sec-paragrph-abt {
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -4253,18 +4304,18 @@ right: 24%;    }
 
 .servc-detail {
     text-align: justify;
-    -webkit-font-family:"Helvetica" !important;
+    -webkit-font-family: "Helvetica" !important;
     font-style: normal;
     font-weight: 400;
     font-size: 17.2949px;
     line-height: 144.99%;
 
     letter-spacing: 0.02em;
-  
-   
+
+
     letter-spacing: 0.02em;
     color: #525050;
-    
+
 }
 
 
@@ -4348,7 +4399,7 @@ right: 24%;    }
     border: none;
     border-radius: 5px;
     color: #ffffff;
-    -webkit-font-family:"Helvetica";
+    -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
     font-size: 16.2181px;
@@ -4356,7 +4407,8 @@ right: 24%;    }
 
 
 }
-.fa-angle-right{
+
+.fa-angle-right {
     color: black !important;
 }
 

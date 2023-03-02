@@ -167,7 +167,8 @@
                                                 <i class="fas-elip fa-solid fa-ellipsis"></i>
                                             </div>
                                         </div>
-                                        <p class="abutnexa-text pt-4 pb-3">{!! $getjobs->description ?? '' !!} </p>
+                                        <p class="abutnexa-text pt-4 pb-3" style="height: 70px;overflow: hidden;">
+                                            {!! $getjobs->description ?? '' !!} </p>
                                         <div class="jobviewbtns mt-1 mb-1">
                                             <?php
                                             if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {

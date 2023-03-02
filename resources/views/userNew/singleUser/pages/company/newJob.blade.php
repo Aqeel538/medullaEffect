@@ -36,7 +36,7 @@
                 </div>
                 <?php
                 $update_id = 0;
-                
+
                 if (isset($obj->id) && !empty($obj->id)) {
                     $update_id = $obj->id;
                 }
@@ -81,20 +81,21 @@
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-3">
-                            <input class="rate-field form-control" name="rate" type="number"
+                            <input class="rate-field form-control" name="rate" type="text"
                                 value="<?= isset($obj->rate) && !empty($obj->rate) ? $obj->rate : '' ?>"placeholder="Salary"
-                                style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required />
+                                style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required
+                                id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
-                            <select name="job_type" class="form-select form-select-sm greyColor" id="job_type"
+                            <select name="job_type" class="form-select form-select-sm greyColor"
                                 style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
                                 aria-label=".form-select-sm example" id="inPerson" required>
                                 <?php
                                 if(isset($obj->job_type ) && !empty($obj->job_type ) ? $obj->job_type  : '' ){
                                     ?>
                                 <script>
-                                    $('#job_type').removeClass('greyColor')
-                                    $('#job_type').addClass('black')
+                                    $('#inPerson').removeClass('greyColor')
+                                    $('#inPerson').addClass('black')
                                 </script>
                                 <?php
                                 }else {
@@ -189,10 +190,10 @@
             $('#category').addClass('black')
 
         })
-        $('#job_type').on('change', () => {
+        $('#inPerson').on('change', () => {
             // alert("ok")
-            $('#job_type').removeClass('greyColor')
-            $('#job_type').addClass('black')
+            $('#inPerson').removeClass('greyColor')
+            $('#inPerson').addClass('black')
 
         })
         $('#work_type').on('change', () => {
@@ -201,5 +202,95 @@
             $('#work_type').addClass('black')
 
         })
+    </script>
+
+    {{-- Currency --}}
+    <script>
+        // Jquery Dependency
+
+        $("input[data-type='currency']").on({
+            keyup: function() {
+                formatCurrency($(this));
+            },
+            blur: function() {
+                formatCurrency($(this), "blur");
+            }
+        });
+
+
+        function formatNumber(n) {
+            // format number 1000000 to 1,234,567
+            return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        }
+
+
+        function formatCurrency(input, blur) {
+            // appends $ to value, validates decimal side
+            // and puts cursor back in right position.
+
+            // get input value
+            var input_val = input.val();
+
+            // don't validate empty input
+            if (input_val === "") {
+                return;
+            }
+
+            // original length
+            var original_len = input_val.length;
+
+            // initial caret position
+            var caret_pos = input.prop("selectionStart");
+
+            // check for decimal
+            if (input_val.indexOf(".") >= 0) {
+
+                // get position of first decimal
+                // this prevents multiple decimals from
+                // being entered
+                var decimal_pos = input_val.indexOf(".");
+
+                // split number by decimal point
+                var left_side = input_val.substring(0, decimal_pos);
+                var right_side = input_val.substring(decimal_pos);
+
+                // add commas to left side of number
+                left_side = formatNumber(left_side);
+
+                // validate right side
+                right_side = formatNumber(right_side);
+
+                // On blur make sure 2 numbers after decimal
+                if (blur === "blur") {
+                    right_side += "00";
+                }
+
+                // Limit decimal to only 2 digits
+                right_side = right_side.substring(0, 2);
+
+                // join number by .
+                input_val = "$" + left_side + "." + right_side;
+
+            } else {
+                // no decimal entered
+                // add commas to number
+                // remove all non-digits
+                input_val = formatNumber(input_val);
+                input_val = "$" + input_val;
+
+                // final formatting
+                if (blur === "blur") {
+                    input_val += ".00";
+                }
+            }
+
+            // send updated string to input
+            input.val(input_val);
+
+            // put caret back in the right position
+            var updated_len = input_val.length;
+            caret_pos = updated_len - original_len + caret_pos;
+            input[0].setSelectionRange(caret_pos, caret_pos);
+        }
     </script>
 @endsection
