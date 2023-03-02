@@ -9,13 +9,13 @@
  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-<!-- Use as a jQuery plugin -->
-<script src="build/js/intlTelInput.min.js"></script>
+ <!-- Use as a jQuery plugin -->
+ <script src="build/js/intlTelInput.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script> 
+ <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
 
-<!--  Use as a jQuery plugin end -->
+ <!--  Use as a jQuery plugin end -->
  <script
      type="module"
      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -65,48 +65,48 @@
      });
  </script>
 
-{{-- resume upload --}}
-<script>
-    // function readURL(input) {
-    //     if (input.files && input.files[0]) {
-    //         var reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-    //             $('#imagePreview').hide();
-    //             $('#imagePreview').fadeIn(650);
-    //         }
-    //         reader.readAsDataURL(input.files[0]);
-    //     }
-    // }
-    $("#resume").change(function() {
-        
-        var formData = new FormData($("#resumeUpload")[0]);
-        // formData.append('resume', $(this).val());
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: "POST",
-            url: "/individual/update/resume",
-            data: formData,
-            contentType: false,
-            processData: false,
-            dataType: 'json',
-            success: function(response) {
-                if (response.status === 404) {
-                    console.log(response.message);
-                } else {
-                    console.log(response.message);
-                }
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-    });
-</script>
+ {{-- resume upload --}}
+ <script>
+     // function readURL(input) {
+     //     if (input.files && input.files[0]) {
+     //         var reader = new FileReader();
+     //         reader.onload = function(e) {
+     //             $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+     //             $('#imagePreview').hide();
+     //             $('#imagePreview').fadeIn(650);
+     //         }
+     //         reader.readAsDataURL(input.files[0]);
+     //     }
+     // }
+     $("#resume").change(function() {
+
+         var formData = new FormData($("#resumeUpload")[0]);
+         // formData.append('resume', $(this).val());
+         $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+         $.ajax({
+             type: "POST",
+             url: "/individual/update/resume",
+             data: formData,
+             contentType: false,
+             processData: false,
+             dataType: 'json',
+             success: function(response) {
+                 if (response.status === 404) {
+                     console.log(response.message);
+                 } else {
+                     console.log(response.message);
+                 }
+             },
+             error: function(data) {
+                 console.log(data);
+             }
+         });
+     });
+ </script>
 
  <!-- New script starts -->
  <script>
@@ -137,8 +137,7 @@
 
 
 
-<script>
-
+ <script>
 // -----Country Code Selection
 $("#mobile_code").intlTelInput({
 	initialCountry: "pk",
@@ -147,7 +146,11 @@ $("#mobile_code").intlTelInput({
 	utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
 });
 
+$('.int').on('change', function() {
+         $('.dial').val($(this).intlTelInput("getSelectedCountryData").dialCode)
+         console.log($(this).intlTelInput("getSelectedCountryData"))
 
+     })
+ </script>
 
-</script>
  <!-- New script ends -->

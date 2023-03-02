@@ -103,7 +103,7 @@ class CompanyRegistrationController extends Controller
                 'address' => $data['address'],
                 'company_name' => $data['company_name'],
                 'website' => $data['website'],
-                'phone' => $data['phone'],
+                'phone' => '+' . $data->dial_code . $data['phone'],
                 'industry' => $data['industry'],
                 'contact' => $data['contact'],
                 'role' => 'company',
@@ -190,7 +190,7 @@ class CompanyRegistrationController extends Controller
             'email' => 'required|email|exists:users'
         ]);
 
-        $toasterValue = 1;
+        $toasterValue = 2;
         VerifyToken::where('email', $request->email)->delete();
         $user = User::where('email', $request->email)->first();
         if ($user) {

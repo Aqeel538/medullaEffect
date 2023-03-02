@@ -72,16 +72,15 @@
             width: 140px
         }
     </style>
-    <script>
-        function toaster() {
-            toastr.success('registered successfully! Please enter opt for verification.');
-        }
-    </script>
+
     @if ($toasterValue == 1)
         <script>
-            toaster()
+            toastr.success('registered successfully! Please enter opt for verification.');
         </script>
     @else
+        <script>
+            toastr.success('otp resend successfully!');
+        </script>
     @endif
     <div class="container-fluid">
         <div class="row justify-content-center">

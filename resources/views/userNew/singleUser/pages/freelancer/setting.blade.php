@@ -61,8 +61,11 @@
                                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="call-outline"></ion-icon> --}}
-                                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                                    placeholder="Phone Number" name="phone"  id="mobile_code">
+                                                <input value="{!! $user->phone ?? '' !!}" class="input-fields int"
+                                                    type="text" placeholder="Phone Number" name="phone"
+                                                    id="mobile_code">
+
+                                                <input type="hidden" name="dial_code" class="dial">
                                             </div>
 
                                         </div>

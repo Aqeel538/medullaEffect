@@ -491,9 +491,9 @@
                         <h4 class="abt-heading">Useful Links</h4>
                         <ul>
                             <li class="footer-nav-links"><i class="fa-solid fa-angle-right"></i> &nbsp;<a
-                                    href="#">Home</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">About us</a></li>
-                            <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">Services</a></li>
+                                    href="{{ route('index') }}">Home</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#aboutUs">About us</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#ourServices">Services</a></li>
                             <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">Terms of service</a></li>
                             <li><i class="fa-solid fa-angle-right"></i> &nbsp; <a href="#">Privacy policy</a></li>
                         </ul>

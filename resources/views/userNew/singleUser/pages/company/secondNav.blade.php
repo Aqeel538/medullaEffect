@@ -17,8 +17,8 @@
             <nav class="navbar-questionare">
 
                 <div class="">
-                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png"
-                        class="search-icon-index" alt="" srcset="">
+                    {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png"
+                        class="search-icon-index" alt="" srcset=""> --}}
                 </div>
                 <ul class="navbar-lists" id="myDIV">
 

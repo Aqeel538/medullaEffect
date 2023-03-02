@@ -55,8 +55,13 @@
                         <div class="col-12  col-lg-6 col-md-6">
                             <div class="input-container">
 
-                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                    placeholder="Phone Number" name="phone"  id="mobile_code">
+                                {{-- <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
+                                    placeholder="Phone Number" name="phone"  id="mobile_code"> --}}
+
+                                <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"
+                                    name="phone" id="mobile_code">
+                                <input type="hidden" name="dial_code" class="dial">
+                                
                             </div>
                             <span class="text-danger d-flex">
                                 @error('phone')

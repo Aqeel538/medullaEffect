@@ -77,7 +77,7 @@ class RegistrationControllerInd extends Controller
                 'address' => $request['address'],
                 'company_name' => $request['company_name'],
                 'website' => $request['website'],
-                'phone' => $request['phone'],
+                'phone' => '+' . $request->dial_code . $request['phone'],
                 'industry' => $request['industry'],
                 'contact' => $request['contact'],
                 'role' => 'individual',

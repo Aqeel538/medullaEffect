@@ -234,7 +234,7 @@ class FreelancerController extends Controller
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
-        $freelancers = $query->get();
+        $freelancers = $query->where('role', 'freelancer')->get();
         return view('userNew.singleUser.pages.freelancer.advanceSearchFilter', get_defined_vars());
     }
 
@@ -302,7 +302,7 @@ class FreelancerController extends Controller
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
-        $companies = $query->get();
+        $companies = $query->where('role', 'company')->get();
         return view('userNew.singleUser.pages.freelancer.companyAdvanceSearchFilter', get_defined_vars());
     }
 

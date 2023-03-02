@@ -35,7 +35,9 @@ class CompanyController extends Controller
 
     public function update_company_profile(Request $req)
     {
-        // dd($req);
+
+
+        // dd($req->dial_code);
         $req->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -58,7 +60,7 @@ class CompanyController extends Controller
             'name' => $req['name'],
             'email' => $req['email'],
             // 'gender' => $req['gender'],
-            'phone' => $req['phone'],
+            'phone' => '+' . $req->dial_code . $req['phone'],
             'job_type' => $req['job_type'],
             'city' => $req['city'],
             'state' => $req['state'],
@@ -151,7 +153,7 @@ class CompanyController extends Controller
             //      return $this->belongsTo(User::class);
             //  }
         }
-        return redirect(route('company.jobs'));
+        return redirect(route('company.jobPost'));
     }
 
     public function company_jobs_delete(Request $req)
@@ -279,7 +281,7 @@ class CompanyController extends Controller
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
-        $freelancers = $query->get();
+        $freelancers = $query->where('role', 'freelancer')->get();
 
         return view('userNew.singleUser.pages.company.advanceSearchFilter', get_defined_vars());
     }
@@ -380,7 +382,7 @@ class CompanyController extends Controller
         if ($pay_range) {
             $query->where('pay_range', $pay_range);
         }
-        $individuals = $query->get();
+        $individuals = $query->where('role', 'individual')->get();
 
         return view('userNew.singleUser.pages.company.individualAdvanceSearchFilter', get_defined_vars());
     }

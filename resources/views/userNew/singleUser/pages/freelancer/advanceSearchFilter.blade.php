@@ -27,7 +27,7 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
                             <div class="inputfield">
                                 <i class="fa-solid fa-location-dot"></i>
-                                <select name="searchLocation" required style="width: 100%">
+                                <select name="searchLocation" style="width: 100%">
                                     <option value="" disabled selected hidden>
                                         Location
                                     </option>
@@ -41,9 +41,9 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
-                                <img src="{{ asset('user') }}assets/images/profile-imges/exp-level.png" alt=""
+                                <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
-                                <select name="experience" required style="width: 100%">
+                                <select name="experience" style="width: 100%">
                                     <option value="" disabled selected hidden>
                                         Experience Level
                                     </option>
@@ -56,7 +56,7 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
                             <div class="inputfield">
                                 <i class="fa-solid fa-user-tie"></i>
-                                <select name="job_type" required style="width: 100%">
+                                <select name="job_type" style="width: 100%">
                                     <option value="" disabled selected hidden>Job Type</option>
                                     <option>Remote</option>
                                     <option>OnSite</option>
@@ -70,7 +70,7 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield">
                                 <i class="fa-solid fa-industry"></i>
-                                <select name="industry" required style="width: 100%">
+                                <select name="industry" style="width: 100%">
                                     <option value="" disabled selected hidden>Industry</option>
                                     <option>IT</option>
                                     <option>Other</option>
@@ -88,7 +88,7 @@
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
                             <div class="inputfield">
                                 <i class="fa-solid fa-sack-dollar"></i>
-                                <select name="pay_range" required style="width: 100%">
+                                <select name="pay_range" style="width: 100%">
                                     <option value="" disabled selected hidden>
                                         Salary Range
                                     </option>

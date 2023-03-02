@@ -3,9 +3,13 @@
     <!-- 2nd nav end -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+
     @include('userNew.singleUser.pages.company.secondNav')
     <div class="container mb-5 mt-5">
+
         <div class="row justify-content-center">
+
             <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
                 <div class="row ">
                     <div class="col-12">
@@ -53,8 +57,9 @@
                         <div class="col-12  col-lg-12 col-md-12">
                             <div class="input-container">
 
-                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                    placeholder="Phone Number" name="phone"  id="mobile_code">
+                                <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"
+                                    name="phone" id="mobile_code">
+                                <input type="hidden" name="dial_code" class="dial">
                             </div>
                             <span class="text-danger d-flex">
                                 @error('phone')
@@ -314,6 +319,22 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="container">
+        <form id="login" onsubmit="process(event)">
+            <p>Enter your phone number:</p>
+            <input id="phone" type="tel" name="phone" />
+            <input type="submit" class="btn" value="Verify" />
+        </form>
+    </div> --}}
+
+    {{-- COUNTRY CODE
+    <script>
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+    </script> --}}
 
     <script>
         $("#workingCapitalLoan").on("change", function() {

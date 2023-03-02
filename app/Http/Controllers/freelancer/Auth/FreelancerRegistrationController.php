@@ -41,7 +41,7 @@ class FreelancerRegistrationController extends Controller
                 'address' => $data['address'],
                 'company_name' => $data['company_name'],
                 'website' => $data['website'],
-                'phone' => $data['phone'],
+                'phone' => '+' . $data->dial_code . $data['phone'],
                 'industry' => $data['industry'],
                 'contact' => $data['contact'],
                 'role' => 'freelancer',
