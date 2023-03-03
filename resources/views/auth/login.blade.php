@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-
+              
                 <div class="d-flex justify-content-center align-item-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8">
@@ -17,8 +17,8 @@
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 ">
-                <div class="arrow-back">
-                    <a href="{{ route('index') }}"> <i class="fa-solid fa-arrow-left"></i></a>
+            <div class="arrow-back">
+                    <a href="{{route('index')}}"> <i class="fa-solid fa-arrow-left"></i></a>
                 </div>
 
                 <div class="row form-row text-center">
@@ -41,9 +41,9 @@
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <i class="fa-solid fa-envelope"></i>
+                                    <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields"required type="email" name="email"
-                                            placeholder="Email">
+                                            placeholder="Email ID">
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('email')
@@ -55,7 +55,7 @@
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-8 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                        <i class="fa-solid fa-lock"></i>
+                                    <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" name="password"
                                             placeholder="Enter Password">
                                     </div>
@@ -67,21 +67,21 @@
                                 </div>
                             </div>
                             <div class="pt-4">
-                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
-                                    <span class="log_company"><a href="{{ route('forgot.password') }}">Forgot
-                                            password ?</a></span>
+                                <p class="">
+                                    <span class="log_company1"><a href="{{ route('forgot.password') }}">Forgot
+                                            password</a></span>
                                 </p>
                             </div>
                             <div class="mt-4">
 
                                 <button type="submit" class="buttonfilled">Login</button>
                             </div>
-                            <div class="pt-5">
-                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700;"> Don't have an account?
-                                    <span class="log_company"><a href="{{ url()->previous() }}">Register</a></span>
+                            <div class="pt-5 pb-4">
+                                <p class="already-acount"> Don't have an account?
+                                    <span class="log_company"><a href="{{ url()->previous() }}">Sign Up</a></span>
                                 </p>
                             </div>
-
+                           
                         </form>
                     </div>
                 </div>

@@ -114,7 +114,7 @@
                                     <p class="abutnexa-text pt-4 pb-3"
                                         style="height: 70px!important;
                                         overflow: hidden;">
-                                        {!! $getjobs->short_description ?? '' !!}
+                                        {!! $getjobs->description ?? '' !!}
                                     </p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <?php
@@ -187,7 +187,7 @@
                                     <p class="abutnexa-text pt-4 pb-3"
                                         style="height: 70px!important;
                                         overflow: hidden;">
-                                        {!! $jobs->savedJobs->short_description ?? '' !!}
+                                        {!! $jobs->savedJobs->description ?? '' !!}
                                     </p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <?php

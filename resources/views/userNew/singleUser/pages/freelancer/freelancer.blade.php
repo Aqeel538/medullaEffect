@@ -160,8 +160,8 @@
                                 {{-- <button type="submit" class="buttonfilled">Register</button> --}}
                                 <button type="submit" onclick="registerloader()" class="buttonfilled">Register</button>
                             </div>
-                            <div class="pt-5">
-                                <p class="Halvetica phara_16 mb-4" style="font-weight: 700;">Already have an account?
+                            <div class="pt-5 pb-4">
+                                <p class="already-acount">Already have an account?
                                     <span class="log_company"><a href="/login">Log In</a></span>
                                 </p>
                             </div>

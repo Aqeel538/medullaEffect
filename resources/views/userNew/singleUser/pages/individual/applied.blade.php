@@ -38,7 +38,7 @@
                             <p class="abutnexa-text pt-4 pb-3"
                                 style="height: 90px!important;
                             overflow: hidden;">
-                                {!! $appliedJob->getAppliedJobs->short_description ?? '' !!}</p>
+                                {!! $appliedJob->getAppliedJobs->description ?? '' !!}</p>
 
                         </div>
                     </a>

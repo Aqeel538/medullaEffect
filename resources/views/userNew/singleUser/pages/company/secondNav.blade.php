@@ -65,27 +65,33 @@
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorbell.png" class="bells mx-2"
                             alt="" srcset="" />
                     </a>
+                    <img style="cursor: pointer;" src="{{ asset('user') }}/assets/images/landing-page-img/vector.png"
+                        onclick="userprofile()" class="bell" alt="" srcset="">
+                    <div class="userdata " id="userdata">
+                        <div class="olp">
+                            <i class="fa-solid fa-xmark " id="close" onclick="userprofile()"></i>
 
-                    <img id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="cursor: pointer;"
-                        src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
-                        class="bell" alt="" srcset="">
+                        </div>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('company.jobs') }}"><i class="fa-regular fa-user"></i>
-                            Profile
-                            Page</a>
-                        <a class="dropdown-item" href="{{ route('company.inbox') }}"><i
-                                class="fa-regular fa-message"></i> Inbox</a>
-                        <a class="dropdown-item" href=""
-                            onclick="event.preventDefault();
+                        <div class="mt-3">
+                            <a href="{{ route('company.dashboard') }}"><i class="fa-regular fa-user"></i>
+                                Profile
+                                Page</a>
+                        </div>
+                        <div class="">
+                            <a href="{{ route('company.inbox') }}"><i class="fa-regular fa-message"></i> Inbox</a>
+                        </div>
+                        <div class="">
+                            <a href=""
+                                onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i
-                                class="fa-solid fa-arrow-right-from-bracket"></i>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                            LogOut
-                        </a>
+                                    class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                LogOut
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>

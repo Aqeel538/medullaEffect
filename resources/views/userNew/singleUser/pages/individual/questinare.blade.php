@@ -61,7 +61,7 @@
                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"
                                     name="phone" id="mobile_code">
                                 <input type="hidden" name="dial_code" class="dial">
-
+                                
                             </div>
                             <span class="text-danger d-flex">
                                 @error('phone')
@@ -212,30 +212,6 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 form-group" id="city">
-                            <div class="inputfield mt-3">
-
-                                <input value="{!! $user->city ?? '' !!}" class="input-fields" type="text"
-                                    placeholder="City" name="city" id="city">
-
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 form-group" id="state">
-                            <div class="inputfield mt-3">
-
-                                <input value="{!! $user->state ?? '' !!}" class="input-fields" type="text"
-                                    placeholder="State" name="state" id="state">
-
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 form-group" id="zipCode">
-                            <div class="inputfield mt-3">
-
-                                <input value="{!! $user->zip_code ?? '' !!}" class="input-fields" type="number"
-                                    placeholder="Zip code" name="zip_code" id="zopCode">
-
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
 
@@ -296,37 +272,6 @@
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
 
-                                <select class="w-100 greyColor" name="experience" style="width: 100%;" id="experience">
-                                    <?php
-                                    if($user->experience){
-                                        ?>
-                                    <script>
-                                        $('#experience').removeClass('greyColor')
-                                        $('#experience').addClass('black')
-                                    </script>
-                                    <?php
-                                    }
-
-                                    ?>
-                                    <option value="{!! $user->experience ?? '' !!}" selected hidden>{!! $user->experience ?? 'Experience' !!}
-                                    </option>
-                                    <option value="Fresher">Fresher</option>
-                                    <option value="Begginer">Begginer</option>
-                                    <option value="Professional">Professional</option>
-                                </select>
-                                <span class="text-danger d-flex">
-                                    @error('experience')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group mt-3">
-                            <div class="inputfield">
-
                                 <input value="{!! $user->nationality ?? '' !!}" class="input-fields" type="text"
                                     name="nationality" placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
                             </div>
@@ -345,21 +290,6 @@
     </div>
 
     <script>
-        $("#workingCapitalLoan").on("change", function() {
-            if ($('#workingCapitalLoan').val() == "In-person") {
-                // $("#tax").val('');
-
-                $("#city").show(1000);
-                $("#state").show(1000);
-                $("#zipCode").show(1000);
-            } else {
-
-                $("#city").hide(1000);
-                $("#state").hide(1000);
-                $("#zipCode").hide(1000);
-            }
-        })
-
         $('#gender').on('change', () => {
             // alert("ok")
             $('#gender').removeClass('greyColor')
@@ -389,12 +319,6 @@
             // alert("ok")
             $('#payRange').removeClass('greyColor')
             $('#payRange').addClass('black')
-
-        })
-        $('#experience').on('change', () => {
-            // alert("ok")
-            $('#experience').removeClass('greyColor')
-            $('#experience').addClass('black')
 
         })
     </script>

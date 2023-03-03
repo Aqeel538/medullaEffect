@@ -34,7 +34,7 @@
                     <div class="col-9 central-data-signup ">
                         <div>
                             <h5 class="job-headings pb-4">Individual Sign Up</h5>
-                            <p class="job-view-para-2 pb-4">Post job Hire people through Medulla...nis iste
+                            <p class="job-view-para-2 pb-4" style="width:600px">Post job Hire people through Medulla...nis iste
                                 natus error sit
                                 voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                         </div>
@@ -103,8 +103,8 @@
 
                                 <button type="submit" class="buttonfilled">Register</button>
                             </div>
-                            <div class="pt-5">
-                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700;">Already have an account?
+                            <div class="pt-5 pb-4">
+                                <p class="already-acount">Already have an account?
                                     <span class="log_company"><a href="/login">Log In</a></span>
                                 </p>
                             </div>
