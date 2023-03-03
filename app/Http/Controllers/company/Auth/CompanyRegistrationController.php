@@ -165,16 +165,29 @@ class CompanyRegistrationController extends Controller
 
     public function company_updatePassword(Request $request)
     {
-        // dd($request);
-        $request->validate([
+        // $request->validate([
+        //     'current_password' => ['required', new MatchOldPassword],
+        //     'new_password' => ['required'],
+        //     'new_confirm_password' => ['same:new_password'],
+        // ]);
+
+        $validator = Validator::make($request->all(), [
+
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
+            'new_password' => 'required|string|max:255',
             'new_confirm_password' => ['same:new_password'],
         ]);
+        if (!$validator->passes()) {
 
-        $passwordChanged = User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+            return response()->json(['status' => 0, 'message' => "failed to update password!", 'error' => $validator->errors()->toArray()]);
+        } else {
 
-        return redirect()->back()->with('success', 'Password updated successfully.');
+            $passwordChanged = User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+
+            if ($passwordChanged) {
+                return response()->json(['status' => 1, 'message' => "Password Has Been Successfully updated"]);
+            }
+        }
     }
 
     // OTP VERIFICATION

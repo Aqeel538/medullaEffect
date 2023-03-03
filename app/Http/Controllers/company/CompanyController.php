@@ -73,6 +73,7 @@ class CompanyController extends Controller
             'nationality' => $req['nationality'],
             'employees' => $req['employees'],
             'employees_limit' => $req['employees_limit'],
+            'experience' => $req['experience'],
             'description' => $req['description'],
 
 
@@ -106,18 +107,21 @@ class CompanyController extends Controller
 
     public function company_jobs_store(Request $req, $id)
     {
+
         $user_id = auth()->user()->id;
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->update([
                 'user_id' => $user_id,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
+                'rate' => $req->rate,
                 'job_type' => $req->job_type,
                 'city' => $req->city,
                 'state' => $req->state,
                 'zip_code' => $req->zip_code,
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
+                'experience' => $req->experience,
                 'short_description' => $req->short_description,
                 'description' => $req->description,
 
@@ -135,6 +139,7 @@ class CompanyController extends Controller
                 'zip_code' => $req->zip_code,
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
+                'experience' => $req->experience,
                 'short_description' => $req->short_description,
                 'description' => $req->description,
             ]);

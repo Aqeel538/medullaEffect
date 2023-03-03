@@ -380,7 +380,7 @@ class FreelancerController extends Controller
         $profile = User::whereId($id)->update([
             'name' => $req['name'],
             'email' => $req['email'],
-            // 'gender' => $req['gender'],
+            'gender' => $req['gender'],
             'phone' => $req['phone'],
             'job_type' => $req['job_type'],
             'city' => $req['city'],
@@ -394,6 +394,7 @@ class FreelancerController extends Controller
             'nationality' => $req['nationality'],
             'employees' => $req['employees'],
             'employees_limit' => $req['employees_limit'],
+            'experience' => $req['experience'],
             'description' => $req['description'],
 
 

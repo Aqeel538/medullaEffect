@@ -1,5 +1,6 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+    <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
     @include('userNew.singleUser.pages.company.secondNav')
 
     <div class="container  mt-5 pt-5 pb-4 mb-5">
@@ -62,7 +63,7 @@
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="call-outline"></ion-icon> --}}
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                                    placeholder="Phone Number" name="phone"  id="mobile_code">
+                                                    placeholder="Phone Number" name="phone" id="mobile_code">
                                             </div>
 
                                         </div>
@@ -203,9 +204,13 @@
                     </div>
 
                     <div id="Paris" class=" city" style="display:none">
+                        <div id="loader-container">
+                            <div class="loader"></div>
+                        </div>
                         <h5 class="card-title">Password</h5>
                         <div class="" id="password" role="tabpanel">
-                            <form method="POST" action="{{ route('company.change.password') }}">
+                            {{-- <form method="POST" action="{{ route('company.change.password') }}"> --}}
+                            <form id="updatePassword">
                                 @csrf
                                 <div class="form-group ">
 
@@ -213,9 +218,10 @@
                                         <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" placeholder="Current Password"
                                             name="current_password" id="current_password">
-                                        @error('current_password')
+                                        {{-- @error('current_password')
                                             <span>{{ $message }}</span>
-                                        @enderror
+                                        @enderror --}}
+                                        <span class="text-danger error-text current_password"></span>
                                     </div>
                                     <small><a href="#" class="forgot-psw">Forgot your password?</a></small>
                                 </div>
@@ -224,9 +230,10 @@
                                         <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" placeholder="NewPassword"
                                             name="new_password" id="new_password">
-                                        @error('new_password')
+                                        {{-- @error('new_password')
                                             <span>{{ $message }}</span>
-                                        @enderror
+                                        @enderror --}}
+                                        <span class="text-danger error-text new_password"></span>
                                     </div>
                                 </div>
                                 <div class="form-group mt-3">
@@ -234,16 +241,15 @@
                                         <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" placeholder="Verify Password"
                                             name="new_confirm_password" id="new_confirm_password">
-                                        @error('new_confirm_password')
+                                        {{-- @error('new_confirm_password')
                                             <span>{{ $message }}</span>
-                                        @enderror
+                                        @enderror --}}
+                                        <span class="text-danger error-text new_confirm_password"></span>
                                     </div>
                                 </div>
-                                <button type="submit" class="buttonfill-apply mt-3">Save changes</button>
-
+                                <button type="submit" onclick="registerloader()" class="buttonfill-apply mt-3">Save
+                                    changes</button>
                             </form>
-
-
                         </div>
                     </div>
 
@@ -264,16 +270,11 @@
                                 <div class="" id="comapnyActiveStatusContent" style="display: none;">
 
                                     <p class="mt-3 text-success"><b> You are active now!</b></p>
-
-
                                 </div>
                             @else
                                 <div class="activestatus"></div>
                             @endif
                         </div>
-
-
-
                     </div>
 
                     <div id="acount" class="city" style="display:none">
@@ -308,14 +309,11 @@
                                         <a href="{{ route('deactivate', $user->id) }}"><button type="button"
                                                 class="deletebtn"><i class="fa-solid fa-trash"></i>
                                                 Deactivate</button></a>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -347,5 +345,45 @@
             $('#payRange').addClass('black')
 
         })
+    </script>
+
+    <script>
+        $(function() {
+            $("#updatePassword").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/company/change-password",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            $('.current_password').html(data.error.current_password);
+                            $('.new_password').html(data.error.new_password);
+                            $('.new_confirm_password').html(data.error.new_confirm_password);
+                            toastr.error(data.message);
+                            loader.style.display = "none";
+
+
+                        } else {
+
+                            window.location.href = "/company/setting";
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
     </script>
 @endsection

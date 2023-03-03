@@ -119,6 +119,7 @@ class RegistrationControllerInd extends Controller
             'work_type' => $req['work_type'],
             'industry_and_position' => $req['industry_and_position'],
             'pay_range' => $req['pay_range'],
+            'experience' => $req['experience'],
             'nationality' => $req['nationality'],
             'questionaire_submit' => 1,
         ]);
@@ -186,6 +187,7 @@ class RegistrationControllerInd extends Controller
             'experience' => $req['experience'],
             'pay_range' => $req['pay_range'],
             'nationality' => $req['nationality'],
+            'experience' => $req['experience'],
             'description' => $req['description'],
         ]);
         return redirect()->route('profile', $id);

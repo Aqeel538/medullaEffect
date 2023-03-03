@@ -226,7 +226,7 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     // SETTING PAGE
     Route::get('company/setting', [CompanyController::class, 'comapny_setting'])->name('comapny.setting');
 
-    Route::post('company/change-password', [CompanyRegistrationController::class, 'company_updatePassword'])->name('company.change.password');
+    Route::post('/company/change-password', [CompanyRegistrationController::class, 'company_updatePassword'])->name('company.change.password');
 
     Route::get('company/userChangeStatus', [CompanyController::class, 'company_userChangeStatus']);
     Route::get('deactivate/{id}', [CompanyController::class, 'deactivate'])->name('deactivate');

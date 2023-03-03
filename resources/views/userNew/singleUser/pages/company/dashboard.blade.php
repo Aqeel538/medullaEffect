@@ -306,6 +306,35 @@
                             </span>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 form-group mt-3">
+                            <div class="inputfield">
+                                <select class="w-100 greyColor" name="experience" style="width: 100%;" id="experience">
+                                    <?php
+                                    if($user->experience){
+                                        ?>
+                                    <script>
+                                        $('#experience').removeClass('greyColor')
+                                        $('#experience').addClass('black')
+                                    </script>
+                                    <?php
+                                    }
+
+                                    ?>
+                                    <option value="{!! $user->experience ?? '' !!}" selected hidden>{!! $user->experience ?? 'Experience' !!}
+                                    </option>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="Begginer">Begginer</option>
+                                    <option value="Professional">Professional</option>
+                                </select>
+                                <span class="text-danger d-flex">
+                                    @error('experience')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group mt-3">
                         <textarea class="form-control" id="exampleFormControlTextarea1" name="description"
                             placeholder="{!! $user->description ?? 'Description' !!}"
@@ -319,23 +348,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <div class="container">
-        <form id="login" onsubmit="process(event)">
-            <p>Enter your phone number:</p>
-            <input id="phone" type="tel" name="phone" />
-            <input type="submit" class="btn" value="Verify" />
-        </form>
-    </div> --}}
-
-    {{-- COUNTRY CODE
-    <script>
-        const phoneInputField = document.querySelector("#phone");
-        const phoneInput = window.intlTelInput(phoneInputField, {
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        });
-    </script> --}}
-
     <script>
         $("#workingCapitalLoan").on("change", function() {
             if ($('#workingCapitalLoan').val() == "In-person") {
@@ -375,6 +387,12 @@
             // alert("ok")
             $('#payRange').removeClass('greyColor')
             $('#payRange').addClass('black')
+
+        })
+        $('#experience').on('change', () => {
+            // alert("ok")
+            $('#experience').removeClass('greyColor')
+            $('#experience').addClass('black')
 
         })
     </script>

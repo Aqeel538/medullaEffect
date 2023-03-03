@@ -195,6 +195,39 @@
 
                                         <div class="col-12 form-group mt-3">
                                             <div class="inputfield">
+
+                                                <select class="w-100 greyColor" name="experience" style="width: 100%;"
+                                                    id="experience">
+                                                    <?php
+                                                    if($user->experience){
+                                                        ?>
+                                                    <script>
+                                                        $('#experience').removeClass('greyColor')
+                                                        $('#experience').addClass('black')
+                                                    </script>
+                                                    <?php
+                                                    }
+
+                                                    ?>
+                                                    <option value="{!! $user->experience ?? '' !!}" selected hidden>
+                                                        {!! $user->experience ?? 'Experience' !!}
+                                                    </option>
+                                                    <option value="Fresher">Fresher</option>
+                                                    <option value="Begginer">Begginer</option>
+                                                    <option value="Professional">Professional</option>
+                                                </select>
+                                                <span class="text-danger d-flex">
+                                                    @error('experience')
+                                                        {{ $message }}
+                                                    @enderror
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-12 form-group mt-3">
+                                            <div class="inputfield">
                                                 <input class="input-container" type="text" name="nationality"
                                                     placeholder="State your nationality"
                                                     value="{!! $user->nationality ?? '' !!}" />

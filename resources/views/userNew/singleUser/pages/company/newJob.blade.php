@@ -57,7 +57,7 @@
                                 aria-label=".form-select-sm example">
 
                                 <?php
-                                    if(isset( $obj->Categories->id ) && !empty( $obj->Categories->id ) ?  $obj->Categories->id  : '' ){
+                                    if(isset( $obj->experience ) && !empty( $obj->Categories->id ) ?  $obj->Categories->id  : '' ){
                                         ?>
                                 <script>
                                     $('#category').removeClass('greyColor')
@@ -151,7 +151,34 @@
                                 value="<?= isset($obj->zip_code) && !empty($obj->zip_code) ? $obj->zip_code : '' ?>"placeholder="Zip code"
                                 style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
                         </div>
-                        <div class="form-group mt-3">
+                        <div class="col-lg-12 col-md-12 col-12 mt-3">
+                            <select name="experience" class="form-select form-select-sm greyColor" id="experience"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                aria-label=".form-select-sm example">
+
+                                <?php
+                                    if(isset( $obj->experience ) && !empty( $obj->experience ) ?  $obj->experience  : '' ){
+                                        ?>
+                                <script>
+                                    $('#experience').removeClass('greyColor')
+                                    $('#experience').addClass('black')
+                                </script>
+                                <?php
+                                    }else {
+
+                                    }
+
+                                    ?>
+                                <option value="{!! $obj->experience ?? '' !!}" selected hidden>{!! $obj->experience ?? 'Experience' !!}
+                                </option>
+                                <option value="Fresher">Fresher</option>
+                                <option value="Begginer">Begginer</option>
+                                <option value="Professional">Professional</option>
+                            </select>
+
+
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-12  mt-3">
                             <input class="form-control" placeholder="Short description" name="short_description"
                                 value="<?= isset($obj->short_description) && !empty($obj->short_description) ? $obj->short_description : '' ?>"
                                 rows="6" style="background-color: #f4f4f4; border: none">
@@ -200,6 +227,12 @@
             // alert("ok")
             $('#work_type').removeClass('greyColor')
             $('#work_type').addClass('black')
+
+        })
+        $('#experience').on('change', () => {
+            // alert("ok")
+            $('#experience').removeClass('greyColor')
+            $('#experience').addClass('black')
 
         })
     </script>
