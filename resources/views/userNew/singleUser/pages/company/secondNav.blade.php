@@ -72,8 +72,7 @@
                         class="bell" alt="" srcset="">
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('company.dashboard') }}"><i
-                                class="fa-regular fa-user"></i>
+                        <a class="dropdown-item" href="{{ route('company.jobs') }}"><i class="fa-regular fa-user"></i>
                             Profile
                             Page</a>
                         <a class="dropdown-item" href="{{ route('company.inbox') }}"><i

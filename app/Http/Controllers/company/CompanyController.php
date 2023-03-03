@@ -88,9 +88,10 @@ class CompanyController extends Controller
     public function company_jobs()
     {
         $title = 'All Jobs';
+        $user = Auth::user();
         $user_id = auth()->user()->id;
         $allJobs = Job::where('user_id', $user_id)->get();
-        return view('userNew.singleUser.pages.company.job', get_defined_vars());
+        return view('userNew.singleUser.pages.company.profile', get_defined_vars());
     }
     public function company_jobs_form($id)
     {

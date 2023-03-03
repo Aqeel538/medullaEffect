@@ -7,7 +7,7 @@
             <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
                 <div class="row ">
                     <div class="col-12">
-                        <h1 class="headings">Jobs</h1>
+                        <h1 class="headings">Profile</h1>
                     </div>
 
                 </div>
@@ -21,8 +21,26 @@
             </div>
         </div>
         <div class="row mt-3 crd-row-one">
-            <div class="col-lg-3">
-
+            <div class="col-lg-3 mt-5 mt-lg-0   col-12 text-center">
+                <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
+                    <div class="avatar-upload">
+                        <form id="edit_image_form">
+                            <div class="avatar-edit">
+                                <?php $image = isset($user->image) && !empty($user->image) ? $user->image : ''; ?>
+                                <input type='file' name="image" id="imageUpload" data-default-file="{{<?= $user->image ?>}}"
+                                    accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview"
+                                    style="background-image: url({!! $user->image !!});">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <h6 class="justify-content-center pt-2 pb-2 john-text">{!! $user->name ?? '' !!}</h6>
+                    <p class="john-para">{!! $user->address ?? '' !!}</p>
+                </div>
             </div>
             <div class="col-lg-6 ps-4 pe-4 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"
                 style="background-color: #F9F9F9;  border-radius: 21.0305px;">
@@ -52,7 +70,7 @@
                                                 <i class="fas-elip fa-solid fa-ellipsis"></i>
                                             </div>
                                         </div>
-                                        <p class="abutnexa-text pt-4 pb-3">{{ $job->description }} </p>
+                                        <p class="abutnexa-text pt-4 pb-3">{!! $job->short_description??"" !!} </p>
                                         <div class="jobviewbtns mt-1 mb-1">
                                             <a href="{{ route('company_jobs_form', $job->id) }}">
                                                 <button class="buttonfill-apply">Edit Job</button>

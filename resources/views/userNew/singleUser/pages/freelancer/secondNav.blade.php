@@ -23,32 +23,30 @@
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorbell.png" class="bells mx-2"
                             alt="" srcset="" />
                     </a>
-                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
+
+
+
+                    <img id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" style="cursor: pointer;"
+                        src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
                         class="bell" alt="" srcset="">
-                    <div class="userdata " id="userdata">
-                        <div class="olp">
-                            <i class="fa-solid fa-xmark " id="close" onclick="userprofile()"></i>
 
-                        </div>
-
-                        <div class="mt-3">
-                            <a href="{{ route('freelancer.profile') }}"><i class="fa-solid fa-right-long"></i> Profile
-                                Page</a>
-                        </div>
-                        <div class="">
-                            <a href="{{ route('freelancer.inbox') }}"><i class="fa-regular fa-message"></i> Inbox</a>
-                        </div>
-                        <div class="">
-                            <a href=""
-                                onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"><i
-                                    class="fa-solid fa-right-from-bracket"></i>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                                LogOut
-                            </a>
-                        </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{{ route('freelancer.profile') }}"><i
+                                class="fa-regular fa-user"></i>
+                            Profile
+                            Page</a>
+                        <a class="dropdown-item" href="{{ route('freelancer.inbox') }}"><i
+                                class="fa-regular fa-message"></i> Inbox</a>
+                        <a class="dropdown-item" href=""
+                            onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                            LogOut
+                        </a>
                     </div>
                 </div>
 

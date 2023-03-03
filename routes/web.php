@@ -197,7 +197,7 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/individual/advanceSearch', [CompanyController::class, 'company_individual_advanceSearch'])->name('company.individual.advanceSearch');
 
     // JOBS
-    Route::get('/company/jobs', [CompanyController::class, 'company_jobs'])->name('company.jobs');
+    Route::get('/company/profile', [CompanyController::class, 'company_jobs'])->name('company.jobs');
     Route::get('/company/jobs/form/{id}', [CompanyController::class, 'company_jobs_form'])->name('company_jobs_form');
     Route::post('/company/jobs/store/{id}', [CompanyController::class, 'company_jobs_store'])->name('company_jobs_store');
     Route::get('/company/jodDetails/{id}', [CompanyController::class, 'company_jodDetails'])->name('company.jodDetails');
