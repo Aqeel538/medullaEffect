@@ -64,7 +64,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Company</h2>
                         <p class="cards-text-para">
-                            sanasllo Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                             Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
                         <a href="{{ route('companay') }}">
@@ -113,7 +113,7 @@
     </div>
 
     <!-- about us page -->
-    {{-- <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
+    <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
         <div class="text-center mt-5">
             <h1 class="herosecion pt-5">About Us </h1>
             <div class="botom-hr">
@@ -229,7 +229,7 @@
 
         </div>
 
-    </div> --}}
+    </div>
     <!-- about us page -->
 
 
