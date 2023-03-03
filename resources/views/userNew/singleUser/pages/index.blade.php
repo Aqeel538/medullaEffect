@@ -113,7 +113,7 @@
     </div>
 
     <!-- about us page -->
-    <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
+    {{-- <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
         <div class="text-center mt-5">
             <h1 class="herosecion pt-5">About Us </h1>
             <div class="botom-hr">
@@ -229,7 +229,7 @@
 
         </div>
 
-    </div>
+    </div> --}}
     <!-- about us page -->
 
 

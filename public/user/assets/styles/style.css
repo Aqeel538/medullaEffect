@@ -367,7 +367,7 @@ body {
 }
 
 .cards-headig-midle-card {
-    font-family: "Poppins";
+font-family: 'Helvetica';
     font-style: normal;
     font-weight: 700;
     font-size: 33.4576px;
@@ -381,7 +381,7 @@ body {
 }
 
 .cards-text-para {
-    font-family: "Poppins";
+  font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
@@ -397,7 +397,7 @@ body {
 }
 
 .text-para-midle-card {
-    font-family: "Poppins";
+font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
