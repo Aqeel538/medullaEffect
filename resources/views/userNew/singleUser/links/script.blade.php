@@ -22,7 +22,7 @@
    ></script>
  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
  <script src="{{ asset('user') }}/assets/allNavScripts.js"></script>
-
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
  <script>
      function readURL(input) {
          if (input.files && input.files[0]) {

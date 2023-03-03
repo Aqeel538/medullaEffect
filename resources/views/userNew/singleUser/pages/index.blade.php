@@ -14,7 +14,7 @@
                         <li><a class="navbar-link" href="#aboutUs">About us</a>
                         </li>
                         <li><a class="navbar-link" href="#ourServices">Services</a></li>
-                        <li><a class="navbar-link" href="{{ route('faq') }}">FAQ's</a></li>
+                        <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
                         <li><a class="navbar-link" href="#contactUs">Contact</a></li>
 
                         </li>
@@ -235,8 +235,9 @@
 
     <!-- sservice page -->
     <div id="ourServices" class="container-fluid  pb-5 ">
-        <div class="text-center mt-5">
-            <h1 class="herosecion pt-5">Our Services</h1>
+
+        <div class="text-center  mt-5 herosecion">
+            <h3 class="pt-5 services-heading">Our Services</h3>
             <div class="botom-hr">
                 <div class="iner-btom"></div>
             </div>
@@ -248,64 +249,13 @@
                     <div class="iner-servc-crd">
 
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group.png" alt=""
-                                srcset="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/combined Shape.png"
+                                alt="" srcset="">
                         </div>
                         <div>
-                            <h3 class="about-nexa-heading text-center">Creating World Of Opportunities</h3>
-                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sit
-                                exercitationem, officiis placeat, error perspiciatis veniam corrupti voluptatem dolorem
-                                illum nostrum
-                                asperiores blanditiis voluptas reprehenderit facere. Ad tempore sequi eius.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-10 mt-5">
-                    <div class="iner-servc-crd ">
-                        <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/job.png" alt=""
-                                srcset="">
-                        </div>
-                        <div>
-                            <h3 class="about-nexa-heading text-center">Providing Dream <br> Jobs</h3>
-                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sit
-                                exercitationem, officiis placeat, error perspiciatis veniam corrupti voluptatem dolorem
-                                illum nostrum
-                                asperiores blanditiis voluptas reprehenderit facere. Ad tempore sequi eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-10 mt-5">
-                    <div class="iner-servc-crd">
-                        <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group (2).png" alt=""
-                                srcset="">
-                        </div>
-                        <div>
-                            <h3 class="about-nexa-heading text-center">Connecting Desired Positions</h3>
-                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sit
-                                exercitationem, officiis placeat, error perspiciatis veniam corrupti voluptatem dolorem
-                                illum nostrum
-                                asperiores blanditiis voluptas reprehenderit facere. Ad tempore sequi eius.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6 col-10 mt-5">
-                    <div class="iner-servc-crd ">
-                        <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/networking.png" alt=""
-                                srcset="">
-                        </div>
-                        <div>
-                            <h3 class="about-nexa-heading text-center">Networking employers & jobs</h3>
-                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sit
-                                exercitationem, officiis placeat, error perspiciatis veniam corrupti voluptatem dolorem
-                                illum nostrum
-                                asperiores blanditiis voluptas reprehenderit facere. Ad tempore sequi eius.</p>
+                            <h3 class="about-servc-heading ">Creating World Of Opportunities</h3>
+                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit
+                                exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
                         </div>
                     </div>
 
@@ -313,123 +263,235 @@
                 <div class="col-lg-4 col-md-6 col-10 mt-5">
                     <div class="iner-servc-crd">
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group (4).png" alt=""
-                                srcset="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorredemail.png"
+                                alt="" srcset="">
                         </div>
                         <div>
-                            <h3 class="about-nexa-heading text-center">Empowring Employers & Employees</h3>
-                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sit
-                                exercitationem, officiis placeat, error perspiciatis veniam corrupti voluptatem dolorem
-                                illum nostrum
-                                asperiores blanditiis voluptas reprehenderit facere. Ad tempore sequi eius.</p>
+                            <h3 class="about-servc-heading ">Providing Dream
+                                <br> Jobs
+                            </h3>
+                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit
+                                exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
                         </div>
                     </div>
 
                 </div>
                 <div class="col-lg-4 col-md-6 col-10 mt-5">
                     <div class="iner-servc-crd">
+
                         <div class="img-sec">
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group 36.png" alt=""
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/path2209.png" alt=""
                                 srcset="">
                         </div>
                         <div>
-                            <h3 class="about-nexa-heading text-center">Succeding Industry <br> Wise</h3>
-                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sit
-                                exercitationem, officiis placeat, error perspiciatis veniam corrupti voluptatem dolorem
-                                illum nostrum
-                                asperiores blanditiis voluptas reprehenderit facere. Ad tempore sequi eius.</p>
+                            <h3 class="about-servc-heading ">Connecting Desired Positions</h3>
+                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit
+                                exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
                         </div>
                     </div>
 
                 </div>
+                <div class="col-lg-4 col-md-6 col-10 mt-2">
+                    <div class="iner-servc-crd">
+
+                        <div class="img-sec">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/net-vector.png" alt=""
+                                srcset="">
+                        </div>
+                        <div>
+                            <h3 class="about-servc-heading ">Connecting Desired Positions</h3>
+                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit
+                                exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 col-10 mt-2">
+                    <div class="iner-servc-crd">
+
+                        <div class="img-sec">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/bulb.png" alt=""
+                                srcset="">
+                        </div>
+                        <div>
+                            <h3 class="about-servc-heading ">Empowering Employers & Employees</h3>
+                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit
+                                exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-6 col-10 mt-2">
+                    <div class="iner-servc-crd">
+
+                        <div class="img-sec">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/trophy.png" alt=""
+                                srcset="">
+                        </div>
+                        <div>
+                            <h3 class="about-servc-heading ">Succeeding IndustryWise</h3>
+                            <p class="servc-detail pt-3">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit
+                                exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
             </div>
         </div>
     </div>
     <!-- serrvice page end-->
+
+
+
+    <!-- faqs -->
+    <div id="faqs" class="container-fluid faq-red">
+        <div class="container pt-5 pb-5">
+            <h3 class="text-center faqs-heading">FAQs</h3>
+            <p class=" faq-para text-center mx-auto">The labor shortage is the leading factor why companies struggle to
+                build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire
+                and builds their workforce with global talent.!</p>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <div class="accourdian">
+                        <div class="accordian-item item1">
+                            <div class="accordian-link">
+                                What Started The Medulla Effect ?
+                                <i class="icons ion-md-add"></i>
+                            </div>
+                            <div class="answer">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas esse odit voluptatem
+                                    consectetur debitis vero magni facere. Laudantium quia architecto ratione accusamus ea
+                                    dicta incidunt animi recusandae quasi cumque.Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Eum quas esse odit voluptatem consectetur debitis vero magni facere.
+                                    Laudantium quia architecto ratione accusamus ea dicta incidunt animi recusandae quasi
+                                    cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas esse odit
+                                    voluptatem consectetur debitis vero magni facere. Laudantium quia architecto ratione
+                                    accusamus ea dicta incidunt animi recusandae quasi cumque.Lorem ipsum dolor sit amet
+                                    consectetur adipisicing elit. Eum quas esse odit voluptatem consectetur debitis vero
+                                    magni facere. Laudantium quia architecto ratione accusamus ea dicta incidunt animi
+                                    recusandae quasi cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+                                    quas esse odit voluptatem consectetur debitis vero magni facere. Laudantium quia
+                                    architecto ratione accusamus ea dicta incidunt animi recusandae quasi cumque.Lorem ipsum
+                                    dolor sit amet consectetur adipisicing elit. Eum quas esse odit voluptatem consectetur
+                                    debitis vero magni facere. Laudantium quia architecto ratione accusamus ea dicta
+                                    incidunt animi recusandae quasi cumque.Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Eum quas esse odit voluptatem consectetur debitis vero magni facere.
+                                    Laudantium quia architecto ratione accusamus ea dicta incidunt animi recusandae quasi
+                                    cumque.</p>
+                            </div>
+                        </div>
+                        <div class="accordian-item item2">
+                            <div class="accordian-link">
+                                How The Medulla Effect is Empowering Employers & Individuals?
+                                <i class="icons ion-md-add"></i>
+                            </div>
+                            <div class="answer">
+                                <p>With the difficulty of employer's trying to find workers to fill their job openings,
+                                    employer's have essentially stopped laying off or firing people who don't exactly have
+                                    the talent they are looking for. This is why companies are struggling to grow, execute
+                                    their goals, and provide good customer service. Our team of professionals leverages our
+                                    network of experts and locates the best skilled individuals to fulfill your opening's.
+                                    Our team does the searching, interviewing, validating, prequalifying, and then we
+                                    present to you the best candidates that qualify for the position.</p>
+                            </div>
+                        </div>
+                        <div class="accordian-item item3">
+                            <div class="accordian-link">
+                                Has Medulla Effect Created Industry Wide Success?
+                                <i class="icons ion-md-add"></i>
+                            </div>
+                            <div class="answer">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas esse odit voluptatem
+                                    consectetur debitis vero magni facere. Laudantium quia architecto ratione accusamus ea
+                                    dicta incidunt animi recusandae quasi cumque.</p>
+                            </div>
+                        </div>
+                        <div class="accordian-item item4">
+                            <div class="accordian-link">
+                                Has Medulla Effect Given Individuals A World Of Opportunity ?
+                                <i class="icons ion-md-add"></i>
+                            </div>
+                            <div class="answer">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas esse odit voluptatem
+                                    consectetur debitis vero magni facere. Laudantium quia architecto ratione accusamus ea
+                                    dicta incidunt animi recusandae quasi cumque.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- faqs -->
 
     <!-- contact us section -->
     <div class="conatiner-fluid bg-grey" id="contactUs">
         <div class="container mt-5 mb-5">
 
 
-            <div class="about-nexa-heading text-center">
-                <h1 class="herosecion pt-5">Contact Us</h1>
-                <div class="botom-hr">
-                    <div class="iner-btom"></div>
-                </div>
+            <div class="justify-content-center">
+                <h1 class="contct us pt-5">Contact Us</h1>
+              
 
             </div>
             <div class="row justify-content-center p-lg-5 p-md-3 m-3">
-                <div class="col-lg-6 col-md-6 col-12">
-                    <iframe class="w-100 " style="height: -webkit-fill-available;"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58365.19068196581!2d89.1033283!3d23.8958441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe965536b7d61f%3A0x28fea367efdb38c9!2sKushtia!5e0!3m2!1sen!2sbd!4v1588845495032!5m2!1sen!2sbd"
-                        height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
+
+                <div class=" col-lg-6 col-md-6 col-12 ps-lg-5 pt-lg-0 pt-5">
+                    <div class="form-images">
+
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/map.png" 
+                            alt=""  class="z--ind w-100"/>
+
+
+
+                        <div>
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/cont-bg-img.png" 
+                                alt="" class="
+                                w-100" />
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-4">
-                    <div class="contct-frm bg-white p-4 rounded-3">
+                <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-5">
+                    <div class="contct-frm ">
+                        <form>
 
-                        <form id="submitLeadForm" class="row form">
-                            @csrf
-                            <div class="col-12 okssksk">
-                                <ion-icon name="person-outline" style="font-size: 25px;"></ion-icon>
-                                <input type="text" name="name" class="" placeholder="Full Name"
-                                    id="name">
+
+                            <div class=" mb-3">
+                          
+                                <input type="text" class="form-control cos" id="inputAddress" placeholder="Full Name">
+                              </div>
+                            <div class="row ">
+                              <div class="col">
+                                <input type="text" class="form-control cos" placeholder="Email ID">
+                              </div>
+                              <div class="col">
+                                <input type="number" class="form-control cos" placeholder="Phone Number">
+                              </div>
                             </div>
-                            <div class="col-12 okssksk">
-                                <ion-icon name="mail-outline" style="font-size: 25px;"></ion-icon>
-                                <input type="email" name="email" class="" placeholder="Email" id="email">
-                            </div>
-                            <div class="col-12 okssksk">
 
-                                <input type="number" name="phone" id="mobile_code" class=""
-                                    placeholder="Phone" id="phone">
-                            </div>
-                            <div class="col-12 okssksk">
-
-                                <textarea type="text" name="message" class="" id="helpBox" cols="30" rows="10"
-                                    placeholder="Message"></textarea>
+                            <div class="form-group">
+                       
+                                <textarea class="mt-3 cos form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="8"></textarea>
+                              </div>
+                            
 
 
-                            </div>
-                            <div class="submit-area mt-4">
+
+                              <div class="submit-area  mt-4">
                                 <button class="buttonsend">Send </button>
                             </div>
-                        </form>
+                          </form>
+                        
 
-                        <script>
-                            $(function() {
-                                $("#submitLeadForm").on('submit', function(e) {
-                                    e.preventDefault();
-                                    $.ajax({
-                                        url: "/submit/lead/form",
-                                        method: "post",
-                                        data: new FormData(this),
-                                        processData: false,
-                                        dataType: 'json',
-                                        contentType: false,
-                                        beforeSend: function() {
-                                            $(document).find('span.error-text').text('');
-                                        },
-                                        success: function(data) {
-                                            if (data.status == 0) {
-                                                $('.fname_error').html(data.error.fname);
-                                                $('.lname_error').html(data.error.lname);
-                                                $('.email_error').html(data.error.email);
-                                                $('.phone_error').html(data.error.phone);
-                                            } else if (data.status == 1) {
-                                                toastr.success(data.message, data.title);
-                                                $('#submitLeadForm').each(function() {
-                                                    this.reset();
-                                                });
-                                            } else {
-                                                toastr.error(data.message, data.title);
-                                            }
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
+
                     </div>
                 </div>
             </div>
@@ -527,4 +589,64 @@
             </div>
         </div>
     </footer><!-- End Footer -->
+
+
+
+
+    <script>
+        $(document).ready(function() {
+            let cards = document.querySelectorAll(".accordian-item");
+            [...cards].forEach((card) => {
+                card.addEventListener("click", function() {
+                    $(".accordian-item .answer")
+                        .not($(this).find(".answer"))
+                        .removeClass("open");
+                    $(".accordian-item i")
+                        .not($(this).find("i"))
+                        .removeClass("ion-md-remove");
+                    $(this).find(".accordian-link , .answer").toggleClass("open");
+                    $(this).find("i").toggleClass("ion-md-remove");
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <script>
+        $(function() {
+            $("#submitLeadForm").on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/submit/lead/form",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            $('.fname_error').html(data.error.fname);
+                            $('.lname_error').html(data.error.lname);
+                            $('.email_error').html(data.error.email);
+                            $('.phone_error').html(data.error.phone);
+                        } else if (data.status == 1) {
+                            toastr.success(data.message, data.title);
+                            $('#submitLeadForm').each(function() {
+                                this.reset();
+                            });
+                        } else {
+                            toastr.error(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
