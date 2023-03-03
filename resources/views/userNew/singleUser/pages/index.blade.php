@@ -64,7 +64,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Company</h2>
                         <p class="cards-text-para">
-                            hello Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                            sanasllo Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
                         <a href="{{ route('companay') }}">
