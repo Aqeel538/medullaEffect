@@ -52,7 +52,7 @@
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="mail-outline"></ion-icon> --}}
                                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
-                                                    placeholder="Email ID" name="email">
+                                                    placeholder="Email" name="email">
                                             </div>
 
                                         </div>
@@ -62,8 +62,11 @@
                                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="call-outline"></ion-icon> --}}
-                                                <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                                    placeholder="Phone Number" name="phone" id="mobile_code">
+                                                {{-- <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
+                                                    placeholder="Phone Number" name="phone" id="mobile_code"> --}}
+
+                                                <input value="{!! $user->phone ?? '' !!}" class="input-fields int"
+                                                    type="text" name="phone" id="mobile_code">
                                             </div>
 
                                         </div>
