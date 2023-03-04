@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-              
+
                 <div class="d-flex justify-content-center align-item-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8">
@@ -43,7 +43,7 @@
                                     <div class="input-container ">
                                     <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields"required type="email" name="email"
-                                            placeholder="Email ID">
+                                            placeholder="Email">
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('email')
@@ -81,7 +81,7 @@
                                     <span class="log_company"><a href="{{ url()->previous() }}">Sign Up</a></span>
                                 </p>
                             </div>
-                           
+
                         </form>
                     </div>
                 </div>
