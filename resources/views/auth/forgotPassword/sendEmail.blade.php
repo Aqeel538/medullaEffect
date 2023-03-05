@@ -31,10 +31,10 @@
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
                 <div class="res-on-375 mx-auto mt-5  d-flex justify-content-center">
 
-                    <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
-                        class="logo-img">
-                    &nbsp; <h4 class="Logo-text">Medulla
-                        Effects</h4>
+                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                     
+            
+                  
                 </div>
                 <div class="mt-5 crd-row-one">
                     <h1 class="head_text">Forget Password</h1>

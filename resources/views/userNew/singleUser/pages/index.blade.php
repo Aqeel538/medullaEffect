@@ -42,7 +42,7 @@
         <div class="row text-center justify-content-center">
             <div class="col-lg-12 col-md-10 col-12 ">
                 <h1>
-                    The Home Of Business Opportunities.
+                     Home Of Business Opportunities.
                 </h1>
                 <p class="text-phara-respns  hero-sec-paragrph pt-4">
                     Where Business Professionals Meet Other Business Professionals.
@@ -62,9 +62,11 @@
                             class="img-fluid img-siz-1" alt="no img" srcset="" />
                     </div>
                     <div class="card-iner-body">
-                        <h2 class="cards-heading">Company</h2>
+                        <h2 class="cards-heading">Employers</h2>
                         <p class="cards-text-para">
-                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+
+                            Hire best candidates for your bussiness through Medulla...nis iste natus error sit voluptatem accusantium
+
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
                         <a href="{{ route('companay') }}">

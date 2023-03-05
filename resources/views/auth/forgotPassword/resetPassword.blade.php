@@ -21,20 +21,6 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <span><i class="ri-instagram-line text-white Remix_icon"></i></span>
-                        <span><i class="ri-youtube-line ms-1  text-white Remix_icon"></i>
-                        </span>
-
-                    </div>
-                    <div>
-                        <span><i class="fa-solid fa-phone text-white phara_16"></i></span>
-                        <span><i class="fa-regular fa-envelope ms-1 text-white phara_16"></i></span>
-
-                    </div>
-
-                </div>
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8">
@@ -42,12 +28,12 @@
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
-                <div class="res-on-375 mx-auto mt-5  d-flex justify-content-center">
+                <div class="res-on-375 mx-auto mt-5  d-flex justify-content-center mt-5">
 
-                    <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
-                        class="logo-img">
-                    &nbsp; <h4 class="Logo-text">Medulla
-                        Effects</h4>
+                   
+                     
+                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                    
                 </div>
                 <div class="mt-5 crd-row-one">
 

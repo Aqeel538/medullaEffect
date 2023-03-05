@@ -912,10 +912,11 @@ a {
 .buttonunfill-clear {
     color: #7c2342;
     background-color: white;
-    padding: 10px 19px;
+    padding: 11px 19px;
     border: 1px solid #7c2342;
     border-radius: 5px;
     cursor: pointer;
+    margin: 0 10px;
     -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;

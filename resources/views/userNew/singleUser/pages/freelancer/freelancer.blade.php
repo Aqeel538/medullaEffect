@@ -27,10 +27,10 @@
                 </div>
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
-                        <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8"
-                            class="logo-img">
-                        &nbsp; <h4 class="Logo-text">Medulla
-                            Effects</h4>
+                     
+                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                     
+                      
                     </div>
                     <div class="col-9 central-data-signup ">
                         <div>

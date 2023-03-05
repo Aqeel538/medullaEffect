@@ -10,9 +10,8 @@
           </span>
         </div>
         <div class="mx-auto land_page_head d-flex">
-          <img src="{{ asset('user') }}//images/job-search-company.png" alt="w8" style="font-weight: 700;">
-          <h4 class="just_colorhead">Medulla
-            Effects</h4>
+          <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+       
         </div>
         <div>
           <span><i class="fa-solid fa-phone just_colorhead start_16_respons"></i></span>

@@ -81,9 +81,13 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
-                <div class="d-flex justify-content-center">
-                    <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png" alt="w8" />
-                    <h3 class="Poppins">Medulla Effects</h3>
+                <div class="d-flex justify-content-center mt-5">
+                    
+                     
+                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                     
+                      
+                    
                 </div>
                 <div class="row mt-5 Halvetica">
                     <div class="col-12 text-center crd-row-one">
