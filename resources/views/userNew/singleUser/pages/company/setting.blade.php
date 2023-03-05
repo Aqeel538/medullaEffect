@@ -1,6 +1,9 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
+    @php
+    $blink = 0;
+    @endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
     <div class="container  mt-5 pt-5 pb-4 mb-5">

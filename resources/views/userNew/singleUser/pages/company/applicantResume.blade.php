@@ -1,5 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+@php
+$blink = 0;
+@endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
     <!-- 2nd nav end -->

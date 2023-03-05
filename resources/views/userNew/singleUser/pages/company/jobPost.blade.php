@@ -1,5 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+@php
+$blink = 0;
+@endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <!---------------- -Navend--------------- -->
     <div class="container-fluid mt-5 plg-4 p-md-4 p-sm-3 p-1">
