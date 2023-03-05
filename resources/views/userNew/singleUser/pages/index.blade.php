@@ -65,7 +65,7 @@
                         <h2 class="cards-heading">Employers</h2>
                         <p class="cards-text-para">
 
-                            Hire best candidates for your bussiness 
+                            Hire Best Candidates For Your Bussiness 
                         </p>
                         <a href="{{ route('companay') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
@@ -81,7 +81,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-headig-midle-card">Freelancer</h2>
                         <p class="text-para-midle-card">
-                            Upload your services and grow your business
+                            Upload Your Services And Grow Your Business
                         </p>
                         <a href="{{ route('freelancer') }}">
                             <button class="buttonunfill go-btn">Let’s Go</button></a>
@@ -98,7 +98,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Individuals</h2>
                         <p class="cards-text-para">
-                            We turn a job seeker into a job secured
+                            We Turn a Job Seeker Into a Job Secured
                         </p>
                         <a href="{{ route('individual') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
@@ -496,7 +496,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
 
-        <div class="footer-newsletter">
+        {{-- <div class="footer-newsletter">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
@@ -516,7 +516,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="footer-top">
             <div class="container">
@@ -524,7 +524,7 @@
 
                     <div class="col-lg-4 col-md-6 footer-contact">
                         <div class="d-flex">
-                          <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="">
+                          <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="">
                         </div>
                         <p class="mt-2">
                             A108 Adam Street

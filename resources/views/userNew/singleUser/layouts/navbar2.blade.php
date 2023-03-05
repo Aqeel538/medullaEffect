@@ -10,7 +10,7 @@
           </span>
         </div>
         <div class="mx-auto land_page_head d-flex">
-          <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+          <img src="{{ asset('user') }}/assets/images/updatedlogo.svg" alt="w8" >
        
         </div>
         <div>

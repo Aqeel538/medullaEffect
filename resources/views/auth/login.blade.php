@@ -77,7 +77,7 @@
                                 <button type="submit" class="buttonfilled">Login</button>
                             </div>
                             <div class="pt-5">
-                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700;"> Don't have an account?
+                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700;"> Don't have an account ?
                                     <span class="log_company"><a href="{{ route('index') }}">Register</a></span>
                                 </p>
                             </div>

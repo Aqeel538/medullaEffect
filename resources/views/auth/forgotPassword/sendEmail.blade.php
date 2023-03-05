@@ -29,14 +29,14 @@
 
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
-                <div class="res-on-375 mx-auto mt-5  d-flex justify-content-center">
+                <div class="res-on-375 mx-auto mt-5 pt-5 d-flex justify-content-center">
 
                         <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
                      
             
                   
                 </div>
-                <div class="mt-5 crd-row-one">
+                <div class="mt-5 pt-5 crd-row-one">
                     <h1 class="head_text">Forget Password</h1>
                     <p class="pt-2 pb-2 " style="font-weight: 400;">Please enter your email address or mobile number to
                         search for your account.</p>
@@ -47,7 +47,7 @@
                         <div class="col-lg-6 col-md-8 col-10">
                             <div class="input-container ">
                                 <ion-icon name="mail-outline"></ion-icon>
-                                <input class="input-fields" type="email" placeholder="Email ID" name="email">
+                                <input class="input-fields" type="email" placeholder="Email" name="email">
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                             <button type="submit" class="buttonfill Poppins phara_16">Submit</button></a>
                     </div>
                     <div class="pt-5">
-                        <p class="Halvetica phara_16 mb-3" style="font-weight: 700;">Dont Recieve an email? <span
+                        <p class="Halvetica phara_16 mb-3" style="font-weight: 700;">Did not receive the email ? <span
                                 class="log_company"><a href="#">Resend</a></span></p>
                     </div>
 

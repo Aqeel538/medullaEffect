@@ -263,7 +263,7 @@
                                     <span class="text-danger error-text current_password"></span>
                                     {{-- <small><a href="#" class="forgot-psw">Forgot your password?</a></small> --}}
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mt-3">
                                     <div class="input-container  ">
 
                                         <input class="input-fields" type="password" placeholder="NewPassword"

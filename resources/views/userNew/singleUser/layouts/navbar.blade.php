@@ -9,7 +9,7 @@
                 <div class="col-lg-4 col-md-6 col-6 oki">
 
                     <div class="mx-auto land_page_head d-flex">
-                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
                      
                       </div>
 

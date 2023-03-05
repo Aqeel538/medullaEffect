@@ -231,7 +231,7 @@
                                     </div>
                                     <span class="text-danger error-text current_password"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mt-3">
                                     <div class="input-container  ">
                                         <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" placeholder="NewPassword"

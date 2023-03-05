@@ -83,7 +83,7 @@
         </script>
     @endif
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="height: 100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
                
                 <div class="d-flex justify-content-center">
@@ -105,8 +105,7 @@
                     <div class="col-12 text-center crd-row-one">
                         <h1 class="head_text">OTP Verification</h1>
                         <p class="pt-2 pb-2" style="font-weight: 400">
-                            Lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Omnis, asperiores. repudiandae a.
+                            We just sent a email to your email please check your email to get the OTP verification code.
                         </p>
                     </div>
 
@@ -150,7 +149,7 @@
                     <form id="resendEmail" method="POST" action="{{ route('register.send.email') }}">
                         @csrf
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
-                            Dont Recieve an email?
+                            Did not receive the email?
                             <input class="input-fields" type="hidden" name="email" value="{{ $user->email }}">
                             <span class="log_company"><a href="#"
                                     onclick="document.getElementById('resendEmail').submit()">Resend</a></span>
