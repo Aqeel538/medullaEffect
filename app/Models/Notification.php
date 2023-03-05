@@ -16,4 +16,9 @@ class Notification extends Model
     {
         return $this->hasOne(User::class, 'id', 'userId');
     }
+
+    public function dismissNotification()
+    {
+        return $this->hasOne(DismissNotification::class, 'job_id', 'jobId');
+    }
 }

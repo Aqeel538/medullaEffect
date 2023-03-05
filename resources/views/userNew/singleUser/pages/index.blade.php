@@ -64,7 +64,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Company</h2>
                         <p class="cards-text-para">
-                             Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
+                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
                             doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
                         </p>
                         <a href="{{ route('companay') }}">
@@ -439,7 +439,7 @@
 
             <div class="justify-content-center">
                 <h1 class="contct us pt-5">Contact Us</h1>
-              
+
 
             </div>
             <div class="row justify-content-center p-lg-5 p-md-3 m-3">
@@ -447,51 +447,47 @@
                 <div class=" col-lg-6 col-md-6 col-12 ps-lg-5 pt-lg-0 pt-5">
                     <div class="form-images">
 
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/map.png" 
-                            alt=""  class="z--ind w-100"/>
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/map.png" alt=""
+                            class="z--ind w-100" />
 
 
 
                         <div>
-                            <img src="{{ asset('user') }}/assets/images/landing-page-img/cont-bg-img.png" 
-                                alt="" class="
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/cont-bg-img.png" alt=""
+                                class="
                                 w-100" />
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-5">
                     <div class="contct-frm ">
-                        <form>
-
-
+                        <form id="submitLeadForm">
+                            @csrf
                             <div class=" mb-3">
-                          
-                                <input type="text" class="form-control cos" id="inputAddress" placeholder="Full Name">
-                              </div>
+                                <input type="text" name="name" class="form-control cos" id="inputAddress"
+                                    placeholder="Full Name">
+                                <span class="text-danger error-text name_error"></span>
+                            </div>
                             <div class="row ">
-                              <div class="col">
-                                <input type="text" class="form-control cos" placeholder="Email">
-                              </div>
-                              <div class="col">
-                                <input type="number" class="form-control cos" placeholder="Phone Number">
-                              </div>
+                                <div class="col">
+                                    <input type="email" name="email" class="form-control cos" placeholder="Email">
+                                    <span class="text-danger error-text email_error"></span>
+                                </div>
+                                <div class="col">
+                                    <input type="number" name="phone" class="form-control cos"
+                                        placeholder="Phone Number">
+                                    <span class="text-danger error-text phone_error"></span>
+                                </div>
                             </div>
-
                             <div class="form-group">
-                       
-                                <textarea class="mt-3 cos form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="8"></textarea>
-                              </div>
-                            
-
-
-
-                              <div class="submit-area  mt-4">
-                                <button class="buttonsend">Send </button>
+                                <textarea class="mt-3 cos form-control" name="message" id="exampleFormControlTextarea1" placeholder="Message"
+                                    rows="8"></textarea>
+                                <span class="text-danger error-text message_error"></span>
                             </div>
-                          </form>
-                        
-
-
+                            <div class="submit-area  mt-4">
+                                <button type="submit" class="buttonsend">Send </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -508,12 +504,16 @@
                     <div class="col-lg-6">
                         <h4>Join Our Newsletter</h4>
                         <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                        <form>
+                        <form id="submitSubscriberForm">
+                            @csrf
                             <div class="input-subscribe">
                                 <br>
-                                <input type="text" placeholder="Your-Email">
-                                <button>Subscribe now</button>
+                                <input type="email" name="email" placeholder="Your-Email">
+
+                                <button type="submit">Subscribe now</button>
+
                             </div>
+                            <span class="text-danger error-text email_error"></span>
                         </form>
                     </div>
                 </div>
@@ -615,7 +615,7 @@
 
 
 
-
+    {{-- submit lead form --}}
     <script>
         $(function() {
             $("#submitLeadForm").on('submit', function(e) {
@@ -632,13 +632,45 @@
                     },
                     success: function(data) {
                         if (data.status == 0) {
-                            $('.fname_error').html(data.error.fname);
-                            $('.lname_error').html(data.error.lname);
+                            $('.name_error').html(data.error.name);
                             $('.email_error').html(data.error.email);
                             $('.phone_error').html(data.error.phone);
+                            $('.message_error').html(data.error.message);
                         } else if (data.status == 1) {
                             toastr.success(data.message, data.title);
                             $('#submitLeadForm').each(function() {
+                                this.reset();
+                            });
+                        } else {
+                            toastr.error(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    {{-- Subscriber form --}}
+    <script>
+        $(function() {
+            $("#submitSubscriberForm").on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/submit/subscriber/form",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            $('.email_error').html(data.error.email);
+                        } else if (data.status == 1) {
+                            toastr.success(data.message, data.title);
+                            $('#submitSubscriberForm').each(function() {
                                 this.reset();
                             });
                         } else {

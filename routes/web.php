@@ -49,12 +49,6 @@ Route::get('otp-verification-page', [CompanyRegistrationController::class, 'otp_
 Route::post('company/otpVerification', [CompanyRegistrationController::class, 'company_otp_verification'])->name('company.otp.verification');
 Route::post('register/sendEmail', [CompanyRegistrationController::class, 'register_send_email'])->name('register.send.email');
 
-// Individual REGISTER OTP
-// Route::get('individaul/otp-verification-page', [RegistrationControllerInd::class, 'individual_otp_verification_page'])->name('individual.otp.verification.page');
-// Route::post('Individual/otpVerification', [RegistrationControllerInd::class, 'individual_otp_verification'])->name('individual.otp.verification');
-// Route::post('individual/register/sendEmail', [RegistrationControllerInd::class, 'individual_register_send_email'])->name('register.send.email');
-
-
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     //--------------- Admin Dashboard Routes Start ---------------\\
@@ -132,6 +126,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/submit/questionair', [RegistrationControllerInd::class, 'submit_questionair'])->name('submit.questionair');
     Route::post('individual/update/profileImage', [RegistrationControllerInd::class, 'edit_image']);
     Route::post('individual/update/resume', [RegistrationControllerInd::class, 'upload_resume']);
+
+    // DISSMISS NOTIFICATION
+    Route::post('/dismiss/notification', [SingleUserController::class, 'dismissNotification'])->name('dismiss.notification');
 });
 
 // Individual Auth routes
@@ -163,6 +160,7 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
 
     // Notification
     Route::get('individual/notifications', [IndividualController::class, 'individual_notifications'])->name('individual.notifications');
+
 
     Route::get('individual/resume', [IndividualController::class, 'individual_resume'])->name('individual.resume');
 
@@ -315,6 +313,7 @@ Route::post('/individual/create', [RegistrationControllerInd::class, 'create'])-
 Route::post('/freelancer/create', [FreelancerRegistrationController::class, 'create'])->name('freelancer.create');
 Route::post('/company/create', [CompanyRegistrationController::class, 'create'])->name('company.create');
 Route::post('/submit/lead/form', [SingleUserController::class, 'submitLeadForm'])->name('submit.lead.form');
+Route::post('/submit/subscriber/form', [SingleUserController::class, 'submitSubscriberForm'])->name('submit.subscriber.form');
 Route::middleware(['guest'])->group(function () {
     Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
 });

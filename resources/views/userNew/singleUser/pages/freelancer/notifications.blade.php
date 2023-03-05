@@ -29,13 +29,14 @@
                                     style="background: #F9F9F9;;border-radius: 20px;">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                            <img style="width: 54px;" src="{{ $notification->companyGet->image }}"
-                                                class="w-5" alt="w8">
+                                            <img style="width: 54px;height: 54px;"
+                                                src="{{ $notification->companyGet->image }}" class="w-5" alt="w8">
                                         </div>
                                         <div class="col-lg-9 col-md-9 col-sm-9 col-7">
                                             <p class="single-job-heading" style="margin: 0; padding: 0 20px;">
                                                 <b>{!! $notification->title ?? '' !!}
-                                                </b></p>
+                                                </b>
+                                            </p>
                                             <p class="job-posted" style="margin: 0; padding: 0 20px;">
                                                 {!! $notification->companyGet->company_name ?? '' !!}</p>
                                         </div>

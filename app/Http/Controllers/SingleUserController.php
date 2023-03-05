@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DismissNotification;
 use App\Models\LeadForm;
+use App\Models\Subscriber;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -89,6 +91,28 @@ class SingleUserController extends Controller
         }
     }
 
+    public function submitSubscriberForm(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            "email" => "required",
+
+        ]);
+        if (!$validator->passes()) {
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()], 200);
+        } else {
+            $user = new Subscriber();
+            $user->email = $request->email;
+
+            $data = $user->save();
+            if ($data) {
+                return response()->json(['status' => 1, 'message' => "subscribed succesfully"], 200);
+            } else {
+                return response()->json(['status' => 2, 'message' => "Not subscribed!"], 200);
+            }
+        }
+    }
+
     public function profile()
     {
         $title = "Profile";
@@ -158,4 +182,20 @@ class SingleUserController extends Controller
     //         }
     //     }
     // }
+
+    public function dismissNotification(Request $request)
+    {
+        // dd($request);
+        $user = new DismissNotification();
+
+        $user->user_id = auth()->user()->id;
+        $user->job_id = $request->dismissJobNoti;
+        $user->message_id = $request->message_id;
+        $data = $user->save();
+        if ($data) {
+            return response()->json(['status' => 1, 'message' => "notification succesfully dismissed"], 200);
+        } else {
+            return response()->json(['status' => 2, 'message' => "notification not dismissed"], 200);
+        }
+    }
 }

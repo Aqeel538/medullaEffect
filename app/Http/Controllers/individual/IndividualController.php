@@ -4,6 +4,7 @@ namespace App\Http\Controllers\individual;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
+use App\Models\DismissNotification;
 use App\Models\Follower;
 use App\Models\Job;
 use App\Models\Notification;
@@ -235,8 +236,16 @@ class IndividualController extends Controller
     public function individual_notifications()
     {
         $title = 'Individual|Notifications';
+        $followedCompany = Follower::where('user_id', auth()->user()->id)->get('company_id');
+        $dismissNoti = DismissNotification::where('user_id', auth()->user()->id)->get('job_id');
+        // dd($dismissNoti);
+        foreach ($followedCompany as $company) {
 
-        $notifications = Notification::with('companyGet')->get();
+            $notifications = Notification::where('userId', $company->company_id)->with('companyGet')->get();
+            // dd($notifications);
+
+        }
+
         // dd($notifications[0]->companyGet->image);
 
         return view('userNew.singleUser.pages.individual.notifications', get_defined_vars());
