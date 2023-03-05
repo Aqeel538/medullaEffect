@@ -50,13 +50,13 @@ $blink = 0;
                         <div class="col-12 mb-3">
                             <input type="text" class="form-control" name="title"
                                 value="<?= isset($obj->title) && !empty($obj->title) ? $obj->title : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
-                                placeholder="Job title" style=" border: none; padding: 12px"
+                                placeholder="Job title" style=" padding: 12px;border: 2px solid #eee;"
                                 required />
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12">
                             <select name="category_id" class="form-select form-select-sm greyColor" id="category"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                style=" padding: 15px 10px;  outline: none; border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example">
 
                                 <?php
@@ -85,7 +85,7 @@ $blink = 0;
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <select name="experience" class="form-select form-select-sm greyColor" id="experience"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                style=" padding: 15px 10px;  outline: none;  border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example">
 
                                 <?php
@@ -113,18 +113,18 @@ $blink = 0;
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <input class="rate-field form-control" name="salaryRangeFrom" type="text"
                                 value="<?= isset($salaryRangeFrom) && !empty($salaryRangeFrom) ? $salaryRangeFrom : '' ?>"placeholder="Salary range from"
-                                style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required
+                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" required
                                 id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                         </div>
                         <div class="col-lg-6 col-md-6 col-12  mt-3">
                             <input class="rate-field form-control" name="salaryRangeTo" type="text"
                                 value="<?= isset($salaryRangeTo) && !empty($salaryRangeTo) ? $salaryRangeTo : '' ?>"placeholder="Salary range to"
-                                style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required
+                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" required
                                 id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="job_type" class="form-select form-select-sm greyColor"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                style=" padding: 15px 10px;  outline: none; border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example" id="inPerson" required>
                                 <?php
                                 if(isset($obj->job_type ) && !empty($obj->job_type ) ? $obj->job_type  : '' ){
@@ -149,7 +149,7 @@ $blink = 0;
 
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="work_type" class="form-select form-select-sm greyColor" id="work_type"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                style=" padding: 15px 10px;  outline: none;  border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example">
                                 <?php
                                 if(isset($obj->work_type ) && !empty($obj->work_type ) ? $obj->work_type  : '' ){
@@ -175,23 +175,23 @@ $blink = 0;
                         <div class="col-lg-4 col-md-4 col-12  mt-3" id="city">
                             <input class="rate-field form-control" name="city" type="text"
                                 value="<?= isset($obj->city) && !empty($obj->city) ? $obj->city : '' ?>"placeholder="City"
-                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
+                                style="border: none;  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" />
                         </div>
                         <div class="col-lg-4 col-md-4 col-12  mt-3" id="state">
                             <input class="rate-field form-control" name="state" type="text"
                                 value="<?= isset($obj->state) && !empty($obj->state) ? $obj->state : '' ?>"placeholder="State"
-                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
+                                style=" border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" />
                         </div>
                         <div class="col-lg-4 col-md-4 col-12  mt-3" id="zipCode">
                             <input class="rate-field form-control" name="zip_code" type="number"
                                 value="<?= isset($obj->zip_code) && !empty($obj->zip_code) ? $obj->zip_code : '' ?>"placeholder="Zip code"
-                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
+                                style=" border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" />
                         </div>
                         <div class="col-lg-12 col-md-12 col-12  mt-3">
                             <input class="form-control" placeholder="Short description" name="short_description"
                                 value="<?= isset($obj->short_description) && !empty($obj->short_description) ? $obj->short_description : '' ?>"
                                 rows="6"
-                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;">
+                                style=" border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;">
                         </div>
                         <div class="form-group mt-3">
                             <textarea class="form-control" id="myEditorid" placeholder="Description" name="description"
