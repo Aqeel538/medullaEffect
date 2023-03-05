@@ -58,12 +58,19 @@ body {
     background-color: rgba(255, 243, 247, 1);
     padding: 10px;
 }
+.filled-icon-2nd-nav{
+color: #730116;
+}
+.filled-icon-2nd-nav-2{
+    color: #730116;
 
+    
+}
 .navbar-questionare {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+padding: 7px 0;
 }
 
 .navbar-questionares {
@@ -1941,7 +1948,7 @@ input[type=number] {
 .avatar-upload {
     position: relative;
     max-width: 205px;
-    margin: 50px auto;
+    /* margin: 50px auto; */
 }
 
 .avatar-upload .avatar-edit {

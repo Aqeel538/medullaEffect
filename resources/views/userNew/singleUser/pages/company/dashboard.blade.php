@@ -4,7 +4,9 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-
+        @php
+        $blink = 0;
+        @endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <div class="container mb-5 mt-5">
 

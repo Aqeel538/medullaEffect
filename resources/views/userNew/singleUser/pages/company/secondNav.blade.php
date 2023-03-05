@@ -59,22 +59,54 @@
                     </form>
 
                 </div> --}}
+
                 <div>
+
+
                     <a class="navbar-link {{ request()->routeIs('company.notifications') ? 'mylist active' : '' }}"
                         href="{{ route('company.notifications') }}">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorbell.png" class="bells mx-2"
-                            alt="" srcset="" />
+                        <?php 
+                        
+                        if($blink == 1){?>
+                        <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+                        <?php }else{ ?>
+                        <ion-icon name="notifications-outline"></ion-icon>
+                        <?php }
+                        ?>
+
+
                     </a>
 
-                    <img id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    {{-- <img id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" style="cursor: pointer;"
                         src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
-                        class="bell" alt="" srcset="">
+                        class="bell" alt="" srcset=""> --}}
+
+                    {{-- <ion-icon name="person-outline"  id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" style="cursor: pointer;" onclick="userprofile()"></ion-icon> --}}
+
+
+                    <?php 
+                        
+                        if($blink == 2){?>
+                      
+                    <ion-icon class="filled-icon-2nd-nav-2 " name="person" id="dropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;"
+                        onclick="userprofile()"></ion-icon>
+
+                    <?php }else{ ?>
+                    <ion-icon name="person-outline" id="dropdownMenuLink" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="cursor: pointer;" onclick="userprofile()">
+                    </ion-icon>
+
+                    <?php }
+                        ?>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="{{ route('company.jobs') }}"><i class="fa-regular fa-user"></i>
                             Profile
                             Page</a>
+
                         <a class="dropdown-item" href="{{ route('company.inbox') }}"><i
                                 class="fa-regular fa-message"></i> Inbox</a>
                         <a class="dropdown-item" href=""

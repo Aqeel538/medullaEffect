@@ -1,6 +1,12 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+@php
+$blink = 2;
+@endphp
+
     @include('userNew.singleUser.pages.company.secondNav')
+
+
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
         <div class="row justify-content-center">
