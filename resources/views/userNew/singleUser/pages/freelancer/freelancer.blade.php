@@ -35,9 +35,9 @@
                     <div class="col-9 central-data-signup ">
                         <div>
                             <h5 class="job-headings pb-4">Freelancer Sign Up</h5>
-                            <p class="job-view-para-2 pb-4">Post job Hire people through Post job Hire people through
+                            <p class="job-view-para-2 pb-4 text-center" >Post job Hire people through Post job Hire people through
                                 Medulla...nis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                                aperiam, eaque ipsa qua.</p>
+                                aperiam, eaque ipsa qua...</p>
                         </div>
                         <form id="register">
                             @csrf

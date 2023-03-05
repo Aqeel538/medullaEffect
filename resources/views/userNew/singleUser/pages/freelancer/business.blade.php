@@ -49,10 +49,10 @@
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
-            <div class="col-lg-5 col-md-7 col-sm-8 col-9 text-center Halvetica">
+            <div class="col-lg-6 col-md-7 col-sm-8 col-9 text-center Halvetica">
                 <h1 class="headings-profile mt-5">Businesses</h1>
                 <p class="mt-4  john-para-afer-ques-heading-filter mb-5">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                    Sed utt perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                     quae ab illo inventore veritatis.
                 </p>
@@ -69,7 +69,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
+                                <i class="fa-solid fa-industry"></i>
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -83,8 +83,7 @@
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt="icon"
-                                    srcset="" />
+                                <i class="fa-solid fa-location-dot"></i>
 
                                 <div class="pos">
                                     <input type="search" class="width" name="searchLocation" placeholder="Location" />

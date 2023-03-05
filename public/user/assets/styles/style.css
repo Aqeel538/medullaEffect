@@ -1604,8 +1604,8 @@ ion-icon {
 }
 
 .input-group-text {
-    background-color: white;
-    border-right: none !important;
+    background-color: transparent;
+    border: none !important;
 }
 
 .buttonfill {
@@ -1780,7 +1780,7 @@ ion-icon {
     background-color: #e9e9e9;
     color: #444444;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     padding: 10px;
     border-radius: 50px 0 0 50px;
     margin-bottom: 10px;
@@ -2276,7 +2276,7 @@ input[type="radio"]#sav {
     -webkit-font-family: "Helvetica";
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 131.99%;
     display: flex;
     align-items: center;
@@ -2588,7 +2588,7 @@ input[type="radio"]#sav {
 .right-card {
     background-color: #F9F9F9;
     border-radius: 21.0305px;
-    padding: 30px 30px;
+    padding: 30px 10px;
 }
 
 .middle-job-views {

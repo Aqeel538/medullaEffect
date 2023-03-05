@@ -7,10 +7,10 @@
     <div class="container mb-5 mt-5">
         <h1 class="headings-profile mb-4">Inbox</h1>
         <div class="row mt-lg-3 mt-md-3 mt-3 crd-row-one">
-            <div class="col-lg-5 col-12 text-center" style="max-height: 513px;
+            <div class="col-lg-5 col-12 " style="max-height: 513px;
             overflow: auto;">
                 <div class=" p-4" style="background-color: #F9F9F9; border-radius: 21.0305px;">
-                    <h1 class="profile-text-ques-heading mb-5">All Users</h1>
+                    <h1 class="profile-text-ques-heading mb-5">All Messages</h1>
                     @if (count($user_messages) > 0)
                         @foreach ($user_messages as $single_message)
                             <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
@@ -88,7 +88,7 @@
                             class="input-group-text">send</button> --}}
 
                             <button type="submit" id="getData" data-id="{!! $message_info->id ?? '' !!}"
-                                class="input-group-text">Send</button>
+                                class="input-group-text"><i class="fa-regular fa-paper-plane"></i></button>
                         </div>
                     </form>
 

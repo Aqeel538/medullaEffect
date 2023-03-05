@@ -47,7 +47,7 @@
                         <div class="col-12 mb-3">
                             <input type="text" class="form-control" name="title"
                                 value="<?= isset($obj->title) && !empty($obj->title) ? $obj->title : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
-                                placeholder="Job title" style="background-color: #f4f4f4; border: none; padding: 12px"
+                                placeholder="Job title" style=" border: none; padding: 12px"
                                 required />
                         </div>
 

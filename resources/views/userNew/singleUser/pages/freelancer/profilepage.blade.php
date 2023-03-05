@@ -8,7 +8,7 @@
         <h1 class="headings-profile mb-4">Profile</h1>
         <div class="row mt-3 ">
             <div class="col-lg-3 mt-5 mt-lg-0   col-12 text-center">
-                <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
+                <div class=" pt-1 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
                     <div class="avatar-upload">
                         <form id="edit_image_form">
                             <div class="avatar-edit">

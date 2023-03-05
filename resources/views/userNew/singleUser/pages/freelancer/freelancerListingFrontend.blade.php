@@ -83,7 +83,7 @@
                     <div class="row industry-dropdown-input">
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry">&nbsp;
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/vectorbag.png" alt="icon" />
+                                <i class="fa-solid fa-industry"></i>
                                 <div class="">
                                     <input list="browsers" name="industry" class="widths" placeholder="Industry" />
                                 </div>
@@ -97,8 +97,7 @@
                         </div>
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="inpus-industry-2">
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png" alt=""
-                                    srcset="" />
+                                <i class="fa-solid fa-location-dot"></i>
 
                                 <div class="pos">
                                     <input type="search" class="width" name="searchLocation" placeholder="Location" />
