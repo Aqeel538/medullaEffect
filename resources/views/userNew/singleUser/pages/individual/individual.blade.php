@@ -32,12 +32,13 @@
                       
                     </div>
                     <div class="col-9 central-data-signup ">
-                        <div>
+                        <div class="row text-center justify-content-center">
+                            <div class="col-8">
                             <h5 class="job-headings pb-4">Individual Sign Up</h5>
-                            <p class="job-view-para-2 pb-4">Post job Hire people through Medulla...nis iste
-                                natus error sit
-                                voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
+                            <p class="job-view-para-2 pb-4">Signing up with medulla effect makes you one step closer from being a job seeker into a job secured.</p>
                         </div>
+                    </div>
+                    
                         <form id="register">
                             @csrf
                             <input required type="hidden" name="check" value="1" />

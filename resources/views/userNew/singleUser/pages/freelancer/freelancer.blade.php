@@ -13,7 +13,7 @@
             <div class="col-lg-4 col-md-4 col-12 company_bg">
 
                 <div class="d-flex justify-content-center align-item-center">
-                    <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedsignup.png" class="company_img"
                         alt="w8">
                 </div>
 
@@ -33,12 +33,12 @@
                       
                     </div>
                     <div class="col-9 central-data-signup ">
-                        <div>
+                        <div class="row text-center justify-content-center">
+                            <div class="col-7">
                             <h5 class="job-headings pb-4">Freelancer Sign Up</h5>
-                            <p class="job-view-para-2 pb-4 text-center" >Post job Hire people through Post job Hire people through
-                                Medulla...nis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                                aperiam, eaque ipsa qua...</p>
+                            <p class="job-view-para-2 pb-4">You’re one step closer to uploading your services and growing your business</p>
                         </div>
+                    </div>
                         <form id="register">
                             @csrf
                             <input required type="hidden" name="check" value="1" />

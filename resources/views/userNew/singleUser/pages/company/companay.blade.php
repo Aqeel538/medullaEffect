@@ -30,12 +30,12 @@
                     </div>
                     <div class="col-9 central-data-signup ">
 
-                        <div>
-                            <h5 class="job-headings pb-4">Company Sign Up</h5>
-                            <p class="job-view-para-2 pb-4">Post job Hire people through Medulla...nis iste natus error sit
-                                voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
+                        <div class="row text-center justify-content-center">
+                            <div class="col-8">
+                            <h5 class="job-headings pb-4">Employers Sign Up</h5>
+                            <p class="job-view-para-2 pb-4">Signing up with medulla effect makes you one step closer to hiring the right talent for your business..</p>
                         </div>
-
+                    </div>
 
                         {{-- <form action="{{ route('company.create') }}" method="POST" class="needs-validation" novalidate=""> --}}
 

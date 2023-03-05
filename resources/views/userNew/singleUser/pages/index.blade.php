@@ -65,9 +65,7 @@
                         <h2 class="cards-heading">Employers</h2>
                         <p class="cards-text-para">
 
-                            Hire best candidates for your bussiness through Medulla...nis iste natus error sit voluptatem accusantium
-
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
+                            Hire best candidates for your bussiness 
                         </p>
                         <a href="{{ route('companay') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
@@ -83,8 +81,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-headig-midle-card">Freelancer</h2>
                         <p class="text-para-midle-card">
-                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
+                            Upload your services and grow your business
                         </p>
                         <a href="{{ route('freelancer') }}">
                             <button class="buttonunfill go-btn">Let’s Go</button></a>
@@ -101,8 +98,7 @@
                     <div class="card-iner-body">
                         <h2 class="cards-heading">Individuals</h2>
                         <p class="cards-text-para">
-                            Post job Hire people through Medulla...nis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ritatis.
+                            We turn a job seeker into a job secured
                         </p>
                         <a href="{{ route('individual') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
@@ -114,126 +110,7 @@
         </div>
     </div>
 
-    <!-- about us page -->
-    <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
-        <div class="text-center mt-5">
-            <h1 class="herosecion pt-5">About Us </h1>
-            <div class="botom-hr">
-                <div class="iner-btom"></div>
-            </div>
-
-        </div>
-        <div class="container">
-            <div class="row mt-5  ">
-
-                <div class="col-lg-6 col-md-12 col-12">
-                    <div class="abut-crd">
-                        <h4 class="abt-heading">What Started The <span class="heading-span-text"> Medulla Effect ?</span>
-                        </h4>
-                        <p class="abt-para">The labor shortage is the leading factor why companies struggle to build and
-                            grow their business
-                            in
-                            today's economy. The Medulla Effect works with companies struggling to hire and builds their
-                            workforce
-                            with global talent, while reducing cost, increase efficiency, hold accountability, and maximize
-                            profits.
-                        </p>
-
-
-                    </div>
-                    <div class="abut-crd">
-                        <h4 class="abt-heading">How The Medulla Effect is<span class="heading-span-text"> Empowering
-                                Employers &
-                                Individuals..</span>
-                        </h4>
-                        <p class="abt-para">With the difficulty of employer's trying to find workers to fill their job
-                            openings, employer's
-                            have
-                            essentially stopped laying off or firing people who don't exactly have the talent they are
-                            looking for.
-                            This is why companies are struggling to grow, execute their goals, and provide good customer
-                            service. Our
-                            team of professionals leverages our network of experts and locates the best skilled individuals
-                            to fulfill
-                            your opening's. Our team does the searching, interviewing, validating, prequalifying, and then
-                            we present
-                            to you the best candidates that qualify for the position. </p>
-                    </div>
-                    <div class="abut-crd">
-                        <h4 class="abt-heading">The Medulla Effect Has Created <span class="heading-span-text">Industry Wide
-                                Success.</span>
-                        </h4>
-                        <p class="abt-para">The Medulla Effect incorporates their strategic system into 68% of big
-                            corporations. The Medulla
-                            Effect
-                            provides </p>
-
-                        <ul class="abt-uls">
-                            <li>Increase Chances Of Landing Your Dream Job
-                            </li>
-
-
-                            <li> Streamline The Job Search Process
-                            </li>
-                            <li> Access To Our Network Of Employers And Jobs
-                            </li>
-                            <li>Save You Time And Aggravation</li>
-                        </ul>
-                    </div>
-                    <div class="abut-crd">
-                        <h4 class="abt-heading">The The Medulla Effect Has Given Individuals A <span
-                                class="heading-span-text">World Of
-                                Opportunity</span> </h4>
-                        <p class="abt-para">The Medulla Effect Will </p>
-                        <ul class="abt-uls">
-                            <li>Increase Chances Of Landing Your Dream Job
-                            </li>
-
-
-                            <li> Streamline The Job Search Process
-                            </li>
-                            <li> Access To Our Network Of Employers And Jobs
-                            </li>
-                            <li>Save You Time And Aggravation</li>
-                        </ul>
-                    </div>
-
-
-                </div>
-
-                <div class="col-lg-6 col-md-12 col-12">
-                    <div>
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/group 39.png" class="w-100"
-                            alt="" srcset="">
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-end">
-                            <div class="mt-5 ">
-                                <img src="{{ asset('user') }}/assets/images/landing-page-img/group 40.png" class="w-75"
-                                    alt="" srcset="">
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-start">
-                            <div class="mt-5 ">
-                                <img src="{{ asset('user') }}/assets/images/landing-page-img/group 41.png" class="w-75"
-                                    alt="" srcset="">
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-    <!-- about us page -->
-
+   
 
     <!-- sservice page -->
     <div id="ourServices" class="container-fluid  pb-5 ">
@@ -348,6 +225,125 @@
     </div>
     <!-- serrvice page end-->
 
+ <!-- about us page -->
+ <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
+    <div class="text-center mt-5">
+        <h1 class="herosecion pt-5">About Us </h1>
+        <div class="botom-hr">
+            <div class="iner-btom"></div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row mt-5  ">
+
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="abut-crd">
+                    <h4 class="abt-heading">What Started The <span class="heading-span-text"> Medulla Effect ?</span>
+                    </h4>
+                    <p class="abt-para">The labor shortage is the leading factor why companies struggle to build and
+                        grow their business
+                        in
+                        today's economy. The Medulla Effect works with companies struggling to hire and builds their
+                        workforce
+                        with global talent, while reducing cost, increase efficiency, hold accountability, and maximize
+                        profits.
+                    </p>
+
+
+                </div>
+                <div class="abut-crd">
+                    <h4 class="abt-heading">How The Medulla Effect is<span class="heading-span-text"> Empowering
+                            Employers &
+                            Individuals..</span>
+                    </h4>
+                    <p class="abt-para">With the difficulty of employer's trying to find workers to fill their job
+                        openings, employer's
+                        have
+                        essentially stopped laying off or firing people who don't exactly have the talent they are
+                        looking for.
+                        This is why companies are struggling to grow, execute their goals, and provide good customer
+                        service. Our
+                        team of professionals leverages our network of experts and locates the best skilled individuals
+                        to fulfill
+                        your opening's. Our team does the searching, interviewing, validating, prequalifying, and then
+                        we present
+                        to you the best candidates that qualify for the position. </p>
+                </div>
+                <div class="abut-crd">
+                    <h4 class="abt-heading">The Medulla Effect Has Created <span class="heading-span-text">Industry Wide
+                            Success.</span>
+                    </h4>
+                    <p class="abt-para">The Medulla Effect incorporates their strategic system into 68% of big
+                        corporations. The Medulla
+                        Effect
+                        provides </p>
+
+                    <ul class="abt-uls">
+                        <li>Increase Chances Of Landing Your Dream Job
+                        </li>
+
+
+                        <li> Streamline The Job Search Process
+                        </li>
+                        <li> Access To Our Network Of Employers And Jobs
+                        </li>
+                        <li>Save You Time And Aggravation</li>
+                    </ul>
+                </div>
+                <div class="abut-crd">
+                    <h4 class="abt-heading">The The Medulla Effect Has Given Individuals A <span
+                            class="heading-span-text">World Of
+                            Opportunity</span> </h4>
+                    <p class="abt-para">The Medulla Effect Will </p>
+                    <ul class="abt-uls">
+                        <li>Increase Chances Of Landing Your Dream Job
+                        </li>
+
+
+                        <li> Streamline The Job Search Process
+                        </li>
+                        <li> Access To Our Network Of Employers And Jobs
+                        </li>
+                        <li>Save You Time And Aggravation</li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-12">
+                <div>
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/group 39.png" class="w-100"
+                        alt="" srcset="">
+                </div>
+                <div class="row">
+                    <div class="col-12 text-end">
+                        <div class="mt-5 ">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group 40.png" class="w-75"
+                                alt="" srcset="">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-start">
+                        <div class="mt-5 ">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/group 41.png" class="w-75"
+                                alt="" srcset="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!-- about us page -->
 
 
     <!-- faqs -->
@@ -528,10 +524,7 @@
 
                     <div class="col-lg-4 col-md-6 footer-contact">
                         <div class="d-flex">
-                            <img src="{{ asset('user') }}/assets/images/profile-imges/job-search-company.png"
-                                alt="w8" class="logo-img">
-                            <h4 class="Logo-text">Medulla
-                                Effects</h4>
+                          <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="">
                         </div>
                         <p class="mt-2">
                             A108 Adam Street
