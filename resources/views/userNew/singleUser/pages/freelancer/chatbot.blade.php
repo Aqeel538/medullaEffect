@@ -84,7 +84,7 @@
                         <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}">
                         <div class="input-text d-flex justify-content-end">
                             <input type="text" id="empty" name="message" autocomplete="off" chat-box
-                                style="width: 100%;">
+                                style="width: 100%;"  placeholder="Type Here...">
                             <span class="text-danger error-text message_error"></span>
 
                             {{-- <button type="submit" id="getData" data-id="{{ $message_info->id }}"

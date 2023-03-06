@@ -55,7 +55,7 @@
     <!-- cards row -->
     <div class="container-fluid mt-lg-3 mt-md-4 mt-1">
         <div class="row justify-content-center index-page-card-row text-center poppins p-4">
-            <div class="col-lg-4 col-md-6 col-8 mt-lg-2 mt-md-3 mt-4">
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure">
                     <div class="">
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-1.png"
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-8 mt-lg-2 mt-md-3 mt-4">
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure-2nd-card">
                     <div class="">
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-3.png"
@@ -89,7 +89,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-4 col-md-6 col-8 mt-lg-2 mt-md-3 mt-4">
+            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
                 <div class="card-figure">
                     <div class="">
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-2.png"
@@ -350,11 +350,16 @@
     <div id="faqs" class="container-fluid faq-red">
         <div class="container pt-5 pb-5">
             <h3 class="text-center faqs-heading">FAQs</h3>
-            <p class=" faq-para text-center mx-auto">The labor shortage is the leading factor why companies struggle to
-                build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire
-                and builds their workforce with global talent.!</p>
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-lg-9 col-md-10 col-10">
+                    <p class=" faq-para text-center mx-auto">The labor shortage is the leading factor why companies struggle to
+                        build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire
+                        and builds their workforce with global talent.!</p>
+                </div>
+            </div>
+           
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-10 col-11">
                     <div class="accourdian">
                         <div class="accordian-item item1">
                             <div class="accordian-link">
@@ -461,17 +466,20 @@
                     <div class="contct-frm ">
                         <form id="submitLeadForm">
                             @csrf
-                            <div class=" mb-3">
-                                <input type="text" name="name" class="form-control cos" id="inputAddress"
+                            <div class="row mb-lg-3 mb-0">
+                                <div class="col-12">
+                                      <input type="text" name="name" class="form-control cos" id="inputAddress"
                                     placeholder="Full Name">
                                 <span class="text-danger error-text name_error"></span>
+                                </div>
+                              
                             </div>
                             <div class="row ">
-                                <div class="col">
+                                <div class="col-lg-6 col-md-12 col-12">
                                     <input type="email" name="email" class="form-control cos" placeholder="Email">
                                     <span class="text-danger error-text email_error"></span>
                                 </div>
-                                <div class="col">
+                                <div class="col-lg-6 col-md-12 col-12">
                                     <input type="number" name="phone" class="form-control cos"
                                         placeholder="Phone Number">
                                     <span class="text-danger error-text phone_error"></span>

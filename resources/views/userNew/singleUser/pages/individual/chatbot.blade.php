@@ -10,10 +10,10 @@
     <div class="container mb-5 mt-5">
         <h1 class="headings-profile mb-4">Inbox</h1>
         <div class="row mt-lg-3 mt-md-3 mt-3 crd-row-one">
-            <div class="col-lg-5 col-12 text-center" style="max-height: 513px;
+            <div class="col-lg-5 col-12 " style="max-height: 513px;
             overflow: auto;">
                 <div class=" p-4" style="background-color: #F9F9F9; border-radius: 21.0305px;">
-                    <h1 class="profile-text-ques-heading mb-5">All Users</h1>
+                    <h1 class="profile-text-ques-heading mb-5">All Messages</h1>
 
                     @if ($user_messages->count() > 0)
                         @foreach ($user_messages as $single_message)
@@ -89,17 +89,17 @@
 
                     <form id="myForm" class="form-group" style="margin-top: 20px">
                         @csrf
-                        <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}">
+                        <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}" >
                         <div class="input-text d-flex justify-content-end">
                             <input type="text" id="empty" name="message" autocomplete="off" chat-box
-                                style="width: 100%;">
+                                style="width: 100%;" placeholder="Type Here...">
                             <span class="text-danger error-text message_error"></span>
 
                             {{-- <button type="submit" id="getData" data-id="{{ $message_info->id }}"
                     class="input-group-text">send</button> --}}
 
                             <button type="submit" id="getData" data-id="{!! $message_info->id ?? '' !!}"
-                                class="input-group-text">Send</button>
+                                class="input-group-text"><i class="fa-regular fa-paper-plane"></i></button>
                         </div>
                     </form>
 

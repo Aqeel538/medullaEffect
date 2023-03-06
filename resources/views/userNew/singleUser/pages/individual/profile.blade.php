@@ -295,16 +295,16 @@
                                         <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
                                             {!! $user->pay_range ?? 'State your desired pay range' !!}
                                         </option>
-                                        <option value="0-50">0-50</option>
-                                        <option value="50-100">50-100</option>
-                                        <option value="100-1500">100-1500</option>
-                                        <option value="1500-2000">1500-2000</option>
-                                        <option value="2000-2500">2000-2500</option>
-                                        <option value="2500-3000">2500-3000</option>
-                                        <option value="3000-3500">3000-3500</option>
-                                        <option value="3500-4000">3500-4000</option>
-                                        <option value="4000-4500">4000-4500</option>
-                                        <option value="4500-5000">4500-5000</option>
+                                        <option value="0-50">0-50k</option>
+                                        <option value="50-100">50k-100k</option>
+                                        <option value="100-1500">100k-150k</option>
+                                        <option value="1500-2000">150k-200k</option>
+                                        <option value="2000-2500">200k-250k</option>
+                                        <option value="2500-3000">250k-300k</option>
+                                        <option value="3000-3500">300k-350k</option>
+                                        <option value="3500-4000">350k-400k</option>
+                                        <option value="4000-4500">400k-450k</option>
+                                        <option value="4500-5000">450k-500k</option>
                                     </select>
 
                                 </div>
@@ -335,9 +335,9 @@
                                         <option value="{!! $user->experience ?? '' !!}" selected hidden>
                                             {!! $user->experience ?? 'State your desired pay range' !!}
                                         </option>
-                                        <option value="Fresher">Fresher</option>
-                                        <option value="Begginer">Begginer</option>
-                                        <option value="Professional">Professional</option>
+                                        <option value="Fresher">Begginer</option>
+                                        <option value="Begginer">Intermediate</option>
+                                        <option value="Professional">Advanced</option>
                                     </select>
 
                                 </div>

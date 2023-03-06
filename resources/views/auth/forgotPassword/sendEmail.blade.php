@@ -31,7 +31,7 @@
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
                 <div class="res-on-375 mx-auto mt-5 pt-5 d-flex justify-content-center">
 
-                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
                      
             
                   

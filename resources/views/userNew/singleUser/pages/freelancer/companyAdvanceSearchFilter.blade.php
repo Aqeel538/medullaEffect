@@ -52,9 +52,9 @@
                                     <option value="" disabled selected hidden>
                                         Experience Level
                                     </option>
-                                    <option>Fresher</option>
-                                    <option>Begginer</option>
-                                    <option>Professional</option>
+                                    <option value="Fresher">Begginer</option>
+                                    <option value="Begginer">Intermediate</option>
+                                    <option value="Professional">Advanced</option>
                                 </select>
                             </div>
                         </div>
@@ -99,14 +99,14 @@
                                     </option>
                                     <option value="0-50">0-50k</option>
                                     <option value="50-100">50k-100k</option>
-                                    <option value="100-1500">100k-1500k</option>
-                                    <option value="1500-2000">1500k-2000k</option>
-                                    <option value="2000-2500">2000k-2500k</option>
-                                    <option value="2500-3000">2500k-3000k</option>
-                                    <option value="3000-3500">3000k-3500k</option>
-                                    <option value="3500-4000">3500k-4000k</option>
-                                    <option value="4000-4500">4000k-4500k</option>
-                                    <option value="4500-5000">4500k-5000k</option>
+                                    <option value="100-1500">100k-150k</option>
+                                    <option value="1500-2000">150k-200k</option>
+                                    <option value="2000-2500">200k-250k</option>
+                                    <option value="2500-3000">250k-300k</option>
+                                    <option value="3000-3500">300k-350k</option>
+                                    <option value="3500-4000">350k-400k</option>
+                                    <option value="4000-4500">400k-450k</option>
+                                    <option value="4500-5000">450k-500k</option>
                                 </select>
                             </div>
                         </div>

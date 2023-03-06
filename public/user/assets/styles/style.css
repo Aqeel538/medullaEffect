@@ -2893,10 +2893,10 @@ input:checked+.slider:before {
     .john-para-afer-ques-heading {
         font-size: 14px !important;
     }
-
+/* 
     .iner-servc-crd {
         height: 550px !important;
-    }
+    } */
 
     .width {
         width: 170%;
@@ -2949,10 +2949,7 @@ input:checked+.slider:before {
         font-size: 21px;
     }
 
-    .iner-servc-crd {
-        height: 550px !important;
-    }
-
+   
 
     .avatar-upload {
         position: relative;
@@ -3106,9 +3103,9 @@ input:checked+.slider:before {
         display: none;
     }
 
-    .iner-servc-crd {
+    /* .iner-servc-crd {
         height: 450px !important;
-    }
+    } */
 
     .second-nav {
         overflow: hidden;
@@ -3577,9 +3574,7 @@ input:checked+.slider:before {
     }
 
     .land_page_head img {
-        width: 30px;
-        height: 30px;
-    }
+        width: 178px;}
 
     .head_text {
 
@@ -3777,10 +3772,7 @@ input:checked+.slider:before {
 
     }
 
-    .logo-img {
-        width: 30px;
-        height: 28px;
-    }
+  
 
     .herosecion h1 {
         font-size: 38px;
@@ -3840,10 +3832,10 @@ input:checked+.slider:before {
         font-size: 20px;
     }
 
-    .land_page_head img {
+    /* .land_page_head img {
         width: 25px;
         height: 27px;
-    }
+    } */
 
 
     .input-fields::placeholder {
@@ -3904,9 +3896,9 @@ input:checked+.slider:before {
         height: 30px;
     }
 
-    .iner-servc-crd {
+    /* .iner-servc-crd {
         height: 520px !important;
-    }
+    } */
 
     .mobile-nav-icon {
         width: 25px;
@@ -4172,9 +4164,9 @@ input:checked+.slider:before {
         background-color: blue !important;
     }
 
-    .iner-servc-crd {
+    /* .iner-servc-crd {
         height: 700px !important;
-    }
+    } */
 
     .navbar {
         top: 90px;
@@ -4423,9 +4415,7 @@ input:checked+.slider:before {
     letter-spacing: 0.02em;
     color: #525050;
 
-    -webkit-font-family: "Helvetica" !important;
-
-
+ 
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
@@ -4588,7 +4578,7 @@ HEAD .fa-angle-right {
     font-size: 16px;
     line-height: 148%;
     /* or 24px */
-    width: 650px;
+   
     text-align: center;
     letter-spacing: 0.02em;
 

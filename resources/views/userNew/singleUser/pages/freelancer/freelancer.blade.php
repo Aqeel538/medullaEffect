@@ -31,7 +31,7 @@
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
 
-                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
 
 
                     </div>

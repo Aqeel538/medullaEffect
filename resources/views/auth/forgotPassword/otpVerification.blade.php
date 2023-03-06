@@ -84,7 +84,7 @@
                 <div class="d-flex justify-content-center mt-5">
                     
                      
-                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
                      
                       
                     

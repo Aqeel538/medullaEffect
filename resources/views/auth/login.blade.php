@@ -24,7 +24,7 @@
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
 
-                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8">
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
 
 
                     </div>
@@ -77,8 +77,8 @@
                                 <button type="submit" class="buttonfilled">Login</button>
                             </div>
                             <div class="pt-5">
-                                <p class="Halvetica phara_16 mb-0" style="font-weight: 700;"> Don't have an account ?
-                                    <span class="log_company"><a href="{{ route('index') }}">Register</a></span>
+                                <p class="Halvetica phara_16 mb-5" style="font-weight: 700;"> Don't have an account ?
+                                    <span class="log_company"><a href="{{ route('index') }}">Sing Up</a></span>
                                 </p>
                             </div>
 

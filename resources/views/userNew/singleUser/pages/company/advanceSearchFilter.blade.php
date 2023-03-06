@@ -54,9 +54,9 @@
                                     <option value="" disabled selected hidden>
                                         Experience Level
                                     </option>
-                                    <option>Fresher</option>
-                                    <option>Begginer</option>
-                                    <option>Professional</option>
+                                  <option value="Fresher">Begginer</option>
+                                    <option value="Begginer">Intermediate</option>
+                                    <option value="Professional">Advanced</option>
                                 </select>
                             </div>
                         </div>
@@ -86,8 +86,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield-2">
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
-                                    srcset="">
+                            
                                 <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
                                     placeholder="created_at" style="width: 100%!important" />
 
@@ -100,8 +99,8 @@
                                     <option value="" disabled selected hidden>
                                         Salary Range
                                     </option>
-                                    <option>50-100</option>
-                                    <option>10000k-2000k</option>
+                                    <option>50-100k</option>
+                                    <option>100k-200k</option>
                                 </select>
                             </div>
                         </div>

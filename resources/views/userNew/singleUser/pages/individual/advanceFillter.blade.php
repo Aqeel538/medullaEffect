@@ -49,9 +49,9 @@
                                     <option value="" disabled selected hidden>
                                         Experience Level
                                     </option>
-                                    <option>Fresher</option>
-                                    <option>Begginer</option>
-                                    <option>Professional</option>
+                                    <option value="Fresher">Begginer</option>
+                                    <option value="Begginer">Intermediate</option>
+                                    <option value="Professional">Advanced</option>
                                 </select>
                             </div>
                         </div>
@@ -81,8 +81,7 @@
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
                             <div class="inputfield-2">
-                                <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
-                                    srcset="">
+                        
                                 <input class="w-100" type="date" name="created_at" placeholder="created_at" />
                             </div>
                         </div>
@@ -93,8 +92,16 @@
                                     <option value="" disabled selected hidden>
                                         Salary Range
                                     </option>
-                                    <option>50k-1000k</option>
-                                    <option>10000k-2000k</option>
+                                    <option value="0-50">0-50k</option>
+                                    <option value="50-100">50k-100k</option>
+                                    <option value="100-1500">100k-150k</option>
+                                    <option value="1500-2000">150k-200k</option>
+                                    <option value="2000-2500">200k-250k</option>
+                                    <option value="2500-3000">250k-300k</option>
+                                    <option value="3000-3500">300k-350k</option>
+                                    <option value="3500-4000">350k-400k</option>
+                                    <option value="4000-4500">400k-450k</option>
+                                    <option value="4500-5000">450k-500k</option>
                                 </select>
                             </div>
                         </div>
