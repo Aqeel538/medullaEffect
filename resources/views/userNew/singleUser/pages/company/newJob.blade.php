@@ -6,7 +6,7 @@
 
     {{-- text editor --}}
 
-    <script src="https://cdn.tiny.cloud/1/bspj4ezdo93lra1ka4inty3gt1slgmos7nq606newkvs5z1q/tinymce/6/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/l4fr5n0r9502oanzrxy4h57ftax19x1nvqbk7oglumw82bhk/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -36,7 +36,7 @@
                 </div>
                 <?php
                 $update_id = 0;
-
+                
                 if (isset($obj->id) && !empty($obj->id)) {
                     $update_id = $obj->id;
                 }
@@ -80,9 +80,42 @@
 
 
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-3">
-                            <input class="rate-field form-control" name="rate" type="text"
-                                value="<?= isset($obj->rate) && !empty($obj->rate) ? $obj->rate : '' ?>"placeholder="Salary"
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <select name="experience" class="form-select form-select-sm greyColor" id="experience"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                aria-label=".form-select-sm example">
+
+                                <?php
+                                    if(isset( $obj->experience ) && !empty( $obj->experience ) ?  $obj->experience  : '' ){
+                                        ?>
+                                <script>
+                                    $('#experience').removeClass('greyColor')
+                                    $('#experience').addClass('black')
+                                </script>
+                                <?php
+                                    }else {
+
+                                    }
+
+                                    ?>
+                                <option value="{!! $obj->experience ?? '' !!}" selected hidden>{!! $obj->experience ?? 'Experience' !!}
+                                </option>
+                                <option value="Fresher">Fresher</option>
+                                <option value="Begginer">Begginer</option>
+                                <option value="Professional">Professional</option>
+                            </select>
+
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 mt-3">
+                            <input class="rate-field form-control" name="salaryRangeFrom" type="text"
+                                value="<?= isset($salaryRangeFrom) && !empty($salaryRangeFrom) ? $salaryRangeFrom : '' ?>"placeholder="Salary range from"
+                                style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required
+                                id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12  mt-3">
+                            <input class="rate-field form-control" name="salaryRangeTo" type="text"
+                                value="<?= isset($salaryRangeTo) && !empty($salaryRangeTo) ? $salaryRangeTo : '' ?>"placeholder="Salary range to"
                                 style=" border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" required
                                 id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                         </div>
@@ -151,37 +184,11 @@
                                 value="<?= isset($obj->zip_code) && !empty($obj->zip_code) ? $obj->zip_code : '' ?>"placeholder="Zip code"
                                 style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;" />
                         </div>
-                        <div class="col-lg-12 col-md-12 col-12 mt-3">
-                            <select name="experience" class="form-select form-select-sm greyColor" id="experience"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
-                                aria-label=".form-select-sm example">
-
-                                <?php
-                                    if(isset( $obj->experience ) && !empty( $obj->experience ) ?  $obj->experience  : '' ){
-                                        ?>
-                                <script>
-                                    $('#experience').removeClass('greyColor')
-                                    $('#experience').addClass('black')
-                                </script>
-                                <?php
-                                    }else {
-
-                                    }
-
-                                    ?>
-                                <option value="{!! $obj->experience ?? '' !!}" selected hidden>{!! $obj->experience ?? 'Experience' !!}
-                                </option>
-                                <option value="Fresher">Fresher</option>
-                                <option value="Begginer">Begginer</option>
-                                <option value="Professional">Professional</option>
-                            </select>
-
-
-                        </div>
                         <div class="col-lg-12 col-md-12 col-12  mt-3">
                             <input class="form-control" placeholder="Short description" name="short_description"
                                 value="<?= isset($obj->short_description) && !empty($obj->short_description) ? $obj->short_description : '' ?>"
-                                rows="6" style="background-color: #f4f4f4; border: none">
+                                rows="6"
+                                style="border: none; background-color: #f4f4f4;width: 100%;padding: 14px 10px;">
                         </div>
                         <div class="form-group mt-3">
                             <textarea class="form-control" id="myEditorid" placeholder="Description" name="description"

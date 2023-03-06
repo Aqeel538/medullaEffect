@@ -72,7 +72,7 @@
                                     </div>
                                     <p class="abutnexa-text pt-4 pb-3" maxlength="40"
                                         style="height: 70px;overflow: hidden;">
-                                        {!! $job->short_description ?? '' !!}</p>
+                                        {!! $job->short_description ?? 'There is no short description yet...' !!}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>

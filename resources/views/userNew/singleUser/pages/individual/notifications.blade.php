@@ -30,38 +30,44 @@
                     <!-- cards -->
                     <div class="pt-3 pb-5">
                         @foreach ($notifications as $notification)
-                            <div class="row">
-                                <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3 "
-                                    style="background: #F9F9F9;;border-radius: 20px;">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                            <img style="width: 54px;height: 54px;"
-                                                src="{{ $notification->companyGet->image }}" class="w-5" alt="w8">
+                            {{-- @if ($notification->jobId != $dismiss->job_id) --}}
+                            <a href="{{ route('individual.jodDetails', $notification->jobId) }}">
+                                <div class="row">
+                                    <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3 "
+                                        style="background: #F9F9F9;;border-radius: 20px;">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                                <img style="width: 54px;height: 54px;"
+                                                    src="{{ $notification->companyGet->image }}" class="w-5"
+                                                    alt="w8">
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                                <p class="single-job-heading" style="margin: 0; padding: 0 20px;">
+                                                    <b>{!! $notification->title ?? '' !!}
+                                                    </b>
+                                                </p>
+                                                <p class="job-posted" style="margin: 0; padding: 0 20px;">
+                                                    {!! $notification->companyGet->company_name ?? '' !!}</p>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                                <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                            <p class="single-job-heading" style="margin: 0; padding: 0 20px;">
-                                                <b>{!! $notification->title ?? '' !!}
-                                                </b>
-                                            </p>
-                                            <p class="job-posted" style="margin: 0; padding: 0 20px;">
-                                                {!! $notification->companyGet->company_name ?? '' !!}</p>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                            <i class="fas-elip fa-solid fa-ellipsis"></i>
-                                        </div>
-                                    </div>
-                                    <p class="abutnexa-text pt-4 pb-3">{!! $notification->subject ?? '' !!} </p>
-                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <p class="abutnexa-text pt-4 pb-3">{!! $notification->subject ?? '' !!} </p>
+                                        <div class="jobviewbtns mt-1 mb-1">
 
-                                        <form id="dismissNotification">
-                                            @csrf
-                                            <input type="hidden" name="dismissJobNoti" value="{{ $notification->jobId }}">
-                                            <button type="submit" class="buttonfill-apply">Dismiss</button>
-                                        </form>
+                                            <form method="POST" action="{{ route('dismiss.notification') }}">
+                                                @csrf
+                                                <input type="hidden" name="dismissJobNoti"
+                                                    value="{{ $notification->jobId }}">
+                                                <button type="submit" class="buttonfill-apply">Dismiss</button>
+                                            </form>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                            {{-- @endif --}}
                         @endforeach
 
                     </div>
@@ -72,7 +78,7 @@
     </div>
     <!-- scrpt -->
 
-    <script>
+    {{-- <script>
         $(function() {
             $("#dismissNotification").on('submit', function(e) {
                 // alert('ok')
@@ -103,5 +109,5 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 @endsection

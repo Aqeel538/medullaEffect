@@ -101,6 +101,11 @@ class CompanyController extends Controller
         $obj = array();
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->with('Categories')->first();
+
+            $rateParts = explode(' ', $obj->rate);
+            $salaryRangeFrom = $rateParts[0];
+            $salaryRangeTo = $rateParts[2];
+            // dd($salaryRangeTo);
         }
         $categories = Category::get();
         return view('userNew.singleUser.pages.company.newJob', get_defined_vars());
@@ -115,7 +120,7 @@ class CompanyController extends Controller
                 'user_id' => $user_id,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
-                'rate' => $req->rate,
+                'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
                 'job_type' => $req->job_type,
                 'city' => $req->city,
                 'state' => $req->state,
@@ -133,7 +138,7 @@ class CompanyController extends Controller
                 'user_id' => $user_id,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
-                'rate' => $req->rate,
+                'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
                 'job_type' => $req->job_type,
                 'city' => $req->city,
                 'state' => $req->state,
@@ -174,6 +179,7 @@ class CompanyController extends Controller
         $archiveDetele = Archive::where('job_id', $req->id)->delete();
 
         $archiveDetele = SaveForLater::where('job_id', $req->id)->delete();
+        $notificationDetele = Notification::where('jobId', $req->id)->delete();
         $delete = Job::destroy($req->id);
 
         // check data deleted or not

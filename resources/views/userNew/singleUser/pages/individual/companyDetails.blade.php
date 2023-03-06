@@ -190,9 +190,9 @@
                     @foreach ($otherJobs as $otherJob)
                         @foreach ($otherJob->jobs as $getjobs)
                             <a href="{{ route('individual.jodDetails', $getjobs->id) }}">
-                                <div class="col-lg-12 pt-3 pb-3  res"
+                                <div class="col-lg-12 pt-3 pb-3 mt-3 res"
                                     style="background-color: #F9F9F9;border-radius: 20px;">
-                                    <div class="row">
+                                    <div class="row ">
                                         <div class="col-2 cardsimg">
                                             <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
                                                 class="w-5" alt="w8">
@@ -209,7 +209,7 @@
                                             <i class="fas-elip fa-solid fa-ellipsis"></i>
                                         </div>
                                     </div>
-                                    <p class="abutnexa-text pt-4 pb-3"> {{ $getjobs->description }}</p>
+                                    <p class="abutnexa-text pt-4 pb-3"> {{ $getjobs->short_description }}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <?php
                                         if (isset($getjobs->applied_jobs) && !empty($getjobs->applied_jobs)) {

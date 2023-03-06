@@ -193,9 +193,11 @@ class SingleUserController extends Controller
         $user->message_id = $request->message_id;
         $data = $user->save();
         if ($data) {
-            return response()->json(['status' => 1, 'message' => "notification succesfully dismissed"], 200);
+            // return response()->json(['status' => 1, 'message' => "notification succesfully dismissed"], 200);
+            return back();
         } else {
-            return response()->json(['status' => 2, 'message' => "notification not dismissed"], 200);
+            // return response()->json(['status' => 2, 'message' => "notification not dismissed"], 200);
+            return back();
         }
     }
 }

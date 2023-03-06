@@ -16,8 +16,8 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-12 job-view-crd-res-575">
-                <a href="{{ route('tagline') }}">
-                    <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
+                <a href="{{ url()->previous() }}">
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorarrow.png" alt=""
                         srcset=""></a>
             </div>
             <br>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="time">
-                        <p class="mb-0">{{ \Carbon\Carbon::parse($jobDetail->created_at)->diffForHumans() }}
+                        <p class="mb-0">{!! \Carbon\Carbon::parse($jobDetail->created_at)->diffForHumans() ?? '' !!}
                         </p>
 
                     </div>
@@ -161,7 +161,7 @@
                                                     </b>
                                                 </p>
                                                 <p class="job-posted res-scr-1200" style="margin: 0;padding: 0;">
-                                                    {{ \Carbon\Carbon::parse($getjobs->created_at)->diffForHumans() }}</p>
+                                                    {!! \Carbon\Carbon::parse($getjobs->created_at)->diffForHumans() ?? '' !!}</p>
                                             </div>
                                             <div class="col-2">
                                                 <i class="fas-elip fa-solid fa-ellipsis"></i>
