@@ -54,7 +54,7 @@
                     <a href="{{ route('company.archiveJob', $jobDetail->id) }}">
                         <button class="buttonunfill-save">Archive</button>
                     </a>
-                    <a href="{{ route('company_jobs_delete', $jobDetail->id) }}">
+                    <a href="#">
                         <button class="buttonunfill-save">Delete</button>
                     </a>
                 </div>
@@ -85,6 +85,53 @@
                 current[0].className = current[0].className.replace(" active", "");
                 this.className += " active";
             });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function deleteConfirmation(id) {
+            swal.fire({
+                title: "Delete?",
+                icon: 'question',
+                text: "Please ensure and then confirm!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: !0
+            }).then(function(e) {
+
+                if (e.value === true) {
+                    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{ url('/company/jobs/delete') }}/" + id,
+                        data: {
+                            _token: CSRF_TOKEN
+                        },
+                        dataType: 'JSON',
+                        success: function(results) {
+                            if (results.success === true) {
+                                swal.fire("Done!", results.message, "success");
+                                // refresh page after 2 seconds
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1000);
+                            } else {
+                                swal.fire("Error!", results.message, "error");
+                            }
+                        }
+                    });
+
+                } else {
+                    e.dismiss;
+                }
+
+            }, function(dismiss) {
+                return false;
+            })
         }
     </script>
 @endsection
