@@ -64,7 +64,7 @@ color: #730116;
 .filled-icon-2nd-nav-2{
     color: #730116;
 
-    
+
 }
 .navbar-questionare {
     display: flex;
@@ -1949,7 +1949,7 @@ input[type=number] {
 .avatar-upload {
     position: relative;
     max-width: 205px;
-    /* margin: 50px auto; */
+    margin: 20px auto;
 }
 
 .avatar-upload .avatar-edit {
@@ -2279,7 +2279,7 @@ input[type="radio"]#sav {
 /* job view css strt */
 .job-view-para-2 {
     -webkit-font-family: "Helvetica";
-  
+
     margin: auto;
     -webkit-font-family: "Helvetica";
     font-style: normal;
@@ -2588,7 +2588,7 @@ input[type="radio"]#sav {
 }
 
 .left-card {
-    padding: 30px 30px;
+    /* padding: 30px 30px; */
     background-color: #F9F9F9;
     border-radius: 21.0305px;
 }
@@ -2871,7 +2871,7 @@ input:checked+.slider:before {
 
     .company_img {
 
-  
+
         padding: 171px 17px 122px 14px;
     }
 
@@ -2879,6 +2879,11 @@ input:checked+.slider:before {
 
         top: 13%;
         right: 3%;
+    }
+    .avatar-upload {
+        position: relative;
+        max-width: 205px;
+        margin: 50px auto;
     }
 }
 
@@ -2947,7 +2952,15 @@ input:checked+.slider:before {
     .iner-servc-crd {
         height: 550px !important;
     }
+
+
+    .avatar-upload {
+        position: relative;
+        max-width: 205px;
+        margin: 20px auto;
+    }
 }
+
 
 @media (max-width: 1040px) {
 
@@ -3077,6 +3090,10 @@ input:checked+.slider:before {
 
     .img-holders img {
         width: 23% !important;
+    }
+    .avatar-upload {
+
+        margin: 50px auto;
     }
 
 }
@@ -3477,6 +3494,10 @@ input:checked+.slider:before {
         color: #7c2342 !important;
 
     }
+    .avatar-upload {
+
+    margin: 50px auto;
+}
 
 }
 

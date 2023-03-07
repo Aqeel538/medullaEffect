@@ -27,8 +27,8 @@ $blink = 2;
             </div>
         </div>
         <div class="row mt-3 crd-row-one">
-            <div class="col-lg-3 mt-5 mt-lg-0   col-12 text-center">
-                <div class=" pt-5 pb-5 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
+            <div class="col-lg-3 mt-5 mt-lg-0  mb-lg-0 mb-md-0 mb-4 col-12 text-center">
+                <div class=" pt-5 pb-5 pl-3 pr-3 " style="background-color: #F9F9F9; border-radius: 21.0305px;">
                     <div class="avatar-upload">
                         <form id="edit_image_form">
                             <div class="avatar-edit">
@@ -92,7 +92,7 @@ $blink = 2;
                 </div>
             </div>
             <div class="col-lg-3 mt-md-5 mt-lg-0 col-12 mb-sm-4 mt-lg-0 mt-xs-4 mt-lg-0 text-center">
-                <div class="pt-5 pb-5 pr-3 pl-3 right-card" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
+                <div class="pt-5 pb-5 pr-3 pl-3 " style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                     <h6 class="john-text justify-content-center">New Job</h6>
                     <p class="john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem accn..</p>
                     <a href="{{ route('company_jobs_form', 0) }}">
