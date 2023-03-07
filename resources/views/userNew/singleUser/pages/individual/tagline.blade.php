@@ -3,6 +3,10 @@
     <!-- -----1st--Navbar--------- -->
 
     <!----- ---------2nd--Navbar------------- -->
+
+    <?php
+    $blink = 0;
+    ?>
     @include('userNew.singleUser.pages.individual.secondNav')
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">

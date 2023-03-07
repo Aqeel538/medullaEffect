@@ -2,7 +2,9 @@
 @section('content')
     <!-- -----1st--Navbar--------- -->
 
-    <!-- 2nd nav -->
+    <?php
+    $blink = 0;
+    ?>
     <!----- ---------2st--Navbar------------- -->
     @include('userNew.singleUser.pages.freelancer.secondNav')
 
@@ -26,8 +28,8 @@
                         <div class="allitems d-flex">
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;12
-                                        Employees</span>
+                                    <span> <i class="fas-bag fa fa-briefcase"
+                                            aria-hidden="true"></i>&nbsp;{!! $company->employees ?? '0 employees' !!}</span>
                                 </p>
                             </div> &nbsp; &nbsp; &nbsp;
                             <div class="icon-text">
@@ -50,30 +52,7 @@
                     <div class="row mt-4">
                         <div class="col-12">
                             <p class="job-details">
-                                Since 2005; we have been driving growth for hundreds of high
-                                profile clients throughout the region, and have since
-                                expanded our business on a global scale. Through digital
-                                marketing and growth marketing strategies, we help companies
-                                realize their true potential in a frictionless and
-                                innovative environment, where Sales, Marketing & Customer
-                                Service work together to increase sales and retain
-                                customers.
-                                <br> <br> We also know that in the world of business, no
-                                word is more important than GROWTH and standing still should
-                                never be an option. As a growth agency, we are always moving
-                                forward as the digital space continues to evolve. With this
-                                in mind, we understand and appreciate the magnitude of the
-                                digital evolution and have our finger on the pulse of all
-                                things Web3. <br> <br> Since Web3 came onto our radar, we have
-                                invested our time and resources in studying the space and
-                                learning about the enormous opportunities that exist within
-                                this arena, and how these opportunities can benefit our
-                                clients and their business goals. We are at the forefront of
-                                Web 3.0 commercial opportunities and provide a variety of
-                                services for leading brands as they make this new-age
-                                transition. Through digital marketing, growth marketing and
-                                Web3 solutions, Nexa offers fast, sustainable and efficient
-                                growth for all our clients.
+                                {!! $company->description ?? '' !!}
                             </p>
                         </div>
                     </div>
@@ -135,11 +114,7 @@
                                                 <i class="fas-elip fa-solid fa-ellipsis"></i>
                                             </div>
                                         </div>
-                                        <p class="abutnexa-text pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit
-                                            voluptatem
-                                            accn. Sed ut perspiciatis unde otis ie natus error sit voluptatem accn. Sed ut
-                                            perspiciatis
-                                            unde omnis ie natnatusus error... </p>
+                                        <p class="abutnexa-text pt-4 pb-3">{!! $company->description ?? 'Medulla effect........' !!}</p>
                                         <div class="jobviewbtns mt-1 mb-1">
                                             <a href="{{ route('show_chat', $company->id) }}">
                                                 <button class="buttonfill-apply pl-4 pr-4">Contact</button>

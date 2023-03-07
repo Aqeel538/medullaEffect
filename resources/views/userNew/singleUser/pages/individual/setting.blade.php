@@ -1,5 +1,9 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+
+<?php
+$blink = 0;
+?>
     @include('userNew.singleUser.pages.individual.secondNav')
 
     <div class="container  mt-5 pt-5 pb-4 mb-5">

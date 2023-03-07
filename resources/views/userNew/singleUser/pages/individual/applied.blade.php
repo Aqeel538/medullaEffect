@@ -1,6 +1,10 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!----- ---------2nd--Navbar------------- -->
+
+    <?php
+    $blink = 0;
+    ?>
     @include('userNew.singleUser.pages.individual.secondNav')
     <!-- -------Heading--------- -->
     <div class="container-fluid tagline-1">
@@ -28,7 +32,7 @@
                                             {!! $appliedJob->getAppliedJobs->title ?? '' !!} </b>
                                     </p>
                                     <p class="job-posted" style="margin: 0; padding: 0 35px;">
-                                        {{ \Carbon\Carbon::parse($appliedJob->getAppliedJobs->created_at)->diffForHumans() }}
+                                        {{ \Carbon\Carbon::parse($appliedJob->created_at)->diffForHumans() }}
                                     </p>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">

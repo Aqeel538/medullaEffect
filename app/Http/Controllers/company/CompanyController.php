@@ -128,6 +128,8 @@ class CompanyController extends Controller
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
                 'experience' => $req->experience,
+                'located_in' => auth()->user()->located_in,
+                'industry' => auth()->user()->industry,
                 'short_description' => $req->short_description,
                 'description' => $req->description,
 
@@ -146,6 +148,8 @@ class CompanyController extends Controller
                 'work_type' => $req->work_type,
                 'hiring_type' => $req->hiring_type,
                 'experience' => $req->experience,
+                'located_in' => auth()->user()->located_in,
+                'industry' => auth()->user()->industry,
                 'short_description' => $req->short_description,
                 'description' => $req->description,
             ]);

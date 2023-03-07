@@ -1,6 +1,10 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!----- ---------2nd--Navbar------------- -->
+
+    <?php
+    $blink = 0;
+    ?>
     @include('userNew.singleUser.pages.individual.secondNav')
     <div class="container mb-5 mt-5">
         <h1 class="headings-profile">Profile</h1>

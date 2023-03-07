@@ -1,5 +1,9 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+    <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
+    <?php
+    $blink = 0;
+    ?>
     @include('userNew.singleUser.pages.freelancer.secondNav')
 
     <div class="container  mt-5 pt-5 pb-4 mb-5">
@@ -51,7 +55,7 @@
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="mail-outline"></ion-icon> --}}
                                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
-                                                    placeholder="Email ID" name="email">
+                                                    placeholder="Email" name="email">
                                             </div>
 
                                         </div>
@@ -62,8 +66,7 @@
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="call-outline"></ion-icon> --}}
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int"
-                                                    type="text" placeholder="Phone Number" name="phone"
-                                                    id="mobile_code">
+                                                    type="text" name="phone" id="mobile_code">
 
                                                 <input type="hidden" name="dial_code" class="dial">
                                             </div>
@@ -177,16 +180,16 @@
                                                     <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
                                                         {!! $user->pay_range ?? 'State your desired pay range' !!}
                                                     </option>
-                                                    <option value="0-50">0-50</option>
-                                                    <option value="50-100">50-100</option>
-                                                    <option value="100-1500">100-1500</option>
-                                                    <option value="1500-2000">1500-2000</option>
-                                                    <option value="2000-2500">2000-2500</option>
-                                                    <option value="2500-3000">2500-3000</option>
-                                                    <option value="3000-3500">3000-3500</option>
-                                                    <option value="3500-4000">3500-4000</option>
-                                                    <option value="4000-4500">4000-4500</option>
-                                                    <option value="4500-5000">4500-5000</option>
+                                                    <option value="0-50k">0-50k</option>
+                                                    <option value="50k-100k">50k-100k</option>
+                                                    <option value="100k-1500k">100k-1500k</option>
+                                                    <option value="1500k-2000k">1500k-2000k</option>
+                                                    <option value="2000k-2500k">2000k-2500k</option>
+                                                    <option value="2500k-3000k">2500k-3000k</option>
+                                                    <option value="3000k-3500k">3000k-3500k</option>
+                                                    <option value="3500k-4000k">3500k-4000k</option>
+                                                    <option value="4000k-4500k">4000k-4500k</option>
+                                                    <option value="4500k-5000k">4500k-5000k</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -243,40 +246,40 @@
                     </div>
 
                     <div id="Paris" class=" city" style="display:none">
+                        <div id="loader-container">
+                            <div class="loader"></div>
+                        </div>
                         <h5 class="card-title">Password</h5>
                         <div class="" id="password" role="tabpanel">
-                            <form method="POST" action="{{ route('change.password') }}">
+                            <form id="freelancerUpdatePassword">
                                 @csrf
                                 <div class="form-group ">
 
                                     <div class="input-container  ">
                                         <input class="input-fields" type="password" placeholder="Current Password"
                                             name="current_password" id="current_password">
-                                        @error('current_password')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+
                                     </div>
-                                    <small><a href="#" class="forgot-psw">Forgot your password?</a></small>
+                                    <span class="text-danger error-text current_password"></span>
+                                    {{-- <small><a href="#" class="forgot-psw">Forgot your password?</a></small> --}}
                                 </div>
                                 <div class="form-group">
                                     <div class="input-container  ">
 
                                         <input class="input-fields" type="password" placeholder="NewPassword"
                                             name="new_password" id="new_password">
-                                        @error('new_password')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+
                                     </div>
+                                    <span class="text-danger error-text new_password"></span>
                                 </div>
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
 
                                         <input class="input-fields" type="password" placeholder="Verify Password"
                                             name="new_confirm_password" id="new_confirm_password">
-                                        @error('new_confirm_password')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+
                                     </div>
+                                    <span class="text-danger error-text new_confirm_password"></span>
                                 </div>
                                 <button type="submit" class="buttonfill-apply mt-3">Save changes</button>
 
@@ -359,4 +362,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function() {
+            $("#freelancerUpdatePassword").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/change-password",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            $('.current_password').html(data.error.current_password);
+                            $('.new_password').html(data.error.new_password);
+                            $('.new_confirm_password').html(data.error.new_confirm_password);
+                            toastr.error(data.message);
+                            loader.style.display = "none";
+
+
+                        } else {
+
+                            window.location.href = "/freelancer/setting";
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

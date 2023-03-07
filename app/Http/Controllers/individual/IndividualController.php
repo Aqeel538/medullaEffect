@@ -237,6 +237,21 @@ class IndividualController extends Controller
     {
         $title = 'Individual|Notifications';
         $followedCompanies = User::where('id', auth()->user()->id)->with('followingCompanies.companyNotifications.dismissNotification')->first();
+
+        $allNotification = [];
+        foreach ($followedCompanies['followingCompanies'] as $followedCompany) {
+
+            foreach ($followedCompany['companyNotifications'] as $notifications) {
+
+                if ($notifications['dismissNotification']->where('user_id', 29)->first()) {
+                } else {
+                    $allNotification[] = $notifications;
+                }
+                // }
+
+            }
+        }
+
         // $followedCompany = $
         // dd($followedCompanys[0]->followingCompanies);
 
@@ -256,24 +271,9 @@ class IndividualController extends Controller
 
         //     }
         // }
-        $allNotification = [];
-        foreach ($followedCompanies['followingCompanies'] as $followedCompany) {
-            // dd($followedCompany);
-            foreach ($followedCompany['companyNotifications'] as $notifications) {
-                // if (isset($notifications['dismissNotification'])) {
 
-                // }
-                // else {
-                if ($notifications['dismissNotification']->where('user_id', 29)->first()) {
-                } else {
-                    $allNotification[] = $notifications;
-                }
-                // }
 
-            }
-        }
 
-        // dd($allNotification);
 
         return view('userNew.singleUser.pages.individual.notifications', get_defined_vars());
     }

@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
     @php
-    $blink = 0;
+        $blink = 0;
     @endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
@@ -227,9 +227,9 @@
                                         {{-- @error('current_password')
                                             <span>{{ $message }}</span>
                                         @enderror --}}
-                                        <span class="text-danger error-text current_password"></span>
+
                                     </div>
-                                    <small><a href="#" class="forgot-psw">Forgot your password?</a></small>
+                                    <span class="text-danger error-text current_password"></span>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-container  ">
@@ -239,8 +239,9 @@
                                         {{-- @error('new_password')
                                             <span>{{ $message }}</span>
                                         @enderror --}}
-                                        <span class="text-danger error-text new_password"></span>
+
                                     </div>
+                                    <span class="text-danger error-text new_password"></span>
                                 </div>
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
@@ -250,8 +251,9 @@
                                         {{-- @error('new_confirm_password')
                                             <span>{{ $message }}</span>
                                         @enderror --}}
-                                        <span class="text-danger error-text new_confirm_password"></span>
+
                                     </div>
+                                    <span class="text-danger error-text new_confirm_password"></span>
                                 </div>
                                 <button type="submit" onclick="registerloader()" class="buttonfill-apply mt-3">Save
                                     changes</button>

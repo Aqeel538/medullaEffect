@@ -7,6 +7,9 @@
 
     {{-- TOASTER LINKS END --}}
 
+    <?php
+    $blink = 1;
+    ?>
 
     @include('userNew.singleUser.pages.individual.secondNav')
     <!---------------- -Navend--------------- -->

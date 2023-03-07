@@ -7,6 +7,9 @@
     </style>
     <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
 
+    <?php
+    $blink = 0;
+    ?>
     <!-- -----------freelancer----signup------------ -->
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh">
@@ -27,25 +30,26 @@
                 </div>
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
-                     
-                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8" >
-                     
-                      
+
+                        <img src="{{ asset('user') }}/assets/images/final-logo.png" alt="w8">
+
+
                     </div>
                     <div class="col-9 central-data-signup ">
                         <div class="row text-center justify-content-center">
                             <div class="col-7">
-                            <h5 class="job-headings pb-4">Freelancer Sign Up</h5>
-                            <p class="job-view-para-2 pb-4">You’re one step closer to uploading your services and growing your business</p>
+                                <h5 class="job-headings pb-4">Freelancer Sign Up</h5>
+                                <p class="job-view-para-2 pb-4">You’re one step closer to uploading your services and
+                                    growing your business</p>
+                            </div>
                         </div>
-                    </div>
                         <form id="register">
                             @csrf
                             <input required type="hidden" name="check" value="1" />
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-user"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <input class="input-fields" type="text" name="first_name"
                                             placeholder="First Name">
                                     </div>
@@ -55,7 +59,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-user"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <input class="input-fields" type="text" name="last_name" placeholder="Last Name">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -68,7 +72,7 @@
 
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-envelope"></i>
+                                        <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields" type="email" name="email"placeholder="Email">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -78,7 +82,7 @@
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
 
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-lock"></i>
+                                        <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" name="password"placeholder="Password">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -90,7 +94,7 @@
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <span><i class="fa-solid fa-business-time"></i></span>
+                                        <span><i class="fa-solid fa-business-time"></i></span>
                                         <input class="input-fields" type="text"
                                             name="company_name"placeholder="Company Name">
                                     </div>
@@ -102,7 +106,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-earth-americas"></i>
+                                        <i class="fa-solid fa-earth-americas"></i>
                                         <input class="input-fields" type="text" name="website"
                                             placeholder="Website(Optional)">
                                     </div>
@@ -117,7 +121,7 @@
                             <div class="row justify-content-center Poppins">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-industry"></i>
+                                        <i class="fa-solid fa-industry"></i>
                                         <input class="input-fields" type="text" name="industry" placeholder="industry">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -146,7 +150,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-12  mb-lg-0 mb-md-0 mb-3 mt-2">
                                 <div class="input-container ">
-                                <i class="fa-solid fa-location-dot"></i>
+                                    <i class="fa-solid fa-location-dot"></i>
                                     <input class="input-fields" type="text" name="address" placeholder="Address">
                                 </div>
                                 <div class="text-danger d-flex">

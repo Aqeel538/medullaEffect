@@ -61,35 +61,21 @@
                 </div> --}}
 
                 <div>
-
-
                     <a class="navbar-link {{ request()->routeIs('company.notifications') ? 'mylist active' : '' }}"
                         href="{{ route('company.notifications') }}">
-                        <?php 
-                        
+                        <?php
                         if($blink == 1){?>
                         <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
                         <?php }else{ ?>
                         <ion-icon name="notifications-outline"></ion-icon>
                         <?php }
                         ?>
-
-
                     </a>
 
-                    {{-- <img id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="cursor: pointer;"
-                        src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
-                        class="bell" alt="" srcset=""> --}}
+                    <?php
 
-                    {{-- <ion-icon name="person-outline"  id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="cursor: pointer;" onclick="userprofile()"></ion-icon> --}}
-
-
-                    <?php 
-                        
                         if($blink == 2){?>
-                      
+
                     <ion-icon class="filled-icon-2nd-nav-2 " name="person" id="dropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;"
                         onclick="userprofile()"></ion-icon>

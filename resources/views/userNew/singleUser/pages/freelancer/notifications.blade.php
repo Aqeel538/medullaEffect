@@ -1,7 +1,9 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!-- -----1st--Navbar--------- -->
-
+    <?php
+    $blink = 1;
+    ?>
     @include('userNew.singleUser.pages.freelancer.secondNav')
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">

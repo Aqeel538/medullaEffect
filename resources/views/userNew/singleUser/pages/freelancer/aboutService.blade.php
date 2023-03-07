@@ -1,12 +1,12 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+
+    <?php
+    $blink = 0;
+    ?>
     <!-- 2nd nav -->
     @include('userNew.singleUser.pages.freelancer.secondNav')
-
-
-
     <!----- ---------2st--Navbar end------------- -->
-
 
     <div class="container mt-4">
         <div class="row crd-row-one">

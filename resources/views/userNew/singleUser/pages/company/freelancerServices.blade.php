@@ -2,7 +2,7 @@
 @section('content')
     <!-- 2nd nav end -->
     @php
-    $blink = 0;
+        $blink = 0;
     @endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
@@ -89,53 +89,55 @@
                 <h4 class="mb-5 ml-0 other-job-txt">Services</h4>
                 {{-- @foreach ($freelancerServices as $freelancers) --}}
                 @foreach ($freelancerServices->services as $service)
-                    <a href="{{ route('service.detail', $service->id) }}">
-                        <div class="row">
-                            <div class="col-lg-12 pt-3 pb-3  " style="background-color: #F9F9F9;border-radius: 20px;">
-                                <div class="row">
-                                    <div class="col-2 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                            class="w-5" alt="w8">
+                    @if ($service->status == 1)
+                        <a href="{{ route('service.detail', $service->id) }}">
+                            <div class="row">
+                                <div class="col-lg-12 pt-3 pb-3  " style="background-color: #F9F9F9;border-radius: 20px;">
+                                    <div class="row">
+                                        <div class="col-2 cardsimg">
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8">
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="single-job-heading" style="margin: 0;padding: 0;">
+                                                <b>{{ $service->title }}</b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0;padding: 0;">Most Liked</p>
+                                        </div>
+                                        <div class="col-2">
+                                            <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-8">
-                                        <p class="single-job-heading" style="margin: 0;padding: 0;">
-                                            <b>{{ $service->title }}</b>
-                                        </p>
-                                        <p class="job-posted" style="margin: 0;padding: 0;">Most Liked</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <i class="fas-elip fa-solid fa-ellipsis"></i>
-                                    </div>
-                                </div>
-                                <p class="abutnexa-text pt-4 pb-3">
-                                    {!! $service->discription ?? 'There is no description' !!}
-                                </p>
-                                <div class="jobviewbtns mt-1 mb-1">
-                                    <a href="{{ route('company.show.chat', $freelancerServices->id) }}">
-                                        <button class="buttonfill-apply pl-4 pr-4">Contact</button>
-                                    </a>
+                                    <p class="abutnexa-text pt-4 pb-3">
+                                        {!! $service->discription ?? 'There is no description' !!}
+                                    </p>
+                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <a href="{{ route('company.show.chat', $freelancerServices->id) }}">
+                                            <button class="buttonfill-apply pl-4 pr-4">Contact</button>
+                                        </a>
 
-                                    <?php
-                                    if (isset($service->saved_services) && !empty($service->saved_services)) {
-                                        $check = $service->saved_services->where('user_id', auth()->user()->id)->first();
-                                    } else {
-                                        $check = null;
-                                    }
-                                    ?>
-                                    @if (isset($check) && !empty($check))
-                                        <a href="#">
-                                            <button class="buttonunfill-save">Saved</button>
-                                        </a>
-                                    @else
-                                        <a href="{{ route('save_service', $service->id) }}">
-                                            <button class="buttonunfill-save">Save for Later</button>
-                                        </a>
-                                    @endif
+                                        <?php
+                                        if (isset($service->saved_services) && !empty($service->saved_services)) {
+                                            $check = $service->saved_services->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Saved</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('save_service', $service->id) }}">
+                                                <button class="buttonunfill-save">Save for Later</button>
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
+
                             </div>
-
-                        </div>
-                    </a>
+                        </a>
+                    @endif
                 @endforeach
                 {{-- @endforeach --}}
             </div>

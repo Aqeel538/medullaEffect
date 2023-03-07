@@ -18,27 +18,46 @@
                             href="{{ route('individual.resume') }}">Resume</a></li>
 
                 </ul>
+
+
                 <div>
                     <a class="navbar-link {{ request()->routeIs('individual.notifications') ? 'mylist active' : '' }}"
                         href="{{ route('individual.notifications') }}">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorbell.png" class="bells mx-2"
-                            alt="" srcset="" />
+                        <?php
+                        if($blink == 1){?>
+                        <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+                        <?php }else{ ?>
+                        <ion-icon name="notifications-outline"></ion-icon>
+                        <?php }
+                        ?>
                     </a>
 
-                    <img id="dropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="cursor: pointer;"
-                        src="{{ asset('user') }}/assets/images/landing-page-img/vector.png" onclick="userprofile()"
-                        class="bell" alt="" srcset="">
+                    <?php
+
+                        if($blink == 2){?>
+
+                    <ion-icon class="filled-icon-2nd-nav-2 " name="person" id="dropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;"
+                        onclick="userprofile()"></ion-icon>
+
+                    <?php }else{ ?>
+                    <ion-icon name="person-outline" id="dropdownMenuLink" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="cursor: pointer;" onclick="userprofile()">
+                    </ion-icon>
+
+                    <?php }
+                        ?>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="{{ route('profile') }}"><i class="fa-regular fa-user"></i>
                             Profile
                             Page</a>
+
                         <a class="dropdown-item" href="{{ route('individual.inbox') }}"><i
                                 class="fa-regular fa-message"></i> Inbox</a>
                         <a class="dropdown-item" href=""
                             onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();"><i
+                            document.getElementById('logout-form').submit();"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

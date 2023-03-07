@@ -9,6 +9,10 @@
         }
     </style>
     <!----- ---------2nd--Navbar------------- -->
+
+    <?php
+    $blink = 0;
+    ?>
     @include('userNew.singleUser.pages.individual.secondNav')
     <div class="container mt-4">
         <div class="row">
