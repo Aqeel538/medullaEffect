@@ -10,7 +10,7 @@
     <div class="container mt-4">
         <div class="row crd-row-one">
             <div class="col-12 arrow ">
-                <a href="{{ url()->previous() }}">
+                <a href="{{ route('company.jobPost') }}">
                     <img src="{{ asset('user') }}/assets/images/landing-page-img/Vectorarrow.png" alt=""
                         srcset=""></a>
             </div>
@@ -18,21 +18,21 @@
             <br />
             <div class="col-lg-12 col-12">
                 <div class="col-12" style="padding: 0;">
-                    <h2 class="job-headings">{{ $jobDetail->title }}</h2>
-                    <p class="job-view-para-2">{{ $jobDetail->industry }}</p>
+                    <h2 class="job-headings">{!! $jobDetail->title ?? '' !!}</h2>
+                    <p class="job-view-para-2">{!! $jobDetail->industry ?? '' !!}</p>
                 </div>
                 <div class="col-lg-12 col-12 ps-0">
                     <div class="tabsrow d-flex justify-content-between">
                         <div class="allitems d-flex">
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span> <i class="fa-solid fa-money-bill-1-wave"></i>&nbsp;${{ $jobDetail->rate }}
+                                    <span> <i class="fa-solid fa-money-bill-1-wave"></i>&nbsp;{!! $jobDetail->rate ?? '' !!}
                                         Salary</span>
                                 </p>
                             </div> &nbsp; &nbsp; &nbsp;
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span><i class="fa-solid fa-clock"></i>&nbsp;{{ $jobDetail->work_type }}</span>
+                                    <span><i class="fa-solid fa-clock"></i>&nbsp;{!! $jobDetail->work_type ?? '' !!}</span>
                                 </p>
                             </div>
 
@@ -51,15 +51,18 @@
                 </div>
 
                 <div class="jobviewbtns mt-3 mb-4">
-                    <a href="{{ route('company_jobs_form', $jobDetail->id) }}">
-                        <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
-                    </a>
-                    <a href="{{ route('company.archiveJob', $jobDetail->id) }}">
-                        <button class="buttonunfill-save">Archive</button>
-                    </a>
-                    <a href="#">
-                        <button class="buttonunfill-save">Delete</button>
-                    </a>
+                    @if (isset($jobDetail->id) && !empty($jobDetail->id))
+                        <a href="{{ route('company_jobs_form', $jobDetail->id) }}">
+                            <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
+                        </a>
+                        <a href="{{ route('company.archiveJob', $jobDetail->id) }}">
+                            <button class="buttonunfill-save">Archive</button>
+                        </a>
+                        <a href="#">
+                            <button class="buttonunfill-save"
+                                onclick="deleteConfirmation({{ $jobDetail->id }})">Delete</button>
+                        </a>
+                    @endif
                 </div>
             </div>
             <!-- right side of view job page -->

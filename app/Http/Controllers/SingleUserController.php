@@ -189,8 +189,7 @@ class SingleUserController extends Controller
         $user = new DismissNotification();
 
         $user->user_id = auth()->user()->id;
-        $user->job_id = $request->dismissJobNoti;
-        $user->message_id = $request->message_id;
+        $user->notification_id = $request->notification_id;
         $data = $user->save();
         if ($data) {
             // return response()->json(['status' => 1, 'message' => "notification succesfully dismissed"], 200);

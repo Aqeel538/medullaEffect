@@ -16,8 +16,7 @@ class CreateDismissNotificationsTable extends Migration
         Schema::create('dismiss_notifications', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->integer('job_id')->nullable();
-            $table->integer('message_id')->nullable();
+            $table->integer('notification_id')->nullable();
             $table->timestamps();
         });
     }

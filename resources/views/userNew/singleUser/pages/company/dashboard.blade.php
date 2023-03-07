@@ -45,7 +45,7 @@
                             <div class="input-container">
 
                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
-                                    placeholder="Email ID" name="email">
+                                    placeholder="Email" name="email">
                             </div>
                             <span class="text-danger d-flex">
                                 @error('email')
@@ -244,16 +244,16 @@
                                     <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
                                         {!! $user->pay_range ?? 'State your desired pay range' !!}
                                     </option>
-                                    <option value="0-50">0-50</option>
-                                    <option value="50-100">50-100</option>
-                                    <option value="100-1500">100-1500</option>
-                                    <option value="1500-2000">1500-2000</option>
-                                    <option value="2000-2500">2000-2500</option>
-                                    <option value="2500-3000">2500-3000</option>
-                                    <option value="3000-3500">3000-3500</option>
-                                    <option value="3500-4000">3500-4000</option>
-                                    <option value="4000-4500">4000-4500</option>
-                                    <option value="4500-5000">4500-5000</option>
+                                    <option value="0-50">0-50k</option>
+                                    <option value="50-100">50k-100k</option>
+                                    <option value="100-1500">100k-1500k</option>
+                                    <option value="1500-2000">1500k-2000k</option>
+                                    <option value="2000-2500">2000k-2500k</option>
+                                    <option value="2500-3000">2500k-3000k</option>
+                                    <option value="3000-3500">3000k-3500k</option>
+                                    <option value="3500-4000">3500k-4000k</option>
+                                    <option value="4000-4500">4000k-4500k</option>
+                                    <option value="4500-5000">4500k-5000k</option>
                                 </select>
                                 <span class="text-danger d-flex">
                                     @error('pay_range')

@@ -201,6 +201,8 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/jodDetails/{id}', [CompanyController::class, 'company_jodDetails'])->name('company.jodDetails');
     Route::post('/company/jobs/delete/{id}', [CompanyController::class, 'company_jobs_delete'])->name('company_jobs_delete');
 
+    Route::get('/company/job-post', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
+
     // Applicatns
     Route::get('/company/allApplicants/{id?}', [CompanyController::class, 'company_allApplicants'])->name('company.allApplicants');
     Route::get('/company/applicantResume/{id}', [CompanyController::class, 'company_applicantResume'])->name('company.applicantResume');
@@ -211,8 +213,6 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
 
     // ARCHIVE JOB
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
-
-    Route::get('/company/job-post', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
 
     // CHAT
     // Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');

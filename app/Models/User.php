@@ -91,6 +91,14 @@ class User extends Authenticatable
         return $this->hasMany(Follower::class, 'company_id', 'id');
     }
 
+    public function followingCompanies()
+    {
+        return $this->hasMany(Follower::class, 'user_id', 'id');
+    }
+    public function companyNotifications()
+    {
+        return $this->hasMany(Notification::class, 'userId', 'id');
+    }
     public function save_freelancer_service()
     {
         return $this->hasMany(SaveService::class, 'service_id', 'id');

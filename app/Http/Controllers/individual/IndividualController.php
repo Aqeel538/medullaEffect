@@ -236,17 +236,44 @@ class IndividualController extends Controller
     public function individual_notifications()
     {
         $title = 'Individual|Notifications';
-        $followedCompany = Follower::where('user_id', auth()->user()->id)->get('company_id');
-        $dismissNoti = DismissNotification::where('user_id', auth()->user()->id)->get('job_id');
-        // dd($dismissNoti);
-        foreach ($followedCompany as $company) {
+        $followedCompanies = User::where('id', auth()->user()->id)->with('followingCompanies.companyNotifications.dismissNotification')->first();
+        // $followedCompany = $
+        // dd($followedCompanys[0]->followingCompanies);
 
-            $notifications = Notification::where('userId', $company->company_id)->with('companyGet')->get();
-            // dd($notifications);
+        // foreach ($followedCompanies['followingCompanies'] as $followedCompany) {
+        //     // dd($followedCompany);
+        //     foreach ($followedCompany['companyNotifications'] as $notifications) {
+        //         // if (isset($notifications['dismissNotification'])) {
 
+        //         // }
+        //         // else {
+        //         if ($notifications['dismissNotification']->where('user_id', 29)->first()) {
+        //             echo "dismissed";
+        //         } else {
+        //             echo $notifications;
+        //         }
+        //         // }
+
+        //     }
+        // }
+        $allNotification = [];
+        foreach ($followedCompanies['followingCompanies'] as $followedCompany) {
+            // dd($followedCompany);
+            foreach ($followedCompany['companyNotifications'] as $notifications) {
+                // if (isset($notifications['dismissNotification'])) {
+
+                // }
+                // else {
+                if ($notifications['dismissNotification']->where('user_id', 29)->first()) {
+                } else {
+                    $allNotification[] = $notifications;
+                }
+                // }
+
+            }
         }
 
-        // dd($notifications[0]->companyGet->image);
+        // dd($allNotification);
 
         return view('userNew.singleUser.pages.individual.notifications', get_defined_vars());
     }

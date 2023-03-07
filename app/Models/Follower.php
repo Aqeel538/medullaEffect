@@ -12,4 +12,8 @@ class Follower extends Model
     {
         return $this->hasOne(User::class, 'id', 'company_id');
     }
+    public function companyNotifications()
+    {
+        return $this->hasMany(Notification::class, 'userId', 'company_id');
+    }
 }
