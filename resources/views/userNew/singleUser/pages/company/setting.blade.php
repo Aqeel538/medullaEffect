@@ -30,6 +30,16 @@
                         <button class="acount-btn settinglist" onclick="openCity('acount')"><i
                                 class="fa-solid fa-toggle-on"></i> Deactivate Account</button>
                     </div>
+                    <div>
+                        <button class="acount-btn settinglist"
+                            onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form> Logout
+                        </button>
+                    </div>
 
                 </div>
 
@@ -46,11 +56,22 @@
                                         <div class="col-12  col-lg-6 col-md-6">
                                             <div class="input-container  ">
                                                 {{-- <ion-icon name="person-outline"></ion-icon> --}}
-                                                <input value="{!! $user->name ?? '' !!}" class="input-fields" type="text"
-                                                    placeholder="Full Name" name="name">
+                                                <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
+                                                    placeholder="First name" name="first_name">
                                             </div>
 
                                         </div>
+                                        <div class="col-12  col-lg-6 col-md-6">
+                                            <div class="input-container  ">
+                                                {{-- <ion-icon name="person-outline"></ion-icon> --}}
+                                                <input value="{!! $nameParts[1] ?? '' !!}" class="input-fields" type="text"
+                                                    placeholder="Last name" name="last_name">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row mt-3">
                                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="mail-outline"></ion-icon> --}}
@@ -59,145 +80,100 @@
                                             </div>
 
                                         </div>
-                                    </div>
-                                    <div class="row mt-3">
-
-                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="call-outline"></ion-icon> --}}
-                                                {{-- <input value="{!! $user->phone ?? '' !!}" class="input-fields" type="number"
-                                                    placeholder="Phone Number" name="phone" id="mobile_code"> --}}
-
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int"
                                                     type="text" name="phone" id="mobile_code">
+
+                                                {{-- <input type="hidden" name="dial_code" class="dial"> --}}
                                             </div>
 
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
                                             <div class="inputfield">
-                                                {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/color.png"
-                                                    alt="" srcset=""> --}}
-                                                <select class="greyColor" name="work_type" style="width: 100%;"
+                                                <input value="{!! $user->company_name ?? '' !!}" class="input-fields int"
+                                                    type="text" name="company_name">
+
+                                                {{-- <select class="greyColor" name="company_name" style="width: 100%;"
                                                     id="workTypeSelect">
                                                     <?php
-                                                        if($user->work_type){
-                                                            ?>
+                                                    if($user->company_name){
+                                                        ?>
                                                     <script>
                                                         $('#workTypeSelect').removeClass('greyColor')
                                                         $('#workTypeSelect').addClass('black')
                                                     </script>
                                                     <?php
-                                                        }
-
-                                                        ?>
-                                                    <option value="{!! $user->work_type ?? '' !!}" selected hidden>
-                                                        {!! $user->work_type ?? 'Are you interested in full time or part time work?' !!}
-                                                    </option>
-                                                    <option value="Full Time">Full time</option>
-                                                    <option value="Part Time">Part Time</option>
-                                                </select>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-12 form-group">
-                                            <div class="inputfield mt-3">
-                                                {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/loction.png"
-                                                    alt="" srcset=""> --}}
-                                                <input class="input-fields" type="text" name="located_in"
-                                                    value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
-                                                    placeholder="In which city are you located?" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-12 form-group">
-                                            <div class="inputfield mt-3">
-                                                {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/relocate.png"
-                                                    alt="" srcset=""> --}}
-                                                <select class="w-100 greyColor" name="job_type" style="width: 100%;"
-                                                    id="workingCapitalLoan">
-                                                    <?php
-                                                    if($user->job_type){
-                                                        ?>
-                                                    <script>
-                                                        $('#workingCapitalLoan').removeClass('greyColor')
-                                                        $('#workingCapitalLoan').addClass('black')
-                                                    </script>
-                                                    <?php
                                                     }
 
                                                     ?>
-                                                    <option value="{!! $user->job_type ?? '' !!}" selected hidden>
-                                                        {!! $user->job_type ?? 'Are you interested to work In-person, remote or Hybrid?' !!}
+                                                    <option value="{!! $user->company_name ?? '' !!}" selected hidden>
+                                                        {!! $user->company_name ?? 'Are you interested in full time or part time work?' !!}
                                                     </option>
-                                                    <option value="In-person">In-person</option>
-                                                    <option value="Remote">Remote</option>
-                                                    <option value="Hybrid">Hybrid</option>
-                                                    <option value="No-preference">No-preference</option>
-                                                </select>
+                                                    <option value="Full Time">Full time</option>
+                                                    <option value="Part Time">Part Time</option>
+                                                </select> --}}
+                                            </div>
+                                        </div>
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
+                                            <div class="inputfield ">
+
+                                                <input class="input-container" type="text" name="located_in"
+                                                    value="<?= isset($user->website) && !empty($user->website) ? $user->website : '' ?>"
+                                                    placeholder="Website(Optional)" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
+                                            <div class="inputfield ">
+
+                                                <input class="input-container" type="text" name="industry"
+                                                    value="<?= isset($user->industry) && !empty($user->industry) ? $user->industry : '' ?>"
+                                                    placeholder="Industry" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
+                                            <div class="inputfield ">
+
+                                                <input class="input-container" type="text" name="address"
+                                                    value="<?= isset($user->address) && !empty($user->address) ? $user->address : '' ?>"
+                                                    placeholder="Street" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
+                                            <div class="inputfield ">
+
+                                                <input class="input-container" type="text" name="city"
+                                                    value="<?= isset($user->city) && !empty($user->city) ? $user->city : '' ?>"
+                                                    placeholder="City(Optional)" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
+                                            <div class="inputfield ">
+
+                                                <input class="input-container" type="text" name="located_in"
+                                                    value="<?= isset($user->state) && !empty($user->state) ? $user->state : '' ?>"
+                                                    placeholder="State(Optional)" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
 
-                                        <div class="col-12  mt-3">
+                                        <div class="col-12 ">
                                             <div class="inputfield">
-                                                {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/work.png"
-                                                    alt="" srcset=""> --}}
-                                                <input class="input-field" type="text" name="industry_and_position"
-                                                    placeholder="{!! $user->industry_and_position ?? 'State your desired industry and position' !!}" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-12 form-group mt-3">
-                                            <div class="inputfield">
-                                                {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/industry.png"
-                                                    alt="" srcset=""> --}}
-                                                <select class="w-100 greyColor" name="pay_range" style="width: 100%;"
-                                                    id="payRange">
-                                                    <?php
-                                                        if($user->pay_range){
-                                                            ?>
-                                                    <script>
-                                                        $('#payRange').removeClass('greyColor')
-                                                        $('#payRange').addClass('black')
-                                                    </script>
-                                                    <?php
-                                                        }
-
-                                                        ?>
-                                                    <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
-                                                        {!! $user->pay_range ?? 'State your desired pay range' !!}
-                                                    </option>
-                                                    <option value="0-50">0-50</option>
-                                                    <option value="50-100">50-100</option>
-                                                    <option value="100-1500">100-1500</option>
-                                                    <option value="1500-2000">1500-2000</option>
-                                                    <option value="2000-2500">2000-2500</option>
-                                                    <option value="2500-3000">2500-3000</option>
-                                                    <option value="3000-3500">3000-3500</option>
-                                                    <option value="3500-4000">3500-4000</option>
-                                                    <option value="4000-4500">4000-4500</option>
-                                                    <option value="4500-5000">4500-5000</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-12 form-group mt-3">
-                                            <div class="inputfield">
-                                                {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/payrange.png"
-                                                    alt="" srcset=""> --}}
-                                                <input class="input-field" type="text" name="nationality"
-                                                    placeholder="{!! $user->nationality ?? 'State your nationality' !!}" />
+                                                <input class="input-container" type="text" name="zip_code"
+                                                    placeholder="Zip code(Optional)" value="{!! $user->zip_code ?? '' !!}" />
                                             </div>
                                         </div>
                                     </div>

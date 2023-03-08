@@ -30,13 +30,16 @@
                             <div class="inputfield-2">
                                 <i class="fa-solid fa-location-dot"></i>
                                 <select name="searchLocation" style="width: 100%">
-                                    <option value="" disabled selected hidden>
+                                    {{-- <option value="" disabled selected hidden>
                                         Location
                                     </option>
                                     <option>USA</option>
                                     <option>UAE</option>
                                     <option>Paris</option>
-                                    <option>Landon</option>
+                                    <option>Landon</option> --}}
+                                    @foreach ($freelancers->unique('located_in') as $freelancer)
+                                        <option value="{{ $freelancer->located_in }}">{{ $freelancer->located_in }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -94,8 +97,16 @@
                                     <option value="" disabled selected hidden>
                                         Salary Range
                                     </option>
-                                    <option>50k-1000k</option>
-                                    <option>10000k-2000k</option>
+                                    <option value="0-50">0-50k</option>
+                                    <option value="50-100">50k-100k</option>
+                                    <option value="100-1500">100k-1500k</option>
+                                    <option value="1500-2000">1500k-2000k</option>
+                                    <option value="2000-2500">2000k-2500k</option>
+                                    <option value="2500-3000">2500k-3000k</option>
+                                    <option value="3000-3500">3000k-3500k</option>
+                                    <option value="3500-4000">3500k-4000k</option>
+                                    <option value="4000-4500">4000k-4500k</option>
+                                    <option value="4500-5000">4500k-5000k</option>
                                 </select>
                             </div>
                         </div>

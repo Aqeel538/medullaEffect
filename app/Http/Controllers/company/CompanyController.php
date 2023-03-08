@@ -39,7 +39,8 @@ class CompanyController extends Controller
 
         // dd($req->dial_code);
         $req->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|email',
             // 'gender' => 'required',
             'phone' => 'required',
@@ -57,7 +58,8 @@ class CompanyController extends Controller
 
         $id = Auth::user()->id;
         $profile = User::whereId($id)->update([
-            'name' => $req['name'],
+            // 'name' => $req['name'],
+            'name' => $req['first_name'] . " " . $req['last_name'],
             'email' => $req['email'],
             // 'gender' => $req['gender'],
             // 'phone' => '+' . $req->dial_code . $req['phone'],
@@ -463,6 +465,9 @@ class CompanyController extends Controller
     {
         $title = "Setting";
         $user = Auth::user();
+        $nameParts = explode(' ', $user->name);
+        // $firstName = $nameParts[0];
+        // $lastName = $nameParts[1];
         return view('userNew.singleUser.pages.company.setting', get_defined_vars());
     }
 

@@ -25,6 +25,18 @@ $(".tab-links").click(function () {
         .removeClass("active");
 });
 
+// JOB TABS ACTIVE INACTIVE PAUSED
+$(".jobtab-links").click(function () {
+    var tabID = $(this).attr("data-tab");
+
+    $(this).addClass("active").siblings().removeClass("active");
+
+    $("#tab-" + tabID)
+        .addClass("active")
+        .siblings()
+        .removeClass("active");
+});
+
 
 
 // -----------active----class--------
@@ -61,7 +73,7 @@ function openCity(cityName) {
 }
 
 
-function myFunction() {
+function freelancermyFunction() {
     //  alert("ok");
     var x = document.getElementById("activeStatusContent");
     if (x.style.display === "none") {

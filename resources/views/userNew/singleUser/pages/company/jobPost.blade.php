@@ -1,8 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-@php
-$blink = 0;
-@endphp
+    @php
+        $blink = 0;
+    @endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <!---------------- -Navend--------------- -->
     <div class="container-fluid mt-5 plg-4 p-md-4 p-sm-3 p-1">
@@ -36,17 +36,14 @@ $blink = 0;
 
 
                 <label class="tab-link active option_radio" data-tab="1" for="jobs">
-                    <input type="radio" id="jobs" name="fuck" checked> <span></span>
+                    <input type="radio" id="jobs" name="tab" checked> <span></span>
                     Jobs posted</label>
 
 
                 <label class="tab-link option_radio" data-tab="2" for="sav">
-                    <input type="radio" id="sav" name="fuck"> <span></span>
+                    <input type="radio" id="sav" name="tab"> <span></span>
                     Archieved Job</label>
-
             </ul>
-
-
         </div>
 
         <div class="content-wrapper crd-row-one">

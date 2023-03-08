@@ -148,15 +148,57 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-12  mb-lg-0 mb-md-0 mb-3 mt-2">
-                                <div class="input-container ">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <input class="input-fields" type="text" name="address" placeholder="Address">
+                            <div class="row Poppins mb-lg-2 mb-md-2 mb-0  mt-2">
+                                <div class="col-lg-6 col-md-6 col-12  mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <input class="input-fields" type="text" name="address" placeholder="Street">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        @error('address')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="text-danger d-flex">
-                                    @error('address')
-                                        {{ $message }}
-                                    @enderror
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                    <div class="input-container ">
+                                        <i class="fa-solid fa-city"></i>
+                                        <input class="input-fields" type="text" name="city"
+                                            placeholder="City(Optional)">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        {{-- @error('city')
+                                            {{ $message }}
+                                        @enderror --}}
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3 mt-2">
+                                    <div class="input-container ">
+                                        <i class="fa-solid fa-flag"></i>
+                                        <input class="input-fields" type="text" name="state"
+                                            placeholder="State(Optional)">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        {{-- @error('state')
+                                            {{ $message }}
+                                        @enderror --}}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3  mt-2">
+                                    <div class="input-container ">
+                                        <i class="fa-solid fa-file-zipper"></i>
+                                        <input class="input-fields" type="number" name="zip_code"
+                                            placeholder="Zip code(Optional)">
+                                    </div>
+                                    <div class="text-danger d-flex">
+                                        {{-- @error('zip_code')
+                                            {{ $message }}
+                                        @enderror --}}
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="mt-4">

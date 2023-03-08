@@ -312,6 +312,11 @@ class FreelancerController extends Controller
     {
         $title = "Setting";
         $user = Auth::user();
+        // dd($user->name);
+        $nameParts = explode(' ', $user->name);
+        // $firstName = $nameParts[0];
+        // $lastName = $nameParts[1];
+
         return view('userNew.singleUser.pages.freelancer.setting', get_defined_vars());
     }
 
@@ -360,7 +365,9 @@ class FreelancerController extends Controller
     {
         // dd($req);
         $req->validate([
-            'name' => 'required|string|max:255',
+            // 'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|email',
             // 'gender' => 'required',
             'phone' => 'required',
@@ -378,10 +385,11 @@ class FreelancerController extends Controller
 
         $id = Auth::user()->id;
         $profile = User::whereId($id)->update([
-            'name' => $req['name'],
+            'name' => $req['first_name'] . " " . $req['last_name'],
             'email' => $req['email'],
             'gender' => $req['gender'],
             'phone' => $req['phone'],
+            'address' => $req['address'],
             'job_type' => $req['job_type'],
             'city' => $req['city'],
             'state' => $req['state'],
