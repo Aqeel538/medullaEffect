@@ -33,7 +33,8 @@
                     <div class="allitems d-flex">
                         <div class="icon-text">
                             <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;Full Time</span>
+                                <span> <i class="fas-bag fa fa-briefcase"
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->job_type ?? '' !!}</span>
                             </p>
                         </div>
                         <div class="icon-text">

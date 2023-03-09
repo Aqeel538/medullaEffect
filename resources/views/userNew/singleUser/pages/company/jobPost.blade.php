@@ -1,10 +1,104 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
+    <style>
+        /* Dropdown Button */
+        .dropbtn {
+            background-color: transparent;
+            color: rgb(20, 20, 20);
+
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: transparent;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            /* position: relative;
+                                                                                                                                                display: inline-block; */
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {
+            display: block;
+        }
+    </style>
     @php
         $blink = 0;
     @endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <!---------------- -Navend--------------- -->
+    <?php
+    $toasterValue = session()->get('toasterValue');
+    $toasterArchive = session()->get('toasterArchive');
+    ?>
+    {{-- JOB TOASTERS --}}
+    @if ($toasterValue == 1)
+        <script>
+            toastr.success('new job created successfully');
+        </script>
+        {{ session()->put('toasterValue', 0) }}
+    @elseif ($toasterValue == 2)
+        <script>
+            toastr.error('failed to create new job');
+        </script>
+        {{ session()->put('toasterValue', 0) }}
+    @elseif ($toasterValue == 3)
+        <script>
+            toastr.success('job updated successfully');
+        </script>
+        {{ session()->put('toasterValue', 0) }}
+    @endif
+
+    {{-- Archive toasters --}}
+    @if ($toasterArchive == 1)
+        <script>
+            toastr.info('already archived');
+        </script>
+        {{ session()->put('toasterArchive', 0) }}
+    @elseif ($toasterArchive == 2)
+        <script>
+            toastr.success('archived successfully');
+        </script>
+        {{ session()->put('toasterArchive', 0) }}
+    @elseif ($toasterArchive == 3)
+        <script>
+            toastr.error('failed to archieve');
+        </script>
+        {{ session()->put('toasterArchive', 0) }}
+    @elseif ($toasterArchive == 4)
+        <script>
+            toastr.success('unarchived successefully');
+        </script>
+        {{ session()->put('toasterArchive', 0) }}
+    @endif
     <div class="container-fluid mt-5 plg-4 p-md-4 p-sm-3 p-1">
 
         <div class="row justify-content-center">
@@ -44,9 +138,9 @@
                     <input type="radio" id="sav" name=" Jobs"> <span></span>
                     Inactive Job</label>
 
-                    <label class="tab-link option_radio" data-tab="3" for="s">
-                        <input type="radio" id="s" name=" Jobs"> <span></span>
-                       Paused Job</label>
+                <label class="tab-link option_radio" data-tab="3" for="s">
+                    <input type="radio" id="s" name=" Jobs"> <span></span>
+                    Paused Job</label>
             </ul>
         </div>
 
@@ -55,8 +149,87 @@
             <div id="tab-1" class="tab-content active">
                 <div class="row mt-5 mb-3">
                     @foreach ($jobsPosted as $job)
-                        <div class="col-lg-4 col-md-6 col-12  mt-lg-0 mt-md-0 mt-3 ">
-                            <a href="{{ route('company.jodDetails', $job->id) }}">
+                        @if ($job->status == 1)
+                            <div class="col-lg-4 col-md-6 col-12  mt-lg-0 mt-md-0 mt-3 ">
+                                {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
+                                <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                            <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
+                                                    {!! $job->title ?? '' !!}
+                                                </b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                            <i class="fas-elip fa-solid fa-ellipsis dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false"></i>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item"
+                                                    href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                <a class="dropdown-item"
+                                                    href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                <a class="dropdown-item"
+                                                    href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="abutnexa-text
+                                            pt-4 pb-3"
+                                        maxlength="40" style="height: 70px;overflow: hidden;">
+                                        {!! $job->short_description ?? 'There is no short description yet...' !!}</p>
+                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <a href="{{ route('company_jobs_form', $job->id) }}">
+                                            <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
+                                        </a>
+                                        {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
+                                            <button class="buttonunfill-creates">Archive Job</button>
+                                        </a> --}}
+
+
+
+                                        {{-- <?php
+                                        if (isset($job->archived_jobs) && !empty($job->archived_jobs)) {
+                                            $check = $job->archived_jobs->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="{{ route('company.archiveJob', $job->id) }}">
+                                                <button class="buttonunfill-save">Archived</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('company.archiveJob', $job->id) }}">
+                                                <button class="buttonunfill-save">Archive job</button>
+                                            </a>
+                                        @endif --}}
+
+
+
+                                        <button class="buttonunfill-save"
+                                            onclick="deleteConfirmation({{ $job->id }})">Delete</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- ------------step--2---Tab------------- -->
+            <div id="tab-2" class="tab-content ">
+                <div class="row  mt-5 mb-3">
+                    @foreach ($jobsPosted as $job)
+                        @if ($job->status == 2)
+                            <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
                                 <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
@@ -74,149 +247,89 @@
                                             <i class="fas-elip fa-solid fa-ellipsis"></i>
                                         </div>
                                     </div>
-                                    <p class="abutnexa-text pt-4 pb-3" maxlength="40"
-                                        style="height: 70px;overflow: hidden;">
-                                        {!! $job->short_description ?? 'There is no short description yet...' !!}</p>
+                                    <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $job->short_description ?? '' !!}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
                                         </a>
-                                        {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
-                                            <button class="buttonunfill-creates">Archive Job</button>
-                                        </a> --}}
-
-
 
                                         <?php
-                                        if (isset($job->archived_jobs) && !empty($job->archived_jobs)) {
-                                            $check = $job->archived_jobs->where('user_id', auth()->user()->id)->first();
+                                        if (isset($archiveJob) && !empty($archiveJob)) {
+                                            $check = $archiveJob->where('user_id', auth()->user()->id)->first();
                                         } else {
                                             $check = null;
                                         }
                                         ?>
                                         @if (isset($check) && !empty($check))
-                                            <a href="#">
-                                                <button class="buttonunfill-save">Archived</button>
+                                            <a href="{{ route('company.unArchiveJob', $archiveJob->id) }}">
+                                                <button class="buttonunfill-save">Unarchive</button>
                                             </a>
                                         @else
                                             <a href="{{ route('company.archiveJob', $job->id) }}">
                                                 <button class="buttonunfill-save">Archive job</button>
                                             </a>
                                         @endif
-
-
-
-                                        <button class="buttonunfill-save"
-                                            onclick="deleteConfirmation({{ $job->id }})">Delete</button>
                                     </div>
                                 </div>
 
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <!-- ------------step--2---Tab------------- -->
-            <div id="tab-2" class="tab-content ">
-                <div class="row  mt-5 mb-3">
-                    @foreach ($archiveJobs as $archiveJob)
-                        <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
-                            <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                            class="w-5" alt="w8">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                        <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
-                                                {!! $archiveJob->getjob->title ?? '' !!}
-                                            </b>
-                                        </p>
-                                        <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                        <i class="fas-elip fa-solid fa-ellipsis"></i>
-                                    </div>
-                                </div>
-                                <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $archiveJob->getjob->description ?? '' !!}</p>
-                                <div class="jobviewbtns mt-1 mb-1">
-                                    <a href="{{ route('company_jobs_form', $job->id) }}">
-                                        <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
-                                    </a>
-
-                                    <?php
-                                    if (isset($archiveJob) && !empty($archiveJob)) {
-                                        $check = $archiveJob->where('user_id', auth()->user()->id)->first();
-                                    } else {
-                                        $check = null;
-                                    }
-                                    ?>
-                                    @if (isset($check) && !empty($check))
-                                        <a href="#">
-                                            <button class="buttonunfill-save">Unarchive</button>
-                                        </a>
-                                    @else
-                                        <a href="{{ route('company.archiveJob', $job->id) }}">
-                                            <button class="buttonunfill-save">Archive job</button>
-                                        </a>
-                                    @endif
-                                </div>
                             </div>
-
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
             <div id="tab-3" class="tab-content ">
                 <div class="row  mt-5 mb-3">
-                    @foreach ($archiveJobs as $archiveJob)
-                        <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
-                            <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                            class="w-5" alt="w8">
+                    @foreach ($jobsPosted as $job)
+                        @if ($job->status == 3)
+                            <div class="col-lg-4 col-md-4 col-12  mt-lg-0 mt-md-0 mt-3 ">
+                                <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                            <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
+                                                    {!! $job->title ?? '' !!}
+                                                </b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                            <i class="fas-elip fa-solid fa-ellipsis"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                        <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
-                                                {!! $archiveJob->getjob->title ?? '' !!}
-                                            </b>
-                                        </p>
-                                        <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                        <i class="fas-elip fa-solid fa-ellipsis"></i>
-                                    </div>
-                                </div>
-                                <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $archiveJob->getjob->description ?? '' !!}</p>
-                                <div class="jobviewbtns mt-1 mb-1">
-                                    <a href="{{ route('company_jobs_form', $job->id) }}">
-                                        <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
-                                    </a>
+                                    <p class="abutnexa-text pt-4 pb-3" style="height: 70px"> {!! $job->description ?? '' !!}</p>
+                                    <div class="jobviewbtns mt-1 mb-1">
+                                        <a href="{{ route('company_jobs_form', $job->id) }}">
+                                            <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
+                                        </a>
 
-                                    <?php
-                                    if (isset($archiveJob) && !empty($archiveJob)) {
-                                        $check = $archiveJob->where('user_id', auth()->user()->id)->first();
-                                    } else {
-                                        $check = null;
-                                    }
-                                    ?>
-                                    @if (isset($check) && !empty($check))
-                                        <a href="#">
-                                            <button class="buttonunfill-save">Unarchive</button>
-                                        </a>
-                                    @else
-                                        <a href="{{ route('company.archiveJob', $job->id) }}">
-                                            <button class="buttonunfill-save">Archive job</button>
-                                        </a>
-                                    @endif
+                                        <?php
+                                        if (isset($archiveJob) && !empty($archiveJob)) {
+                                            $check = $archiveJob->where('user_id', auth()->user()->id)->first();
+                                        } else {
+                                            $check = null;
+                                        }
+                                        ?>
+                                        @if (isset($check) && !empty($check))
+                                            <a href="#">
+                                                <button class="buttonunfill-save">Unarchive</button>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('company.archiveJob', $job->id) }}">
+                                                <button class="buttonunfill-save">Archive job</button>
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
+
                             </div>
-
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -301,6 +414,29 @@
             }, function(dismiss) {
                 return false;
             })
+        }
+    </script>
+
+    {{-- drop down js --}}
+    <script>
+        /* When the user clicks on the button,
+                                                                                                                                                            toggle between hiding and showing the dropdown content */
+        function dropDownFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
         }
     </script>
 @endsection

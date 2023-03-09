@@ -1,15 +1,28 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!-- 2nd nav end -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-        @php
+
+    @php
         $blink = 0;
-        @endphp
+    @endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <div class="container mb-5 mt-5">
-
+        <?php
+        $toasterValue = session()->get('toasterValue');
+        // dd($toasterValue);
+        ?>
+        @if ($toasterValue == 1)
+            <script>
+                toastr.success('updated successfully');
+            </script>
+            {{ session()->put('toasterValue', 0) }}
+        @elseif ($toasterValue == 2)
+            <script>
+                toastr.error('updated failed');
+            </script>
+            {{ session()->put('toasterValue', 0) }}
+        @endif
         <div class="row justify-content-center">
 
             <div class="col-lg-7 col-md-9 col-12 text-center justify-content-center">
@@ -25,22 +38,38 @@
                             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                     </div>
                 </div>
-                <form action="{{ route('update.company.profile') }}" method="POST">
+                <form action="{{ route('update.company.dashboard') }}" method="POST">
                     @csrf
                     <div class="row mt-4">
                         <div class="col-12  col-lg-6 col-md-6">
                             <div class="input-container">
 
-                                <input value="{!! $user->name ?? '' !!}" class="input-fields" type="text"
-                                    placeholder="Full Name" name="name">
+                                <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
+                                    placeholder="First Name" name="first_name">
                             </div>
                             <span class="text-danger d-flex">
-                                @error('name')
+                                @error('first_name')
                                     {{ $message }}
                                 @enderror
                             </span>
 
                         </div>
+                        <div class="col-12  col-lg-6 col-md-6">
+                            <div class="input-container">
+
+                                <input value="{!! $nameParts[1] ?? '' !!}" class="input-fields" type="text"
+                                    placeholder="Last Name" name="last_name">
+                            </div>
+                            <span class="text-danger d-flex">
+                                @error('last_name')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+
+                        </div>
+
+                    </div>
+                    <div class="row mt-3">
                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                             <div class="input-container">
 
@@ -54,9 +83,7 @@
                             </span>
 
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-12  col-lg-12 col-md-12">
+                        <div class="col-12  col-lg-6 col-md-6">
                             <div class="input-container">
 
                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"

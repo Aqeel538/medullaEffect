@@ -25,6 +25,7 @@ class CreateJobsTable extends Migration
             $table->string('state')->nullable(true);
             $table->integer('zip_code')->nullable(true);
             $table->string('discription')->nullable(true);
+            $table->integer('status')->nullable(true);
             $table->string('image')->nullable(true);
             $table->timestamps();
         });

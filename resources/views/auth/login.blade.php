@@ -24,19 +24,19 @@
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
 
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
 
 
                     </div>
                     <div class="col-9 central-data-signup ">
-                        <div class="row">
+                        <div class="row" style="display: flex;justify-content: center">
                             <div class="col-lg-8 col-md-8 col-10">
                                 <h5 class="job-headings pb-4 mt-5">Login</h5>
                                 <p class="job-view-para-2 pb-4">Post job Hire people through Medulla...nis iste
                                     natus error sit
                                     voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
                             </div>
-                           
+
                         </div>
                         <form method="POST" action="{{ route('login') }}" class="pt-5">
                             @csrf

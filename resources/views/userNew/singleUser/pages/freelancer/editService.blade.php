@@ -32,28 +32,38 @@
                             <input type="text" name="title" class="form-control" value="{!! $service->title ?? '' !!}"
                                 placeholder="Service Name" style="background-color: #f4f4f4; border: none; padding: 10px" />
                         </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <select class="form-select form-select-sm greyColor" name="category_id" id="category"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
+                                aria-label=".form-select-sm example">
 
-                        <div class="col-6">
-                            <div class="">
-                                <select required name="category_id"
-                                    style="
-                      color: gray;
-                      width: 100%;
-                      padding: 13px;
-                      border-radius: 8px;
-                      border: none;
-                      background-color: #f4f4f4;
-                    ">
-                                    <option value="{!! $service->category_id ?? '' !!}">{!! $service->Categories->category ?? '' !!}
+                                <?php
+                                if(isset($service->category_id ) && !empty($service->category_id ) ? $service->category_id  : '' ){
+                                    ?>
+                                <script>
+                                    $('#category').removeClass('greyColor')
+                                    $('#category').addClass('black')
+                                </script>
+                                <?php
+                                }else {
+
+                                }
+
+                                ?>
+                                {{-- <option value="" disabled selected hidden>Category</option> --}}
+                                <option value="{!! $service->category_id ?? '' !!}" selected hidden>{!! $service->Categories->category ?? 'Category' !!}
+                                </option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->category }}
                                     </option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">
-                                            {{ $category->category }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                @endforeach
+                            </select>
+                            <div class="text-danger d-flex">
+                                @error('category_id')
+                                    {{ $message }}
+                                @enderror
                             </div>
-                            <div></div>
                         </div>
                         <div class="col-6">
                             <input value="{!! $service->rate ?? '' !!}" class="rate-field form-control" type="number"

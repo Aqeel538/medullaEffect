@@ -1,8 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-@php
-$blink = 0;
-@endphp
+    @php
+        $blink = 0;
+    @endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -50,8 +50,7 @@ $blink = 0;
                         <div class="col-12 mb-3">
                             <input type="text" class="form-control" name="title"
                                 value="<?= isset($obj->title) && !empty($obj->title) ? $obj->title : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
-                                placeholder="Job title" style=" padding: 12px;border: 2px solid #eee;"
-                                required />
+                                placeholder="Job title" style=" padding: 12px;border: 2px solid #eee;" required />
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12">
@@ -60,7 +59,7 @@ $blink = 0;
                                 aria-label=".form-select-sm example">
 
                                 <?php
-                                    if(isset( $obj->experience ) && !empty( $obj->Categories->id ) ?  $obj->Categories->id  : '' ){
+                                    if(isset( $obj->Categories->id ) && !empty( $obj->Categories->id ) ?  $obj->Categories->id  : '' ){
                                         ?>
                                 <script>
                                     $('#category').removeClass('greyColor')
@@ -113,14 +112,14 @@ $blink = 0;
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <input class="rate-field form-control" name="salaryRangeFrom" type="text"
                                 value="<?= isset($salaryRangeFrom) && !empty($salaryRangeFrom) ? $salaryRangeFrom : '' ?>"placeholder="Salary range from"
-                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" required
-                                id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
+                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;"
+                                required id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                         </div>
                         <div class="col-lg-6 col-md-6 col-12  mt-3">
                             <input class="rate-field form-control" name="salaryRangeTo" type="text"
                                 value="<?= isset($salaryRangeTo) && !empty($salaryRangeTo) ? $salaryRangeTo : '' ?>"placeholder="Salary range to"
-                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" required
-                                id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
+                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;"
+                                required id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="job_type" class="form-select form-select-sm greyColor"

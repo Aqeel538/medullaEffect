@@ -25,18 +25,6 @@ $(".tab-links").click(function () {
         .removeClass("active");
 });
 
-// JOB TABS ACTIVE INACTIVE PAUSED
-$(".jobtab-links").click(function () {
-    var tabID = $(this).attr("data-tab");
-
-    $(this).addClass("active").siblings().removeClass("active");
-
-    $("#tab-" + tabID)
-        .addClass("active")
-        .siblings()
-        .removeClass("active");
-});
-
 
 
 // -----------active----class--------
@@ -134,6 +122,14 @@ $(function () {
             },
             success: function (data) {
                 console.log(data.success)
+                if (status == 1) {
+                    $('#comapnyActiveStatusContent').empty();
+                    $('#comapnyActiveStatusContent').prepend(' <p class="mt-3 text-success"><b> You are online now!</b></p>');
+
+                } else {
+                    $('#comapnyActiveStatusContent').empty();
+                    $('#comapnyActiveStatusContent').prepend(' <p class="mt-3 text-danger"><b> You are offline now!</b></p>');
+                }
             }
         });
     })

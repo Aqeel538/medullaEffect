@@ -1,8 +1,8 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
-@php
-$blink = 0;
-@endphp
+    @php
+        $blink = 0;
+    @endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
     <!-- 2nd nav end -->
@@ -44,49 +44,51 @@ $blink = 0;
                     <p>{!! $applicantResume->description ?? 'There is no description provided by the user yet!!!' !!}</p>
                 </div>
                 <div class="jobviewbtns mt-3 mb-1">
-                    <?php
-                    if (isset($applicant) && !empty($applicant)) {
-                        $check = $applicant
-                            ->where('applicant_id', $applicant->users->id)
-                            ->where('status', 1)
-                            ->first();
-                    } else {
-                        $check = null;
-                    }
-                    ?>
-                    @if (isset($check) && !empty($check))
-                        <a href="#">
-                            <button class="buttonunfill-save">Accepted</button>
-                        </a>
-                    @else
-                        <a href="{{ route('accept.applicants', $applicantResume->id) }}">
-                            <button class="buttonfill-apply pl-4 pr-4">Accept</button>
-                        </a>
-                    @endif
+                    @if ($applicantResume == $applicant)
+                        <?php
+                        if (isset($applicant) && !empty($applicant)) {
+                            $check = $applicant
+                                ->where('applicant_id', $applicant->users->id)
+                                ->where('status', 1)
+                                ->first();
+                        } else {
+                            $check = null;
+                        }
+                        ?>
+                        @if (isset($check) && !empty($check))
+                            <a href="#">
+                                <button class="buttonunfill-save">Accepted</button>
+                            </a>
+                        @else
+                            <a href="{{ route('accept.applicants', $applicantResume->id) }}">
+                                <button class="buttonfill-apply pl-4 pr-4">Accept</button>
+                            </a>
+                        @endif
 
-                    {{-- <a href="">
+                        {{-- <a href="">
                         <button class="buttonunfill-save">Archive</button>
                     </a> --}}
 
-                    <?php
-                    if (isset($applicant->archivedApplication) && !empty($applicant->archivedApplication)) {
-                        $check = $applicant->archivedApplication->where('user_id', auth()->user()->id)->first();
-                    } else {
-                        $check = null;
-                    }
-                    ?>
-                    @if (isset($check) && !empty($check))
-                        <a href="#">
-                            <button class="buttonunfill-save">Archived</button>
-                        </a>
-                    @else
-                        <a href="{{ route('company.archiveJob', $applicantResume->id) }}">
-                            <button class="buttonunfill-save">Archive</button>
+                        <?php
+                        if (isset($applicant->archivedApplication) && !empty($applicant->archivedApplication)) {
+                            $check = $applicant->archivedApplication->where('user_id', auth()->user()->id)->first();
+                        } else {
+                            $check = null;
+                        }
+                        ?>
+                        @if (isset($check) && !empty($check))
+                            <a href="#">
+                                <button class="buttonunfill-save">Archived</button>
+                            </a>
+                        @else
+                            <a href="{{ route('company.archiveJob', $applicantResume->id) }}">
+                                <button class="buttonunfill-save">Archive</button>
+                            </a>
+                        @endif
+                        <a href="{{ route('delete.applicants', $applicantResume->id) }}">
+                            <button class="buttonunfill-save">Delete</button>
                         </a>
                     @endif
-                    <a href="{{ route('delete.applicants', $applicantResume->id) }}">
-                        <button class="buttonunfill-save">Delete</button>
-                    </a>
                 </div>
             </div>
 

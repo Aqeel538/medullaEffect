@@ -38,10 +38,26 @@
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12">
-                            <select class="form-select form-select-sm" name="category_id"
-                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;;  color: gray;"
+                            <select class="form-select form-select-sm greyColor" name="category_id" id="category"
+                                style=" padding: 15px 10px;  outline: none; border: none; background-color: #F4F4F4;"
                                 aria-label=".form-select-sm example">
-                                <option value="" disabled selected hidden>Category</option>
+
+                                <?php
+                                if(isset( $obj->Categories->id ) && !empty( $obj->Categories->id ) ?  $obj->Categories->id  : '' ){
+                                    ?>
+                                <script>
+                                    $('#category').removeClass('greyColor')
+                                    $('#category').addClass('black')
+                                </script>
+                                <?php
+                                }else {
+
+                                }
+
+                                ?>
+                                {{-- <option value="" disabled selected hidden>Category</option> --}}
+                                <option value="{!! $obj->Categories->id ?? '' !!}" selected hidden>{!! $obj->Categories->category ?? 'Category' !!}
+                                </option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">
                                         {{ $category->category }}
@@ -89,4 +105,12 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#category').on('change', () => {
+            // alert("ok")
+            $('#category').removeClass('greyColor')
+            $('#category').addClass('black')
+
+        })
+    </script>
 @endsection

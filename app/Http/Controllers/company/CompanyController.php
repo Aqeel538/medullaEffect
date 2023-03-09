@@ -15,12 +15,16 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+// use Symfony\Component\HttpFoundation\Session\Session;
 
 class CompanyController extends Controller
 {
     public function copmanyDashboard()
     {
+        // $toasterValue = 0;
         $user = Auth::user();
+        $nameParts = explode(' ', $user->name);
         $title = 'Company dashboard';
         return view('userNew.singleUser.pages.company.dashboard', get_defined_vars());
     }
@@ -35,7 +39,7 @@ class CompanyController extends Controller
 
     public function update_company_profile(Request $req)
     {
-
+        // dd($req);
 
         // dd($req->dial_code);
         $req->validate([
@@ -64,6 +68,48 @@ class CompanyController extends Controller
             // 'gender' => $req['gender'],
             // 'phone' => '+' . $req->dial_code . $req['phone'],
             'phone' => $req['phone'],
+            'company_name' => $req['company_name'],
+            'website' => $req['website'],
+            'industry' => $req['industry'],
+            'address' => $req['address'],
+            'city' => $req['city'],
+            'state' => $req['state'],
+            'zip_code' => $req['zip_code'],
+
+        ]);
+
+        if ($profile) {
+            $toasterValue = 1;
+            session()->put('toasterValue', $toasterValue);
+            return back();
+        } else {
+            $toasterValue = 2;
+            session()->put('toasterValue', $toasterValue);
+
+            return back();
+        }
+    }
+
+    public function update_company_dashboard(Request $req)
+    {
+
+        $req->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email',
+
+            'phone' => 'required',
+
+        ]);
+
+        $id = Auth::user()->id;
+        $profile = User::whereId($id)->update([
+
+            'name' => $req['first_name'] . " " . $req['last_name'],
+            'email' => $req['email'],
+
+            // 'phone' => '+' . $req->dial_code . $req['phone'],
+            'phone' => $req['phone'],
             'job_type' => $req['job_type'],
             'city' => $req['city'],
             'state' => $req['state'],
@@ -82,10 +128,16 @@ class CompanyController extends Controller
 
         ]);
 
+        if ($profile) {
+            $toasterValue = 1;
+            session()->put('toasterValue', $toasterValue);
+            return back();
+        } else {
+            $toasterValue = 2;
+            session()->put('toasterValue', $toasterValue);
 
-
-
-        return back();
+            return back();
+        }
     }
 
     // COMPANY JOBS
@@ -135,7 +187,20 @@ class CompanyController extends Controller
                 'short_description' => $req->short_description,
                 'description' => $req->description,
 
+
+
             ]);
+            if ($obj) {
+                $toasterValue = 3;
+                session()->put('toasterValue', $toasterValue);
+                return redirect(route('company.jobPost'));
+            } else {
+                $toasterValue = 2;
+                session()->put('toasterValue', $toasterValue);
+
+                return redirect(route('company.jobPost'));
+            }
+            return redirect(route('company.jobPost'));
         } else {
             //Create
             $obj = Job::create([
@@ -154,6 +219,7 @@ class CompanyController extends Controller
                 'industry' => auth()->user()->industry,
                 'short_description' => $req->short_description,
                 'description' => $req->description,
+                'status' => '1',
             ]);
             $jobId = $obj->id;
             $notification = Notification::create([
@@ -172,8 +238,19 @@ class CompanyController extends Controller
             //  {
             //      return $this->belongsTo(User::class);
             //  }
+
+            if ($obj) {
+                $toasterValue = 1;
+                session()->put('toasterValue', $toasterValue);
+                return redirect(route('company.jobPost'));
+            } else {
+                $toasterValue = 2;
+                session()->put('toasterValue', $toasterValue);
+
+                return redirect(route('company.jobPost'));
+            }
+            return redirect(route('company.jobPost'));
         }
-        return redirect(route('company.jobPost'));
     }
 
     public function company_jobs_delete(Request $req)
@@ -211,12 +288,47 @@ class CompanyController extends Controller
         // $checkJob = Archive::where('job_id', $id)->first();
         $checkJob = Archive::where('job_id', $id)->where('user_id', $userId)->first();
         if (isset($checkJob) && !empty($checkJob)) {
+
+            $toasterArchive = 1;
+            session()->put('toasterArchive', $toasterArchive);
+
             return redirect()->back()->with('message', 'Updated');
         } else {
             $archiveJob = new Archive();
             $archiveJob->user_id = $userId;
             $archiveJob->job_id = $id;
-            $archiveJob->save();
+            $toasterArchive = $archiveJob->save();
+
+            if ($toasterArchive) {
+                $toasterArchive = 2;
+                session()->put('toasterArchive', $toasterArchive);
+                return back();
+            } else {
+                $toasterArchive = 3;
+                session()->put('toasterArchive', $toasterArchive);
+
+                return back();
+            }
+        }
+        return back();
+    }
+
+    public function company_unArchiveJob(Request $req)
+    {
+        // $validate = $this->validate($req, [
+        //     'id' => 'required|exists:jobs,id',
+
+        // ]);
+        $delete = Archive::destroy($req->id);
+        if ($delete) {
+            $toasterArchive = 4;
+            session()->put('toasterArchive', $toasterArchive);
+            return back();
+        } else {
+            $toasterArchive = 3;
+            session()->put('toasterArchive', $toasterArchive);
+
+            return back();
         }
         return back();
     }
@@ -230,6 +342,15 @@ class CompanyController extends Controller
         // dd($archiveJobs->job->title);
         return view('userNew.singleUser.pages.company.jobPost', get_defined_vars());
     }
+
+    public function changeJobStatus($status, $id)
+    {
+        $order = Job::where('id', $id)->first();
+        $order->status = $status;
+        $order->update();
+        return redirect()->back();
+    }
+
     public function company_jodDetails($id)
     {
         $title = 'Job Detail';

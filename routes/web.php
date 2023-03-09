@@ -175,6 +175,7 @@ Route::middleware(['auth', 'isIndividual'])->group(function () {
 Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'copmanyDashboard'])->name('company.dashboard');
     Route::post('/company/update/profile', [CompanyController::class, 'update_company_profile'])->name('update.company.profile');
+    Route::post('/company/update/dashboard', [CompanyController::class, 'update_company_dashboard'])->name('update.company.dashboard');
 
     // FREELANCER
     Route::get('/company/all-freelancer', [CompanyController::class, 'allFreelancer'])->name('company.freelancer');
@@ -203,6 +204,9 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
 
     Route::get('/company/job-post', [CompanyController::class, 'company_jobPost'])->name('company.jobPost');
 
+    Route::get('company/job/status/{status}/{id}', [CompanyController::class, 'changeJobStatus']);
+
+
     // Applicatns
     Route::get('/company/allApplicants/{id?}', [CompanyController::class, 'company_allApplicants'])->name('company.allApplicants');
     Route::get('/company/applicantResume/{id}', [CompanyController::class, 'company_applicantResume'])->name('company.applicantResume');
@@ -213,6 +217,7 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
 
     // ARCHIVE JOB
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
+    Route::get('/company/unArchiveJob/{id}', [CompanyController::class, 'company_unArchiveJob'])->name('company.unArchiveJob');
 
     // CHAT
     // Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');

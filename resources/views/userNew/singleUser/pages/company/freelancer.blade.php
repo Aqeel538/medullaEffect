@@ -2,7 +2,7 @@
 @section('content')
     <!-- -----1st--Navbar--------- -->
     @php
-    $blink = 0;
+        $blink = 0;
     @endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
@@ -56,7 +56,9 @@
                             <button type="submit" class=" buttonfill text-center">
                                 Search
                             </button>
-                            <button type="button" class="non">Filter</button>
+                            <a href="{{ route('company.freelancerAdvanceSearchFilter') }}">
+                                <button type="button" class="non">Filter</button>
+                            </a>
                         </div>
                     </div>
                 </form>
