@@ -60,7 +60,7 @@
 
                 </div> --}}
 
-                <div>
+                <div class="testers">
                     <a class="navbar-link {{ request()->routeIs('company.notifications') ? 'mylist active' : '' }}"
                         href="{{ route('company.notifications') }}">
                         <?php

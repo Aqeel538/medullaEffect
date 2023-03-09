@@ -3156,10 +3156,7 @@ display: none;
         margin-bottom: 20px;
     }
 
-    .Logo-text {
-        line-height: 22px;
-    }
-
+ 
     .navbar {
         position: absolute;
         top: 100px;
@@ -3247,7 +3244,13 @@ display: none;
         padding-top: 4px;
     }
 
-
+    .testers{
+ 
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        margin-left: 18px;
+    }
 
     .mobile-navbar-btns {
         display: flex;
