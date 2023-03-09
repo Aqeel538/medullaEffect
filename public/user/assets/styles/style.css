@@ -3519,6 +3519,9 @@ display: none;
     flex-direction: column;
     justify-content: center;
 }
+.mylist {
+    padding-bottom: 6px;
+}
 }
 
 /* Below 560px  */
