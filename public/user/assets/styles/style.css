@@ -204,7 +204,7 @@ padding: 7px 0;
 
 .jobviewbtns a {
 
-    margin: 0px 8px 0px 0;
+    /* margin: 0px 8px 0px 0; */
 }
 
 /* /*================ Top Nav Css end *======== */
@@ -3400,13 +3400,13 @@ display: none;
         font-size: 35px;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 15px;
-    }
+    } */
 
-    .inputfield input::placeholder {
+    /* .inputfield input::placeholder {
         font-size: 15px;
-    }
+    } */
 
 
     .john-para-afer-ques-heading {
@@ -3417,13 +3417,13 @@ display: none;
         font-size: 35px;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 17px;
-    }
-
+    } */
+/* 
     .inputfield input::placeholder {
         font-size: 15px;
-    }
+    } */
 
     .btns_main {
         justify-content: start;
@@ -3617,10 +3617,10 @@ display: none;
     .xs-res {
         margin-bottom: 10px;
     }
-
+/* 
     .location-row input {
         font-size: 9px;
-    }
+    } */
 
     .descriptions {
         font-size: 14px;
@@ -3631,18 +3631,18 @@ display: none;
     }
 
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 14px;
-    }
+    } */
 
-    .inputfield input::placeholder {
+    /* .inputfield input::placeholder {
         font-size: 14px;
     }
 
 
     .input-fields::placeholder {
         font-size: 15px;
-    }
+    } */
 
     .descriptions {
         font-size: 14px;
@@ -3660,13 +3660,13 @@ display: none;
         font-size: 33px;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 16px;
     }
 
     .inputfield input::placeholder {
         font-size: 14px;
-    }
+    } */
 
     .buttonfill {
         font-size: 15px;
@@ -3786,12 +3786,7 @@ display: none;
         font-size: 5px;
     }
 
-    .Logo-text {
-
-        font-size: 20.3775px;
-
-    }
-
+  
   
 
     .herosecion h1 {
@@ -3823,10 +3818,10 @@ display: none;
         margin-bottom: 10px;
         padding: 15px;
     }
-
+/* 
     .location-row input {
         font-size: 9px;
-    }
+    } */
 
     .descriptions {
         font-size: 13px;
@@ -3836,13 +3831,13 @@ display: none;
         font-size: 30px;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 12px;
     }
 
     .inputfield input::placeholder {
         font-size: 12px;
-    }
+    } */
 
     .buttonfill {
         font-size: 13px;
@@ -3871,13 +3866,13 @@ display: none;
         font-size: 23px !important;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 14px;
     }
 
     .inputfield input::placeholder {
         font-size: 15px;
-    }
+    } */
 
     .buttonfill {
         font-size: 13px;
@@ -3964,13 +3959,13 @@ display: none;
         font-size: 10px;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 14px;
     }
 
     .inputfield input::placeholder {
         font-size: 12px;
-    }
+    } */
 
     .buttonfill {
         font-size: 12px;
@@ -3981,14 +3976,14 @@ display: none;
         margin-inline: 11px;
     }
 
-    .inputfield select {
+    /* .inputfield select {
         font-size: 11px;
     }
 
 
     .inputfield input::placeholder {
         font-size: 12px;
-    }
+    } */
 
     .job-headings {
 
@@ -4124,9 +4119,9 @@ display: none;
         padding: 15px 5px;
     }
 
-    .inputfield select::placeholder {
+    /* .inputfield select::placeholder {
         font-size: 8px !important;
-    }
+    } */
 
     .inputfield input {
         padding: 10px 5px;
@@ -4321,14 +4316,12 @@ display: none;
     }
 
 
-    .inputfield input::placeholder {
+    /* .inputfield input::placeholder {
         font-size: 8px;
         padding: 0 4px;
-    }
+    } */
 
-    .input-fields::placeholder {
-        font-style: 10px !important;
-    }
+  
 
     .single-job-heading {
         font-size: 13px;
