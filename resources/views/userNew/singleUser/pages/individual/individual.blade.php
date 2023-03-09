@@ -30,9 +30,9 @@
                      
                       
                     </div>
-                    <div class="col-9 central-data-signup ">
+                    <div class="col-lg-9 col-md-9 col-11 central-data-signup ">
                         <div class="row text-center justify-content-center">
-                            <div class="col-8">
+                            <div class="col-lg-8 col-md-8 col-12">
                             <h5 class="job-headings pb-4">Individual Sign Up</h5>
                             <p class="job-view-para-2 pb-4">Signing up with medulla effect makes you one step closer from being a job seeker into a job secured.</p>
                         </div>

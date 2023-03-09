@@ -103,9 +103,9 @@ $blink = 0;
                                     ?>
                                 <option value="{!! $obj->experience ?? '' !!}" selected hidden>{!! $obj->experience ?? 'Experience' !!}
                                 </option>
-                                <option value="Fresher">Fresher</option>
-                                <option value="Begginer">Begginer</option>
-                                <option value="Professional">Professional</option>
+                                <option value="Fresher"> Beginner</option>
+                                <option value="Begginer">Intermediate</option>
+                                <option value="Professional"> Advanced</option>
                             </select>
 
 

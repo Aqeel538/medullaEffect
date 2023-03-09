@@ -113,7 +113,7 @@
    
 
     <!-- sservice page -->
-    <div id="ourServices" class="container-fluid  pb-5 ">
+    {{-- <div id="ourServices" class="container-fluid  pb-5 ">
 
         <div class="text-center  mt-5 herosecion">
             <h3 class="pt-5 services-heading">Our Services</h3>
@@ -222,11 +222,75 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- serrvice page end-->
 
+
+    {{-- update dservices section --}}
+
+<div class="container-fluid mt-5 mb-5">
+    <div class="container">
+        <div class="row justify-content-center text-center  mt-5 ">
+            <div class="col-lg-7 col-12">
+            <h3 class="pt-5 services-heading">Our Services</h3>
+        <p class="servc-detail">The labor shortage is the leading factor why companies struggle to build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire and builds their workforce with global talent, while reducing cost, increase efficiency, hold accountability, and maximize profits.</p>
+        </div>
+        </div>
+        <div class="row mt-5 pt-5">
+            <div class="col-lg-4">
+                <img src="{{ asset('user') }}/assets/images/landing-page-img/w-of-opportunities.png" alt=""
+                srcset="" class="w-100">
+                <div class="mt-5">
+                <h3 class="about-servc-heading ">Creating World Of
+                    Opportunities</h3>
+                    <p class="servc-detail">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
+                </div>
+                </div>
+            <div class="col-lg-5 coled-md align-self-center">
+                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/vectordesinarrow.png" alt="no img"
+                srcset="">
+              
+            </div>
+         
+        </div>    
+        <div class="row justify-content-end mt-lg-0 mt-md-0 mt-5">
+          
+            <div class="col-lg-4">
+                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/net-emp-job.png" alt=""
+                srcset="">
+                <div class="mt-5">
+                <h3 class="about-servc-heading ">Empowering Employers <br>
+                    & Employees</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
+            
+                </div>
+                </div>
+        </div>    
+    
+        <div class="row mt-5 pt-5">
+            <div class="col-lg-4">
+                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/emp-emp-eply.png" alt=""
+                srcset="">
+                <div class="mt-5">
+                <h3 class="about-servc-heading ">Networking <br> employers  & jobs</h3>
+                 
+                <p class="servc-detail">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
+            </div>
+            </div>
+            <div class="col-lg-5 coled-md">
+                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/vec-des-arrow.png" alt=""
+                srcset="">
+            </div>
+          
+           
+        </div>    
+    
+    </div>
+</div>
+    {{-- updated services section --}}
+
  <!-- about us page -->
- <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
+ {{-- <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
     <div class="text-center mt-5">
         <h1 class="herosecion pt-5">About Us </h1>
         <div class="botom-hr">
@@ -342,7 +406,7 @@
 
     </div>
 
-</div>
+</div> --}}
 <!-- about us page -->
 
 
@@ -351,7 +415,7 @@
         <div class="container pt-5 pb-5">
             <h3 class="text-center faqs-heading">FAQs</h3>
             <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-10 col-10">
+                <div class="col-lg-9 col-md-10 col-12">
                     <p class=" faq-para text-center mx-auto">The labor shortage is the leading factor why companies struggle to
                         build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire
                         and builds their workforce with global talent.!</p>
@@ -436,7 +500,7 @@
     <!-- faqs -->
 
     <!-- contact us section -->
-    <div class="conatiner-fluid bg-grey" id="contactUs">
+    <div class="container-fluid bg-grey" id="contactUs">
         <div class="container mt-5 mb-5">
 
 

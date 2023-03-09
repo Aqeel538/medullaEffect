@@ -9,7 +9,9 @@
     margin: 0;
     padding: 0;
 }
-
+/* .container-fluid{
+    padding: 0;
+} */
 html {
     overflow-x: hidden;
 }
@@ -2076,7 +2078,7 @@ input[type=number] {
 }
 
 .tab-links {
-    font-size: 17.74px;
+    font-size: 16.74px;
     list-style: none;
     padding: 10px 40px;
     color: rgb(0, 0, 0);
@@ -2108,7 +2110,7 @@ input[type=number] {
     letter-spacing: 0.02em;
     font-family: 'Helvetica';
     font-style: normal;
-    font-size: 17.74px;
+    font-size: 16.74px;
     list-style: none;
     padding: 10px 40px;
     color: #000000;
@@ -2174,6 +2176,9 @@ input[type="radio"]#jobs {
 input[type="radio"]#sav {
     accent-color: rgba(124, 35, 66, 1);
 }
+input[type="radio"]#s{
+    accent-color: rgba(124, 35, 66, 1);
+}
 
 .posted-tag {
     font-weight: 700;
@@ -2230,7 +2235,6 @@ input[type="radio"]#sav {
     left: 15px;
     top: 12px;
 }
-
 
 .option_radio span:after {
     content: "";
@@ -2328,7 +2332,7 @@ input[type="radio"]#sav {
 
     display: flex;
     align-items: center;
-    text-align: center;
+    
 }
 
 .contct {
@@ -3092,6 +3096,9 @@ input:checked+.slider:before {
 
         margin: 50px auto;
     }
+    .coled-md img{
+display: none;
+    }
 
 }
 
@@ -3495,7 +3502,20 @@ input:checked+.slider:before {
 
     margin: 50px auto;
 }
-
+.tab-wrapper {
+    /* text-align: center; */
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 246px;
+}
+.tabs {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 }
 
 /* Below 560px  */
@@ -4402,29 +4422,19 @@ input:checked+.slider:before {
 }
 
 .servc-detail {
-    text-align: justify;
-    -webkit-font-family: "Helvetica" !important;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17.2949px;
-    line-height: 144.99%;
-
-    letter-spacing: 0.02em;
 
 
-    letter-spacing: 0.02em;
-    color: #525050;
 
  
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
     line-height: 144.99%;
     /* or 22px */
-
-    text-align: center;
+    
     letter-spacing: 0.02em;
-
+    
     color: #303030;
 
 }
