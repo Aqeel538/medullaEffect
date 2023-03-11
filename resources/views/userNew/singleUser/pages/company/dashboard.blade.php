@@ -40,8 +40,8 @@
                 </div>
                 <form action="{{ route('update.company.dashboard') }}" method="POST">
                     @csrf
-                    <div class="row mt-4">
-                        <div class="col-12  col-lg-6 col-md-6">
+                    <div class="row mt-3">
+                        <div class="col-12  col-lg-6 col-md-6 ">
                             <div class="input-container">
 
                                 <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
@@ -54,7 +54,7 @@
                             </span>
 
                         </div>
-                        <div class="col-12  col-lg-6 col-md-6">
+                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
                             <div class="input-container">
 
                                 <input value="{!! $nameParts[1] ?? '' !!}" class="input-fields" type="text"
@@ -69,8 +69,8 @@
                         </div>
 
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
+                    <div class="row mt-lg-3 mt-2 pt-lg-0 pt-2">
+                        <div class="col-12  col-lg-6 col-md-6 ">
                             <div class="input-container">
 
                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
@@ -83,7 +83,7 @@
                             </span>
 
                         </div>
-                        <div class="col-12  col-lg-6 col-md-6">
+                        <div class="col-12  col-lg-6 col-md-6  mt-lg-0 mt-md-0 mt-3">
                             <div class="input-container">
                                 {{-- {{ dd($user->phone) }} --}}
                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"

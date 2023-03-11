@@ -2399,7 +2399,9 @@ input[type="radio"]#s{
     letter-spacing: 0.02em;
     color: #7c2342;
 }
-
+.text-reds{
+    color: #7C2342;
+}
 .job-details {
     -webkit-font-family: "Helvetica";
     font-style: normal;

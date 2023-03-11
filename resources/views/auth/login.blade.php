@@ -42,7 +42,7 @@
                             @csrf
                             <input required type="hidden" name="check" value="1" />
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
-                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                <div class="col-lg-6 col-md-8 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields"required type="email" name="email"

@@ -55,7 +55,7 @@
     <!-- cards row -->
     <div class="container-fluid mt-lg-3 mt-md-4 mt-1">
         <div class="row justify-content-center index-page-card-row text-center poppins p-4">
-            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+            <div class="col-lg-4 col-md-10 col-12 mt-lg-2 mt-md-5 mt-4">
                 <div class="card-figure">
                     <div class="">
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-1.png"
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+            <div class="col-lg-4 col-md-10 col-12 mt-lg-2 mt-md-5 mt-4">
                 <div class="card-figure-2nd-card">
                     <div class="">
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-3.png"
@@ -89,7 +89,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-4 col-md-6 col-12 mt-lg-2 mt-md-3 mt-4">
+            <div class="col-lg-4 col-md-10 col-12 mt-lg-2 mt-md-5 mt-4">
                 <div class="card-figure">
                     <div class="">
                         <img src="{{ asset('user') }}/assets/images/landing-page-img/card-img-2.png"

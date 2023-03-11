@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
-                <div class="d-flex justify-content-center mt-5">
+                <div class="d-flex justify-content-center mt-5 pt-5">
                     
                      
                     <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >

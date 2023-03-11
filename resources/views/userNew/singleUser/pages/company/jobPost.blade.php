@@ -165,7 +165,7 @@
                                             </p>
                                             <p class="job-posted" style="margin: 0; padding-left:35px;">
                                                 {!! $job->located_in ?? '' !!} <span
-                                                    class="text-primary">({!! $job->job_type ?? '' !!})</span></p>
+                                                    class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
                                             <p class="job-posted" style="margin: 0; padding: 0 35px;">
                                                 {!! $job->work_type ?? '' !!}</p>
                                         </div>
