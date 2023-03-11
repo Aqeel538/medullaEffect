@@ -42,7 +42,7 @@
         <div class="row text-center justify-content-center">
             <div class="col-lg-12 col-md-10 col-12 ">
                 <h1>
-                     Home Of Business Opportunities.
+                    Home Of Business Opportunities.
                 </h1>
                 <p class="text-phara-respns  hero-sec-paragrph pt-4">
                     Where Business Professionals Meet Other Business Professionals.
@@ -65,7 +65,7 @@
                         <h2 class="cards-heading">Employers</h2>
                         <p class="cards-text-para">
 
-                            Hire Best Candidates For Your Bussiness 
+                            Hire Best Candidates For Your Bussiness
                         </p>
                         <a href="{{ route('companay') }}">
                             <button class="buttonfilled go-btn">Let’s Go</button></a>
@@ -110,7 +110,7 @@
         </div>
     </div>
 
-   
+
 
     <!-- sservice page -->
     {{-- <div id="ourServices" class="container-fluid  pb-5 ">
@@ -228,69 +228,77 @@
 
     {{-- update dservices section --}}
 
-<div class="container-fluid mt-5 mb-5">
-    <div class="container">
-        <div class="row justify-content-center text-center  mt-5 ">
-            <div class="col-lg-7 col-12">
-            <h3 class="pt-5 services-heading">Our Services</h3>
-        <p class="servc-detail">The labor shortage is the leading factor why companies struggle to build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire and builds their workforce with global talent, while reducing cost, increase efficiency, hold accountability, and maximize profits.</p>
+    <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center text-center  mt-5 ">
+                <div class="col-lg-7 col-12">
+                    <h3 class="pt-5 services-heading">Our Services</h3>
+                    <p class="servc-detail">The labor shortage is the leading factor why companies struggle to build and
+                        grow their business in today's economy. The Medulla Effect works with companies struggling to hire
+                        and builds their workforce with global talent, while reducing cost, increase efficiency, hold
+                        accountability, and maximize profits.</p>
+                </div>
+            </div>
+            <div class="row mt-5 pt-5">
+                <div class="col-lg-4">
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/w-of-opportunities.png" alt=""
+                        srcset="" class="w-100">
+                    <div class="mt-5">
+                        <h3 class="about-servc-heading ">Showcase Your Skills & Experience</h3>
+                        <p class="servc-detail">If you’re an individual or freelancer, Medulla Effect allows you to not only
+                            reach out to potential companies to work with; but also allows you to create a profile for
+                            companies to look at, and reach out to you for potential business opportunities. </p>
+                    </div>
+                </div>
+                <div class="col-lg-5 coled-md align-self-center">
+                    <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/vectordesinarrow.png"
+                        alt="no img" srcset="">
+
+                </div>
+
+            </div>
+            <div class="row justify-content-end mt-lg-0 mt-md-0 mt-5">
+
+                <div class="col-lg-4">
+                    <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/net-emp-job.png"
+                        alt="" srcset="">
+                    <div class="mt-5">
+                        <h3 class="about-servc-heading ">Find The Right Qualified Help For You <br>
+                        </h3>
+                        <p>If you’re a company, Medulla Effect allows you to find good qualified candidates for your
+                            business. Our platform also allows you to have access to a variety of individual and freelancer
+                            profiles to reach out for work.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-5">
+                <div class="col-lg-4">
+                    <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/emp-emp-eply.png"
+                        alt="" srcset="">
+                    <div class="mt-5">
+                        <h3 class="about-servc-heading ">Networking Opportunities <br> </h3>
+
+                        <p class="servc-detail">Medulla Effect matches employers with individuals and businesses with
+                            freelancers. Our platform creates business opportunities by allowing the user to network with
+                            their desired party and fulfill their desired need.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 coled-md">
+                    <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/vec-des-arrow.png"
+                        alt="" srcset="">
+                </div>
+
+
+            </div>
+
         </div>
-        </div>
-        <div class="row mt-5 pt-5">
-            <div class="col-lg-4">
-                <img src="{{ asset('user') }}/assets/images/landing-page-img/w-of-opportunities.png" alt=""
-                srcset="" class="w-100">
-                <div class="mt-5">
-                <h3 class="about-servc-heading ">Creating World Of
-                    Opportunities</h3>
-                    <p class="servc-detail">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
-                </div>
-                </div>
-            <div class="col-lg-5 coled-md align-self-center">
-                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/vectordesinarrow.png" alt="no img"
-                srcset="">
-              
-            </div>
-         
-        </div>    
-        <div class="row justify-content-end mt-lg-0 mt-md-0 mt-5">
-          
-            <div class="col-lg-4">
-                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/net-emp-job.png" alt=""
-                srcset="">
-                <div class="mt-5">
-                <h3 class="about-servc-heading ">Empowering Employers <br>
-                    & Employees</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
-            
-                </div>
-                </div>
-        </div>    
-    
-        <div class="row mt-5 pt-5">
-            <div class="col-lg-4">
-                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/emp-emp-eply.png" alt=""
-                srcset="">
-                <div class="mt-5">
-                <h3 class="about-servc-heading ">Networking <br> employers  & jobs</h3>
-                 
-                <p class="servc-detail">Lorem ipsum dolor sit amet consectetur, adipisig elit. Ipsa sit exercitationem, offic iis placeat, error perspiciatis veniam corrupti voluptatem dolor.</p>
-            </div>
-            </div>
-            <div class="col-lg-5 coled-md">
-                <img class="w-100" src="{{ asset('user') }}/assets/images/landing-page-img/vec-des-arrow.png" alt=""
-                srcset="">
-            </div>
-          
-           
-        </div>    
-    
     </div>
-</div>
     {{-- updated services section --}}
 
- <!-- about us page -->
- {{-- <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
+    <!-- about us page -->
+    {{-- <div id="aboutUs" class="container-fluid mt-5 pb-5 " style="background-color: #F9F9F9">
     <div class="text-center mt-5">
         <h1 class="herosecion pt-5">About Us </h1>
         <div class="botom-hr">
@@ -407,7 +415,7 @@
     </div>
 
 </div> --}}
-<!-- about us page -->
+    <!-- about us page -->
 
 
     <!-- faqs -->
@@ -416,55 +424,49 @@
             <h3 class="text-center faqs-heading">FAQs</h3>
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-10 col-12">
-                    <p class=" faq-para text-center mx-auto">The labor shortage is the leading factor why companies struggle to
-                        build and grow their business in today's economy. The Medulla Effect works with companies struggling to hire
+                    <p class=" faq-para text-center mx-auto">The labor shortage is the leading factor why companies
+                        struggle to
+                        build and grow their business in today's economy. The Medulla Effect works with companies struggling
+                        to hire
                         and builds their workforce with global talent.!</p>
                 </div>
             </div>
-           
+
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-10 col-11">
                     <div class="accourdian">
                         <div class="accordian-item item1">
                             <div class="accordian-link">
-                                What Started The Medulla Effect ?
+                                What Started The Medulla Effect?
                                 <i class="icons ion-md-add"></i>
                             </div>
                             <div class="answer">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas esse odit voluptatem
-                                    consectetur debitis vero magni facere. Laudantium quia architecto ratione accusamus ea
-                                    dicta incidunt animi recusandae quasi cumque.Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Eum quas esse odit voluptatem consectetur debitis vero magni facere.
-                                    Laudantium quia architecto ratione accusamus ea dicta incidunt animi recusandae quasi
-                                    cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quas esse odit
-                                    voluptatem consectetur debitis vero magni facere. Laudantium quia architecto ratione
-                                    accusamus ea dicta incidunt animi recusandae quasi cumque.Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Eum quas esse odit voluptatem consectetur debitis vero
-                                    magni facere. Laudantium quia architecto ratione accusamus ea dicta incidunt animi
-                                    recusandae quasi cumque.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                                    quas esse odit voluptatem consectetur debitis vero magni facere. Laudantium quia
-                                    architecto ratione accusamus ea dicta incidunt animi recusandae quasi cumque.Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit. Eum quas esse odit voluptatem consectetur
-                                    debitis vero magni facere. Laudantium quia architecto ratione accusamus ea dicta
-                                    incidunt animi recusandae quasi cumque.Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Eum quas esse odit voluptatem consectetur debitis vero magni facere.
-                                    Laudantium quia architecto ratione accusamus ea dicta incidunt animi recusandae quasi
-                                    cumque.</p>
+                                <p>The labor shortage is the leading factor why companies struggle to build and grow their
+                                    business in today’s economy. Companies can’t find the right help they need which leads
+                                    to a tough time growing. There are also a surplus of people who have been laid-off due
+                                    to the economy, who are struggling to find a new job. The Medulla Effect team wants to
+                                    get rid of those problems by creating a solution to help businesses and individuals.</p>
                             </div>
                         </div>
                         <div class="accordian-item item2">
                             <div class="accordian-link">
-                                How The Medulla Effect is Empowering Employers & Individuals?
+                                How the Medulla Effect is Empowering Employers & Individuals?
                                 <i class="icons ion-md-add"></i>
                             </div>
                             <div class="answer">
-                                <p>With the difficulty of employer's trying to find workers to fill their job openings,
-                                    employer's have essentially stopped laying off or firing people who don't exactly have
-                                    the talent they are looking for. This is why companies are struggling to grow, execute
-                                    their goals, and provide good customer service. Our team of professionals leverages our
-                                    network of experts and locates the best skilled individuals to fulfill your opening's.
-                                    Our team does the searching, interviewing, validating, prequalifying, and then we
-                                    present to you the best candidates that qualify for the position.</p>
+                                <p>The Medulla Effect is a platform that allows individuals and freelancers to showcase
+                                    their skills and experience to give them more power in landing their desired business
+                                    opportunity. With the ability to create their own profile for businesses to view, this
+                                    saves time on the individual and freelancer side by having companies reach out to them.
+                                    <br>
+                                    On the flip side, The Medulla Effect platform creates opportunities for businesses to
+                                    find the right help they need to grow. Rather than relying on the hope of qualified
+                                    individuals or freelancers to apply for a position, businesses can now reach out to our
+                                    pool of individuals or freelancers on our platform and pick out who the best fit is by
+                                    looking at the individual or freelancer profile. There is also a chat feature on our
+                                    platform for businesses to reach out and network with the individual or freelancer
+                                    before having to meet with them!
+                                </p>
                             </div>
                         </div>
                         <div class="accordian-item item3">
@@ -532,11 +534,11 @@
                             @csrf
                             <div class="row mb-lg-3 mb-0">
                                 <div class="col-12">
-                                      <input type="text" name="name" class="form-control cos" id="inputAddress"
-                                    placeholder="Full Name">
-                                <span class="text-danger error-text name_error"></span>
+                                    <input type="text" name="name" class="form-control cos" id="inputAddress"
+                                        placeholder="Full Name">
+                                    <span class="text-danger error-text name_error"></span>
                                 </div>
-                              
+
                             </div>
                             <div class="row ">
                                 <div class="col-lg-6 col-md-12 col-12">
@@ -596,7 +598,7 @@
 
                     <div class="col-lg-4 col-md-6 footer-contact">
                         <div class="d-flex">
-                          <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="">
+                            <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="">
                         </div>
                         <p class="mt-2">
                             A108 Adam Street

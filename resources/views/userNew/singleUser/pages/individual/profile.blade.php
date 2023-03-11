@@ -38,9 +38,8 @@
                 style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                 <div class="">
                     <h1 class="pt-4 profile-text-ques-heading">Fill out the questionnaire</h1>
-                    <h6 class="john-para-afer-ques-heading-2">Sed ut perspiciatis unde omnis iste natus error sit
-                        voluptatem accusantium lorue laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                        veritatis..</h6>
+                    <h6 class="john-para-afer-ques-heading-2">These selected answers will be used to showcase your profile
+                        to companies looking to hire!</h6>
                     <form action="{{ route('update.user.profile') }}" method="POST">
                         @csrf
                         <div class="row mt-4">
@@ -80,7 +79,7 @@
                                         alt="" srcset=""> --}}
                                     <input value="{!! $user->phone ?? '' !!}" class="input-fields-2 int" type="text"
                                         name="phone" id="mobile_code">
-                                    <input type="hidden" name="dial_code" class="dial">
+                                    {{-- <input type="hidden" name="dial_code" class="dial"> --}}
                                 </div>
                                 <span class="text-danger d-flex">
                                     @error('phone')

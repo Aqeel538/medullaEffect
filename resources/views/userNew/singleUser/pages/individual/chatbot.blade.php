@@ -17,40 +17,49 @@
 
                     @if ($user_messages->count() > 0)
                         @foreach ($user_messages as $single_message)
-                            <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
-                                <div class="img-holder">
-                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
-                        style="width: 60px;" class="" alt=""> --}}
-                                    <?php $image = isset($single_message->image) && !empty($single_message->image) ? $single_message->image : ''; ?>
+                            <a href="/individual/messages/{{ $single_message->id }}" style=" text-decoration: none;">
+                                <div class="d-flex  align-content-center pb-3 mt-5"
+                                    style="border-bottom: 1px solid #e7e4e4;">
+                                    <a href="/individual/messages/{{ $single_message->id }}"
+                                        style=" text-decoration: none;">
+                                        <div class="img-holder">
+                                            {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/user.png" style="width: 60px;" class="" alt=""> --}}
+                                            <?php $image = isset($single_message->image) && !empty($single_message->image) ? $single_message->image : ''; ?>
 
-                                    <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt=""
-                                        srcset="" />
-                                </div>
-                                <div class="text-start ps-2">
-                                    @if ($single_message->receiver_id == Auth::user()->id)
-                                        <h3 class="m-0 p-0 inbox-chat-heading">
+                                            <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt=""
+                                                srcset="" />
+                                        </div>
+                                        <div class="text-start ps-2">
+                                            @if ($single_message->receiver_id == Auth::user()->id)
+                                                <h3 class="m-0 p-0 inbox-chat-heading">
+
+                                                    <p> {{ $single_message->name }}</p>
+
+                                                </h3>
+                                            @else
+                                                <h3 class="m-0 p-0 inbox-chat-heading">
+                                                    <a href="/individual/messages/{{ $single_message->id }}"
+                                                        style=" text-decoration: none;">
+                                                        <p> {{ $single_message->name }}</p>
+                                                    </a>
+                                                </h3>
+                                            @endif
                                             <a href="/individual/messages/{{ $single_message->id }}"
                                                 style=" text-decoration: none;">
-                                                <p> {{ $single_message->name }}</p>
+                                                <p class="pt-1 m-0 john-para-afer-ques-heading">Sed ut perspiciatis unde
+                                                    omnis
+                                                    ise
+                                                    na....</p>
                                             </a>
-                                        </h3>
-                                    @else
-                                        <h3 class="m-0 p-0 inbox-chat-heading">
-                                            <a href="/individual/messages/{{ $single_message->id }}"
-                                                style=" text-decoration: none;">
-                                                <p> {{ $single_message->name }}</p>
-                                            </a>
-                                        </h3>
-                                    @endif
-                                    <p class="pt-1 m-0 john-para-afer-ques-heading">Sed ut perspiciatis unde omnis ise
-                                        na....</p>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-end">
+                                            <p class=" john-para-afer-ques-heading">
+                                                {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="d-flex align-items-end justify-content-end">
-                                    <p class=" john-para-afer-ques-heading">
-                                        {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}
-                                    </p>
-                                </div>
-                            </div>
+                            </a>
                         @endforeach
                     @else
                         <p>No conversation so far...</p>
@@ -89,7 +98,7 @@
 
                     <form id="myForm" class="form-group" style="margin-top: 20px">
                         @csrf
-                        <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}" >
+                        <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}">
                         <div class="input-text d-flex justify-content-end">
                             <input type="text" id="empty" name="message" autocomplete="off" chat-box
                                 style="width: 100%;" placeholder="Type Here...">

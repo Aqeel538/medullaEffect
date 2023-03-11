@@ -114,8 +114,8 @@
                             }
                             ?>
                             @if (isset($check) && !empty($check))
-                                <a href="#">
-                                    <button class="buttonunfill-save-follow">Followed</button>
+                                <a href="{{ route('follow.company', $jobDetail->Users->id) }}">
+                                    <button class="buttonunfill-save-follow">Unfollow</button>
                                 </a>
                             @else
                                 <a href="{{ route('follow.company', $jobDetail->Users->id) }}">

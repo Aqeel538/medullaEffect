@@ -25,6 +25,8 @@ class CompanyController extends Controller
         // $toasterValue = 0;
         $user = Auth::user();
         $nameParts = explode(' ', $user->name);
+        // $phoneParts = explode(' ', $user->phone);
+        // dd($phoneParts);
         $title = 'Company dashboard';
         return view('userNew.singleUser.pages.company.dashboard', get_defined_vars());
     }
@@ -108,7 +110,7 @@ class CompanyController extends Controller
             'name' => $req['first_name'] . " " . $req['last_name'],
             'email' => $req['email'],
 
-            // 'phone' => '+' . $req->dial_code . $req['phone'],
+            // 'phone' => '+' . $req->dial_code . " " . $req['phone'],
             'phone' => $req['phone'],
             'job_type' => $req['job_type'],
             'city' => $req['city'],

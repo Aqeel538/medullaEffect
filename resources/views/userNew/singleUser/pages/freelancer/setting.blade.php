@@ -86,7 +86,7 @@
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int"
                                                     type="text" name="phone" id="mobile_code">
 
-                                                {{-- <input type="hidden" name="dial_code" class="dial"> --}}
+                                                <input type="hidden" name="dial_code" class="dial">
                                             </div>
 
                                         </div>

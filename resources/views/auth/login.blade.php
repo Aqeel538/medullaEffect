@@ -81,7 +81,7 @@
                             </div>
                             <div class="pt-5">
                                 <p class="Halvetica phara_16 mb-5" style="font-weight: 700;"> Don't have an account ?
-                                    <span class="log_company"><a href="{{ route('index') }}">Sing Up</a></span>
+                                    <span class="log_company"><a href="{{ route('index') }}">Sign Up</a></span>
                                 </p>
                             </div>
 

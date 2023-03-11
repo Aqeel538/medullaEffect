@@ -2,7 +2,7 @@
 @section('content')
     <!-- 2nd nav -->
     @php
-    $blink = 0;
+        $blink = 0;
     @endphp
     @include('userNew.singleUser.pages.company.secondNav')
     <!---------------- -Navend--------------- -->
@@ -16,39 +16,52 @@
 
                     @if ($user_messages->count() > 0)
                         @foreach ($user_messages as $single_message)
-                            <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
-                                <div class="img-holder">
-                                    {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
+                            <a href="/company/messages/{{ $single_message->id }}" style="text-decoration: none">
+                                <div class="d-flex  align-content-center pb-3 mt-5"
+                                    style="border-bottom: 1px solid #e7e4e4;">
+                                    <div class="img-holder">
+                                        {{-- <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
                                         style="width: 60px;" class="" alt=""> --}}
-                                    <?php $image = isset($single_message->image) && !empty($single_message->image) ? $single_message->image : ''; ?>
+                                        <?php $image = isset($single_message->image) && !empty($single_message->image) ? $single_message->image : ''; ?>
 
-                                    <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt=""
-                                        srcset="" />
-                                </div>
-                                <div class="text-start ps-2">
-                                    @if ($single_message->receiver_id == Auth::user()->id)
-                                        <h3 class="m-0 p-0 inbox-chat-heading">
+                                        <img src="<?= $image ?>" style="height: 70px;width: 70px;" alt=""
+                                            srcset="" />
+                                    </div>
+                                    <a href="/company/messages/{{ $single_message->id }}" style="text-decoration: none">
+                                        <div class="text-start ps-2">
+                                            @if ($single_message->receiver_id == Auth::user()->id)
+                                                <h3 class="m-0 p-0 inbox-chat-heading">
+                                                    <a href="/company/messages/{{ $single_message->id }}"
+                                                        style=" text-decoration: none;">
+                                                        <p> {{ $single_message->name }}</p>
+                                                    </a>
+                                                </h3>
+                                            @else
+                                                <h3 class="m-0 p-0 inbox-chat-heading">
+                                                    <a href="/company/messages/{{ $single_message->id }}"
+                                                        style=" text-decoration: none;">
+                                                        <p> {{ $single_message->name }}</p>
+                                                    </a>
+                                                </h3>
+                                            @endif
                                             <a href="/company/messages/{{ $single_message->id }}"
-                                                style=" text-decoration: none;">
-                                                <p> {{ $single_message->name }}</p>
+                                                style="text-decoration: none">
+                                                <p class="pt-1 m-0 john-para-afer-ques-heading">Sed ut perspiciatis unde
+                                                    omnis
+                                                    ise
+                                                    na....</p>
                                             </a>
-                                        </h3>
-                                    @else
-                                        <h3 class="m-0 p-0 inbox-chat-heading">
-                                            <a href="/company/messages/{{ $single_message->id }}"
-                                                style=" text-decoration: none;">
-                                                <p> {{ $single_message->name }}</p>
-                                            </a>
-                                        </h3>
-                                    @endif
-                                    <p class="pt-1 m-0 john-para-afer-ques-heading">Sed ut perspiciatis unde omnis ise
-                                        na....</p>
+                                        </div>
+                                    </a>
+                                    <div class="d-flex align-items-end justify-content-end">
+                                        <a href="/company/messages/{{ $single_message->id }}" style="text-decoration: none">
+                                            <p class=" john-para-afer-ques-heading">
+                                                {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}
+                                            </p>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-end justify-content-end">
-                                    <p class=" john-para-afer-ques-heading">
-                                        {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}</p>
-                                </div>
-                            </div>
+                            </a>
                         @endforeach
                     @else
                         <p>No conversation so far...</p>
@@ -95,7 +108,7 @@
                         <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}">
                         <div class="input-text d-flex justify-content-end">
                             <input type="text" id="empty" name="message" autocomplete="off" chat-box
-                                style="width: 100%;"  placeholder="Type Here...">
+                                style="width: 100%;" placeholder="Type Here...">
                             <span class="text-danger error-text message_error"></span>
 
                             {{-- <button type="submit" id="getData" data-id="{{ $message_info->id }}"

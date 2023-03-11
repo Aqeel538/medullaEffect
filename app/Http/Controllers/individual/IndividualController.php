@@ -23,7 +23,8 @@ class IndividualController extends Controller
         $title = "Profile";
 
         $user = Auth::user();
-        $jobsApplied = Application::where('applicant_id', $user)->count();
+        $jobsApplied = Application::where('applicant_id', auth()->user()->id)->count();
+        // dd($jobsApplied);
         return view('userNew.singleUser.pages.individual.profile', get_defined_vars());
     }
 
@@ -218,7 +219,7 @@ class IndividualController extends Controller
         // dd($checkUser);
         if (isset($checkUser) && !empty($checkUser)) {
 
-
+            $unfollow = Follower::destroy($checkUser->id);
             return redirect()->back()->with('message', 'Updated');
         } else {
 

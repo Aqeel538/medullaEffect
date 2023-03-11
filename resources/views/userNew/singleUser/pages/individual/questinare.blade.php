@@ -21,8 +21,8 @@
                 </div>
                 <div class="row">
                     <div class="col-10 pt-2 pb-3 offset-1">
-                        <p class="descriptions">Post job Hire people through Medulla...nis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa qua.</p>
+                        <p class="descriptions">These selected answers will be used to showcase your profile to companies
+                            looking to hire!</p>
                     </div>
                 </div>
                 <form action="{{ route('submit.questionair', $user->id) }}" method="POST" enctype="multipart/form-data">

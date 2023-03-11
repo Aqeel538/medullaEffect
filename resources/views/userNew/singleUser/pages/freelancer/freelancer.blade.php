@@ -31,7 +31,7 @@
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
 
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
 
 
                     </div>
@@ -92,7 +92,7 @@
 
                             </div>
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
-                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
+                                {{-- <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <span><i class="fa-solid fa-business-time"></i></span>
                                         <input class="input-fields" type="text"
@@ -103,7 +103,7 @@
                                             {{ $message }}
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-earth-americas"></i>
@@ -116,9 +116,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="row justify-content-center Poppins">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-industry"></i>
@@ -130,6 +127,10 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                            </div>
+                            <div class="row justify-content-center Poppins">
+
 
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
@@ -147,8 +148,6 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row Poppins mb-lg-2 mb-md-2 mb-0  mt-2">
                                 <div class="col-lg-6 col-md-6 col-12  mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-location-dot"></i>
@@ -160,6 +159,9 @@
                                         @enderror
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row Poppins mb-lg-2 mb-md-2 mb-0  mt-2">
+
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-city"></i>
@@ -174,7 +176,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3 mt-2">
+                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3 ">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-flag"></i>
                                         <input class="input-fields" type="text" name="state"
@@ -187,7 +189,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3  mt-2">
+                                <div class="col-lg-12 col-md-12 col-12 mb-lg-0 mb-md-0 mb-3  mt-2">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-file-zipper"></i>
                                         <input class="input-fields" type="number" name="zip_code"
