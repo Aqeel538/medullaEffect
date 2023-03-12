@@ -10,7 +10,7 @@
     <div class="container-fluid tagline-1">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-7 col-sm-9 col-12 text-center">
-                <h1 class="advnc-search-heading mt-5">Advanced Search Filters</h1>
+                <h1 class="advnc-search-heading mt-5">Advanced Search Filters...</h1>
                 <p class="mt-4 mb-5 john-para-afer-ques-heading-filter">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
@@ -26,8 +26,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-8 col-10">
                     <div class="row">
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
-                            <div class="inputfield">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 mb-3">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-location-dot"></i>
 
                                 {{-- <input type="text" name="searchLocation" style="width: 100%"
@@ -44,8 +44,8 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
-                            <div class="inputfield">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 mb-3 ">
+                            <div class="inputfield-2">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
                                 <select name="experience" style="width: 100%">
@@ -58,8 +58,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
-                            <div class="inputfield">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 mb-3">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-user-tie"></i>
                                 <select name="job_type" style="width: 100%">
                                     <option value="" disabled selected hidden>Job Type</option>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="row mt-lg-3 mt-md-0 mt-2">
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-industry"></i>
                                 <select name="industry" style="width: 100%">
                                     <option value="" disabled selected hidden>Industry</option>
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/calendar-icon.png" alt=""
                                     srcset="">
                                 <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
-                            <div class="inputfield">
+                            <div class="inputfield-2">
                                 <i class="fa-solid fa-sack-dollar"></i>
                                 <select name="pay_range" style="width: 100%">
                                     <option value="" disabled selected hidden>
