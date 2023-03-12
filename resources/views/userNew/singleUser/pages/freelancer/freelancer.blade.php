@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-lg-9 col-md-9 col-11 central-data-signup ">
                         <div class="row text-center justify-content-center">
-                            <div class="col-lg-7 col-md-7 col-12">
+                            <div class="col-lg-7 col-md-10 col-12">
                                 <h5 class="job-headings pb-4">Freelancer Sign Up</h5>
                                 <p class="job-view-para-2 pb-4">You’re one step closer to uploading your services and
                                     growing your business</p>

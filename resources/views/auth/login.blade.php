@@ -29,8 +29,8 @@
 
                     </div>
                     <div class="col-9 central-data-signup ">
-                        <div class="row" style="display: flex;justify-content: center">
-                            <div class="col-lg-8 col-md-8 col-10">
+                        <div class="row text-center" style="display: flex;justify-content: center">
+                            <div class="col-lg-8 col-md-10 col-12">
                                 <h5 class="job-headings pb-4 mt-5">Login</h5>
                                 <p class="job-view-para-2 pb-4">Post job Hire people through Medulla...nis iste
                                     natus error sit
