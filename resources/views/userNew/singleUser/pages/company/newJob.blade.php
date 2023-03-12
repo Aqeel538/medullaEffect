@@ -47,13 +47,18 @@
                 <form action="{{ route('company_jobs_store', $update_id) }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-12 mb-3">
+                        <div class="col-12 ">
+                            <input type="text" class="form-control" name="title"
+                                
+                                placeholder="Company name" style=" padding: 12px;border: 2px solid #eee;" required />
+                        </div>
+                        <div class="col-12 mt-3">
                             <input type="text" class="form-control" name="title"
                                 value="<?= isset($obj->title) && !empty($obj->title) ? $obj->title : '' ?>"id="exampleInputEmail1"aria-describedby="emailHelp"
                                 placeholder="Job title" style=" padding: 12px;border: 2px solid #eee;" required />
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-12 ">
+                        <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="category_id" class="form-select form-select-sm greyColor" id="category"
                                 style=" padding: 15px 10px;  outline: none; border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example">
@@ -163,7 +168,7 @@
                                 }
 
                                 ?>
-                                <option value="{!! $obj->work_type ?? '' !!}" disabled selected hidden>{!! $obj->work_type ?? 'Work Type' !!}
+                                <option value="{!! $obj->work_type ?? '' !!}" disabled selected hidden>{!! $obj->work_type ?? 'Employment Type' !!}
                                 </option>
                                 <option value="Full time">Full time</option>
                                 <option value="Part time">Part time</option>
@@ -186,12 +191,12 @@
                                 value="<?= isset($obj->zip_code) && !empty($obj->zip_code) ? $obj->zip_code : '' ?>"placeholder="Zip code"
                                 style=" border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;" />
                         </div>
-                        <div class="col-lg-12 col-md-12 col-12  mt-3">
+                        {{-- <div class="col-lg-12 col-md-12 col-12  mt-3">
                             <input class="form-control" placeholder="Short description" name="short_description"
                                 value="<?= isset($obj->short_description) && !empty($obj->short_description) ? $obj->short_description : '' ?>"
                                 rows="6"
                                 style=" border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;">
-                        </div>
+                        </div> --}}
                         <div class="form-group mt-3">
                             <textarea class="form-control" id="myEditorid" placeholder="Description" name="description"
                                 value="<?= isset($obj->description) && !empty($obj->description) ? $obj->description : '' ?>" rows="6"

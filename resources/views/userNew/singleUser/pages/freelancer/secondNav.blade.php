@@ -17,7 +17,7 @@
                             href="{{ route('freelancer.setting') }}">Settings</a></li>
 
                 </ul>
-                <div>
+                <div class="testers">
                     <a class="navbar-link {{ request()->routeIs('see.notifications') ? 'mylist active' : '' }}"
                         href="{{ route('see.notifications') }}">
                         <?php

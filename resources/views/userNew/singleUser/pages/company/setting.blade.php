@@ -264,12 +264,11 @@
                     <div id="acount" class="city" style="display:none">
                         <!-- Button trigger modal -->
                         <button type="button" class="deletebtnwarning">
-                            Are You Sure to Delete Account???
+                            Are you sure you want to deactivate your account?
                         </button>
                         <div class="mt-4">
-                            <p>If you want to delete or deactivate your account you ll be permanently removig your data from
-                                our system ,you cant undo it</p>
-                            <h5 data-toggle="modal" data-target="#exampleModalCenter" class="deletebtn"> yes I want To
+                            <p>Deleting your account will remove your data from our system.</p>
+                            <h5 data-toggle="modal" data-target="#exampleModalCenter" class="deletebtn"> yes I want to
                                 delete</h5>
                         </div>
 
@@ -285,9 +284,21 @@
 
                                     </div>
                                     <div class="modal-body">
-                                        We are <b>Sorry</b> to hear that you would like to deactivate your account,
+                                        {{-- We are <b>Sorry</b> to hear that you would like to deactivate your account,
                                         please give us suggestion if you are deleting by any reason,or if you are looking to
-                                        take a break you can delete it. <b>Thanks.!</b>
+                                        take a break you can delete it. <b>Thanks.!</b> --}}
+
+                                        
+<select class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <option selected Disabled select >Please give us Feedback</option>
+    <option value="1">I found what I was looking for</option>
+    <option value="2">No longer need this Service </option>
+    <option value="3">I was unhappy with the service </option>
+    <option value="4">I was not able to find what I was looking for</option>
+    <option value="5">Problems with the technology</option>
+
+    <option value="6">Problems with the technology</option>
+  </select>
                                     </div>
                                     <div class="modal-footer">
                                         <a href="{{ route('deactivate', $user->id) }}"><button type="button"

@@ -26,7 +26,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-8 col-10">
                     <div class="row">
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 mb-3">
                             <div class="inputfield-2">
                                 <i class="fa-solid fa-location-dot"></i>
                                 <select name="searchLocation" style="width: 100%">
@@ -44,7 +44,7 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 ">
                             <div class="inputfield-2">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="row mt-lg-3 mt-md-0 mt-2">
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
                             <div class="inputfield-2">
                                 <i class="fa-solid fa-industry"></i>
                                 <select name="industry" style="width: 100%">
@@ -82,7 +82,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 ">
                             <div class="inputfield-2">
                             
                                 <input class="w-100" type="date" value="{{ old('created_at') }}" name="created_at"

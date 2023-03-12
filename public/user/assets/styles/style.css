@@ -1029,11 +1029,7 @@ a {
 }
 
 
-.form-select:focus {
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: none;
-}
+
 
 .form-control::placeholder {
     font-family: 'Helvetica';
@@ -2649,7 +2645,7 @@ input[type="radio"]#s{
 
 .switch {
     position: relative;
-
+border: none !important;
     width: 60px;
     height: 34px;
 }
@@ -3251,7 +3247,7 @@ display: none;
         margin-top: 30px;
         display: flex;
         justify-content: center;
-        margin-left: 45px;
+        margin-left: 35px;
     }
 
     .mobile-navbar-btns {
@@ -4549,6 +4545,12 @@ HEAD .fa-angle-right {
 .dd {
     background-color: white;
 }
+.form-select:focus {
+
+    outline: 0;
+     box-shadow: none !important;
+}
+
 
 .sendicon {
     color: white;

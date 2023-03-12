@@ -101,7 +101,7 @@
                     <div class="col-12 text-center crd-row-one">
                         <h1 class="head_text">OTP Verification</h1>
                         <p class="pt-2 pb-2" style="font-weight: 400">
-                            We just sent a email to your email please check your email to get the OTP verification code.
+                            Please check your email for the OTP verification code..
                         </p>
                     </div>
 
