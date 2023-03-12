@@ -76,7 +76,7 @@
         <!-- ------------row--1---Tab------------- -->
         <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
             @foreach ($individuals as $individual)
-                <div class="col-lg-3 col-md-6 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
+                <div class="col-lg-3 col-md-4 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
                     <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
                         <div class="freelancer-page pt-3">
                             <div class="img-holder-frelancer pt-4">
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="p-3">
-                            <h3 class="bus-heading mt-5 mb-1" style="height: 70px;overflow:hidden">{!! $individual->name ?? '' !!}
+                            <h3 class="bus-heading mt-5 mb-1" style="overflow:hidden">{!! $individual->name ?? '' !!}
                             </h3>
 
                             <h6 class="location-heading">Industry: <span class="place">{!! $individual->industry ?? '' !!}</span>

@@ -13,7 +13,7 @@
             <div class="col-lg-5 col-md-7 col-sm-9 col-12 text-center Halvetica">
                 <h1 class="headings-profile mt-5">Freelancers</h1>
                 <p class="mt-4 john-para-afer-ques-heading-filter mb-4">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                    Sed ut per vbbv spiciatis unde omnis iste natus error sit voluptatem
                     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                     quae ab illo inventore veritatis.
                 </p>
@@ -75,9 +75,9 @@
     <div class="container-fluid mt-5 p-lg-1 p-md-1 p-sm-3 p-1">
 
         <!-- ------------row--1---Tab------------- -->
-        <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-one">
+        <div class="row text-center ps-lg-5 pe-lg-5 pl-md-5 pr-md-5 crd-row-onec ">
             @foreach ($freelancers as $freelancer)
-                <div class="col-lg-3 col-md-6 col-12 col-lg-3 col-md-6 col-12 mb-lg-3 mb-md-3   mt-4">
+                <div class="col-lg-3 col-md-6 col-10 col-lg-3 col-md-6 col-10 mb-lg-3 mb-md-3 mx-lg-0 mx-md-0 mx-5  mt-4">
                     <a href="{{ route('company.freelancer.services', $freelancer->id) }}"
                         style=" text-decoration: none !important;color: #141313;">
                         <div style="background-color: #F9F9F9; border-radius: 21.0305px;" class="">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="p-3">
-                                <h3 class="bus-heading mt-5 mb-3" style="height: 70px;overflow:hidden">
+                                <h3 class="bus-heading mt-5 mb-3" style="overflow:hidden">
                                     {!! $freelancer->name ?? '' !!}
                                 </h3>
 
@@ -150,14 +150,6 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
 
         //mbil toggle
 
-        const mobile_nav = document.querySelector(".mobile-navbar-btn");
-        const nav_header = document.querySelector(".header");
-
-        const toggleNavbar = () => {
-            // alert("Plz ");
-            nav_header.classList.toggle("active");
-        };
-
-        mobile_nav.addEventListener("click", () => toggleNavbar());
+       
     </script>
 @endsection

@@ -53,7 +53,7 @@
                                 placeholder="Job title" style=" padding: 12px;border: 2px solid #eee;" required />
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-12 ">
                             <select name="category_id" class="form-select form-select-sm greyColor" id="category"
                                 style=" padding: 15px 10px;  outline: none; border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example">
@@ -82,7 +82,7 @@
 
 
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12">
+                        <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="experience" class="form-select form-select-sm greyColor" id="experience"
                                 style=" padding: 15px 10px;  outline: none;  border: 2px solid #eee;  background-color: white;"
                                 aria-label=".form-select-sm example">

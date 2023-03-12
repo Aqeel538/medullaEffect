@@ -1821,7 +1821,7 @@ ion-icon {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+   
 }
 
 /* Firefox */
@@ -3251,7 +3251,7 @@ display: none;
         margin-top: 30px;
         display: flex;
         justify-content: center;
-        margin-left: 18px;
+        margin-left: 45px;
     }
 
     .mobile-navbar-btns {
@@ -4008,12 +4008,12 @@ display: none;
     }
 
     .single-job-heading {
-        margin-left: 10px !important;
+        margin-left: 20px !important;
         font-size: 15px;
     }
 
     .job-posted {
-        margin-left: 10px !important;
+        margin-left: 20px !important;
         font-size: 12px;
 
     }

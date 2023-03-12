@@ -21,7 +21,7 @@ $blink = 1;
         </div>
         <div class="row mt-3 justify-content-center">
 
-            <div class="col-lg-7 ps-4 pe-4 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12">
+            <div class="col-lg-7  mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-md-10 col-10">
                 <div class="pr-2 pl-2">
 
                     <!-- cards -->

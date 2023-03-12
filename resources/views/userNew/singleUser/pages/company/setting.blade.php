@@ -7,8 +7,8 @@
     @include('userNew.singleUser.pages.company.secondNav')
 
     <div class="container  mt-5 pt-5 pb-4 mb-5">
-        <div class="row mt-4 pt-4 pb-4">
-            <div class="col-lg-4 col-md-4 col-12">
+        <div class="row mt-4 pt-4 pb-4 justify-content-center">
+            <div class="col-lg-4 col-md-12 col-10 mb-lg-0 mb-md-3 mb-0">
                 <div class="setting-tabs" id="setting-tab">
                     <h4 class="pro-sett-heading ">Profile Setting</h4>
                     <div>
@@ -44,7 +44,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-8 col-md-8 col-12">
+            <div class="col-lg-8 col-md-12 col-10 ">
                 <div class="setting-tabs">
                     <div id="London" class=" city">
                         <h2>Profile Info</h2>
@@ -53,7 +53,7 @@
                                 <form action="{{ route('update.company.profile') }}" method="POST">
                                     @csrf
                                     <div class="row mt-4">
-                                        <div class="col-12  col-lg-6 col-md-6">
+                                        <div class="col-12  col-lg-6 col-md-6 mb-lg-0 mb-md-0 mb-3">
                                             <div class="input-container  ">
                                                 {{-- <ion-icon name="person-outline"></ion-icon> --}}
                                                 <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
@@ -61,7 +61,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-2">
+                                        <div class="col-12  col-lg-6 col-md-6 mb-lg-0 mb-md-0 mb-3">
                                             <div class="input-container  ">
                                                 {{-- <ion-icon name="person-outline"></ion-icon> --}}
                                                 <input value="{!! $nameParts[1] ?? '' !!}" class="input-fields" type="text"
@@ -72,7 +72,7 @@
 
                                     </div>
                                     <div class="row  mt-lg-3 mt-md-3 mt-0">
-                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
+                                        <div class="col-12  col-lg-6 col-md-6 mb-lg-0 mb-3 ">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="mail-outline"></ion-icon> --}}
                                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
@@ -80,7 +80,7 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3  mt-lg-0 mt-md-0 mt-2">
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0  mb-3 ">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="call-outline"></ion-icon> --}}
                                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int"
