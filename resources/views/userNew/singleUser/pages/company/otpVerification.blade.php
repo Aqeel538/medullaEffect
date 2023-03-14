@@ -1,5 +1,6 @@
 @extends('userNew.singleUser.layouts.main2')
 @section('content')
+    <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <style>
@@ -75,17 +76,21 @@
 
     @if ($toasterValue == 1)
         <script>
-            toastr.success('registered successfully! Please enter opt for verification.');
+            toastr.success('registered successfully! please enter OTP for verification.');
         </script>
     @else
         <script>
-            toastr.success('otp resend successfully!');
+            toastr.success('OTP resend successfully!');
         </script>
     @endif
     <div class="container-fluid">
         <div class="row justify-content-center" style="height: 100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-               
+
+                <div id="loader-container">
+                    <div class="loader"></div>
+                </div>
+
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8" />
@@ -94,8 +99,8 @@
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
                 <div class="d-flex justify-content-center">
                     <div class="res-on-375 mx-auto mt-5  d-flex justify-content-center">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
-                </div>
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
+                    </div>
                 </div>
                 <div class="row mt-5 Halvetica">
                     <div class="col-12 text-center crd-row-one">
@@ -106,31 +111,25 @@
                     </div>
 
                 </div>
-                <form method="POST" action="{{ route('company.otp.verification') }}">
+                <form id="registerVerifyOtp">
                     @csrf
                     <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
 
-                        {{-- <div class="div1"> </div>
 
-                        <div class="div1"> </div>
 
-                        <div class="div1"> </div>
-
-                        <div class="div1"> </div>
-                        <div class="div1"> </div>
-                        <div class="div1"> </div> --}}
-                        <input class="m-2 text-center form-control rounded" id="first" required type="number"
+                        <input id="input1" type="text" maxlength="1" class="m-2 text-center form-control rounded"
                             name="o">
-                        <input class="m-2 text-center form-control rounded" id="second" required type="number"
-                            name="t">
-                        <input class="m-2 text-center form-control rounded" id="third" required type="number"
-                            name="p">
-                        <input class="m-2 text-center form-control rounded" id="fourth" required type="number"
-                            name="v">
-                        <input class="m-2 text-center form-control rounded" id="fifth" required type="number"
-                            name="e">
-                        <input class="m-2 text-center form-control rounded" id="sixth" required type="number"
-                            name="r">
+                        <input id="input2" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded" name="t">
+                        <input id="input3" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded" name="p">
+                        <input id="input4" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded" name="v">
+                        <input id="input5" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded" name="e">
+                        <input id="input6" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded" name="r">
+
                     </div>
                     <div class="mt-5">
 
@@ -155,35 +154,148 @@
             </div>
         </div>
     </div>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
+        const input1 = document.getElementById("input1");
+        const input2 = document.getElementById("input2");
+        const input3 = document.getElementById("input3");
+        const input4 = document.getElementById("input4");
+        const input5 = document.getElementById("input5");
+        const input6 = document.getElementById("input6");
 
-            function OTPInput() {
-                const inputs = document.querySelectorAll('#otp > *[id]');
-                for (let i = 0; i < inputs.length; i++) {
-                    inputs[i].addEventListener('keydown', function(event) {
-                        if (event.key === "Backspace") {
-                            inputs[i].value = '';
-                            if (i !== 0) inputs[i - 1].focus();
-                        } else {
-                            if (i === inputs.length - 1 && inputs[i].value !== '') {
-                                return true;
-                            } else if (event.keyCode > 47 && event.keyCode < 58) {
-                                inputs[i].value = event.key;
-                                if (i !== inputs.length - 1) inputs[i + 1].focus();
-                                event.preventDefault();
-                            } else if (event.keyCode > 64 && event.keyCode < 91) {
-                                inputs[i].value = String.fromCharCode(event.keyCode);
-                                if (i !== inputs.length - 1) inputs[i + 1].focus();
-                                event.preventDefault();
-                            }
-                        }
-                    });
-                }
+        input1.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input2.removeAttribute("disabled");
+                input2.focus();
             }
-            OTPInput();
+        });
 
+        input2.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input3.removeAttribute("disabled");
+                input3.focus();
+            }
+        });
 
+        input3.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input4.removeAttribute("disabled");
+                input4.focus();
+            }
+        });
+
+        input4.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input5.removeAttribute("disabled");
+                input5.focus();
+            }
+        });
+
+        input5.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input6.removeAttribute("disabled");
+                input6.focus();
+            }
+        });
+
+        input1.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input1.blur();
+            }
+        });
+
+        input2.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input1.focus();
+            }
+        });
+
+        input3.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input2.focus();
+            }
+        });
+
+        input4.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input3.focus();
+            }
+        });
+
+        input5.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input4.focus();
+            }
+        });
+
+        input6.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input5.focus();
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $('#first').on('keydown', allowNumbersOnly);
+            $("#first, #second, #third, #fourth, #fifth").on("input", function() {
+                if (this.value.length === this.maxLength) {
+                    $(this).next(":input").focus();
+                }
+            });
+
+            $("#sixth").on("input", function() {
+                if (this.value.length === this.maxLength) {
+                    // Do something after entering the final digit in the last input field
+                } else {
+                    return false
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#registerVerifyOtp").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/company/otpVerification",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('all field must required');
+                            loader.style.display = "none";
+
+                        } else if (data.status == 1) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('invalid OTP');
+                            loader.style.display = "none";
+
+                        } else {
+                            window.location.href = "/login";
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
         });
     </script>
 @endsection

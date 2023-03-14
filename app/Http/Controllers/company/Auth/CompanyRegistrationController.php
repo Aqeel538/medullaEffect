@@ -146,24 +146,38 @@ class CompanyRegistrationController extends Controller
     function company_otp_verification(Request $request)
     {
 
-        $requestToken = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
-        $token = VerifyToken::where('token', $requestToken)->first();
-        // dd($token);
-        if (isset($token) && !empty($token)) {
-            User::where('email', $token->email)->update([
-                'is_verified' => 1
-            ]);
+        $validator = Validator::make($request->all(), [
+            "o" => "required",
+            "t" => "required",
+            "p" => "required",
+            "v" => "required",
+            "e" => "required",
+            "r" => "required",
+        ]);
 
-            $user = User::where('email', $token->email)->first();
-            VerifyToken::where('token', $request->token)->delete();
+        if (!$validator->passes()) {
 
-            // return ['code' => 200, 'status' => true, 'message' => 'Registered Successfully', 'data' => $user, 'access_token' => $user->createToken($request->email)->plainTextToken];
-            return view('auth.login', get_defined_vars());
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()]);
         } else {
+            $requestToken = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
+            $token = VerifyToken::where('token', $requestToken)->first();
+            // dd($token);
+            if (isset($token) && !empty($token)) {
+                User::where('email', $token->email)->update([
+                    'is_verified' => 1
+                ]);
 
-            return ['status' => false, 'message' => 'Invalid OTP'];
+                $user = User::where('email', $token->email)->first();
+                VerifyToken::where('token', $request->token)->delete();
+
+                // return ['code' => 200, 'status' => true, 'message' => 'Registered Successfully', 'data' => $user, 'access_token' => $user->createToken($request->email)->plainTextToken];
+                // return view('auth.login', get_defined_vars());
+            } else {
+
+                return response()->json(['status' => 1, 'message' => "invalid OTP"]);
+            }
         }
-        // return view('auth.login', get_defined_vars());
+        return response()->json(['status' => 2, 'message' => "OTP verified"]);
     }
 
     public function company_updatePassword(Request $request)

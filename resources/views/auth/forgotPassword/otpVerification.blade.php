@@ -1,5 +1,6 @@
 @extends('userNew.singleUser.layouts.main2')
 @section('content')
+    <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
     <style>
         body {
             background-color: red
@@ -74,6 +75,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
+                <div id="loader-container">
+                    <div class="loader"></div>
+                </div>
 
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
@@ -106,7 +110,7 @@
                 </form> --}}
 
 
-                <form method="POST" action="{{ route('otp.verification') }}">
+                <form id="verifyotp">
                     @csrf
                     <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
 
@@ -121,17 +125,18 @@
                         <div class="div1"> </div> --}}
                         {{-- <input type="text" maxlength="1"  required> --}}
 
-                        <input id="input1" type="text" maxlength="1" class="m-2 text-center form-control rounded">
+                        <input id="input1" type="text" maxlength="1" class="m-2 text-center form-control rounded"
+                            name="o">
                         <input id="input2" type="text" maxlength="1" disabled
-                            class="m-2 text-center form-control rounded">
+                            class="m-2 text-center form-control rounded" name="t">
                         <input id="input3" type="text" maxlength="1" disabled
-                            class="m-2 text-center form-control rounded">
+                            class="m-2 text-center form-control rounded" name="p">
                         <input id="input4" type="text" maxlength="1" disabled
-                            class="m-2 text-center form-control rounded">
+                            class="m-2 text-center form-control rounded" name="v">
                         <input id="input5" type="text" maxlength="1" disabled
-                            class="m-2 text-center form-control rounded">
+                            class="m-2 text-center form-control rounded" name="e">
                         <input id="input6" type="text" maxlength="1" disabled
-                            class="m-2 text-center form-control rounded">
+                            class="m-2 text-center form-control rounded" name="r">
                         {{-- <input class="m-2 text-center form-control rounded otp-input" id="first" required type="text"
                             name="o" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                         <input class="m-2 text-center form-control rounded otp-input" id="second" required type="text"
@@ -282,12 +287,14 @@
                         });
                     });
                 </script>
+                <?php $user = session()->get('email');
+                ?>
                 <div class="pt-5">
                     <form id="resendEmail" method="POST" action="{{ route('send.email') }}">
                         @csrf
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
                             Did not recieve the OTP ?
-                            <input class="input-fields" type="hidden" name="email" value="{{ $user->email }}">
+                            <input class="input-fields" type="hidden" name="email" value="{{ $user }}">
                             <span class="log_company"><a href="#"
                                     onclick="document.getElementById('resendEmail').submit()">Resend</a></span>
                         </p>
@@ -327,4 +334,44 @@
 
         });
     </script> --}}
+
+    <script>
+        $(function() {
+            $("#verifyotp").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/otpVerification",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('all field must required');
+                            loader.style.display = "none";
+
+                        } else if (data.status == 1) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('invalid OTP');
+                            loader.style.display = "none";
+
+                        } else {
+                            window.location.href = "/login";
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

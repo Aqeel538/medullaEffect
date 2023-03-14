@@ -23,7 +23,7 @@
                 </div>
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
                     </div>
                     <div class="col-lg-9 col-md-9 col-11 central-data-signup ">
 
@@ -143,7 +143,7 @@
                                     <div class="input-container ">
 
                                         <input class="input-fields int" type="text" name="phone"
-                                            placeholder="Phone Number" id="mobile_code">
+                                            placeholder="Phone Number" id="company_mobile_code">
                                         <input type="hidden" name="dial_code" class="dial">
                                     </div>
                                     <div class="text-danger d-flex">

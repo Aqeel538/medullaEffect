@@ -26,25 +26,26 @@
                 </div>
                 <div class="row form-row text-center">
                     <div class="d-flex justify-content-center mb-5">
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
-                     
-                      
+                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
+
+
                     </div>
                     <div class="col-lg-9 col-md-9 col-11 central-data-signup ">
                         <div class="row text-center justify-content-center">
                             <div class="col-lg-8 col-md-8 col-12">
-                            <h5 class="job-headings pb-4">Individual Sign Up</h5>
-                            <p class="job-view-para-2 pb-4">Signing up with medulla effect makes you one step closer from being a job seeker into a job secured.</p>
+                                <h5 class="job-headings pb-4">Individual Sign Up</h5>
+                                <p class="job-view-para-2 pb-4">Signing up with medulla effect makes you one step closer
+                                    from being a job seeker into a job secured.</p>
+                            </div>
                         </div>
-                    </div>
-                    
+
                         <form id="register">
                             @csrf
                             <input required type="hidden" name="check" value="1" />
                             <div class="row justify-content-center Poppins mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-user"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <input class="input-fields" type="text" name="first_name"
                                             placeholder="First Name">
                                     </div>
@@ -54,7 +55,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-user"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <input class="input-fields" type="text" name="last_name" placeholder="Last Name">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -65,7 +66,7 @@
                             <div class="row justify-content-center Poppins  mb-lg-2 mb-md-2 mb-0">
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-envelope"></i>
+                                        <i class="fa-solid fa-envelope"></i>
                                         <input class="input-fields" type="email" name="email" placeholder="Email">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -74,7 +75,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
-                                    <i class="fa-solid fa-lock"></i>
+                                        <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" name="password"placeholder="Password">
                                     </div>
                                     <div class="text-danger d-flex">
@@ -88,7 +89,7 @@
                                     <div class="input-container ">
 
                                         <input class="input-fields int" type="text" name="phone"
-                                            placeholder="Phone Number" id="mobile_code">
+                                            placeholder="Phone Number" id="register_mobile_code">
                                         <input type="hidden" name="dial_code" class="dial">
                                     </div>
                                     <div class="text-danger d-flex">

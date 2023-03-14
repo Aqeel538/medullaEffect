@@ -260,7 +260,7 @@ class RegistrationControllerInd extends Controller
         $request->validate([
             'email' => 'required|email|exists:users'
         ]);
-
+        session()->put('email', $request->email);
         // requestValidate($request, [
         //     "email" => "required|email|exists:users"
 
@@ -317,7 +317,7 @@ class RegistrationControllerInd extends Controller
     function otp_verification(Request $request)
     {
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             "o" => "required",
             "t" => "required",
             "p" => "required",
@@ -325,24 +325,31 @@ class RegistrationControllerInd extends Controller
             "e" => "required",
             "r" => "required",
         ]);
-        $requestToken = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
-        $token = VerifyToken::where('token', $requestToken)->first();
-        // dd($token);
-        if (isset($token) && !empty($token)) {
-            User::where('email', $token->email)->update([
-                'is_verified' => 1
-            ]);
 
-            $user = User::where('email', $token->email)->first();
-            VerifyToken::where('token', $request->token)->delete();
+        if (!$validator->passes()) {
 
-            // return ['code' => 200, 'status' => true, 'message' => 'Registered Successfully', 'data' => $user, 'access_token' => $user->createToken($request->email)->plainTextToken];
-
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()]);
         } else {
+            $requestToken = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
+            $token = VerifyToken::where('token', $requestToken)->first();
+            // dd($token);
+            if (isset($token) && !empty($token)) {
+                User::where('email', $token->email)->update([
+                    'is_verified' => 1
+                ]);
 
-            return ['status' => false, 'message' => 'Invalid OTP'];
+                $user = User::where('email', $token->email)->first();
+                VerifyToken::where('email', $request->token)->delete();
+
+                // return ['code' => 200, 'status' => true, 'message' => 'Registered Successfully', 'data' => $user, 'access_token' => $user->createToken($request->email)->plainTextToken];
+
+            } else {
+
+                return response()->json(['status' => 1, 'message' => "invalid OTP"]);
+            }
+            // return view('auth.forgotPassword.resetPassword', get_defined_vars());
+            return response()->json(['status' => 2, 'message' => "OTP verified"]);
         }
-        return view('auth.forgotPassword.resetPassword', get_defined_vars());
     }
 
     public function reset_password_page()
