@@ -138,17 +138,17 @@
      // -----Country Code Selection
      $("#mobile_code").intlTelInput({
 
-         //  initialCountry: "pk",
-         separateDialCode: true,
+        //   initialCountry: "pk",
+        //  separateDialCode: true,
 
          //  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
      });
 
-     //  $('.int').on('change', function() {
-     //      $('.dial').val($(this).intlTelInput("getSelectedCountryData").dialCode)
-     //      console.log($(this).intlTelInput("getSelectedCountryData"))
+    //  $('.int').on('change', function() {
+    //      $('.dial').val($(this).intlTelInput("getSelectedCountryData").dialCode)
+    //      console.log($(this).intlTelInput("getSelectedCountryData"))
 
-     //  })
+    //  })
  </script>
 
  <!-- New script ends -->

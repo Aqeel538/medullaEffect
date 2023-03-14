@@ -317,14 +317,14 @@ class RegistrationControllerInd extends Controller
     function otp_verification(Request $request)
     {
 
-        // $request->validate([
-        //     "o" => "required",
-        //     "t" => "required",
-        //     "p" => "required",
-        //     "v" => "required",
-        //     "e" => "required",
-        //     "r" => "required",
-        // ]);
+        $request->validate([
+            "o" => "required",
+            "t" => "required",
+            "p" => "required",
+            "v" => "required",
+            "e" => "required",
+            "r" => "required",
+        ]);
         $requestToken = $request->o . $request->t . $request->p . $request->v . $request->e . $request->r;
         $token = VerifyToken::where('token', $requestToken)->first();
         // dd($token);

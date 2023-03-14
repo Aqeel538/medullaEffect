@@ -74,20 +74,16 @@
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
-             
+
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
                         alt="w8" />
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 col-12 mt-lg-0 mt-md-0 mt-5 text-center ">
+
                 <div class="d-flex justify-content-center mt-5 pt-5">
-                    
-                     
-                    <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
-                     
-                      
-                    
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
                 </div>
                 <div class="row mt-5 Halvetica">
                     <div class="col-12 text-center crd-row-one">
@@ -98,6 +94,18 @@
                     </div>
 
                 </div>
+
+
+                {{-- <form>
+                    <input id="input1" type="text" maxlength="1">
+                    <input id="input2" type="text" maxlength="1" disabled>
+                    <input id="input3" type="text" maxlength="1" disabled>
+                    <input id="input4" type="text" maxlength="1" disabled>
+                    <input id="input5" type="text" maxlength="1" disabled>
+                    <input id="input6" type="text" maxlength="1" disabled>
+                </form> --}}
+
+
                 <form method="POST" action="{{ route('otp.verification') }}">
                     @csrf
                     <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
@@ -111,27 +119,169 @@
                         <div class="div1"> </div>
                         <div class="div1"> </div>
                         <div class="div1"> </div> --}}
-                        <input class="m-2 text-center form-control rounded" id="first" required type="number"
-                            name="o">
-                        <input class="m-2 text-center form-control rounded" id="second" required type="number"
-                            name="t">
-                        <input class="m-2 text-center form-control rounded" id="third" required type="number"
-                            name="p">
-                        <input class="m-2 text-center form-control rounded" id="fourth" required type="number"
-                            name="v">
-                        <input class="m-2 text-center form-control rounded" id="fifth" required type="number"
-                            name="e">
-                        <input class="m-2 text-center form-control rounded" id="sixth" required type="number"
-                            name="r">
+                        {{-- <input type="text" maxlength="1"  required> --}}
+
+                        <input id="input1" type="text" maxlength="1" class="m-2 text-center form-control rounded">
+                        <input id="input2" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded">
+                        <input id="input3" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded">
+                        <input id="input4" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded">
+                        <input id="input5" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded">
+                        <input id="input6" type="text" maxlength="1" disabled
+                            class="m-2 text-center form-control rounded">
+                        {{-- <input class="m-2 text-center form-control rounded otp-input" id="first" required type="text"
+                            name="o" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+                        <input class="m-2 text-center form-control rounded otp-input" id="second" required type="text"
+                            name="t" maxlength="1" onkeypress="return allowNumbersOnly(event)">
+                        <input class="m-2 text-center form-control rounded otp-input" id="third" required type="text"
+
+                            name="p" maxlength="1" onkeypress="return allowNumbersOnly(event)">
+                        <input class="m-2 text-center form-control rounded otp-input" id="fourth" required type="text"
+                            name="v" maxlength="1" onkeypress="return allowNumbersOnly(event)">
+                        <input class="m-2 text-center form-control rounded otp-input" id="fifth" required type="text"
+                            name="e" maxlength="1" onkeypress="return allowNumbersOnly(event)">
+                        <input class="m-2 text-center form-control rounded otp-input" id="sixth" required type="text"
+                            name="r" maxlength="1" onkeypress="return allowNumbersOnly(event)"> --}}
                     </div>
                     <div class="mt-5">
-
                         <button type="submit" class="buttonfill Poppins phara_16">
                             Verify
                         </button>
                     </div>
-
                 </form>
+                <script>
+                    const input1 = document.getElementById("input1");
+                    const input2 = document.getElementById("input2");
+                    const input3 = document.getElementById("input3");
+                    const input4 = document.getElementById("input4");
+                    const input5 = document.getElementById("input5");
+                    const input6 = document.getElementById("input6");
+
+                    input1.addEventListener("input", function() {
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                        if (this.value.length == 1) {
+                            input2.removeAttribute("disabled");
+                            input2.focus();
+                        }
+                    });
+
+                    input2.addEventListener("input", function() {
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                        if (this.value.length == 1) {
+                            input3.removeAttribute("disabled");
+                            input3.focus();
+                        }
+                    });
+
+                    input3.addEventListener("input", function() {
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                        if (this.value.length == 1) {
+                            input4.removeAttribute("disabled");
+                            input4.focus();
+                        }
+                    });
+
+                    input4.addEventListener("input", function() {
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                        if (this.value.length == 1) {
+                            input5.removeAttribute("disabled");
+                            input5.focus();
+                        }
+                    });
+
+                    input5.addEventListener("input", function() {
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                        if (this.value.length == 1) {
+                            input6.removeAttribute("disabled");
+                            input6.focus();
+                        }
+                    });
+
+                    input1.addEventListener("keydown", function(event) {
+                        if (event.keyCode == 8 && !this.value) {
+                            input1.blur();
+                        }
+                    });
+
+                    input2.addEventListener("keydown", function(event) {
+                        if (event.keyCode == 8 && !this.value) {
+                            input1.focus();
+                        }
+                    });
+
+                    input3.addEventListener("keydown", function(event) {
+                        if (event.keyCode == 8 && !this.value) {
+                            input2.focus();
+                        }
+                    });
+
+                    input4.addEventListener("keydown", function(event) {
+                        if (event.keyCode == 8 && !this.value) {
+                            input3.focus();
+                        }
+                    });
+
+                    input5.addEventListener("keydown", function(event) {
+                        if (event.keyCode == 8 && !this.value) {
+                            input4.focus();
+                        }
+                    });
+
+                    input6.addEventListener("keydown", function(event) {
+                        if (event.keyCode == 8 && !this.value) {
+                            input5.focus();
+                        }
+                    });
+                </script>
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <script>
+                    // function allowNumbersOnly() {
+                    // Get the ASCII value of the entered key
+                    // var charCode = event.which ? event.which : event.keyCode;
+
+                    // Allow numeric characters (0-9)
+                    // if (charCode >= 48 && charCode <= 57 || (charCode >= 97 && charCode <= 122)) {
+                    //     return true;
+                    // } else{
+                    //     return false;
+                    // }
+                    // // Allow other special characters like backspace, delete, tab, enter
+                    // return true;
+                    // alert($('#first').val())
+                    //     var numbers = /^[0-9]+$/;
+                    //     if ($('#first').val().match(numbers)) {
+                    //         // alert('Your Registration number has accepted....');
+
+                    //         return true;
+                    //     } else {
+                    //         $('#first').val('')
+                    //         $('#first').focus()
+                    //         // alert('Please input numeric characters only');
+                    //         return false;
+                    //     }
+                    // }
+
+
+                    $(document).ready(function() {
+                        // $('#first').on('keydown', allowNumbersOnly);
+                        $("#first, #second, #third, #fourth, #fifth").on("input", function() {
+                            if (this.value.length === this.maxLength) {
+                                $(this).next(":input").focus();
+                            }
+                        });
+
+                        $("#sixth").on("input", function() {
+                            if (this.value.length === this.maxLength) {
+                                // Do something after entering the final digit in the last input field
+                            } else {
+                                return false
+                            }
+                        });
+                    });
+                </script>
                 <div class="pt-5">
                     <form id="resendEmail" method="POST" action="{{ route('send.email') }}">
                         @csrf
@@ -146,7 +296,7 @@
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function(event) {
 
             function OTPInput() {
@@ -176,5 +326,5 @@
 
 
         });
-    </script>
+    </script> --}}
 @endsection

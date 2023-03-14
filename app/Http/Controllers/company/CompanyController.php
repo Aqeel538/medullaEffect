@@ -25,7 +25,7 @@ class CompanyController extends Controller
         // $toasterValue = 0;
         $user = Auth::user();
         $nameParts = explode(' ', $user->name);
-        // $phoneParts = explode(' ', $user->phone);
+        $phoneParts = explode(' ', $user->phone);
         // dd($phoneParts);
         $title = 'Company dashboard';
         return view('userNew.singleUser.pages.company.dashboard', get_defined_vars());

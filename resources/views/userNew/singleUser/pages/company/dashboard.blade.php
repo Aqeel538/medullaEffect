@@ -88,7 +88,7 @@
                                 {{-- {{ dd($user->phone) }} --}}
                                 <input value="{!! $user->phone ?? '' !!}" class="input-fields int" type="text"
                                     name="phone" id="mobile_code">
-                                <input type="hidden" name="dial_code" class="dial">
+                                {{-- <input type="hidden" name="dial_code" class="dial" value="{!! $phoneParts[0] ?? '' !!}"> --}}
                             </div>
                             <span class="text-danger d-flex">
                                 @error('phone')
