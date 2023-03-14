@@ -62,7 +62,10 @@
                             <button type="submit" class=" buttonfill text-center">
                                 Search
                             </button>
-                            <button type="button" class="non">Filter</button>
+                            <a href="{{ route('freelancer.advanceSearchFilter') }}">
+                                <button type="button" class="non">Filter</button>
+                            </a>
+    
                         </div>
                     </div>
                 </form>

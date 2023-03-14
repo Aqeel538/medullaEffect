@@ -60,7 +60,9 @@
                             <button type="submit" class=" buttonfill text-center">
                                 Search
                             </button>
+                            <a href="{{ route('company.advanceSearchFilter') }}">
                             <button type="button" class="non">Filter</button>
+                            </a>
                         </div>
                     </div>
                 </form>

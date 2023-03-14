@@ -48,9 +48,9 @@ $blink = 2;
                     <p class="john-para">{!! $user->address ?? '' !!}</p>
                 </div>
             </div>
-            <div class="col-lg-6 ps-4 pe-4 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"
-                style="background-color: #F9F9F9;  border-radius: 21.0305px;">
-                <div class="pr-2 pl-2">
+            <div class="col-lg-6  mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"
+              >
+                <div class="pt-2 p-4"   style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                     <h1 class="pt-4 profile-text-ques-heading">All Jobs</h1>
                     <p class="john-para-afer-ques-heading-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                         accusantium lorue laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
@@ -91,6 +91,7 @@ $blink = 2;
                     </div>
                 </div>
             </div>
+            
             <div class="col-lg-3 mt-md-5 mt-lg-0 col-12 mb-sm-4 mt-4 mt-xs-4 p-0 text-center">
                 <div class="pt-5 pb-5 pe-3 ps-3 " style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                     <h6 class="john-text justify-content-center">New Job</h6>

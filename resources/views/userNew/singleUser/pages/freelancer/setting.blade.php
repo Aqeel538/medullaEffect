@@ -52,8 +52,8 @@
                             <div class="col-12">
                                 <form action="{{ route('update.freelancer.profile') }}" method="POST">
                                     @csrf
-                                    <div class="row mt-4">
-                                        <div class="col-12  col-lg-6 col-md-6">
+                                    <div class="row mt-lg-4">
+                                        <div class="col-12  col-lg-6 col-md-6 mb-lg-0 mb-md-3 mb-3">
                                             <div class="input-container  ">
                                                 {{-- <ion-icon name="person-outline"></ion-icon> --}}
                                                 <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
@@ -71,8 +71,8 @@
                                         </div>
 
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3">
+                                    <div class="row mt-lg-3 mt-0">
+                                        <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-3 mb-lg-0 mb-md-3 mb-3">
                                             <div class="input-container ">
                                                 {{-- <ion-icon name="mail-outline"></ion-icon> --}}
                                                 <input value="{!! $user->email ?? '' !!}" class="input-fields" type="email"
