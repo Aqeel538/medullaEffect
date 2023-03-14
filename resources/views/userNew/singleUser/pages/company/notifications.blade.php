@@ -27,7 +27,7 @@ $blink = 1;
                     <!-- cards -->
                     <div class="pt-3 pb-5">
                         @foreach ($notifications as $notification)
-                            <a href="{{ route('company.jodDetails', $notification->jobId) }}">
+                            <a href="{{ route('company.jodDetails', $notification->jobId) }}" style="text-decoration: none">
                                 <div class="row">
                                     <div class="col-lg-12 mt-3 mb-3 pt-3 pb-3 "
                                         style="background: #F9F9F9;;border-radius: 20px;">

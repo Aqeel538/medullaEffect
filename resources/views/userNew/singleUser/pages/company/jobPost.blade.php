@@ -152,7 +152,8 @@
                         @if ($job->status == 1)
                             <div class="col-lg-4 col-md-6 col-12  mt-lg-0 mt-md-0 mt-3 ">
                                 {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
-                                <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
+                                <div class=" job-posted-radius">
+                                    <div class="cards-scroll p-3 mt-3 ">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
                                             <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
@@ -195,11 +196,11 @@
 
                                     </div>
                                     <p class="abutnexa-text
-                                            pt-4 pb-3"
-                                        maxlength="40" style="height: 70px;overflow: hidden;">
-                                        {!! $job->short_description ?? 'There is no short description yet...' !!}</p>
-                                    <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="{{ route('company_jobs_form', $job->id) }}">
+                                            pt-3"
+                                        maxlength="40" style="overflow: hidden;">
+                                        {!! \Illuminate\Support\Str::limit($job->description, 100, $end='<a href="#" class="crds-read-more">&nbsp;Read More...') ?? 'There is no short description yet...' !!}</p>
+                                    <div class="jobviewbtns mb-4">
+                                        <a href="{{ route('company_jobs_form', $job->id) }}" class="me-2">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
                                         </a>
                                         {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
@@ -231,7 +232,7 @@
                                             onclick="deleteConfirmation({{ $job->id }})">Delete</button>
                                     </div>
                                 </div>
-
+                            </div>
                             </div>
                         @endif
                     @endforeach
@@ -276,7 +277,7 @@
                                     <p class="abutnexa-text
                                             pt-4 pb-3"
                                         maxlength="40" style="height: 70px;overflow: hidden;">
-                                        {!! $job->short_description ?? 'There is no short description yet...' !!}</p>
+                                        {!! $job->description ?? 'There is no short description yet...' !!}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
@@ -418,7 +419,7 @@
                                     <p class="abutnexa-text
                                             pt-4 pb-3"
                                         maxlength="40" style="height: 70px;overflow: hidden;">
-                                        {!! $job->short_description ?? 'There is no short description yet...' !!}</p>
+                                        {!! $job->description ?? 'There is no short description yet...' !!}</p>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>

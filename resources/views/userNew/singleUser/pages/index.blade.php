@@ -433,7 +433,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-12 col-11">
+                <div class="col-lg-9 col-md-12 col-11">
                     <div class="accourdian">
                         <div class="accordian-item item1">
                             <div class="accordian-link">

@@ -38,7 +38,7 @@
                 </div>
                 <div class="mt-5 pt-5 crd-row-one">
                     <h1 class="head_text">Forget Password</h1>
-                    <p class="pt-2 pb-2 " style="font-weight: 400;">Please enter your email address or mobile number to
+                    <p class="pt-2 pb-2 " style="font-weight: 400;">Please enter your email address below to
                         search for your account.</p>
                 </div>
                 <form action="{{ route('send.email') }}" method="POST">
