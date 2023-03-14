@@ -185,20 +185,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <p class="job-posted" style="margin: 0; padding-left:70px;">
+                                    <div class="d-flex justify-content-between mt-3">
+                                        <div>
+                                        <p class="job-posted">
                                             {!! $job->rate ?? '' !!}
-                                            <span style="float:right">
-                                                {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
-                                            </span>
+                                           
                                         </p>
-
-
                                     </div>
+                                    <div>
+                                        <p class="job-posted" >
+                                            {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
+                                        </p>
+                                    </div>
+                                    </div>
+                                    <div style="height:100px;overflow:hidden;">
                                     <p class="abutnexa-text
                                             pt-3"
-                                        maxlength="40" style="overflow: hidden;">
-                                        {!! \Illuminate\Support\Str::limit($job->description, 100, $end='<a href="#" class="crds-read-more">&nbsp;Read More...') ?? 'There is no short description yet...' !!}</p>
+                                        style="overflow: hidden;">
+                                    {!!$job->description?? ""!!}</p>
+                                        </div>
+                                        <a href="{{ route('company.jodDetails', $job->id) }}" class="crds-read-more mt-3 mb-3">read more...</a>
                                     <div class="jobviewbtns mb-4">
                                         <a href="{{ route('company_jobs_form', $job->id) }}" class="me-2">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
@@ -274,10 +280,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="abutnexa-text
-                                            pt-4 pb-3"
-                                        maxlength="40" style="height: 70px;overflow: hidden;">
-                                        {!! $job->description ?? 'There is no short description yet...' !!}</p>
+
+
+                                  
+
+                                        <div style="height:100px;overflow:hidden;">
+                                            <p class="abutnexa-text pt-4 pb-3"  style="overflow: hidden;">
+                                      
+                                                {!! $job->description ?? 'There is no short description yet...' !!} </p>
+                                        
+                                    </div>
+
+                                    <a href="{{ route('company.jodDetails', $job->id) }}" class="crds-read-more mt-3 mb-3">read more...</a>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
@@ -416,10 +430,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="abutnexa-text
-                                            pt-4 pb-3"
-                                        maxlength="40" style="height: 70px;overflow: hidden;">
-                                        {!! $job->description ?? 'There is no short description yet...' !!}</p>
+
+
+
+
+                                            <div style="height:100px;overflow:hidden;">
+                                            
+                                    <p class="abutnexa-text pt-4 pb-3"  style="overflow: hidden;">
+                                  
+                                        {!! $job->description ?? 'There is no short description yet...' !!} </p>
+
+                                    </div>
+                                    <a href="{{ route('company.jodDetails', $job->id) }}" class="crds-read-more mt-3 mb-3">read more...</a>
                                     <div class="jobviewbtns mt-1 mb-1">
                                         <a href="{{ route('company_jobs_form', $job->id) }}">
                                             <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
