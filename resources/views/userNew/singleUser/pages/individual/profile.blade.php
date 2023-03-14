@@ -9,8 +9,8 @@
     <!---------------- -Navend--------------- -->
     <div class="container-fluid mt-5">
         <h1 class="headings-profile">Profile</h1>
-        <div class="row mt-3  p-4 ">
-            <div class="col-lg-3 mt-md-5 mb-lg-0 mb-sm-4 mt-lg-0 mb-xs-4  col-12 text-center">
+        <div class="row mt-3 justify-content-center p-4 ">
+            <div class="col-lg-3 mt-md-5 mb-lg-0 mb-sm-4 mt-lg-0 mb-xs-4  col-10 text-center">
                 <div class=" pt-2 pb-2 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
                     <div class="avatar-upload">
                         <form id="edit_image_form">
@@ -34,7 +34,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-6 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-12"
+            <div class="col-lg-6 mt-md-4 mt-lg-0 mb-sm-4 mt-lg-0 mt-xs-4 col-10"
                 style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                 <div class="">
                     <h1 class="pt-4 profile-text-ques-heading">Fill out the questionnaire</h1>
@@ -369,7 +369,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-3 mt-md-5 mt-lg-0 col-12 mt-sm-4 mt-lg-0 mt-xs-4 mt-lg-0 text-center res-top-margin">
+            <div class="col-lg-3 mt-md-5 mt-lg-0 col-10 mt-sm-4 mt-lg-0 mt-xs-4 mt-lg-0 text-center res-top-margin">
                 <div class=" pt-2 pb-2 pl-3 pr-3 left-card" style="background-color: #F9F9F9; border-radius: 21.0305px;">
                     <div class="pt-5 pb-5 pr-3 pl-3 right-card"
                         style="background-color: #F9F9F9;  border-radius: 21.0305px;">
@@ -385,8 +385,8 @@
                     </div>
 
                 </div>
-                <div class="mt-5">
-                    <div class="mt-5 pt-2 pb-2 pr-3 pl-3" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
+                <div class="mt-lg-5 mt-md-3 mt-2">
+                    <div class="mt-2 pt-2 pb-2 pr-3 pl-3" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                         <p class="aplied-jobs-para pt-4 pb-2">
                             Jobs Applied<span style="color: #9A1029;">&nbsp;{{ $jobsApplied }}</span> <br> <br>
                             Resumes <br> Downloaded by Company <span style="color: #9A1029">0</span> <br><br>

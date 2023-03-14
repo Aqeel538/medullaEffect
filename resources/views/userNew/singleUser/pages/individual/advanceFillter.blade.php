@@ -26,7 +26,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-8 col-10">
                     <div class="row">
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-3 mb-sm-3 mb-3">
                         <div class="inputfield-2">
                                 <i class="fa-solid fa-location-dot"></i>
                                 <select name="searchLocation" style="width: 100%">
@@ -41,7 +41,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-3 mb-sm-3 mb-3 ">
                             <div class="inputfield-2">
                                 <img src="{{ asset('user') }}/assets/images/profile-imges/exp-level.png" alt=""
                                     srcset="">
@@ -55,7 +55,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-3 mb-sm-3 mb-3">
                             <div class="inputfield-2">
                                 <i class="fa-solid fa-user-tie"></i>
                                 <select name="job_type" required style="width: 100%">
@@ -68,8 +68,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
+                    <div class="row mt-lg-3 mt-md-0 mt-2">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-3 mb-sm-3 mb-3">
                             <div class="inputfield-2">
                                 <i class="fa-solid fa-industry"></i>
                                 <select name="industry" required style="width: 100%">
@@ -79,13 +79,13 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3 xs-res">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-3 mb-sm-3 mb-3">
                             <div class="inputfield-2">
                         
                                 <input class="w-100" type="date" name="created_at" placeholder="created_at" />
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-2 mb-sm-3">
+                        <div class="col-lg-4 col-md-12 col-12 mb-lg-0 mb-md-3 mb-sm-3 mb-3">
                             <div class="inputfield-2">
                                 <i class="fa-solid fa-sack-dollar"></i>
                                 <select name="pay_range" required style="width: 100%">
@@ -119,10 +119,10 @@
     </form>
     <!-- ---------cards-------------- -->
     <div class="container-fluid mt-5 p-lg-3 p-md-3 p-sm-1 p-1">
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach ($allJobs as $getjobs)
                 {{-- @foreach ($allJob->jobs as $getjobs) --}}
-                <div class="col-lg-4 col-md-4 col-12 mt-lg-0 mt-4 pt-0 ">
+                <div class="col-lg-4 col-md-4 col-10 mt-lg-0 mt-4 pt-0 ">
                     <div class="p-3 mb-3" style="background: #F9F9F9;;border-radius: 20px;">
                         <div class="row">
                             <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">

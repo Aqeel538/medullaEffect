@@ -20,7 +20,7 @@
                 </ul>
 
 
-                <div>
+                <div class="testers">
                     <a class="navbar-link {{ request()->routeIs('individual.notifications') ? 'mylist active' : '' }}"
                         href="{{ route('individual.notifications') }}">
                         <?php
