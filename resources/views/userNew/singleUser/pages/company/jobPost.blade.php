@@ -171,18 +171,16 @@
                                                 {!! $job->work_type ?? '' !!}</p>
                                         </div>
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                            <i class="fas-elip fa-solid fa-ellipsis dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false"></i>
+                                            <i class="fas-elip fa-solid fa-ellipsis "></i>
 
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item"
                                                     href="/company/job/status/1/{{ $job->id }}">Active</a>
                                                 <a class="dropdown-item"
                                                     href="/company/job/status/2/{{ $job->id }}">Inactive</a>
                                                 <a class="dropdown-item"
                                                     href="/company/job/status/3/{{ $job->id }}">Pause</a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mt-3">
