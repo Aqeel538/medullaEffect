@@ -257,7 +257,7 @@ class RegistrationControllerInd extends Controller
 
     public function send_email(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users'
         ]);
         session()->put('email', $request->email);
@@ -265,6 +265,48 @@ class RegistrationControllerInd extends Controller
         //     "email" => "required|email|exists:users"
 
         // ]);
+        if (!$validator->passes()) {
+
+            return response()->json(['status' => 0]);
+        } else {
+            VerifyToken::where('email', $request->email)->delete();
+            $user = User::where('email', $request->email)->first();
+            if ($user) {
+                $token = rand(111111, 999999);
+                VerifyToken::insert([
+                    'email' => $user->email,
+                    'token' => $token
+                ]);
+                Mail::send('emails.verification', ['user' => $user, 'token' => $token], function ($m) use ($user, $token) {
+                    $m->from('info@dwive758.com', 'medullaEffect');
+
+                    $m->to($user->email, $user->name)->subject('Forgot Password Token');
+                });
+
+                // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
+
+                return response()->json(['status' => 3, 'message' => "OTP send to your mail"]);
+            } else {
+
+                return response()->json(['status' => 4, 'message' => "The Email you provided doesn't belong to any account"]);
+            }
+        }
+
+        // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
+        // return view('auth.forgotPassword.otpVerification', get_defined_vars());
+    }
+
+    public function resend_email(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users'
+        ]);
+        session()->put('email', $request->email);
+        // requestValidate($request, [
+        //     "email" => "required|email|exists:users"
+
+        // ]);
+
         VerifyToken::where('email', $request->email)->delete();
         $user = User::where('email', $request->email)->first();
         if ($user) {
@@ -281,14 +323,11 @@ class RegistrationControllerInd extends Controller
 
             // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
 
-            return view('auth.forgotPassword.otpVerification', get_defined_vars());
+            return back();
         } else {
 
-            return ['status' => false, 'message' => "The Email you provided doesn't belong to any account"];
+            return back();
         }
-
-        // return ['status' => true, 'message' => 'OTP has been sent on your Email please check your inbox, also check spam list'];
-        return view('auth.forgotPassword.otpVerification', get_defined_vars());
     }
 
     // public function reset_password_old(Request $data)

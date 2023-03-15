@@ -1,26 +1,15 @@
 @extends('userNew.singleUser.layouts.main2')
 @section('content')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- ---------JAVA--Bootsrap---- -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <!-- ---font--cdn--------- -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- ---------Remix----Icon--cdn---------- -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="../Assets/Styles/Style.css" />
-    <!-- --------fontfamily--------- -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('user') }}/assets/styles/loader.css" />
+   
+
     <!-- -----------company----signup------------ -->
     <div class="container-fluid">
         <div class="row justify-content-center" style="height:100vh">
             <div class="col-lg-4 col-md-4 col-12 company_bg">
+                <div id="loader-container">
+                    <div class="loader"></div>
+                </div>
 
                 <div class="d-flex justify-content-center">
                     <img src="{{ asset('user') }}/assets/images/profile-imges/companysignup.png" class="company_img"
@@ -41,7 +30,7 @@
                     <p class="pt-2 pb-2 " style="font-weight: 400;">Please enter your email address below to
                         search for your account.</p>
                 </div>
-                <form action="{{ route('send.email') }}" method="POST">
+                <form id="sendOtp">
                     @csrf
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-6 col-md-8 col-10">
@@ -60,13 +49,12 @@
 
 
                     <div class="mt-5">
-                        <a href="./Sana/Questinare.html">
-                            <button type="submit" class="buttonfill Poppins phara_16">Submit</button></a>
-                    </div>
-                    <div class="pt-5">
-                        <p class="Halvetica phara_16 mb-3" style="font-weight: 700;">Did not receive the email ? <span
-                                class="log_company"><a href="#">Resend</a></span></p>
-                    </div>
+
+                        <button type="submit" class="buttonfill Poppins phara_16">Submit</button></ </div>
+                        <div class="pt-5">
+                            <p class="Halvetica phara_16 mb-3" style="font-weight: 700;">Did not receive the email ? <span
+                                    class="log_company"><a href="#">Resend</a></span></p>
+                        </div>
 
                 </form>
 
@@ -76,6 +64,49 @@
 
         </div>
     </div>
+
+
+
+
+    <script>
+        $(function() {
+            $("#sendOtp").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/sendEmail",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('email required');
+                            loader.style.display = "none";
+
+                        } else if (data.status == 1) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('invalid OTP');
+                            loader.style.display = "none";
+
+                        } else {
+                            window.location.href = "/otpVerificationPage";
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
     <script
 type="module"

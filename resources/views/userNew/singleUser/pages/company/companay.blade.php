@@ -143,7 +143,7 @@
                                     <div class="input-container ">
 
                                         <input class="input-fields int" type="text" name="phone"
-                                            placeholder="Phone Number" id="company_mobile_code">
+                                            placeholder="Phone Number" id="register_mobile_code">
                                         <input type="hidden" name="dial_code" class="dial">
                                     </div>
                                     <div class="text-danger d-flex">

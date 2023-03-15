@@ -157,140 +157,11 @@
                         </button>
                     </div>
                 </form>
-                <script>
-                    const input1 = document.getElementById("input1");
-                    const input2 = document.getElementById("input2");
-                    const input3 = document.getElementById("input3");
-                    const input4 = document.getElementById("input4");
-                    const input5 = document.getElementById("input5");
-                    const input6 = document.getElementById("input6");
 
-                    input1.addEventListener("input", function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                        if (this.value.length == 1) {
-                            input2.removeAttribute("disabled");
-                            input2.focus();
-                        }
-                    });
-
-                    input2.addEventListener("input", function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                        if (this.value.length == 1) {
-                            input3.removeAttribute("disabled");
-                            input3.focus();
-                        }
-                    });
-
-                    input3.addEventListener("input", function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                        if (this.value.length == 1) {
-                            input4.removeAttribute("disabled");
-                            input4.focus();
-                        }
-                    });
-
-                    input4.addEventListener("input", function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                        if (this.value.length == 1) {
-                            input5.removeAttribute("disabled");
-                            input5.focus();
-                        }
-                    });
-
-                    input5.addEventListener("input", function() {
-                        this.value = this.value.replace(/[^0-9]/g, '');
-                        if (this.value.length == 1) {
-                            input6.removeAttribute("disabled");
-                            input6.focus();
-                        }
-                    });
-
-                    input1.addEventListener("keydown", function(event) {
-                        if (event.keyCode == 8 && !this.value) {
-                            input1.blur();
-                        }
-                    });
-
-                    input2.addEventListener("keydown", function(event) {
-                        if (event.keyCode == 8 && !this.value) {
-                            input1.focus();
-                        }
-                    });
-
-                    input3.addEventListener("keydown", function(event) {
-                        if (event.keyCode == 8 && !this.value) {
-                            input2.focus();
-                        }
-                    });
-
-                    input4.addEventListener("keydown", function(event) {
-                        if (event.keyCode == 8 && !this.value) {
-                            input3.focus();
-                        }
-                    });
-
-                    input5.addEventListener("keydown", function(event) {
-                        if (event.keyCode == 8 && !this.value) {
-                            input4.focus();
-                        }
-                    });
-
-                    input6.addEventListener("keydown", function(event) {
-                        if (event.keyCode == 8 && !this.value) {
-                            input5.focus();
-                        }
-                    });
-                </script>
-                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-                <script>
-                    // function allowNumbersOnly() {
-                    // Get the ASCII value of the entered key
-                    // var charCode = event.which ? event.which : event.keyCode;
-
-                    // Allow numeric characters (0-9)
-                    // if (charCode >= 48 && charCode <= 57 || (charCode >= 97 && charCode <= 122)) {
-                    //     return true;
-                    // } else{
-                    //     return false;
-                    // }
-                    // // Allow other special characters like backspace, delete, tab, enter
-                    // return true;
-                    // alert($('#first').val())
-                    //     var numbers = /^[0-9]+$/;
-                    //     if ($('#first').val().match(numbers)) {
-                    //         // alert('Your Registration number has accepted....');
-
-                    //         return true;
-                    //     } else {
-                    //         $('#first').val('')
-                    //         $('#first').focus()
-                    //         // alert('Please input numeric characters only');
-                    //         return false;
-                    //     }
-                    // }
-
-
-                    $(document).ready(function() {
-                        // $('#first').on('keydown', allowNumbersOnly);
-                        $("#first, #second, #third, #fourth, #fifth").on("input", function() {
-                            if (this.value.length === this.maxLength) {
-                                $(this).next(":input").focus();
-                            }
-                        });
-
-                        $("#sixth").on("input", function() {
-                            if (this.value.length === this.maxLength) {
-                                // Do something after entering the final digit in the last input field
-                            } else {
-                                return false
-                            }
-                        });
-                    });
-                </script>
                 <?php $user = session()->get('email');
                 ?>
                 <div class="pt-5">
-                    <form id="resendEmail" method="POST" action="{{ route('send.email') }}">
+                    <form id="resendEmail" method="POST" action="{{ route('resend.email') }}">
                         @csrf
                         <p class="Halvetica phara_16 mb-0" style="font-weight: 700">
                             Did not recieve the OTP ?
@@ -366,11 +237,182 @@
                             loader.style.display = "none";
 
                         } else {
-                            window.location.href = "/login";
+                            window.location.href = "/resetPasswordPage";
                             toastr.success(data.message, data.title);
                         }
                     }
                 });
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#resendEmail").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/sendEmail",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('all field must required');
+                            loader.style.display = "none";
+
+                        } else if (data.status == 1) {
+                            jQuery('#loader').fadeOut();
+                            toastr.error('invalid OTP');
+                            loader.style.display = "none";
+
+                        } else {
+
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const input1 = document.getElementById("input1");
+        const input2 = document.getElementById("input2");
+        const input3 = document.getElementById("input3");
+        const input4 = document.getElementById("input4");
+        const input5 = document.getElementById("input5");
+        const input6 = document.getElementById("input6");
+
+        input1.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input2.removeAttribute("disabled");
+                input2.focus();
+            }
+        });
+
+        input2.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input3.removeAttribute("disabled");
+                input3.focus();
+            }
+        });
+
+        input3.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input4.removeAttribute("disabled");
+                input4.focus();
+            }
+        });
+
+        input4.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input5.removeAttribute("disabled");
+                input5.focus();
+            }
+        });
+
+        input5.addEventListener("input", function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length == 1) {
+                input6.removeAttribute("disabled");
+                input6.focus();
+            }
+        });
+
+        input1.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input1.blur();
+            }
+        });
+
+        input2.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input1.focus();
+            }
+        });
+
+        input3.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input2.focus();
+            }
+        });
+
+        input4.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input3.focus();
+            }
+        });
+
+        input5.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input4.focus();
+            }
+        });
+
+        input6.addEventListener("keydown", function(event) {
+            if (event.keyCode == 8 && !this.value) {
+                input5.focus();
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // function allowNumbersOnly() {
+        // Get the ASCII value of the entered key
+        // var charCode = event.which ? event.which : event.keyCode;
+
+        // Allow numeric characters (0-9)
+        // if (charCode >= 48 && charCode <= 57 || (charCode >= 97 && charCode <= 122)) {
+        //     return true;
+        // } else{
+        //     return false;
+        // }
+        // // Allow other special characters like backspace, delete, tab, enter
+        // return true;
+        // alert($('#first').val())
+        //     var numbers = /^[0-9]+$/;
+        //     if ($('#first').val().match(numbers)) {
+        //         // alert('Your Registration number has accepted....');
+
+        //         return true;
+        //     } else {
+        //         $('#first').val('')
+        //         $('#first').focus()
+        //         // alert('Please input numeric characters only');
+        //         return false;
+        //     }
+        // }
+
+
+        $(document).ready(function() {
+            // $('#first').on('keydown', allowNumbersOnly);
+            $("#first, #second, #third, #fourth, #fifth").on("input", function() {
+                if (this.value.length === this.maxLength) {
+                    $(this).next(":input").focus();
+                }
+            });
+
+            $("#sixth").on("input", function() {
+                if (this.value.length === this.maxLength) {
+                    // Do something after entering the final digit in the last input field
+                } else {
+                    return false
+                }
             });
         });
     </script>

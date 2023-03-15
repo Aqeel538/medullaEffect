@@ -39,6 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // FORGOT PASSWORD
 Route::get('forgotPassword', [RegistrationControllerInd::class, 'forgot_password'])->name('forgot.password');
 Route::post('sendEmail', [RegistrationControllerInd::class, 'send_email'])->name('send.email');
+Route::post('resend-mail', [RegistrationControllerInd::class, 'resend_email'])->name('resend.email');
 Route::get('otpVerificationPage', [RegistrationControllerInd::class, 'otp_verification_page'])->name('otp.verification.page');
 Route::post('otpVerification', [RegistrationControllerInd::class, 'otp_verification'])->name('otp.verification');
 Route::get('resetPasswordPage', [RegistrationControllerInd::class, 'reset_password_page'])->name('reset.password.page');
@@ -232,7 +233,7 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::post('/company/change-password', [CompanyRegistrationController::class, 'company_updatePassword'])->name('company.change.password');
 
     Route::get('company/userChangeStatus', [CompanyController::class, 'company_userChangeStatus']);
-    Route::get('deactivate/{id}', [CompanyController::class, 'deactivate'])->name('deactivate');
+    Route::post('company/deactivate-account', [CompanyController::class, 'deactivate'])->name('comapny.deactivate');
 
     // Notification
     Route::get('company/notifications', [CompanyController::class, 'company_notifications'])->name('company.notifications');
@@ -297,7 +298,7 @@ Route::middleware(['auth', 'isFreelancer'])->group(function () {
     Route::post('change-password', [RegistrationControllerInd::class, 'updatePassword'])->name('change.password');
 
     Route::get('userChangeStatus', [FreelancerController::class, 'userChangeStatus']);
-    Route::get('deactivate/{id}', [FreelancerController::class, 'deactivate'])->name('deactivate');
+    Route::post('freelancer/deactivate-account', [FreelancerController::class, 'deactivate'])->name('freelancer.deactivate');
 
     // Book a service
     Route::get('/freelancer/bookService/{id}', [FreelancerController::class, 'book_service'])->name('book.service');

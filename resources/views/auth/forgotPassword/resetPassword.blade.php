@@ -30,20 +30,22 @@
             <div class="col-lg-8 col-md-8 col-12 mt-lg-5 mt-md-0 mt-5 pt-5 text-center ">
                 <div class="res-on-375 mx-auto mt-5  d-flex justify-content-center mt-5">
 
-                        <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8" >
-                    
+                    <img src="{{ asset('user') }}/assets/images/landing-page-img/updatedlogo.svg" alt="w8">
+
                 </div>
                 <div class="mt-5 pt-5 crd-row-one">
 
                     <p class="pt-2 pb-2 " style="font-weight: 400;">Create new password.</p>
                 </div>
+                <?php $user = session()->get('email');
+                ?>
                 <form action="{{ route('reset.password') }}" method="POST">
                     @csrf
                     <div class="row justify-content-center Poppins">
                         <div class="col-lg-6 col-md-8 col-10">
                             <div class="input-container ">
                                 <ion-icon name="mail-outline"></ion-icon>
-                                <input class="input-fields" type="hidden" name="email" value="{{ $user->email }}">
+                                <input class="input-fields" type="hidden" name="email" value="{{ $user }}">
                                 <input class="input-fields" type="password" placeholder="New password" name="password">
                             </div>
                         </div>

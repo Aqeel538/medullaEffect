@@ -283,28 +283,35 @@
                                         </h5>
 
                                     </div>
-                                    <div class="modal-body">
-                                        {{-- We are <b>Sorry</b> to hear that you would like to deactivate your account,
+                                    <form id="deactivate">
+                                        @csrf
+                                        <div class="modal-body">
+                                            {{-- We are <b>Sorry</b> to hear that you would like to deactivate your account,
                                         please give us suggestion if you are deleting by any reason,or if you are looking to
                                         take a break you can delete it. <b>Thanks.!</b> --}}
 
-                                        
-<select class="form-select form-select-sm" aria-label=".form-select-sm example">
-    <option selected Disabled select >Please give us Feedback</option>
-    <option value="1">I found what I was looking for</option>
-    <option value="2">No longer need this Service </option>
-    <option value="3">I was unhappy with the service </option>
-    <option value="4">I was not able to find what I was looking for</option>
-    <option value="5">Problems with the technology</option>
+                                            <input type="hidden" name="user_id" value="{{ $user->id }}"
+                                                id="">
+                                            <select name="feed_back" class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example" required>
+                                                <option selected Disabled select>Please give us Feedback</option>
+                                                <option required value="1">I found what I was looking for</option>
+                                                <option required value="2">No longer need this Service </option>
+                                                <option required value="3">I was unhappy with the service </option>
+                                                <option required value="4">I was not able to find what I was looking
+                                                    for
+                                                </option>
+                                                <option required value="5">Problems with the technology</option>
 
-    <option value="6">Problems with the technology</option>
-  </select>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="{{ route('deactivate', $user->id) }}"><button type="button"
-                                                class="deletebtn"><i class="fa-solid fa-trash"></i>
-                                                Deactivate</button></a>
-                                    </div>
+                                                <option required value="6">Problems with the technology</option>
+                                            </select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#"><button type="submit" class="deletebtn"><i
+                                                        class="fa-solid fa-trash"></i>
+                                                    Deactivate</button></a>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -374,6 +381,46 @@
                         } else {
 
                             window.location.href = "/company/setting";
+                            toastr.success(data.message, data.title);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#deactivate").on('submit', function(e) {
+                e.preventDefault();
+                var loader = document.getElementById("loader-container");
+                loader.style.display = "flex";
+                $(".se-pre-con").fadeOut();
+
+                //alert("on submit ajax")
+                $.ajax({
+                    url: "/company/deactivate-account",
+                    method: "post",
+                    data: new FormData(this),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(document).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        if (data.status == 0) {
+                            jQuery('#loader').fadeOut();
+                            $('.email_error').html(data.error.email);
+                            $('.first_name_error').html(data.error.first_name);
+                            $('.last_name_error').html(data.error.last_name);
+                            $('.Password_error').html(data.error.password);
+                            toastr.error(data.error.feed_back);
+                            loader.style.display = "none";
+
+                        } else {
+
+                            window.location.href = "/login";
                             toastr.success(data.message, data.title);
                         }
                     }

@@ -85,6 +85,7 @@ class CompanyRegistrationController extends Controller
 
     public function create(Request $data)
     {
+        // dd($data);
         $validator = Validator::make($data->all(), [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',

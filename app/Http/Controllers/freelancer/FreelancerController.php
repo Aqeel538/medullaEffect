@@ -13,6 +13,7 @@ use Illuminate\Cache\RetrievesMultipleKeys;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class FreelancerController extends Controller
 {
@@ -331,15 +332,28 @@ class FreelancerController extends Controller
         return response()->json(['success' => 'Status change successfully.']);
     }
 
-    public function deactivate($id)
+    public function deactivate(request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'feed_back' => 'required|string|max:255',
 
-        $user = User::find($id);
-        $user->deactivate = 1;
-        $user->save();
 
-        return back();
-        // return response()->json(['success' => 'Status change successfully.']);
+        ]);
+        if (!$validator->passes()) {
+
+            return response()->json(['status' => 0, 'message' => "failed deactivate!", 'error' => $validator->errors()->toArray()]);
+        } else {
+
+            $user = User::find($request->user_id);
+            $user->status = 0;
+            $deactivated = $user->save();
+
+
+
+            if ($deactivated) {
+                return response()->json(['status' => 1, 'message' => "deactivated"]);
+            }
+        }
     }
 
     // Book a service
