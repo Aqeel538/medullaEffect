@@ -154,24 +154,39 @@
                                 {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
                                 <div class=" job-posted-radius">
                                     <div class="cards-scroll p-3 mt-3 ">
-                                        <div class="row">
-                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                                    class="w-5" alt="w8">
-                                            </div>
-                                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                                <p class="single-job-heading " style="margin: 0; padding-left:35px;"><b>
-                                                        {!! $job->title ?? '' !!}
-                                                    </b>
-                                                </p>
-                                                <p class="job-posted" style="margin: 0; padding-left:35px;">
-                                                    {!! $job->located_in ?? '' !!} <span
-                                                        class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
-                                                <p class="job-posted" style="margin: 0; padding: 0 35px;">
-                                                    {!! $job->work_type ?? '' !!}</p>
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                                <i class="fas-elip fa-solid fa-ellipsis "></i>
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                class="w-5" alt="w8">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                            <p class="single-job-heading " style="margin: 0; padding-left:35px;"><b>
+                                                    {!! $job->title ?? '' !!}
+                                                </b>
+                                            </p>
+                                            <p class="job-posted" style="margin: 0; padding-left:35px;">
+                                                {!! $job->located_in ?? '' !!} <span
+                                                    class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
+                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">
+                                                {!! $job->work_type ?? '' !!}</p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end" >
+                                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction(<?=$job->id?>)"></i>
+
+                                            <div  style="position: relative;">
+                                                <div class="cliked" id="openmyDIV<?=$job->id?>">
+                                                    <div class="stsuts">
+
+                                                        <a class=""
+                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                    <a class=""
+                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                    <a class=""
+                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                    </div>
+                                                 
+                                                </div>
+                                              </div>
 
                                                 {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item"
@@ -184,21 +199,11 @@
 
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-between mt-3">
-                                            <div>
-                                                <p class="job-posted">
-                                                    {!! $job->rate ?? '' !!}
-
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p class="job-posted">
-                                                    {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div style="height:100px;overflow:hidden;">
-                                            <p class="abutnexa-text
+                                      
+                                    </div>
+                               
+                                    <div style="height:100px;overflow:hidden; z-index: -1;">
+                                    <p class="abutnexa-text
                                             pt-3"
                                                 style="overflow: hidden;">
                                                 {!! $job->description ?? '' !!}</p>
