@@ -569,9 +569,9 @@ p {
     background: #7C2342;
     display: none;
 
-
+z-index: 999;
     position: absolute;
-     top:0;
+     top:-6px;
      right:0;
   
 
@@ -847,7 +847,7 @@ display: none;
 .cards-scroll{
 
  
-     height:250px; 
+     height:315px; 
      overflow:hidden;
 }
 

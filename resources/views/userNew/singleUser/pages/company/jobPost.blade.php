@@ -199,14 +199,25 @@
 
                                             </div>
                                         </div>
-                                      
-                                    </div>
-                               
-                                    <div style="height:100px;overflow:hidden; z-index: -1;">
-                                    <p class="abutnexa-text
-                                            pt-3"
-                                                style="overflow: hidden;">
-                                                {!! $job->description ?? '' !!}</p>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div>
+                                                <p class="job-posted">
+                                                    {!! $job->rate ?? '' !!}
+
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="job-posted" >
+                                                    {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                     
+                                        <div style="height:100px;overflow:hidden;">
+                                            <p class="abutnexa-text pt-4 pb-3">
+    
+                                                {!! $job->description ?? 'There is no short description yet...' !!} </p>
+    
                                         </div>
                                         <a href="{{ route('company.jodDetails', $job->id) }}"
                                             class="crds-read-more mt-3 mb-3">read more...</a>
@@ -214,22 +225,6 @@
                                             <a href="{{ route('company_jobs_form', $job->id) }}" class="me-2">
                                                 <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
                                             </a>
-
-
-                                            {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
-
-
-                                        @if (isset($check) && !empty($check))
-                                            <a href="{{ route('company.archiveJob', $job->id) }}">
-                                                <button class="buttonunfill-save">Archived</button>
-                                            </a>
-                                        @else
-                                            <a href="{{ route('company.archiveJob', $job->id) }}">
-                                                <button class="buttonunfill-save">Archive job</button>
-                                            </a>
-                                        @endif --}}
-
-
 
                                             <button class="buttonunfill-save"
                                                 onclick="deleteConfirmation({{ $job->id }})">Delete</button>
