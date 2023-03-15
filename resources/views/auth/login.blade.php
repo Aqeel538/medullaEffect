@@ -32,7 +32,7 @@
                         <div class="row text-center" style="display: flex;justify-content: center">
                             <div class="col-lg-8 col-md-10 col-12">
                                 <h5 class="job-headings pb-4 mt-5">Login</h5>
-                                <p class="job-view-para-2 pb-4">Explorer and find talent through Medulla Effect and hire the best candidates the suite your business.</p>
+                                <p class="job-view-para-2 pb-4">Explore Medulla Effect to find the right opportunity for you.</p>
                             </div>
 
                         </div>

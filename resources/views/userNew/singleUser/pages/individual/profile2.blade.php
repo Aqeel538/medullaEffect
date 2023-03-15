@@ -139,8 +139,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <dic class="col-12 text-lg-right"> <button class="buttonfill">Update</button>
-                            </dic>
+                            <div class="col-12 text-lg-right"> <button class="buttonfill">Update</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -150,7 +150,7 @@
             <div class="col-lg-3 mt-md-5 mt-lg-0 col-10 mb-sm-4 mt-lg-0 mt-xs-4 mt-lg-0 text-center">
                 <div class="pt-5 pb-5 pr-3 pl-3 right-card" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                     <h6 class="john-text justify-content-center">Resume</h6>
-                    <p class="john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem accn.</p>
+                    <p class="john-para pt-4 pb-3">Upload your resume for <br> employers to view</p>
                     <button type="" class="buttonunfillborder">Upload</button>
                 </div>
                 <!-- 2nd col -->
@@ -158,7 +158,7 @@
                     <div class="mt-5 pt-2 pb-2 pr-3 pl-3" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                         <p class="aplied-jobs-para pt-4 pb-2">
                             Jobs Applied<span style="color: #9A1029;">&nbsp;12</span> <br> <br>
-                            Resumes <br> Downloaded by Company <span style="color: #9A1029">10</span> <br><br>
+                            Resumes <br> Downloaded by Companies <span style="color: #9A1029">10</span> <br><br>
                             Profile Views <span style="color: #9A1029;
                         ;">20</span>
                         </p>

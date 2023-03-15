@@ -92,7 +92,7 @@
                                 <div class="inputfield-2">
                                     {{-- <i class="fa-regular fa-user"></i> --}}
                                     <select name="gender" style="width: 100%;">
-                                        <option value="{!! $user->gender ?? '' !!}">{!! $user->gender ?? 'Gender' !!}
+                                        <option value="{!! $user->gender ?? '' !!} " selected hidden>{!! $user->gender ?? 'Gender' !!}
                                         </option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -294,16 +294,16 @@
                                         <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
                                             {!! $user->pay_range ?? 'State your desired pay range' !!}
                                         </option>
-                                        <option value="0-50">0-50k</option>
-                                        <option value="50-100">50k-100k</option>
-                                        <option value="100-1500">100k-150k</option>
-                                        <option value="1500-2000">150k-200k</option>
-                                        <option value="2000-2500">200k-250k</option>
-                                        <option value="2500-3000">250k-300k</option>
-                                        <option value="3000-3500">300k-350k</option>
-                                        <option value="3500-4000">350k-400k</option>
-                                        <option value="4000-4500">400k-450k</option>
-                                        <option value="4500-5000">450k-500k</option>
+                                        <option value="0-50k">0-50k</option>
+                                        <option value="50k-100k">50k-100k</option>
+                                        <option value="100k-150k">100k-150k</option>
+                                        <option value="150k-200k">150k-200k</option>
+                                        <option value="200k-2500k">200k-250k</option>
+                                        <option value="250k-300k">250k-300k</option>
+                                        <option value="300k-350k">300k-350k</option>
+                                        <option value="350k-400k">350k-400k</option>
+                                        <option value="400k-450k">400k-450k</option>
+                                        <option value="450k-500k">450k-500k</option>
                                     </select>
 
                                 </div>
@@ -334,7 +334,7 @@
                                         <option value="{!! $user->experience ?? '' !!}" selected hidden>
                                             {!! $user->experience ?? 'Experience' !!}
                                         </option>
-                                        <option value="Fresher">Begginer</option>
+                                        <option value="Fresher">Beginner</option>
                                         <option value="Begginer">Intermediate</option>
                                         <option value="Professional">Advanced</option>
                                     </select>
@@ -375,8 +375,7 @@
                         style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                         <h6 class="john-text justify-content-center">Resume</h6>
                         <div class="ps-3 pe-3">
-                            <p class="pr-4 john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit
-                                voluptatem accn.</p>
+                            <p class="pr-4 john-para pt-4 pb-3">Upload your resume for <br> employers to view</p>
                         </div>
                         <form id="resumeUpload">
                             <label for="resume" class="buttonunfillborder">Upload</label>
@@ -389,7 +388,7 @@
                     <div class="mt-2 pt-2 pb-2 pr-3 pl-3" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                         <p class="aplied-jobs-para pt-4 pb-2">
                             Jobs Applied<span style="color: #9A1029;">&nbsp;{{ $jobsApplied }}</span> <br> <br>
-                            Resumes <br> Downloaded by Company <span style="color: #9A1029">0</span> <br><br>
+                            Resumes <br> Downloaded by Companies <span style="color: #9A1029">0</span> <br><br>
                             Profile Views <span style="color: #9A1029;
                               ;">0</span>
                         </p>

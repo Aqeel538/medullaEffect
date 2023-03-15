@@ -107,9 +107,17 @@
                                     ?>
                                 <option value="{!! $obj->experience ?? '' !!}" selected hidden>{!! $obj->experience ?? 'Experience' !!}
                                 </option>
-                                <option value="Fresher"> Beginner</option>
-                                <option value="Begginer">Intermediate</option>
-                                <option value="Professional"> Advanced</option>
+                                <option value="Fresher">1 Year</option>
+                                <option value="Begginer">2 Years</option>
+                                <option value="Professional">3 Years</option>
+                                <option value="Professional">4 Years</option>
+                                <option value="Professional">5 Years</option>
+                                <option value="Professional">6 Years</option>
+                                <option value="Professional">7 Years</option>   
+                                 <option value="Professional">8 Years</option>
+                                 <option value="Professional">9 Years</option>
+                                 <option value="Professional">10 Years</option>
+                                 <option value="Professional">10 Years +</option>
                             </select>
 
 

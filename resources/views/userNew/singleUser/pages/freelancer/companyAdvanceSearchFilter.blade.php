@@ -52,7 +52,7 @@
                                     <option value="" disabled selected hidden>
                                         Experience Level
                                     </option>
-                                    <option value="Fresher">Begginer</option>
+                                    <option value="Fresher">Begineer</option>
                                     <option value="Begginer">Intermediate</option>
                                     <option value="Professional">Advanced</option>
                                 </select>

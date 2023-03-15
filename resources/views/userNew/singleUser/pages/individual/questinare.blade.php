@@ -277,15 +277,15 @@
                                         {!! $user->pay_range ?? 'State your desired pay range' !!}
                                     </option>
                                     <option value="0-50k">0-50k</option>
-                                    <option value="50k-100k">50k-100k</option>
-                                    <option value="100k-1500k">100k-1500k</option>
-                                    <option value="1500k-2000k">1500k-2000k</option>
-                                    <option value="2000k-2500k">2000k-2500k</option>
-                                    <option value="2500k-3000k">2500k-3000k</option>
-                                    <option value="3000k-3500k">3000k-3500k</option>
-                                    <option value="3500k-4000k">3500k-4000k</option>
-                                    <option value="4000k-4500k">4000k-4500k</option>
-                                    <option value="4500k-5000k">4500k-5000k</option>
+                                    <option value="50-100k">50k-100k</option>
+                                    <option value="100k-150k">100k-150k</option>
+                                    <option value="150k-200k">150k-200k</option>
+                                    <option value="200k-250k">200k-250k</option>
+                                    <option value="250k-300k">250k-300k</option>
+                                    <option value="300k-350k">300k-350k</option>
+                                    <option value="350k-400k">350k-400k</option>
+                                    <option value="400k-450k">400k-450k</option>
+                                    <option value="450k-500k">450k-500k</option>
                                 </select>
                                 <span class="text-danger d-flex">
                                     @error('pay_range')
@@ -300,7 +300,7 @@
                         <div class="col-12 form-group mt-3">
                             <div class="inputfield">
 
-                                <select class="w-100 greyColor" name="experience" style="width: 100%;" id="experience">
+                                <select class="w-100 greyColor" name="`nce" style="width: 100%;" id="experience">
                                     <?php
                                     if($user->experience){
                                         ?>
@@ -315,7 +315,7 @@
                                     <option value="{!! $user->experience ?? '' !!}" selected hidden>{!! $user->experience ?? 'Experience' !!}
                                     </option>
                                     <option value="Fresher">Fresher</option>
-                                    <option value="Begginer">Begginer</option>
+                                    <option value="Begginer">Beginner</option>
                                     <option value="Professional">Professional</option>
                                 </select>
                                 <span class="text-danger d-flex">

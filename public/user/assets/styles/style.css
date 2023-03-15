@@ -139,6 +139,7 @@ padding: 7px 0;
     cursor: pointer;
 }
 
+
 .mobile-nav-icon {
     width: 35px;
     height: 35px;
@@ -425,7 +426,7 @@ font-family: 'Helvetica';
     background: #f4f4f4;
     border-radius: 8px;
     align-items: center;
-    padding: 5px 10px;
+    padding: 8px 10px;
 }
 
 .input-container-2 {
@@ -564,6 +565,60 @@ p {
     bottom: -8%;
 }
 
+.cliked{
+    background: #7C2342;
+    display: none;
+
+
+    position: absolute;
+     top:0;
+     right:0;
+  
+
+}
+.stsuts{
+    width:160px;
+    height:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.stsuts a:hover{
+    background-color: #F4F4F4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #730116;
+}
+/* .fasq + div .cliked .stsuts{
+
+display: none;
+
+}
+
+.fasq + div .cliked{
+    background: #7C2342;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.stsuts
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+} */
 .playbutton {
     color: rgba(124, 35, 66, 1);
     background: rgba(255, 255, 255, 0.5);
@@ -579,7 +634,7 @@ p {
     z-index: 3;
 }
 
-/* Footer CSS Start */
+/* Footer CSS sasrt */
 #footer {
     font-size: 14px;
     background: #7C2342;
@@ -792,13 +847,14 @@ p {
 .cards-scroll{
 
  
-     height:300px; 
+     height:250px; 
      overflow:hidden;
 }
 
 .job-posted-radius{
     background: #F4F4F4;
     border-radius: 20px;
+
 }
 .crds-read-more{
     color: #730116; 
@@ -2904,7 +2960,7 @@ input:checked+.slider:before {
     .avatar-upload {
         position: relative;
         max-width: 205px;
-        margin: 50px auto;
+        margin: 20px auto;
     }
 }
 

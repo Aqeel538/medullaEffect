@@ -13,12 +13,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-7 col-sm-9 col-10 text-center">
                 <h1 class="advnc-search-heading mt-5">
-                    This is going to be the tagline
+                    Explore New Opportunities 
                 </h1>
                 <p class="mt-4 mb-4 phara_16">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                    quae ab illo inventore veritatis.
+                    Apply for new jobs down below to find your next opportunity
                 </p>
             </div>
         </div>

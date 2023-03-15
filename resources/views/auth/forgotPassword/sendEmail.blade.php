@@ -26,9 +26,8 @@
 
                 </div>
                 <div class="mt-5 pt-5 crd-row-one">
-                    <h1 class="head_text">Forget Password</h1>
-                    <p class="pt-2 pb-2 " style="font-weight: 400;">Please enter your email address below to
-                        search for your account.</p>
+                    <h1 class="head_text">Forgot Password</h1>
+                    <p class="pt-2 pb-2 " style="font-weight: 400;">Please enter your email address to receive a forgot password token.</p>
                 </div>
                 <form id="sendOtp">
                     @csrf
