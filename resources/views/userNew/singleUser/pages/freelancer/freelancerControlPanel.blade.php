@@ -26,8 +26,7 @@
                 style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                 <div class="pr-2 pl-2">
                     <h1 class="pt-4 profile-text-ques-heading">All Services</h1>
-                    <p class="john-para-afer-ques-heading">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium lorue laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                    <p class="john-para-afer-ques-heading">Create and post your services for individuals and companies to view your posts so they can reach out!</p>
                     <!-- cards -->
                     <div class="pt-3 pb-5">
                         <div class="row">
@@ -144,7 +143,7 @@
             <div class="col-lg-3 mt-md-5 mt-lg-0 col-12 mb-sm-4 mt-lg-0 mt-xs-4 mt-lg-0 text-center">
                 <div class="pt-5 pb-5 pr-3 pl-3 right-card" style="background-color: #F9F9F9;  border-radius: 21.0305px;">
                     <h6 class="john-text justify-content-center">New Service</h6>
-                    <p class="john-para pt-4 pb-3">Sed ut perspiciatis unde omnis ie natus error sit voluptatem accn..</p>
+                    <p class="john-para pt-4 pb-3">Create and post your services for individuals and companies to view your posts so they can reach out!</p>
                     <a href="../Sana/Profile.html">
                         <button class="buttonunfill-create">Create</button></a>
                 </div>

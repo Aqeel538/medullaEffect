@@ -76,7 +76,9 @@
                                 <div class="col-lg-6 col-md-6 col-12 mb-lg-0 mb-md-0 mb-3">
                                     <div class="input-container ">
                                         <i class="fa-solid fa-lock"></i>
-                                        <input class="input-fields" type="password" name="password"placeholder="Password">
+                                        <input class="input-fields" type="password" name="password"placeholder="Password" id="password" >
+                                        <button type="button" id="togglePassword" style="border: none">
+                                            <i class="far fa-eye-slash" id="eye"></i>
                                     </div>
                                     <div class="text-danger d-flex">
                                         <span class="text-danger error-text Password_error"></span>
@@ -154,5 +156,26 @@
                 });
             });
         });
+
+
+
+
+        
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  const eye = document.querySelector('#eye');
+  
+  togglePassword.addEventListener('click', function() {
+    // Toggle password visibility
+    if (password.type === 'password') {
+      password.type = 'text';
+      eye.classList.remove('fa-eye-slash');
+      eye.classList.add('fa-eye');
+    } else {
+      password.type = 'password';
+      eye.classList.remove('fa-eye');
+      eye.classList.add('fa-eye-slash');
+    }
+  });
     </script>
 @endsection

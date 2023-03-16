@@ -99,8 +99,16 @@
                                     <option value="" disabled selected hidden>
                                         Salary Range
                                     </option>
-                                    <option>50-100k</option>
-                                    <option>100k-200k</option>
+                                    <option value="0k-50k">0-50k</option>
+                                    <option value="50k-100k">50k-100k</option>
+                                    <option value="100k-150k">100k-150k</option>
+                                    <option value="150k-200k">150k-200k</option>
+                                    <option value="200k-250k">200k-250k</option>
+                                    <option value="250k-300k">250k-300k</option>
+                                    <option value="300k-350k">300k-30k</option>
+                                    <option value="350k-400k">350k-400k</option>
+                                    <option value="400k-450k">400k-450k</option>
+                                    <option value="450k-500k">450k-500k</option>
                                 </select>
                             </div>
                         </div>

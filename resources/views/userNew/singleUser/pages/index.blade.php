@@ -79,7 +79,7 @@
                             class="img-fluid img-siz-2" alt="" srcset="" />
                     </div>
                     <div class="card-iner-body">
-                        <h2 class="cards-headig-midle-card">Freelancer</h2>
+                        <h2 class="cards-headig-midle-card">Freelancers</h2>
                         <p class="text-para-midle-card">
                             Upload Your Services And Grow Your Business
                         </p>

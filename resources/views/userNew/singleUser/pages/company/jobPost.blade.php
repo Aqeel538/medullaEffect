@@ -175,7 +175,7 @@
 
                                             <div  style="position: relative;">
                                                 <div class="cliked" id="openmyDIV<?=$job->id?>">
-                                                    <div class="stsuts">
+                                                    <div class="stsuts ">
 
                                                         <a class=""
                                                         href="/company/job/status/1/{{ $job->id }}">Active</a>
@@ -187,16 +187,6 @@
                                                  
                                                 </div>
                                               </div>
-
-                                                {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/1/{{ $job->id }}">Active</a>
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/2/{{ $job->id }}">Inactive</a>
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/3/{{ $job->id }}">Pause</a>
-                                            </div> --}}
-
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between mt-3">
@@ -257,20 +247,24 @@
                                             </p>
                                             <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                            <i class="fas-elip fa-solid fa-ellipsis dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false"></i>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end" >
+                                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction(<?=$job->id?>)"></i>
 
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/1/{{ $job->id }}">Active</a>
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/2/{{ $job->id }}">Inactive</a>
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                            <div  style="position: relative;">
+                                                <div class="cliked" id="openmyDIV<?=$job->id?>">
+                                                    <div class="stsuts ">
+
+                                                        <a class=""
+                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                    <a class=""
+                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                    <a class=""
+                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                    </div>
+                                                 
+                                                </div>
+                                              </div>
                                             </div>
-                                        </div>
                                     </div>
 
 
@@ -408,20 +402,24 @@
                                             </p>
                                             <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
-                                            <i class="fas-elip fa-solid fa-ellipsis dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false"></i>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end" >
+                                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction(<?=$job->id?>)"></i>
 
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/1/{{ $job->id }}">Active</a>
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/2/{{ $job->id }}">Inactive</a>
-                                                <a class="dropdown-item"
-                                                    href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                            <div  style="position: relative;">
+                                                <div class="cliked" id="openmyDIV<?=$job->id?>">
+                                                    <div class="stsuts ">
+
+                                                        <a class=""
+                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                    <a class=""
+                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                    <a class=""
+                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                    </div>
+                                                 
+                                                </div>
+                                              </div>
                                             </div>
-                                        </div>
                                     </div>
 
 
@@ -655,12 +653,29 @@
 
 
         function openmyFunction(id) {
-  var x = document.getElementById("openmyDIV"+id);
+  // Get all the "openmyDIV" divs
+  var divs = document.querySelectorAll('[id^="openmyDIV"]');
+  
+  // Hide all previously opened "openmyDIV" divs
+  divs.forEach(function(div) {
+    if (div.id !== "openmyDIV" + id) {
+      div.style.display = "none";
+    }
+  });
+  
+  // Toggle the display of the clicked "openmyDIV" div
+  var x = document.getElementById("openmyDIV" + id);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
 }
+
+
+
+
+
+
     </script>
 @endsection
