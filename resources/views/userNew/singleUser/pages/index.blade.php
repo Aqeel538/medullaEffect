@@ -81,12 +81,8 @@
                 </div>
                 <div class="">
                     <a href="{{ route('login') }}">
-<<<<<<< Updated upstream
-                        <button type="button" class="log-in-btn">Sign in</button>
-=======
                         <button type="button" class="log-in-btn"
                           >Log in</button>
->>>>>>> Stashed changes
                     </a>
                 </div>
 
