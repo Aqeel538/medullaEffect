@@ -191,6 +191,7 @@ $blink = 0;
                                         <i class="fa-solid fa-lock"></i>
                                         <input class="input-fields" type="password" placeholder="Current Password"
                                             name="current_password" id="current_password">
+                                           
                                         @error('current_password')
                                             <span>{{ $message }}</span>
                                         @enderror
@@ -298,4 +299,14 @@ $blink = 0;
             </div>
         </div>
     </div>
+
+
+
+
+    <script>
+
+
+
+
+    </script>
 @endsection

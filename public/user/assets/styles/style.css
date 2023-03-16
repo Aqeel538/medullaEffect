@@ -576,10 +576,11 @@ p {
     position: absolute;
      top:-6px;
      right:0;
-
+  cursor: pointer;
 
 }
 .stsuts {
+    cursor: pointer;
     width:160px;
     height:100px;
     display: flex;

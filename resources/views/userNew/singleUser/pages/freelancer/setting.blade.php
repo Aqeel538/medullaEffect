@@ -58,6 +58,9 @@
                                                 {{-- <ion-icon name="person-outline"></ion-icon> --}}
                                                 <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
                                                     placeholder="First name" name="first_name">
+                                                    
+
+                                                    
                                             </div>
 
                                         </div>
@@ -196,9 +199,13 @@
                                 @csrf
                                 <div class="form-group ">
 
-                                    <div class="input-container  ">
-                                        <input class="input-fields" type="password" placeholder="Current Password"
+                                    <div class="input-container">
+                                        <input class="input-fields toggle-password" type="password" placeholder="Current Password"
                                             name="current_password" id="current_password">
+
+
+                                        <button type="button" class="toggle-btn" style="border: none">
+                                            <i class="far fa-eye-slash toggle-icon"></i>
 
                                     </div>
                                     <span class="text-danger error-text current_password"></span>
@@ -207,8 +214,14 @@
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
 
-                                        <input class="input-fields" type="password" placeholder="NewPassword"
+                                        <input class="input-fields toggle-password" type="password" placeholder="New Password"
                                             name="new_password" id="new_password">
+
+
+                                
+                                        <button type="button" class="toggle-btn" style="border: none">
+                                            <i class="far fa-eye-slash toggle-icon"></i>
+                                        </button>
 
                                     </div>
                                     <span class="text-danger error-text new_password"></span>
@@ -216,9 +229,12 @@
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
 
-                                        <input class="input-fields" type="password" placeholder="Verify Password"
+                                        <input class="input-fields toggle-password" type="password" placeholder="Verify Password"
                                             name="new_confirm_password" id="new_confirm_password">
-
+                                          
+                                        <button type="button" class="toggle-btn" style="border: none">
+                                            <i class="far fa-eye-slash toggle-icon"></i>
+                                        </button>
                                     </div>
                                     <span class="text-danger error-text new_confirm_password"></span>
                                 </div>
@@ -393,5 +409,23 @@
                 });
             });
         });
+
+
+
+
+        const togglePassword = document.querySelectorAll('.toggle-btn');
+const password = document.querySelectorAll('.toggle-password');
+
+togglePassword.forEach(function(btn, index) {
+    btn.addEventListener('click', function() {
+        if (password[index].type === 'password') {
+            password[index].type = 'text';
+            btn.innerHTML = '<i class="far fa-eye toggle-icon"></i>';
+        } else {
+            password[index].type = 'password';
+            btn.innerHTML = '<i class="far fa-eye-slash toggle-icon"></i>';
+        }
+    });
+});
     </script>
 @endsection

@@ -61,6 +61,7 @@
                                             placeholder="Enter Password" id="password">
                                             <button type="button" id="togglePassword" style="border: none">
                                                 <i class="far fa-eye-slash" id="eye"></i>
+                                            </button>
                                     </div>
                                     <div class="text-danger d-flex">
                                         @error('password')
