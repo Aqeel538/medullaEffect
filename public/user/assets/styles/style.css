@@ -61,7 +61,7 @@ body {
     background-color: rgba(255, 243, 247, 1);
     padding: 10px;
 }
-.headers {
+.headers1 {
     display: flex;
 
 align-items: center;
@@ -658,8 +658,8 @@ width: 100%;
     color: #9A9A9A;
   }
 
-  .search-form button{
-    padding: 10px 17px;
+  .search-form .input-group-append{
+  
     /* margin: 0; */
     border: none;
     border-radius: 50px;
@@ -672,7 +672,8 @@ width: 100%;
     line-height: 136.99%;
 
     letter-spacing: 0.02em;
-
+border: none;
+outline: none;
     color: white;
 }
 
@@ -723,9 +724,23 @@ width: 100%;
   
 .search-container{
     position: relative;
-
+    width: 5px !important;
     z-index: 999; /* Ensure search bar is displayed above other elements */
 }
+#category.form-control{
+    width: 110px;
+    border: none;
+    background: #730116;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+    color: white;
+    padding: 10px 13px;
+    border-radius: 50px !important;
+}
+
 .playbutton {
     color: rgba(124, 35, 66, 1);
     background: rgba(255, 255, 255, 0.5);
