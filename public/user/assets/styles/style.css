@@ -61,6 +61,15 @@ body {
     background-color: rgba(255, 243, 247, 1);
     padding: 10px;
 }
+.headers {
+    display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+position: relative; /* Add positioning context */
+}
+
 
 .filled-icon-2nd-nav {
     color: #730116;
@@ -84,6 +93,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 40px;
+    position: relative
 }
 
 .navbar {
@@ -358,7 +368,7 @@ body {
 }
 
 .cards-heading {
-    font-family: "Poppins";
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 700;
     font-size: 33.4576px;
@@ -598,6 +608,123 @@ p {
     justify-content: center;
     align-items: center;
     color: #730116;
+}
+
+
+.search-form {
+    display: none;
+    opacity: 0;
+align-items: center;
+    position: absolute;
+    right: -288px;
+    bottom: -24px;
+    z-index: 999; /* Ensure search bar is displayed above other elements */
+
+  }
+  
+.search-form input {
+border: none;
+border-radius: 50px;
+padding: 10px;
+width: 100%;
+  }
+.log-in-btn{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 136.99%;
+
+    letter-spacing: 0.02em;
+
+    color: #730116;
+}
+  .search-form input:focus {
+ outline: none;
+ border: none;
+      }
+  .search-form input::placeholder{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+
+    letter-spacing: 0.02em;
+
+    color: #9A9A9A;
+  }
+
+  .search-form button{
+    padding: 10px 17px;
+    /* margin: 0; */
+    border: none;
+    border-radius: 50px;
+    margin-left: -28px;
+    background: #730116;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+
+    letter-spacing: 0.02em;
+
+    color: white;
+}
+
+.cross-srch{
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+        width: 30px;
+        height: 30px;
+        color: #730116 !important;
+}
+
+
+  
+  .search-form.active {
+    display: flex;
+    opacity: 1;
+   
+  }
+  
+  .search-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    box-shadow: 0 5px 6px -1px rgba(153, 21, 21, 0.1), 0 2px 17px -2px rgba(92, 8, 8, 0.1);
+
+    border-radius: 50%;
+    cursor: pointer;
+
+  }
+  
+  .search-icon-container.active {
+    display: none;
+  }
+  
+  #search-icon {
+    transition: all 0.3s ease-in-out;
+    color: #730116 !important;
+  }
+  
+  #close-icon {
+    transition: all 0.3s ease-in-out;
+  }
+  
+.search-container{
+    position: relative;
+
+    z-index: 999; /* Ensure search bar is displayed above other elements */
 }
 .playbutton {
     color: rgba(124, 35, 66, 1);
@@ -3271,7 +3398,7 @@ input:checked+.slider:before {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 999;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
