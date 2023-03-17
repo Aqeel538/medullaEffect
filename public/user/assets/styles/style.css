@@ -85,9 +85,16 @@ position: relative; /* Add positioning context */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 0;
-}
+    flex-direction: row;
 
+}
+.navbar-questionare3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}
 .navbar-questionares {
     display: flex;
     justify-content: center;
@@ -610,23 +617,46 @@ p {
     color: #730116;
 }
 
-
+.select-searhbar{
+margin-left: -30px;
+    border: none;
+    background: #730116;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136.99%;
+    color: white;
+    padding: 13px 13px;
+    text-align:center ;
+    border-radius: 50px !important;
+}
 .search-form {
     display: none;
     opacity: 0;
 align-items: center;
-    position: absolute;
-    right: -288px;
-    bottom: -24px;
+position: absolute;
+top: 14%;         
+left: 0;
+padding: 10px;
     z-index: 999; /* Ensure search bar is displayed above other elements */
-
+    background-color: #FFF3F7;
+    width: 100%;
   }
-  
+  .openselect{
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
+  .openselect option{
+    color: black;
+  }
 .search-form input {
 border: none;
 border-radius: 50px;
-padding: 10px;
-width: 100%;
+padding: 13px;
+margin-left: 30%;
+width: 30%;
   }
 .log-in-btn{
     outline: none;
@@ -658,24 +688,6 @@ width: 100%;
     color: #9A9A9A;
   }
 
-  .search-form .input-group-append{
-  
-    /* margin: 0; */
-    border: none;
-    border-radius: 50px;
-    margin-left: -28px;
-    background: #730116;
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 136.99%;
-
-    letter-spacing: 0.02em;
-border: none;
-outline: none;
-    color: white;
-}
 
 .cross-srch{
     display: flex;
@@ -692,7 +704,11 @@ outline: none;
   .search-form.active {
     display: flex;
     opacity: 1;
-   
+  
+  }
+  .search-form.active .navbar-lists .navbar-link{
+  display: none;
+  
   }
   
   .search-icon-container {
@@ -722,24 +738,7 @@ outline: none;
     transition: all 0.3s ease-in-out;
   }
   
-.search-container{
-    position: relative;
-    width: 5px !important;
-    z-index: 999; /* Ensure search bar is displayed above other elements */
-}
-#category.form-control{
-    width: 110px;
-    border: none;
-    background: #730116;
-    font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 136.99%;
-    color: white;
-    padding: 10px 13px;
-    border-radius: 50px !important;
-}
+
 
 .playbutton {
     color: rgba(124, 35, 66, 1);
@@ -3355,9 +3354,9 @@ input:checked+.slider:before {
         margin-top: 20px;
     }
 
-    .search-icon-index {
+    .search-icon-container {
         margin-left: 20px;
-        margin-bottom: 20px;
+        margin-top: 20px;
     }
 
 
@@ -3380,7 +3379,7 @@ input:checked+.slider:before {
         justify-content: end;
         align-items: center;
     }
-
+   
     .navbar-questionare {
         /* display: none; */
         width: 100%;
@@ -3393,6 +3392,7 @@ input:checked+.slider:before {
         display: flex;
         flex-direction: column;
         justify-content: center;
+
         align-items: center;
         transform-origin: top center;
         transform: scaleY(0);
@@ -3404,6 +3404,34 @@ input:checked+.slider:before {
         visibility: hidden;
         pointer-events: none;
     }
+    
+
+
+    .navbar-questionare3 {
+        /* display: none; */
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(244, 239, 239);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        align-items: center;
+        transform-origin: top center;
+        transform: scaleY(0);
+        /* to get the tranisition  */
+flex-direction: column-reverse;
+        transition: all 0.5s linear;
+
+        opacity: 0.95;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    
 
     .navbar-questionares {
         /* display: none; */
@@ -3455,6 +3483,10 @@ input:checked+.slider:before {
         justify-content: center;
         margin-left: 35px;
     }
+    .search-icon-container{
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
 
     .mobile-navbar-btns {
         display: flex;
@@ -3467,13 +3499,25 @@ input:checked+.slider:before {
         justify-content: flex-end;
         align-items: center;
     }
-
+.log-in-btn{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-weight: 900 !important;
+    color: #7c2342 !important;
+}
     .active .navbar-questionare {
         transform: scaleY(1);
         opacity: 0.95;
         visibility: visible;
         pointer-events: auto;
     }
+    .active .navbar-questionare3 {
+        transform: scaleY(1);
+        opacity: 0.95;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
 
     .active .navbar-questionares {
         transform: scaleY(1);
@@ -3607,13 +3651,6 @@ input:checked+.slider:before {
         font-size: 35px;
     }
 
-    /* .inputfield select {
-        font-size: 15px;
-    } */
-
-    /* .inputfield input::placeholder {
-        font-size: 15px;
-    } */
 
 
     .john-para-afer-ques-heading {
@@ -3624,13 +3661,6 @@ input:checked+.slider:before {
         font-size: 35px;
     }
 
-    /* .inputfield select {
-        font-size: 17px;
-    } */
-    /*
-    .inputfield input::placeholder {
-        font-size: 15px;
-    } */
 
     .btns_main {
         justify-content: start;
@@ -3693,6 +3723,7 @@ input:checked+.slider:before {
     .setting-tabs {
         margin: 10px 0;
     }
+    
 
     .userdata {
 
@@ -3729,6 +3760,14 @@ input:checked+.slider:before {
 
     .mylist {
         padding-bottom: 6px;
+    }
+    .search-form {
+        margin-top: 40%;
+    }
+    .search-form input {
+       
+        margin-left: 30%;
+        width: 40%;
     }
 }
 
@@ -3927,8 +3966,11 @@ input:checked+.slider:before {
         margin-top: 20px;
     }
 
-
-}
+    .search-form input {
+      width: 40%;
+        margin-left: 20%;
+   
+}}
 
 @media (max-width: 468px) {
     .second-nav {
@@ -4114,7 +4156,14 @@ input:checked+.slider:before {
         font-weight: 400;
         font-size: 14px;
     }
+    .search-form {
+        margin-top: 65%;
+    }
+
+    
 }
+
+
 
 @media (max-width: 426px) {
 
