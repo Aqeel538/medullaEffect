@@ -3,26 +3,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!----- ---------2nd--Navbar------------- -->
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .input-group .form-control {
+            flex: 1 1 70%;
+            margin-right: 0;
+        }
+
+        .input-group-append {
+            flex: 1 1 30%;
+        }
+
+        #category.form-control {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    </style>
     <div class="container-fluid second-nav">
         <div class="container">
             <div class="headers">
-                <nav class="navbar-questionares">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <form method="POST" action="{{ route('search') }}" class="form-inline">
+                                @csrf
+                                <div class="input-group">
+                                    <input name="search" type="search" class="form-control" id="search" name="search"
+                                        placeholder="Search">
+                                    <div class="input-group-append">
+                                        <select name="category" class="form-control" id="category" name="category"
+                                            required>
+                                            <option value="">Categories</option>
+                                            <option value="service">Service</option>
+                                            <option value="job">Jobs</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        {{-- <form method="POST" action="{{ route('search') }}" class="form-inline">
+                            @csrf
+                            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <span>
+                                <select name="" id="">
+                                    <option value="">Service</option>
+                                </select>
+                            </span>
+
+                        </form> --}}
+
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <nav class="navbar-questionares">
 
 
-                    <ul class="navbar-lists" id="myDIV">
+                            <ul class="navbar-lists" id="myDIV">
 
-                        <li><a class="navbar-link" href="#aboutUs">About us</a>
-                        </li>
-                        <li><a class="navbar-link" href="#ourServices">Services</a></li>
-                        <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
-                        <li><a class="navbar-link" href="#contactUs">Contact</a></li>
+                                <li><a class="navbar-link" href="#aboutUs">About us</a>
+                                </li>
+                                <li><a class="navbar-link" href="#ourServices">Services</a></li>
+                                <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
+                                <li><a class="navbar-link" href="#contactUs">Contact</a></li>
 
-                        </li>
+                                </li>
 
-                    </ul>
+                            </ul>
 
-                </nav>
-
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <a href="{{ route('login') }}">
+                            <button type="button" class="btn "
+                                style="background-color: #7c2342;color:#F9F9F9">Login</button>
+                        </a>
+                    </div>
+                </div>
                 <div class="mobile-navbar-btns">
                     <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
                     <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
@@ -245,7 +311,8 @@
                         srcset="" class="w-100">
                     <div class="mt-5">
                         <h3 class="about-servc-heading ">Showcase Your Skills & Experience</h3>
-                        <p class="servc-detail">If you’re an individual or freelancer, Medulla Effect allows you to not only
+                        <p class="servc-detail">If you’re an individual or freelancer, Medulla Effect allows you to not
+                            only
                             reach out to potential companies to work with; but also allows you to create a profile for
                             companies to look at, and reach out to you for potential business opportunities. </p>
                     </div>

@@ -18,6 +18,7 @@ class CreateJobsTable extends Migration
             $table->string('user_id')->nullable(true);
             $table->string('category_id')->nullable(true);
             $table->string('title')->nullable(true);
+            $table->string('company_name')->nullable(true);
             $table->string('rate')->nullable(true);
             $table->string('job_type')->nullable(true);
             $table->string('work_type')->nullable(true);

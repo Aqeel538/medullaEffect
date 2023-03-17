@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
 }
+
 /* .container-fluid{
     padding: 0;
 } */
@@ -60,19 +61,22 @@ body {
     background-color: rgba(255, 243, 247, 1);
     padding: 10px;
 }
-.filled-icon-2nd-nav{
-color: #730116;
+
+.filled-icon-2nd-nav {
+    color: #730116;
 }
-.filled-icon-2nd-nav-2{
+
+.filled-icon-2nd-nav-2 {
     color: #730116;
 
 
 }
+
 .navbar-questionare {
     display: flex;
     justify-content: space-between;
     align-items: center;
-padding: 7px 0;
+    padding: 7px 0;
 }
 
 .navbar-questionares {
@@ -377,7 +381,7 @@ padding: 7px 0;
 }
 
 .cards-headig-midle-card {
-font-family: 'Helvetica';
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 700;
     font-size: 33.4576px;
@@ -391,7 +395,7 @@ font-family: 'Helvetica';
 }
 
 .cards-text-para {
-  font-family: 'Helvetica';
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
@@ -407,7 +411,7 @@ font-family: 'Helvetica';
 }
 
 .text-para-midle-card {
-font-family: 'Helvetica';
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
@@ -572,7 +576,7 @@ p {
     position: absolute;
      top:-6px;
      right:0;
-  
+
 
 }
 .stsuts {
@@ -582,11 +586,10 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-
-.stsuts a:hover{
+.stsuts a:hover {
     background-color: #F4F4F4;
     width: 100%;
     display: flex;
@@ -595,7 +598,6 @@ p {
     align-items: center;
     color: #730116;
 }
-
 .playbutton {
     color: rgba(124, 35, 66, 1);
     background: rgba(255, 255, 255, 0.5);
@@ -821,20 +823,22 @@ p {
     margin-top: 20px;
 
 }
-.cards-scroll{
 
- 
-     height:315px; 
-     overflow:hidden;
+.cards-scroll {
+
+
+    height: 300px;
+    overflow: hidden;
 }
 
-.job-posted-radius{
+.job-posted-radius {
     background: #F4F4F4;
     border-radius: 20px;
 
 }
-.crds-read-more{
-    color: #730116; 
+
+.crds-read-more {
+    color: #730116;
     font-weight: bold;
 }
 
@@ -1869,7 +1873,7 @@ ion-icon {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-   
+
 }
 
 /* Firefox */
@@ -2224,7 +2228,8 @@ input[type="radio"]#jobs {
 input[type="radio"]#sav {
     accent-color: rgba(124, 35, 66, 1);
 }
-input[type="radio"]#s{
+
+input[type="radio"]#s {
     accent-color: rgba(124, 35, 66, 1);
 }
 
@@ -2380,7 +2385,7 @@ input[type="radio"]#s{
 
     display: flex;
     align-items: center;
-    
+
 }
 
 .contct {
@@ -2447,9 +2452,11 @@ input[type="radio"]#s{
     letter-spacing: 0.02em;
     color: #7c2342;
 }
-.text-reds{
+
+.text-reds {
     color: #7C2342;
 }
+
 .job-details {
     -webkit-font-family: "Helvetica";
     font-style: normal;
@@ -2697,7 +2704,7 @@ input[type="radio"]#s{
 
 .switch {
     position: relative;
-border: none !important;
+    border: none !important;
     width: 60px;
     height: 34px;
 }
@@ -2934,6 +2941,7 @@ input:checked+.slider:before {
         top: 13%;
         right: 3%;
     }
+
     .avatar-upload {
         position: relative;
         max-width: 205px;
@@ -2947,7 +2955,8 @@ input:checked+.slider:before {
     .john-para-afer-ques-heading {
         font-size: 14px !important;
     }
-/* 
+
+    /*
     .iner-servc-crd {
         height: 550px !important;
     } */
@@ -3003,7 +3012,7 @@ input:checked+.slider:before {
         font-size: 21px;
     }
 
-   
+
 
     .avatar-upload {
         position: relative;
@@ -3142,12 +3151,14 @@ input:checked+.slider:before {
     .img-holders img {
         width: 23% !important;
     }
+
     .avatar-upload {
 
         margin: 50px auto;
     }
-    .coled-md img{
-display: none;
+
+    .coled-md img {
+        display: none;
     }
 
 }
@@ -3206,7 +3217,7 @@ display: none;
         margin-bottom: 20px;
     }
 
- 
+
     .navbar {
         position: absolute;
         top: 100px;
@@ -3294,8 +3305,8 @@ display: none;
         padding-top: 4px;
     }
 
-    .testers{
- 
+    .testers {
+
         margin-top: 30px;
         display: flex;
         justify-content: center;
@@ -3473,7 +3484,7 @@ display: none;
     /* .inputfield select {
         font-size: 17px;
     } */
-/* 
+    /*
     .inputfield input::placeholder {
         font-size: 15px;
     } */
@@ -3551,27 +3562,31 @@ display: none;
         color: #7c2342 !important;
 
     }
+
     .avatar-upload {
 
-    margin: 50px auto;
-}
-.tab-wrapper {
-    /* text-align: center; */
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-    max-width: 246px;
-}
-.tabs {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.mylist {
-    padding-bottom: 6px;
-}
+        margin: 50px auto;
+    }
+
+    .tab-wrapper {
+        /* text-align: center; */
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        max-width: 246px;
+    }
+
+    .tabs {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mylist {
+        padding-bottom: 6px;
+    }
 }
 
 /* Below 560px  */
@@ -3650,7 +3665,8 @@ display: none;
     }
 
     .land_page_head img {
-        width: 178px;}
+        width: 178px;
+    }
 
     .head_text {
 
@@ -3673,7 +3689,8 @@ display: none;
     .xs-res {
         margin-bottom: 10px;
     }
-/* 
+
+    /*
     .location-row input {
         font-size: 9px;
     } */
@@ -3842,8 +3859,8 @@ display: none;
         font-size: 5px;
     }
 
-  
-  
+
+
 
     .herosecion h1 {
         font-size: 38px;
@@ -3874,7 +3891,8 @@ display: none;
         margin-bottom: 10px;
         padding: 15px;
     }
-/* 
+
+    /*
     .location-row input {
         font-size: 9px;
     } */
@@ -4377,7 +4395,7 @@ display: none;
         padding: 0 4px;
     } */
 
-  
+
 
     .single-job-heading {
         font-size: 13px;
@@ -4474,16 +4492,16 @@ display: none;
 
 
 
- 
+
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 15.2949px;
     line-height: 144.99%;
     /* or 22px */
-    
+
     letter-spacing: 0.02em;
-    
+
     color: #303030;
 
 }
@@ -4597,10 +4615,11 @@ HEAD .fa-angle-right {
 .dd {
     background-color: white;
 }
+
 .form-select:focus {
 
     outline: 0;
-     box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 
@@ -4643,7 +4662,7 @@ HEAD .fa-angle-right {
     font-size: 16px;
     line-height: 148%;
     /* or 24px */
-   
+
     text-align: center;
     letter-spacing: 0.02em;
 
@@ -4751,5 +4770,8 @@ HEAD .fa-angle-right {
     border: none !important;
     background-color: #F4F4F4 !important;
 }
+
+
+
 
 /* fqs */

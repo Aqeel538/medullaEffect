@@ -220,6 +220,10 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
     Route::get('/company/archiveJob/{id}', [CompanyController::class, 'company_archiveJob'])->name('company.archiveJob');
     Route::get('/company/unArchiveJob/{id}', [CompanyController::class, 'company_unArchiveJob'])->name('company.unArchiveJob');
 
+    // Saved for later
+    Route::get('/company/saved-list', [CompanyController::class, 'saved_list'])->name('company.saved.list');
+    Route::get('/company/saveForLater/{id}', [CompanyController::class, 'company_saveForLater'])->name('company.saveForLater');
+
     // CHAT
     // Route::get('/company/chatbot', [CompanyController::class, 'company_chatBot_page'])->name('company.chatbot');
     Route::get('company/messages/{id}', [ChatController::class, 'company_show'])->name('company.show.chat');
@@ -312,6 +316,7 @@ Route::get('/freelancer', [SingleUserController::class, 'freelancer'])->name('fr
 Route::get('/tagline', [SingleUserController::class, 'tagline'])->name('tagline');
 Route::get('/', [SingleUserController::class, 'index'])->name('index');
 Route::get('/faq', [SingleUserController::class, 'faq'])->name('faq');
+Route::post('/search', [SingleUserController::class, 'search'])->name('search');
 Route::get('/profile2', [SingleUserController::class, 'profile2'])->name('profile2');
 Route::get('/viewJob', [SingleUserController::class, 'viewJob'])->name('viewJob');
 Route::get('/viewJobs', [SingleUserController::class, 'viewJobs'])->name('viewJobs');

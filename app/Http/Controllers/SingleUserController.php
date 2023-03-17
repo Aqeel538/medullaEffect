@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DismissNotification;
+use App\Models\Job;
 use App\Models\LeadForm;
+use App\Models\Service;
 use App\Models\Subscriber;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -55,6 +57,19 @@ class SingleUserController extends Controller
     {
         $title = "Home";
         return view('userNew.singleUser.pages.index', compact('title'));
+    }
+    public function search(request $request)
+    {
+        // dd($request);
+        $title = "search";
+        $query = $request->get('search');
+        if ($request->category == 'job') {
+            $results = Job::where('title', 'like', '%' . $query . '%')->get();
+        } else {
+            $results = Service::where('title', 'like', '%' . $query . '%')->get();
+        }
+        // dd($serviceResults);
+        return view('userNew.singleUser.pages.search', get_defined_vars());
     }
     public function faq()
     {

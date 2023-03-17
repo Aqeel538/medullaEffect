@@ -31,4 +31,9 @@ class Service extends Model
     {
         return $this->hasMany(SaveService::class, 'service_id', 'id');
     }
+
+    public function CompanySaveForLater()
+    {
+        return $this->hasMany(CompanySaveForLater::class, 'saved_id', 'id');
+    }
 }

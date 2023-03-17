@@ -108,4 +108,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(BookService::class, 'service_id', 'id');
     }
+
+    // public function CompanySaveForLater()
+    // {
+    //     return $this->hasMany(CompanySaveForLater::class, 'saved_id', 'id');
+    // }
 }

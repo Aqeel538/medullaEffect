@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\Archive;
 use App\Models\Category;
+use App\Models\CompanySaveForLater;
 use App\Models\Job;
 use App\Models\Notification;
 use App\Models\SaveForLater;
@@ -176,6 +177,7 @@ class CompanyController extends Controller
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->update([
                 'user_id' => $user_id,
+                'company_name' => $req->company_name,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
                 'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
@@ -209,6 +211,7 @@ class CompanyController extends Controller
             //Create
             $obj = Job::create([
                 'user_id' => $user_id,
+                'company_name' => $req->company_name,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
                 'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
@@ -333,6 +336,48 @@ class CompanyController extends Controller
             session()->put('toasterArchive', $toasterArchive);
 
             return back();
+        }
+        return back();
+    }
+
+    // Saved for later
+    public function saved_list()
+    {
+        $title = 'Saved list';
+        $user = auth()->user()->id;
+        $freelancers = CompanySaveForLater::where('user_id', $user)->with('services.Users')->get();
+        // dd($freelancers->services);
+        $industryOption = $freelancers;
+        return view('userNew.singleUser.pages.company.savedList', get_defined_vars());
+    }
+    public function company_saveForLater($id)
+    {
+
+        $userId = auth()->user()->id;
+        // $checkJob = Archive::where('job_id', $id)->first();
+        $checkSaved = CompanySaveForLater::where('saved_id', $id)->where('user_id', $userId)->first();
+        if (isset($checkSaved) && !empty($checkSaved)) {
+
+            $toasterSaveforlater = 1;
+            session()->put('savedForLater', $toasterSaveforlater);
+
+            return redirect()->back()->with('message', 'Updated');
+        } else {
+            $saveForLater = new CompanySaveForLater();
+            $saveForLater->user_id = $userId;
+            $saveForLater->saved_id = $id;
+            $toasterSaveforlater = $saveForLater->save();
+
+            if ($toasterSaveforlater) {
+                $toasterSaveforlater = 2;
+                session()->put('savedForLater', $toasterSaveforlater);
+                return back();
+            } else {
+                $toasterSaveforlater = 3;
+                session()->put('savedForLater', $toasterSaveforlater);
+
+                return back();
+            }
         }
         return back();
     }

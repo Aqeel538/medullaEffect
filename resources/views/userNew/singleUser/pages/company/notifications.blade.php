@@ -1,9 +1,9 @@
 @extends('userNew.singleUser.layouts.main')
 @section('content')
     <!-- -----1st--Navbar--------- -->
-@php
-$blink = 1;
-@endphp
+    @php
+        $blink = 1;
+    @endphp
 
     @include('userNew.singleUser.pages.company.secondNav')
     <!---------------- -Navend--------------- -->
@@ -49,7 +49,15 @@ $blink = 1;
                                                 <i class="fas-elip fa-solid fa-ellipsis"></i>
                                             </div>
                                         </div>
-                                        <p class="abutnexa-text pt-4 pb-3">{!! $notification->subject ?? '' !!} </p>
+                                        <div style="height:70px;overflow:hidden;">
+                                            {{-- <p class="abutnexa-text
+                                            pt-3"
+                                                style="overflow: hidden;">
+                                                {!! $job->description ?? '' !!}</p> --}}
+                                            <p class="abutnexa-text pb-3" style="overflow: hidden;">
+                                                {!! $notification->subject ?? '' !!} </p>
+                                        </div>
+                                        {{-- <p class="abutnexa-text pt-4 pb-3">{!! $notification->subject ?? '' !!} </p> --}}
                                         <div class="jobviewbtns mt-1 mb-1">
                                             <button class="buttonfill-apply">Dismiss</button>
 

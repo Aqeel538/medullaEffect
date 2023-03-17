@@ -6,7 +6,27 @@
     @endphp
     @include('userNew.singleUser.pages.company.secondNav')
 
-
+    <?php
+    $toasterSaveforlater = session()->get('savedForLater');
+    
+    ?>
+    {{-- JOB TOASTERS --}}
+    @if ($toasterSaveforlater == 1)
+        <script>
+            toastr.info('already saved');
+        </script>
+        {{ session()->put('savedForLater', 0) }}
+    @elseif ($toasterSaveforlater == 2)
+        <script>
+            toastr.success('saved successfuly');
+        </script>
+        {{ session()->put('savedForLater', 0) }}
+    @elseif ($toasterSaveforlater == 3)
+        <script>
+            toastr.success('job updated successfully');
+        </script>
+        {{ session()->put('savedForLater', 0) }}
+    @endif
 
 
     <div class="container   mt-4">
@@ -65,7 +85,7 @@
                         <button class="buttonfill-apply pl-4 pr-4">Contact</button>
                     </a>
 
-                    <?php
+                    {{-- <?php
                     if (isset($freelancerServices->save_freelancer_service) && !empty($freelancerServices->save_freelancer_service)) {
                         $check = $freelancerServices->save_freelancer_service->where('user_id', auth()->user()->id)->first();
                     } else {
@@ -80,7 +100,7 @@
                         <a href="{{ route('save_service', $freelancerServices->id) }}">
                             <button class="buttonunfill-save">Save for Later</button>
                         </a>
-                    @endif
+                    @endif --}}
 
                 </div>
             </div>
@@ -117,8 +137,8 @@
                                         </a>
 
                                         <?php
-                                        if (isset($service->saved_services) && !empty($service->saved_services)) {
-                                            $check = $service->saved_services->where('user_id', auth()->user()->id)->first();
+                                        if (isset($service->CompanySaveForLater) && !empty($service->CompanySaveForLater)) {
+                                            $check = $service->CompanySaveForLater->where('user_id', auth()->user()->id)->first();
                                         } else {
                                             $check = null;
                                         }
@@ -128,7 +148,7 @@
                                                 <button class="buttonunfill-save">Saved</button>
                                             </a>
                                         @else
-                                            <a href="{{ route('save_service', $service->id) }}">
+                                            <a href="{{ route('company.saveForLater', $service->id) }}">
                                                 <button class="buttonunfill-save">Save for Later</button>
                                             </a>
                                         @endif

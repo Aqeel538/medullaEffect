@@ -184,7 +184,7 @@
                                                     <a class=""
                                                         href="/company/job/status/3/{{ $job->id }}">Pause</a>
                                                     </div>
-                                                 
+
                                                 </div>
                                               </div>
                                             </div>
@@ -202,12 +202,12 @@
                                                 </p>
                                             </div>
                                         </div>
-                                     
+
                                         <div style="height:100px;overflow:hidden;">
                                             <p class="abutnexa-text pt-4 pb-3">
-    
+
                                                 {!! $job->description ?? 'There is no short description yet...' !!} </p>
-    
+
                                         </div>
                                         <a href="{{ route('company.jodDetails', $job->id) }}"
                                             class="crds-read-more mt-3 mb-3">read more...</a>
@@ -261,7 +261,6 @@
                                                     <a class=""
                                                         href="/company/job/status/3/{{ $job->id }}">Pause</a>
                                                     </div>
-                                                 
                                                 </div>
                                               </div>
                                             </div>
@@ -416,7 +415,6 @@
                                                     <a class=""
                                                         href="/company/job/status/3/{{ $job->id }}">Pause</a>
                                                     </div>
-                                                 
                                                 </div>
                                               </div>
                                             </div>
@@ -655,14 +653,12 @@
         function openmyFunction(id) {
   // Get all the "openmyDIV" divs
   var divs = document.querySelectorAll('[id^="openmyDIV"]');
-  
   // Hide all previously opened "openmyDIV" divs
   divs.forEach(function(div) {
     if (div.id !== "openmyDIV" + id) {
       div.style.display = "none";
     }
   });
-  
   // Toggle the display of the clicked "openmyDIV" div
   var x = document.getElementById("openmyDIV" + id);
   if (x.style.display === "none") {

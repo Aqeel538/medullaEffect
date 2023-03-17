@@ -34,6 +34,9 @@
                     <li><a class="navbar-link  {{ request()->routeIs('company.freelancer') ? 'mylist active' : '' }} "
                             href="{{ route('company.freelancer') }}">Freelancers</a>
                     </li>
+                    <li><a class="navbar-link  {{ request()->routeIs('company.saved.list') ? 'mylist active' : '' }} "
+                            href="{{ route('company.saved.list') }}">Saved List</a>
+                    </li>
                     <li><a class="navbar-link {{ request()->routeIs('comapny.setting') ? 'mylist active' : '' }}"
                             href="{{ route('comapny.setting') }}">Settings</a></li>
 
