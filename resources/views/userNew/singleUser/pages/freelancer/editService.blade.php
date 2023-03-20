@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <input value="{!! $service->rate ?? '' !!}" class="rate-field form-control" type="number"
+                            <input value="{!! $service->rate ?? '' !!}" class="rate-field form-control" type="text"
                                 placeholder="Rate" name="rate"
                                 style="
                     border: none;

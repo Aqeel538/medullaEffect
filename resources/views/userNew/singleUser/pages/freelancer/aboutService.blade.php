@@ -39,7 +39,7 @@
                             </div> &nbsp; &nbsp; &nbsp;
                             <div class="icon-text">
                                 <p class="job-view-para">
-                                    <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;145
+                                    <span> <i class="fas-bag fa fa-briefcase" aria-hidden="true"></i>&nbsp;0
                                         Reviews</span>
                                 </p>
                             </div>

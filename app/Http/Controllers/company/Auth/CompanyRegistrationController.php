@@ -178,6 +178,7 @@ class CompanyRegistrationController extends Controller
                 return response()->json(['status' => 1, 'message' => "invalid OTP"]);
             }
         }
+        auth()->login($user);
         return response()->json(['status' => 2, 'message' => "OTP verified"]);
     }
 

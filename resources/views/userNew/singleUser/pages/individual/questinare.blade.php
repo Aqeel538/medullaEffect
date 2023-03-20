@@ -141,22 +141,6 @@
                         <div class="col-12 form-group">
                             <div class="inputfield mt-3">
 
-                                <input class="input-fields" type="text" name="located_in"
-                                    value="<?= isset($user->located_in) && !empty($user->located_in) ? $user->located_in : '' ?>"
-                                    placeholder="Where are you located?" />
-                            </div>
-                            <span class="text-danger d-flex">
-                                @error('located_in')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-12 form-group">
-                            <div class="inputfield mt-3">
-
                                 <select class="w-100 greyColor" name="relocate" id="relocateSelect">
                                     <?php
                                         if($user->relocate){
@@ -181,6 +165,22 @@
                                         {{ $message }}
                                     @enderror
                                 </span>
+                            </div>
+
+                        </div>
+                        <div class="col-12 col-lg-6 col-md-6 form-group" id="mileRangeFrom">
+                            <div class="inputfield mt-3">
+
+                                <input value="{!! $user->mileRangeFrom ?? '' !!}" class="input-fields" type="text"
+                                    placeholder="Mile range from" name="mileRangeFrom" id="mileRangeFrom">
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 col-md-6 form-group" id="mileRangeTo">
+                            <div class="inputfield mt-3">
+                                <input value="{!! $user->mile_range_to ?? '' !!}" class="input-fields" type="text"
+                                    placeholder="Mile range to" name="mileRangeTo" id="mileRangeTo">
+
                             </div>
                         </div>
                     </div>
@@ -257,41 +257,27 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-12 col-lg-6 col-md-6 form-group" id="state">
+                            <div class="inputfield mt-3">
 
-                        <div class="col-12 form-group mt-3">
-                            <div class="inputfield">
+                                <input class="input-fields" name="salaryRangeFrom" type="text"
+                                    value="<?= isset($salaryRangeFrom) && !empty($salaryRangeFrom) ? $salaryRangeFrom : '' ?>"placeholder="Salary range from"
+                                    id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
 
-                                <select class="w-100 greyColor" name="pay_range" style="width: 100%;" id="payRange">
-                                    <?php
-                                    if($user->pay_range){
-                                        ?>
-                                    <script>
-                                        $('#payRange').removeClass('greyColor')
-                                        $('#payRange').addClass('black')
-                                    </script>
-                                    <?php
-                                    }
+                            </div>
+                        </div>
+                        {{-- <div class="col-lg-6 col-md-6 col-12 mt-3">
 
-                                    ?>
-                                    <option value="{!! $user->pay_range ?? '' !!}" selected hidden>
-                                        {!! $user->pay_range ?? 'State your desired pay range' !!}
-                                    </option>
-                                    <option value="0-50k">0-50k</option>
-                                    <option value="50-100k">50k-100k</option>
-                                    <option value="100k-150k">100k-150k</option>
-                                    <option value="150k-200k">150k-200k</option>
-                                    <option value="200k-250k">200k-250k</option>
-                                    <option value="250k-300k">250k-300k</option>
-                                    <option value="300k-350k">300k-350k</option>
-                                    <option value="350k-400k">350k-400k</option>
-                                    <option value="400k-450k">400k-450k</option>
-                                    <option value="450k-500k">450k-500k</option>
-                                </select>
-                                <span class="text-danger d-flex">
-                                    @error('pay_range')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                            <input class="input-fields" name="salaryRangeFrom" type="text"
+                                value="<?= isset($salaryRangeFrom) && !empty($salaryRangeFrom) ? $salaryRangeFrom : '' ?>"placeholder="Salary range from"
+                                required id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                                data-type="currency" />
+                        </div> --}}
+                        <div class="col-12 col-lg-6 col-md-6 form-group" id="state">
+                            <div class="inputfield mt-3">
+                                <input class="input-fields" name="salaryRangeTo" type="text"
+                                    value="<?= isset($salaryRangeTo) && !empty($salaryRangeTo) ? $salaryRangeTo : '' ?>"placeholder="Salary range to"
+                                    id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
                             </div>
                         </div>
                     </div>
@@ -349,6 +335,22 @@
     </div>
 
     <script>
+        $("#relocateSelect").on("change", function() {
+            if ($('#relocateSelect').val() == "yes") {
+                // $("#tax").val('');
+
+                $("#mileRangeFrom").show(1000);
+                $("#mileRangeTo").show(1000);
+
+            } else {
+
+                $("#mileRangeFrom").hide(1000);
+                $("#mileRangeTo").hide(1000);
+
+            }
+        })
+
+
         $("#workingCapitalLoan").on("change", function() {
             if ($('#workingCapitalLoan').val() == "In-person") {
                 // $("#tax").val('');
@@ -403,4 +405,94 @@
         })
     </script>
     <!-- navbar res js end -->
+
+    {{-- Currency --}}
+    <script>
+        // Jquery Dependency
+
+        $("input[data-type='currency']").on({
+            keyup: function() {
+                formatCurrency($(this));
+            },
+            blur: function() {
+                formatCurrency($(this), "blur");
+            }
+        });
+
+
+        function formatNumber(n) {
+            // format number 1000000 to 1,234,567
+            return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        }
+
+
+        function formatCurrency(input, blur) {
+            // appends $ to value, validates decimal side
+            // and puts cursor back in right position.
+
+            // get input value
+            var input_val = input.val();
+
+            // don't validate empty input
+            if (input_val === "") {
+                return;
+            }
+
+            // original length
+            var original_len = input_val.length;
+
+            // initial caret position
+            var caret_pos = input.prop("selectionStart");
+
+            // check for decimal
+            if (input_val.indexOf(".") >= 0) {
+
+                // get position of first decimal
+                // this prevents multiple decimals from
+                // being entered
+                var decimal_pos = input_val.indexOf(".");
+
+                // split number by decimal point
+                var left_side = input_val.substring(0, decimal_pos);
+                var right_side = input_val.substring(decimal_pos);
+
+                // add commas to left side of number
+                left_side = formatNumber(left_side);
+
+                // validate right side
+                right_side = formatNumber(right_side);
+
+                // On blur make sure 2 numbers after decimal
+                if (blur === "blur") {
+                    right_side += "00";
+                }
+
+                // Limit decimal to only 2 digits
+                right_side = right_side.substring(0, 2);
+
+                // join number by .
+                input_val = "$" + left_side + "." + right_side;
+
+            } else {
+                // no decimal entered
+                // add commas to number
+                // remove all non-digits
+                input_val = formatNumber(input_val);
+                input_val = "$" + input_val;
+
+                // final formatting
+                if (blur === "blur") {
+                    input_val += ".00";
+                }
+            }
+
+            // send updated string to input
+            input.val(input_val);
+
+            // put caret back in the right position
+            var updated_len = input_val.length;
+            caret_pos = updated_len - original_len + caret_pos;
+            input[0].setSelectionRange(caret_pos, caret_pos);
+        }
+    </script>
 @endsection

@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-3">
-                            <input class="rate-field form-control" type="number" name="rate" placeholder="Rate"
+                            <input class="rate-field form-control" type="text" name="rate" placeholder="Rate"
                                 style="
                         border: none;
                         background-color: #f4f4f4;

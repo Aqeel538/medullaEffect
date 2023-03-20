@@ -109,16 +109,18 @@ class RegistrationControllerInd extends Controller
 
     public function submit_questionair(Request $req)
     {
-        // dd($id);
+        // dd($req);
         $id = Auth::user()->id;
         $questionair = User::whereId($id)->update([
             'gender' => $req['gender'],
             'job_type' => $req['job_type'],
             'located_in' => $req['located_in'],
             'relocate' => $req['relocate'],
+            'mile_range' => $req->mileRangeFrom . ' ' . '-' . ' ' . $req->mileRangeTo,
             'work_type' => $req['work_type'],
             'industry_and_position' => $req['industry_and_position'],
-            'pay_range' => $req['pay_range'],
+            // 'pay_range' => $req['pay_range'],
+            'pay_range' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
             'experience' => $req['experience'],
             'nationality' => $req['nationality'],
             'questionaire_submit' => 1,

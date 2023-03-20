@@ -63,31 +63,34 @@
 
     <div class="container-fluid second-nav">
         <div class="container">
-            <div class="headers">
+            <div class="headers1">
 
                 <div class="">
-
-                    <div class="search-container">
-                        <div class="search-icon-container">
-                            <i class="fa fa-search" id="search-icon"></i>
-                        </div>
-                        <form method="POST" action="{{ route('search') }}" class="form-inline">
-                            @csrf
+                    <form method="POST" action="{{ route('search') }}" class="form-inline">
+                        @csrf
+                        <div class="search-container">
+                            <div class="search-icon-container">
+                                <i class="fa fa-search" id="search-icon"></i>
+                            </div>
                             <div class="search-form" id="search-form">
-                                <input name="search" type="text" placeholder="Search...">
-                                <button type="submit">Search</button>
+                                <input name="search" type="search" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <select name="category" class="form-control" id="category" name="category" required>
+                                        <option value="">Categories</option>
+                                        <option value="service">Service</option>
+                                        <option value="job">Jobs</option>
+
+                                    </select>
+                                </div>
+                                {{-- <button type="button">Search</button> --}}
                                 <div class="cross-srch">
                                     <i class="fa fa-times" id="close-icon"></i>
                                 </div>
 
                             </div>
-                        </form>
-                    </div>
+                        </div>
 
-
-
-
-
+                    </form>
 
 
                 </div>
@@ -111,7 +114,7 @@
                 </div>
                 <div class="">
                     <a href="{{ route('login') }}">
-                        <button type="button" class="log-in-btn">Sign in</button>
+                        <button type="button" class="log-in-btn">Log in</button>
                     </a>
                 </div>
 

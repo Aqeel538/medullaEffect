@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->integer('zip_code')->nullable(true);
             $table->string('located_in')->nullable(true);
             $table->string('relocate')->nullable(true);
+            $table->string('mile_range')->nullable(true);
             $table->string('employees')->nullable(true);
             $table->string('employees_limit')->nullable(true);
             $table->string('work_type')->nullable(true);
