@@ -27,36 +27,39 @@
             border-bottom-left-radius: 0;
         }
     </style>
- 
 
- <div class="container-fluid second-nav">
-    <div class="container">
-        <div class="headers">
-          
-                <div class="" >
-                  
+
+    <div class="container-fluid second-nav">
+        <div class="container">
+            <div class="headers">
+
+                <div class="">
+
                     <div class="search-container">
                         <div class="search-icon-container">
-                          <i class="fa fa-search" id="search-icon"></i>
+                            <i class="fa fa-search" id="search-icon"></i>
                         </div>
-                        <div class="search-form" id="search-form">
-                          <input type="text" placeholder="Search...">
-                          <button type="button">Search</button>
-                          <div class="cross-srch">
-                            <i class="fa fa-times" id="close-icon"></i>
-                          </div>
-                         
-                        </div>
-                      </div>
+                        <form method="POST" action="{{ route('search') }}" class="form-inline">
+                            @csrf
+                            <div class="search-form" id="search-form">
+                                <input name="search" type="text" placeholder="Search...">
+                                <button type="submit">Search</button>
+                                <div class="cross-srch">
+                                    <i class="fa fa-times" id="close-icon"></i>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
 
 
 
-               
-                      
-          
+
+
+
 
                 </div>
-                <div class="" >
+                <div class="">
                     <nav class="navbar-questionares">
 
 
@@ -74,20 +77,19 @@
 
                     </nav>
                 </div>
-                <div class="" >
+                <div class="">
                     <a href="{{ route('login') }}">
-                        <button type="button" class="log-in-btn"
-                          >Sign in</button>
+                        <button type="button" class="log-in-btn">Sign in</button>
                     </a>
                 </div>
-        
-            <div class="mobile-navbar-btns">
-                <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
-                <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
+
+                <div class="mobile-navbar-btns">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
+                </div>
             </div>
         </div>
     </div>
-</div>
     {{-- 2nd nav end --}}
 
 
@@ -810,30 +812,27 @@
 
 
         // search icon
-const searchIcon = document.getElementById('search-icon');
-const searchForm = document.getElementById('search-form');
-const closeIcon = document.getElementById('close-icon');
-const searchIconContainer = document.querySelector('.search-icon-container');
+        const searchIcon = document.getElementById('search-icon');
+        const searchForm = document.getElementById('search-form');
+        const closeIcon = document.getElementById('close-icon');
+        const searchIconContainer = document.querySelector('.search-icon-container');
 
-searchIconContainer.addEventListener('click', () => {
-  searchIconContainer.classList.add('active');
-  searchForm.classList.add('active');
-  searchIcon.classList.add('active');
-  closeIcon.classList.add('active');
-});
+        searchIconContainer.addEventListener('click', () => {
+            searchIconContainer.classList.add('active');
+            searchForm.classList.add('active');
+            searchIcon.classList.add('active');
+            closeIcon.classList.add('active');
+        });
 
-closeIcon.addEventListener('click', () => {
-  searchIconContainer.classList.remove('active');
-  searchForm.classList.remove('active');
-  searchIcon.classList.remove('active');
-  closeIcon.classList.remove('active');
-});
-
-
-
+        closeIcon.addEventListener('click', () => {
+            searchIconContainer.classList.remove('active');
+            searchForm.classList.remove('active');
+            searchIcon.classList.remove('active');
+            closeIcon.classList.remove('active');
+        });
     </script>
 @endsection
-          {{-- <form method="POST" action="{{ route('search') }}" class="form-inline">
+{{-- <form method="POST" action="{{ route('search') }}" class="form-inline">
                         @csrf
                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
                             aria-label="Search">
@@ -846,7 +845,7 @@ closeIcon.addEventListener('click', () => {
                     </form> --}}
 
 
-                      {{-- <div class="form-group m-0">
+{{-- <div class="form-group m-0">
                         <form method="POST" action="{{ route('search') }}" class="form-inline">
                             @csrf
                             <div class="input-group">

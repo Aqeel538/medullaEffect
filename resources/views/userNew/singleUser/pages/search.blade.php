@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!----- ---------2nd--Navbar------------- -->
-    <div class="container-fluid second-nav">
+    {{-- <div class="container-fluid second-nav">
         <div class="container">
             <div class="headers">
                 <div class="row">
@@ -59,8 +59,69 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
+    <div class="container-fluid second-nav">
+        <div class="container">
+            <div class="headers">
+
+                <div class="">
+
+                    <div class="search-container">
+                        <div class="search-icon-container">
+                            <i class="fa fa-search" id="search-icon"></i>
+                        </div>
+                        <form method="POST" action="{{ route('search') }}" class="form-inline">
+                            @csrf
+                            <div class="search-form" id="search-form">
+                                <input name="search" type="text" placeholder="Search...">
+                                <button type="submit">Search</button>
+                                <div class="cross-srch">
+                                    <i class="fa fa-times" id="close-icon"></i>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+                <div class="">
+                    <nav class="navbar-questionares">
+
+
+                        <ul class="navbar-lists" id="myDIV">
+
+                            <li><a class="navbar-link" href="#aboutUs">About us</a>
+                            </li>
+                            <li><a class="navbar-link" href="#ourServices">Services</a></li>
+                            <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
+                            <li><a class="navbar-link" href="#contactUs">Contact</a></li>
+
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="">
+                    <a href="{{ route('login') }}">
+                        <button type="button" class="log-in-btn">Sign in</button>
+                    </a>
+                </div>
+
+                <div class="mobile-navbar-btns">
+                    <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>
+                    <ion-icon name="close-outline" class="mobile-nav-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{-- 2nd nav end --}}
 
@@ -346,6 +407,29 @@
                     }
                 });
             });
+        });
+    </script>
+
+    {{-- search --}}
+    <script>
+        // search icon
+        const searchIcon = document.getElementById('search-icon');
+        const searchForm = document.getElementById('search-form');
+        const closeIcon = document.getElementById('close-icon');
+        const searchIconContainer = document.querySelector('.search-icon-container');
+
+        searchIconContainer.addEventListener('click', () => {
+            searchIconContainer.classList.add('active');
+            searchForm.classList.add('active');
+            searchIcon.classList.add('active');
+            closeIcon.classList.add('active');
+        });
+
+        closeIcon.addEventListener('click', () => {
+            searchIconContainer.classList.remove('active');
+            searchForm.classList.remove('active');
+            searchIcon.classList.remove('active');
+            closeIcon.classList.remove('active');
         });
     </script>
 @endsection
