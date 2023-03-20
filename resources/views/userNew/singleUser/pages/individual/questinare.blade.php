@@ -300,8 +300,8 @@
                                     ?>
                                     <option value="{!! $user->experience ?? '' !!}" selected hidden>{!! $user->experience ?? 'Experience' !!}
                                     </option>
-                                    <option value="Fresher">Fresher</option>
-                                    <option value="Begginer">Beginner</option>
+                                    <option value="Fresher">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
                                     <option value="Professional">Professional</option>
                                 </select>
                                 <span class="text-danger d-flex">

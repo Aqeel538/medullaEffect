@@ -19,7 +19,7 @@
         /* The container <div> - needed to position the dropdown content */
         .dropdown {
             /* position: relative;
-                                                                                                                                                                                                                                                                                                                                                        display: inline-block; */
+                                                                                                                                                                                                                                                                                                                                                                        display: inline-block; */
         }
 
         /* Dropdown Content (Hidden by Default) */
@@ -154,39 +154,40 @@
                                 {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
                                 <div class=" job-posted-radius">
                                     <div class="cards-scroll p-3 mt-3 ">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                                class="w-5" alt="w8">
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                            <p class="single-job-heading " style="margin: 0; padding-left:35px;"><b>
-                                                    {!! $job->title ?? '' !!}
-                                                </b>
-                                            </p>
-                                            <p class="job-posted" style="margin: 0; padding-left:35px;">
-                                                {!! $job->located_in ?? '' !!} <span
-                                                    class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
-                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">
-                                                {!! $job->work_type ?? '' !!}</p>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end" >
-                                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction(<?=$job->id?>)"></i>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                    class="w-5" alt="w8">
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                                <p class="single-job-heading " style="margin: 0; padding-left:35px;"><b>
+                                                        {!! $job->title ?? '' !!}
+                                                    </b>
+                                                </p>
+                                                <p class="job-posted" style="margin: 0; padding-left:35px;">
+                                                    {!! $job->located_in ?? '' !!} <span
+                                                        class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
+                                                <p class="job-posted" style="margin: 0; padding: 0 35px;">
+                                                    {!! $job->work_type ?? '' !!}</p>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                                <i class="fas-elip fa-solid fa-ellipsis fasq"
+                                                    onclick="openmyFunction(<?= $job->id ?>)"></i>
 
-                                            <div  style="position: relative;">
-                                                <div class="cliked" id="openmyDIV<?=$job->id?>">
-                                                    <div class="stsuts ">
+                                                <div style="position: relative;">
+                                                    <div class="cliked" id="openmyDIV<?= $job->id ?>">
+                                                        <div class="stsuts ">
 
-                                                        <a class=""
-                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
-                                                    <a class=""
-                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
-                                                    <a class=""
-                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                            <a class=""
+                                                                href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                            <a class=""
+                                                                href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                            <a class=""
+                                                                href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                        </div>
+
                                                     </div>
-
                                                 </div>
-                                              </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between mt-3">
@@ -197,14 +198,14 @@
                                                 </p>
                                             </div>
                                             <div>
-                                                <p class="job-posted" >
+                                                <p class="job-posted">
                                                     {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div style="height:100px;overflow:hidden;">
-                                            <p class="abutnexa-text pt-4 pb-3">
+                                        <div style="height: 76px;;overflow:hidden;">
+                                            <p class="abutnexa-text  pb-3">
 
                                                 {!! $job->description ?? 'There is no short description yet...' !!} </p>
 
@@ -234,84 +235,76 @@
                         @if ($job->status == 2)
                             <div class="col-lg-4 col-md-6 col-12  mt-lg-0 mt-md-0 mt-3 ">
                                 {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
-                                <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                                class="w-5" alt="w8">
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                            <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
-                                                    {!! $job->title ?? '' !!}
-                                                </b>
-                                            </p>
-                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end" >
-                                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction(<?=$job->id?>)"></i>
+                                <div class=" job-posted-radius">
+                                    <div class="cards-scroll p-3 mt-3 ">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                    class="w-5" alt="w8">
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                                <p class="single-job-heading " style="margin: 0; padding-left:35px;"><b>
+                                                        {!! $job->title ?? '' !!}
+                                                    </b>
+                                                </p>
+                                                <p class="job-posted" style="margin: 0; padding-left:35px;">
+                                                    {!! $job->located_in ?? '' !!} <span
+                                                        class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
+                                                <p class="job-posted" style="margin: 0; padding: 0 35px;">
+                                                    {!! $job->work_type ?? '' !!}</p>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                                <i class="fas-elip fa-solid fa-ellipsis fasq"
+                                                    onclick="openmyFunction(<?= $job->id ?>)"></i>
 
-                                            <div  style="position: relative;">
-                                                <div class="cliked" id="openmyDIV<?=$job->id?>">
-                                                    <div class="stsuts ">
+                                                <div style="position: relative;">
+                                                    <div class="cliked" id="openmyDIV<?= $job->id ?>">
+                                                        <div class="stsuts ">
 
-                                                        <a class=""
-                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
-                                                    <a class=""
-                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
-                                                    <a class=""
-                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                            <a class=""
+                                                                href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                            <a class=""
+                                                                href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                            <a class=""
+                                                                href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                        </div>
+
                                                     </div>
                                                 </div>
-                                              </div>
                                             </div>
-                                    </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div>
+                                                <p class="job-posted">
+                                                    {!! $job->rate ?? '' !!}
 
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="job-posted">
+                                                    {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
+                                                </p>
+                                            </div>
+                                        </div>
 
+                                        <div style="height: 76px;;overflow:hidden;">
+                                            <p class="abutnexa-text  pb-3">
 
+                                                {!! $job->description ?? 'There is no short description yet...' !!} </p>
 
-                                    <div style="height:100px;overflow:hidden;">
-                                        <p class="abutnexa-text pt-4 pb-3" style="overflow: hidden;">
-
-                                            {!! $job->description ?? 'There is no short description yet...' !!} </p>
-
-                                    </div>
-
-                                    <a href="{{ route('company.jodDetails', $job->id) }}"
-                                        class="crds-read-more mt-3 mb-3">read more...</a>
-                                    <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="{{ route('company_jobs_form', $job->id) }}">
-                                            <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
-                                        </a>
-                                        {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
-                                            <button class="buttonunfill-creates">Archive Job</button>
-                                        </a> --}}
-
-
-
-                                        {{-- <?php
-                                        if (isset($job->archived_jobs) && !empty($job->archived_jobs)) {
-                                            $check = $job->archived_jobs->where('user_id', auth()->user()->id)->first();
-                                        } else {
-                                            $check = null;
-                                        }
-                                        ?>
-                                        @if (isset($check) && !empty($check))
-                                            <a href="{{ route('company.archiveJob', $job->id) }}">
-                                                <button class="buttonunfill-save">Archived</button>
+                                        </div>
+                                        <a href="{{ route('company.jodDetails', $job->id) }}"
+                                            class="crds-read-more mt-3 mb-3">read more...</a>
+                                        <div class="jobviewbtns mb-4">
+                                            <a href="{{ route('company_jobs_form', $job->id) }}" class="me-2">
+                                                <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
                                             </a>
-                                        @else
-                                            <a href="{{ route('company.archiveJob', $job->id) }}">
-                                                <button class="buttonunfill-save">Archive job</button>
-                                            </a>
-                                        @endif --}}
 
-
-
-                                        <button class="buttonunfill-save"
-                                            onclick="deleteConfirmation({{ $job->id }})">Delete</button>
+                                            <button class="buttonunfill-save"
+                                                onclick="deleteConfirmation({{ $job->id }})">Delete</button>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         @endif
                     @endforeach
@@ -388,84 +381,76 @@
                         @if ($job->status == 3)
                             <div class="col-lg-4 col-md-6 col-12  mt-lg-0 mt-md-0 mt-3 ">
                                 {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
-                                <div class="p-3 mt-3" style="background: #F4F4F4;border-radius: 20px;">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
-                                            <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
-                                                class="w-5" alt="w8">
-                                        </div>
-                                        <div class="col-lg-9 col-md-9 col-sm-9 col-7">
-                                            <p class="single-job-heading" style="margin: 0; padding: 0 35px;"><b>
-                                                    {!! $job->title ?? '' !!}
-                                                </b>
-                                            </p>
-                                            <p class="job-posted" style="margin: 0; padding: 0 35px;">Most Popular</p>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end" >
-                                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction(<?=$job->id?>)"></i>
+                                <div class=" job-posted-radius">
+                                    <div class="cards-scroll p-3 mt-3 ">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                    class="w-5" alt="w8">
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                                <p class="single-job-heading " style="margin: 0; padding-left:35px;"><b>
+                                                        {!! $job->title ?? '' !!}
+                                                    </b>
+                                                </p>
+                                                <p class="job-posted" style="margin: 0; padding-left:35px;">
+                                                    {!! $job->located_in ?? '' !!} <span
+                                                        class="text-reds">({!! $job->job_type ?? '' !!})</span></p>
+                                                <p class="job-posted" style="margin: 0; padding: 0 35px;">
+                                                    {!! $job->work_type ?? '' !!}</p>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                                <i class="fas-elip fa-solid fa-ellipsis fasq"
+                                                    onclick="openmyFunction(<?= $job->id ?>)"></i>
 
-                                            <div  style="position: relative;">
-                                                <div class="cliked" id="openmyDIV<?=$job->id?>">
-                                                    <div class="stsuts ">
+                                                <div style="position: relative;">
+                                                    <div class="cliked" id="openmyDIV<?= $job->id ?>">
+                                                        <div class="stsuts ">
 
-                                                        <a class=""
-                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
-                                                    <a class=""
-                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
-                                                    <a class=""
-                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                            <a class=""
+                                                                href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                            <a class=""
+                                                                href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                            <a class=""
+                                                                href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                        </div>
+
                                                     </div>
                                                 </div>
-                                              </div>
                                             </div>
-                                    </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div>
+                                                <p class="job-posted">
+                                                    {!! $job->rate ?? '' !!}
 
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p class="job-posted">
+                                                    {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
+                                                </p>
+                                            </div>
+                                        </div>
 
+                                        <div style="height: 76px;;overflow:hidden;">
+                                            <p class="abutnexa-text  pb-3">
 
+                                                {!! $job->description ?? 'There is no short description yet...' !!} </p>
 
-                                    <div style="height:100px;overflow:hidden;">
-
-                                        <p class="abutnexa-text pt-4 pb-3" style="overflow: hidden;">
-
-                                            {!! $job->description ?? 'There is no short description yet...' !!} </p>
-
-                                    </div>
-                                    <a href="{{ route('company.jodDetails', $job->id) }}"
-                                        class="crds-read-more mt-3 mb-3">read more...</a>
-                                    <div class="jobviewbtns mt-1 mb-1">
-                                        <a href="{{ route('company_jobs_form', $job->id) }}">
-                                            <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
-                                        </a>
-                                        {{-- <a href="{{ route('company.archiveJob', $job->id) }}">
-                                            <button class="buttonunfill-creates">Archive Job</button>
-                                        </a> --}}
-
-
-
-                                        {{-- <?php
-                                        if (isset($job->archived_jobs) && !empty($job->archived_jobs)) {
-                                            $check = $job->archived_jobs->where('user_id', auth()->user()->id)->first();
-                                        } else {
-                                            $check = null;
-                                        }
-                                        ?>
-                                        @if (isset($check) && !empty($check))
-                                            <a href="{{ route('company.archiveJob', $job->id) }}">
-                                                <button class="buttonunfill-save">Archived</button>
+                                        </div>
+                                        <a href="{{ route('company.jodDetails', $job->id) }}"
+                                            class="crds-read-more mt-3 mb-3">read more...</a>
+                                        <div class="jobviewbtns mb-4">
+                                            <a href="{{ route('company_jobs_form', $job->id) }}" class="me-2">
+                                                <button class="buttonfill-apply pl-4 pr-4">Edit Job</button>
                                             </a>
-                                        @else
-                                            <a href="{{ route('company.archiveJob', $job->id) }}">
-                                                <button class="buttonunfill-save">Archive job</button>
-                                            </a>
-                                        @endif --}}
 
-
-
-                                        <button class="buttonunfill-save"
-                                            onclick="deleteConfirmation({{ $job->id }})">Delete</button>
+                                            <button class="buttonunfill-save"
+                                                onclick="deleteConfirmation({{ $job->id }})">Delete</button>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         @endif
                     @endforeach
@@ -625,7 +610,7 @@
     {{-- drop down js --}}
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function dropDownFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
@@ -651,27 +636,21 @@
 
 
         function openmyFunction(id) {
-  // Get all the "openmyDIV" divs
-  var divs = document.querySelectorAll('[id^="openmyDIV"]');
-  // Hide all previously opened "openmyDIV" divs
-  divs.forEach(function(div) {
-    if (div.id !== "openmyDIV" + id) {
-      div.style.display = "none";
-    }
-  });
-  // Toggle the display of the clicked "openmyDIV" div
-  var x = document.getElementById("openmyDIV" + id);
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-
-
-
-
-
+            // Get all the "openmyDIV" divs
+            var divs = document.querySelectorAll('[id^="openmyDIV"]');
+            // Hide all previously opened "openmyDIV" divs
+            divs.forEach(function(div) {
+                if (div.id !== "openmyDIV" + id) {
+                    div.style.display = "none";
+                }
+            });
+            // Toggle the display of the clicked "openmyDIV" div
+            var x = document.getElementById("openmyDIV" + id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
     </script>
 @endsection

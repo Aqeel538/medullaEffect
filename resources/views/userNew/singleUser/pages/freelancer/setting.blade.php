@@ -58,9 +58,9 @@
                                                 {{-- <ion-icon name="person-outline"></ion-icon> --}}
                                                 <input value="{!! $nameParts[0] ?? '' !!}" class="input-fields" type="text"
                                                     placeholder="First name" name="first_name">
-                                                    
 
-                                                    
+
+
                                             </div>
 
                                         </div>
@@ -165,7 +165,7 @@
                                         <div class="col-12  col-lg-6 col-md-6 mt-lg-0 mt-md-0 mb-3">
                                             <div class="inputfield ">
 
-                                                <input class="input-container" type="text" name="located_in"
+                                                <input class="input-container" type="text" name="state"
                                                     value="<?= isset($user->state) && !empty($user->state) ? $user->state : '' ?>"
                                                     placeholder="State(Optional)" />
                                             </div>
@@ -200,8 +200,8 @@
                                 <div class="form-group ">
 
                                     <div class="input-container">
-                                        <input class="input-fields toggle-password" type="password" placeholder="Current Password"
-                                            name="current_password" id="current_password">
+                                        <input class="input-fields toggle-password" type="password"
+                                            placeholder="Current Password" name="current_password" id="current_password">
 
 
                                         <button type="button" class="toggle-btn" style="border: none">
@@ -214,11 +214,11 @@
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
 
-                                        <input class="input-fields toggle-password" type="password" placeholder="New Password"
-                                            name="new_password" id="new_password">
+                                        <input class="input-fields toggle-password" type="password"
+                                            placeholder="New Password" name="new_password" id="new_password">
 
 
-                                
+
                                         <button type="button" class="toggle-btn" style="border: none">
                                             <i class="far fa-eye-slash toggle-icon"></i>
                                         </button>
@@ -229,9 +229,10 @@
                                 <div class="form-group mt-3">
                                     <div class="input-container  ">
 
-                                        <input class="input-fields toggle-password" type="password" placeholder="Verify Password"
-                                            name="new_confirm_password" id="new_confirm_password">
-                                          
+                                        <input class="input-fields toggle-password" type="password"
+                                            placeholder="Verify Password" name="new_confirm_password"
+                                            id="new_confirm_password">
+
                                         <button type="button" class="toggle-btn" style="border: none">
                                             <i class="far fa-eye-slash toggle-icon"></i>
                                         </button>
@@ -414,18 +415,18 @@
 
 
         const togglePassword = document.querySelectorAll('.toggle-btn');
-const password = document.querySelectorAll('.toggle-password');
+        const password = document.querySelectorAll('.toggle-password');
 
-togglePassword.forEach(function(btn, index) {
-    btn.addEventListener('click', function() {
-        if (password[index].type === 'password') {
-            password[index].type = 'text';
-            btn.innerHTML = '<i class="far fa-eye toggle-icon"></i>';
-        } else {
-            password[index].type = 'password';
-            btn.innerHTML = '<i class="far fa-eye-slash toggle-icon"></i>';
-        }
-    });
-});
+        togglePassword.forEach(function(btn, index) {
+            btn.addEventListener('click', function() {
+                if (password[index].type === 'password') {
+                    password[index].type = 'text';
+                    btn.innerHTML = '<i class="far fa-eye toggle-icon"></i>';
+                } else {
+                    password[index].type = 'password';
+                    btn.innerHTML = '<i class="far fa-eye-slash toggle-icon"></i>';
+                }
+            });
+        });
     </script>
 @endsection
