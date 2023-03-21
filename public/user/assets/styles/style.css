@@ -671,14 +671,31 @@ p {
 
 .openselect {
     background-color: transparent;
-    border: none;
-    color: white;
+    border: none !important;
+    color: white !important;
 }
-
+.openselect:focus-visible{
+    border: none !important;
+    padding: 0;
+  
+}
+/* .openselect:active{
+    border: none !important;
+} */
+.openselect:focus-visible {
+    outline: none;
+    padding: 0;
+}
+select:focus-visible {
+    outline-offset: none;
+}
+.select-searhbar{
+    border: none !important;
+}
 .openselect:focus {
     background-color: transparent;
-    border: none;
-    color: white;
+    border: none !important;
+    color: white !important;
 }
 
 .openselect option {
