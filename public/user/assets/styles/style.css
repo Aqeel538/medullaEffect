@@ -256,9 +256,27 @@ body {
     opacity: 0.8;
     text-align: justify;
 }
-
+.notification-badge{
+    position: absolute;
+    top: -15px;
+    right: 1px;
+    background-color: white;
+    color: #730116;
+    height: 16px;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 1;
+}
 /* hero section */
+.notsfction-badge-1{
 
+    position: relative;
+}
 .herosecion {
     display: flex;
     flex-direction: column;
@@ -3083,7 +3101,10 @@ input:checked+.slider:before {
     .userdata {
         right: 24%;
     }
-}
+    .search-form {
+   
+        top: 8%;
+}}
 
 /* all res */
 @media (max-width: 1400px) {

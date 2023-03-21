@@ -22,6 +22,15 @@
                         href="{{ route('see.notifications') }}">
                         <?php
                         if($blink == 1){?>
+
+<span class="notsfction-badge-1">
+                              
+                                   
+    <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+    <span class="notification-badge">0</span>
+
+
+</span>
                         <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
                         <?php }else{ ?>
                         <ion-icon name="notifications-outline"></ion-icon>

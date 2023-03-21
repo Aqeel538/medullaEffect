@@ -21,16 +21,32 @@
 
 
                 <div class="testers">
-                    <a class="navbar-link {{ request()->routeIs('individual.notifications') ? 'mylist active' : '' }}"
-                        href="{{ route('individual.notifications') }}">
-                        <?php
-                        if($blink == 1){?>
-                        <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
-                        <?php }else{ ?>
-                        <ion-icon name="notifications-outline"></ion-icon>
-                        <?php }
-                        ?>
-                    </a>
+               
+                        <a class="navbar-link  {{ request()->routeIs('individual.notifications') ? 'mylist active' : '' }}"
+                            href="{{ route('individual.notifications') }}">
+                            <?php
+                            if($blink == 1){?>
+                            <span class="notsfction-badge-1">
+                              
+                                   
+                                    <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+                                    <span class="notification-badge">0</span>
+                               
+                   
+                            </span>
+                  
+                            <?php }else{ ?>
+                                <span class="notsfction-badge-1">
+                           
+                                        <ion-icon name="notifications-outline"></ion-icon>
+                                        <span class="notification-badge">1</span>
+                                </span>
+                     
+                            <?php }
+                            ?>
+                        </a>
+                   
+               
 
                     <?php
 
@@ -75,3 +91,19 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+
+
+    // Update the notification badge when a new notification is received
+let notificationCount = 0;
+function updateNotificationBadge(count) {
+  notificationCount += count;
+  document.querySelector('.notification-badge').innerHTML = notificationCount;
+}
+
+// Example usage
+updateNotificationBadge(1); // Increment the notification count by 1
+</script>
