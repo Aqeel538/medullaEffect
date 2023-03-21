@@ -31,9 +31,11 @@
 
 
 </span>
-                        <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
                         <?php }else{ ?>
+                            <span class="notsfction-badge-1">
                         <ion-icon name="notifications-outline"></ion-icon>
+                        <span class="notification-badge">0</span>
+                    </span>
                         <?php }
                         ?>
                     </a>
