@@ -63,60 +63,49 @@
 
     <div class="container-fluid second-nav">
         <div class="container">
-            <div class="headers1">
-
-                <div class="">
+            <div class="headers">
+                <nav class="navbar-questionare3">
                     <form method="POST" action="{{ route('search') }}" class="form-inline">
                         @csrf
                         <div class="search-container">
+
                             <div class="search-icon-container">
                                 <i class="fa fa-search" id="search-icon"></i>
                             </div>
                             <div class="search-form" id="search-form">
-                                <input name="search" type="search" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <select name="category" class="form-control" id="category" name="category" required>
+                                <input name="search" type="search" placeholder="Search..." style="width: 30%" />
+                                <div class="select-searhbar">
+                                    <select name="category" class="openselect" aria-label=".form-select-sm example">
                                         <option value="">Categories</option>
                                         <option value="service">Service</option>
                                         <option value="job">Jobs</option>
-
                                     </select>
                                 </div>
-                                {{-- <button type="button">Search</button> --}}
                                 <div class="cross-srch">
                                     <i class="fa fa-times" id="close-icon"></i>
                                 </div>
-
                             </div>
+
                         </div>
-
                     </form>
+                    <ul class="navbar-lists" id="myDIV">
 
+                        <li><a class="navbar-link" href="#aboutUs">About us</a>
+                        </li>
+                        <li><a class="navbar-link" href="#ourServices">Services</a></li>
+                        <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
+                        <li><a class="navbar-link" href="#contactUs">Contact</a></li>
 
-                </div>
-                <div class="">
-                    <nav class="navbar-questionares">
+                        </li>
 
+                    </ul>
 
-                        <ul class="navbar-lists" id="myDIV">
-
-                            <li><a class="navbar-link" href="#aboutUs">About us</a>
-                            </li>
-                            <li><a class="navbar-link" href="#ourServices">Services</a></li>
-                            <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
-                            <li><a class="navbar-link" href="#contactUs">Contact</a></li>
-
-                            </li>
-
-                        </ul>
-
-                    </nav>
-                </div>
-                <div class="">
-                    <a href="{{ route('login') }}">
-                        <button type="button" class="log-in-btn">Log in</button>
-                    </a>
-                </div>
+                    <div class="">
+                        <a href="{{ route('login') }}">
+                            <button type="button" class="log-in-btn">Log in</button>
+                        </a>
+                    </div>
+                </nav>
 
                 <div class="mobile-navbar-btns">
                     <ion-icon name="menu-outline" class="mobile-nav-icon"></ion-icon>

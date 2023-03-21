@@ -150,7 +150,7 @@
                         @foreach ($otherJob->jobs as $getjobs)
                             @if ($jobDetail->id != $getjobs->id)
                                 <a href="{{ route('individual.jodDetails', $getjobs->id) }}">
-                                    <div class="col-lg-12 pt-3 pb-3 "
+                                    <div class="col-lg-12 pt-3 pb-3 mt-3"
                                         style="background-color: #F9F9F9;border-radius: 20px;">
                                         <div class="row">
                                             <div class="col-2 cardsimg">

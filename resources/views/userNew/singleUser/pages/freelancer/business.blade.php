@@ -61,7 +61,7 @@
                                 Search
                             </button>
                             <a href="{{ route('company.advanceSearchFilter') }}">
-                            <button type="button" class="non">Filter</button>
+                                <button type="button" class="non">Filter</button>
                             </a>
                         </div>
                     </div>
@@ -92,9 +92,17 @@
                             <div class="text-center">
                                 <h3 class="bus-heading mt-3 mb-3" style="height: 70px;overflow:hidden">
                                     {!! $company->company_name ?? '' !!}</h3>
-                                <p class="john-para-afer-ques-heading">
+                                <h6 class="location-heading">Industry: <span class="place">{!! $company->industry ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Employees: <span class="place">{!! $company->employees ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Located in: <span class="place">{!! $company->located_in ?? '' !!}</span>
+                                </h6>
+                                <h6 class="location-heading">Address: <span class="place">{!! $company->address ?? '' !!}</span>
+                                </h6>
+                                {{-- <p class="john-para-afer-ques-heading" style="height: 70px;overflow:hidden">
                                     {!! $company->description ?? 'There is no description about company!' !!}
-                                </p>
+                                </p> --}}
                             </div>
 
                             <a href="{{ route('show_chat', $company->id) }}">

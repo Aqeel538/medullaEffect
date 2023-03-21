@@ -60,6 +60,12 @@ class User extends Authenticatable
         return $this->hasMany(Job::class);
     }
 
+    public function companyJobs()
+    {
+        return $this->hasMany(Job::class, 'user_id', 'id');
+    }
+
+
     // CHAT RELATIONS
     public function messages()
     {

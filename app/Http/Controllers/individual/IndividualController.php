@@ -207,7 +207,8 @@ class IndividualController extends Controller
     {
         $title = 'Company Detail';
         $company = User::where('id', $id)->first();
-        $otherJobs = User::where('role', 'company')->with('jobs')->get();
+        $otherJobs = User::where('role', 'company')->with('jobs', 'companyJobs')->get();
+        // dd($otherJobs[3]->companyJobs);
         return view('userNew.singleUser.pages.individual.companyDetails', get_defined_vars());
     }
 

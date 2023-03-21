@@ -172,7 +172,6 @@ class CompanyController extends Controller
 
     public function company_jobs_store(Request $req, $id)
     {
-
         $user_id = auth()->user()->id;
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->update([

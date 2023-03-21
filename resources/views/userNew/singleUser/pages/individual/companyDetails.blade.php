@@ -110,39 +110,97 @@
                             </div>
                             <!-- ------------step--2---Tab------------- -->
                             <div id="tab-2" class="tab-content ">
+                                <div class="row">
+                                    @foreach ($otherJobs as $otherJob)
+                                        @foreach ($otherJob->companyJobs as $job)
+                                            @if ($job->user_id == $company->id)
+                                                <div class="col-lg-6 col-md-6 col-12  mt-lg-0 mt-md-0 mt-3 ">
+                                                    <a href="{{ route('individual.jodDetails', $job->id) }}">
+                                                        {{-- <a href="{{ route('company.jodDetails', $job->id) }}"> --}}
+                                                        <div class=" job-posted-radius">
+                                                            <div class="cards-scroll p-3 mt-3 "
+                                                                style="height: 200px!important">
+                                                                <div class="row">
+                                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1 cardsimg">
+                                                                        <img src="{{ asset('user') }}/assets/images/profile-imges/jobview-img.png"
+                                                                            class="w-5" alt="w8">
+                                                                    </div>
+                                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-7">
+                                                                        <p class="single-job-heading "
+                                                                            style="margin: 0; padding-left:35px;"><b>
+                                                                                {!! $job->title ?? '' !!}
+                                                                            </b>
+                                                                        </p>
+                                                                        <p class="job-posted"
+                                                                            style="margin: 0; padding-left:35px;">
+                                                                            {!! $job->located_in ?? '' !!} <span
+                                                                                class="text-reds">({!! $job->job_type ?? '' !!})</span>
+                                                                        </p>
+                                                                        <p class="job-posted"
+                                                                            style="margin: 0; padding: 0 35px;">
+                                                                            {!! $job->work_type ?? '' !!}</p>
+                                                                    </div>
+                                                                    {{-- <div class="col-lg-2 col-md-2 col-sm-2 col-3 text-end">
+                                                                        <i class="fas-elip fa-solid fa-ellipsis fasq"
+                                                                            onclick="openmyFunction(<?= $job->id ?>)"></i>
 
-                                <div>
-                                    <p class="job-details">
+                                                                        <div style="position: relative;">
+                                                                            <div class="cliked"
+                                                                                id="openmyDIV<?= $job->id ?>">
+                                                                                <div class="stsuts ">
 
-                                        We have been driving growth for hundreds of high profile clients throughout the
-                                        region, and have since expanded our business on a global scale. Through digital
-                                        marketing and growth marketing strategies, we help companies realize their true
-                                        potential in a frictionless and innovative environment, where Sales, Marketing &
-                                        Customer Service work together to increase sales and retain customers.
-                                    </p>
-                                    <p class="job-details">
+                                                                                    <a class=""
+                                                                                        href="/company/job/status/1/{{ $job->id }}">Active</a>
+                                                                                    <a class=""
+                                                                                        href="/company/job/status/2/{{ $job->id }}">Inactive</a>
+                                                                                    <a class=""
+                                                                                        href="/company/job/status/3/{{ $job->id }}">Pause</a>
+                                                                                </div>
 
-                                        We also know that in the world of business, no word is more important than GROWTH
-                                        and standing still should never be an option. As a growth agency, we are always
-                                        moving forward as the digital space continues to evolve. With this in mind, we
-                                        understand and appreciate the magnitude of the digital evolution and have our finger
-                                        on the pulse of all things Web3.
-                                    </p>
-                                    <p class="job-details">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> --}}
+                                                                </div>
+                                                                <div class="d-flex justify-content-between mb-0">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12 ">
+                                                                            <p class="job-posted mb-0 mt-1">
+                                                                                {!! $job->rate ?? '' !!}
 
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-12">
+                                                                            <p class="job-posted mb-0 mt-1">
+                                                                                {{ \Carbon\Carbon::parse($job->created_at)->diffForHumans() }}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-12">
+                                                                            <p class="abutnexa-text">
 
-                                        came onto our radar, we have invested our time and resources in studying the space
-                                        and learning about the enormous opportunities that exist within this arena, and how
-                                        these opportunities can benefit our clients and their business goals. We are at the
-                                        forefront of Web 3.0 commercial opportunities and provide a variety of services for
-                                        leading brands as they make this new-age transition. Through digital marketing,
-                                        growth marketing and Web3 solutions, Nexa offers fast, sustainable and efficient
-                                        growth for all our clients.
-                                    </p>
+                                                                                {!! $job->description ?? 'There is no short description yet...' !!} </p>
 
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                {{-- <div style="height: 50px;;overflow:hidden;">
+                                                                    <p class="abutnexa-text">
+
+                                                                        {!! $job->description ?? 'There is no short description yet...' !!} </p>
+
+                                                                </div> --}}
+
+                                                                {{-- <a href="{{ route('individual.jodDetails', $job->id) }}"
+                                                                    class="crds-read-more mt-3 mb-3">read more...</a> --}}
+                                                            </div>
+
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
                                 </div>
-
-
                             </div>
                             <!-- ------------step--3---Tab------------- -->
                             <div id="tab-3" class="tab-content ">
