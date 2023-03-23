@@ -132,8 +132,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dismiss/notification', [SingleUserController::class, 'dismissNotification'])->name('dismiss.notification');
 });
 
-// Individual Auth routes
-Route::middleware(['auth', 'isIndividual'])->group(function () {
+// Individual Auth route
+Route::middleware(['auth', 'isIndividual', 'notifications'])->group(function () {
     Route::get('/profile', [IndividualController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [RegistrationControllerInd::class, 'update_user_profile'])->name('update.user.profile');
 
@@ -326,7 +326,7 @@ Route::post('/company/create', [CompanyRegistrationController::class, 'create'])
 Route::post('/submit/lead/form', [SingleUserController::class, 'submitLeadForm'])->name('submit.lead.form');
 Route::post('/submit/subscriber/form', [SingleUserController::class, 'submitSubscriberForm'])->name('submit.subscriber.form');
 Route::middleware(['guest'])->group(function () {
-    Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
+    Route::get('/individual', [SingleUserController::class, 'indiviidual'])->name('individual');
 });
 
 Auth::routes();

@@ -37,6 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\NotificationsMiddleware::class,
         ],
 
         'api' => [
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'isIndividual' => \App\Http\Middleware\IndividualMiddleware::class,
         'isFreelancer' => \App\Http\Middleware\FreelancerMiddleware::class,
         'isCompany' => \App\Http\Middleware\CompanyMiddleware::class,
+        'notifications' => \App\Http\Middleware\NotificationsMiddleware::class,
     ];
 }

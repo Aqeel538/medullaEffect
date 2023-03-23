@@ -32,19 +32,30 @@ class SingleUserController extends Controller
     public function companay()
     {
         $title = "Company Sign-up";
-        return view('userNew.singleUser.pages.company.companay', compact('title'));
+        if (!Auth::check()) {
+            return view('userNew.singleUser.pages.company.companay', compact('title'));
+        }
+        return redirect('/company/profile');
     }
 
     public function freelancer()
     {
         $title = "Freelancer Sign-up";
-        return view('userNew.singleUser.pages.freelancer.freelancer', compact('title'));
+
+        if (!Auth::check()) {
+            return view('userNew.singleUser.pages.freelancer.freelancer', compact('title'));
+        }
+        return redirect('/freelancer/profile');
     }
 
     public function individual()
     {
         $title = "Individual Sign-up";
-        return view('userNew.singleUser.pages.individual.individual', compact('title'));
+
+        if (!Auth::check()) {
+            return view('userNew.singleUser.pages.individual.individual', compact('title'));
+        }
+        return redirect('/profile');
     }
 
     public function tagline()

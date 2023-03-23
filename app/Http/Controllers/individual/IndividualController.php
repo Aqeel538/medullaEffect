@@ -241,11 +241,12 @@ class IndividualController extends Controller
         $followedCompanies = User::where('id', auth()->user()->id)->with('followingCompanies.companyNotifications.dismissNotification')->first();
 
         $allNotification = [];
+        // $countNotification = $allNotification[]->count;
         foreach ($followedCompanies['followingCompanies'] as $followedCompany) {
 
             foreach ($followedCompany['companyNotifications'] as $notifications) {
 
-                if ($notifications['dismissNotification']->where('user_id', 29)->first()) {
+                if ($notifications['dismissNotification']->where('user_id', auth()->user()->id)->first()) {
                 } else {
                     $allNotification[] = $notifications;
                 }
@@ -253,7 +254,8 @@ class IndividualController extends Controller
 
             }
         }
-
+        $countNotification = count($allNotification);
+        // dd($countNotification);
         // $followedCompany = $
         // dd($followedCompanys[0]->followingCompanies);
 

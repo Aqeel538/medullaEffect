@@ -21,32 +21,45 @@
 
 
                 <div class="testers">
-               
-                        <a class="navbar-link  {{ request()->routeIs('individual.notifications') ? 'mylist active' : '' }}"
-                            href="{{ route('individual.notifications') }}">
-                            <?php
+                    {{-- @php
+                        $userId = auth()->user()->id;
+                        $countNotification = DB::table('notifications')
+                            ->where(
+                                'dismissNotification',
+                                function ($query) use ($userId) {
+                                    $query->where('user_id', $userId);
+                                },
+                                '<',
+                                1,
+                            )
+                            ->count();
+                    @endphp --}}
+                    <a class="navbar-link  {{ request()->routeIs('individual.notifications') ? 'mylist active' : '' }}"
+                        href="{{ route('individual.notifications') }}">
+                        <?php
                             if($blink == 1){?>
-                            <span class="notsfction-badge-1">
-                              
-                                   
-                                    <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
-                                    <span class="notification-badge">0</span>
-                               
-                   
-                            </span>
-                  
-                            <?php }else{ ?>
-                                <span class="notsfction-badge-1">
-                           
-                                        <ion-icon name="notifications-outline"></ion-icon>
-                                        <span class="notification-badge">1</span>
-                                </span>
-                     
-                            <?php }
+                        <span class="notsfction-badge-1">
+
+
+                            <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+                            <span class="notification-badge" style="border: solid 1px !important;">0</span>
+
+
+                        </span>
+
+                        <?php }else{ ?>
+                        <span class="notsfction-badge-1">
+
+                            <ion-icon name="notifications-outline"></ion-icon>
+                            <span class="notification-badge" style="border: solid 1px !important;">
+                                {{ request()->countNotifications }}</span>
+                        </span>
+
+                        <?php }
                             ?>
-                        </a>
-                   
-               
+                    </a>
+
+
 
                     <?php
 
@@ -95,15 +108,14 @@
 
 
 <script>
-
-
     // Update the notification badge when a new notification is received
-let notificationCount = 0;
-function updateNotificationBadge(count) {
-  notificationCount += count;
-  document.querySelector('.notification-badge').innerHTML = notificationCount;
-}
+    let notificationCount = {{ request()->countNotifications }};
 
-// Example usage
-updateNotificationBadge(1); // Increment the notification count by 1
+    function updateNotificationBadge(count) {
+        notificationCount = count;
+        document.querySelector('.notification-badge').innerHTML = notificationCount;
+    }
+
+    // Example usage
+    updateNotificationBadge(1); // Increment the notification count by 1
 </script>

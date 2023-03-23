@@ -151,6 +151,7 @@ class FreelancerController extends Controller
 
         $notifications = Notification::with('companyGet')->get();
         // dd($notifications[0]->companyGet->image);
+        $countNotification = count($notifications);
 
         return view('userNew.singleUser.pages.freelancer.notifications', get_defined_vars());
     }
