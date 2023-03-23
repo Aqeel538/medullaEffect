@@ -43,17 +43,78 @@
                                 <i class="fa fa-search" id="search-icon"></i>
                             </div>
                             <div class="search-form" id="search-form">
-                                <input name="search" type="search" placeholder="Search..." style="width: 30%" />
+
+ <!-- -------------3rd---Navbar---------- -->
+ <div class="container-fluid">
+    <!-- <div class="container"> -->
+        <div class="row text-center justify-content-center">
+            <div class="col-lg-12 col-md-10 col-12 ">
+                <h1>
+                    Search
+                </h1>
+                <p class="text-phara-respns  hero-sec-paragrph pt-4">
+                    Where Business Professionals Meet Other Business Professionals.Company
+                </p>
+            </div>
+
+        </div>
+    <div class="row justify-content-center filter-trd-nav-row mt-3">
+        <div class="col-lg-9 col-md-12 row-bg-color">
+
+            
+            <form action="{{ route('individual.jobs.search') }}" method="GET">
+                @csrf
+                <div class="row industry-dropdown-input">
+                    <div class="col-lg-5 col-md-4 col-12">
+                        <div class="inpus-industry">&nbsp;
+                            <i class="fa-solid fa-industry"></i>
+                            <div class="">
+                                <input list="browsers" name="industry" class="widths" placeholder="Industry" />
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-4 col-12">
+                        <div class="inpus-industry-2">
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div class="pos">
+                                <input type="search" name="searchLocation" class="width" placeholder="Location" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
+                        <button type="submit" class=" buttonfill text-center">
+                            Search
+                        </button>
+                        <a href="{{ route('individual.advanceSearchFilter') }}">
+                            <button type="button" class="non">Filter</button>
+                        </a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
+            <a href="{{ route('individual.advanceSearchFilter') }}">
+                <button type="button" class="display-btn">Filter</button>
+            </a>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>
+                                {{-- <input name="search" type="search" placeholder="Search..." style="width: 30%" />
                                 <div class="select-searhbar">
                                     <select name="category" class="openselect" aria-label=".form-select-sm example">
                                         <option value="">Categories</option>
                                         <option value="service">Service</option>
                                         <option value="job">Jobs</option>
                                     </select>
-                                </div>
-                                <div class="cross-srch">
+                                </div> --}}
+                                {{-- <div class="cross-srch">
                                     <i class="fa fa-times" id="close-icon"></i>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -880,21 +941,21 @@
         // search icon
         const searchIcon = document.getElementById('search-icon');
         const searchForm = document.getElementById('search-form');
-        const closeIcon = document.getElementById('close-icon');
+  
         const searchIconContainer = document.querySelector('.search-icon-container');
 
         searchIconContainer.addEventListener('click', () => {
             searchIconContainer.classList.add('active');
             searchForm.classList.add('active');
-            searchIcon.classList.add('active');
-            closeIcon.classList.add('active');
+           
+      
         });
 
         closeIcon.addEventListener('click', () => {
             searchIconContainer.classList.remove('active');
             searchForm.classList.remove('active');
-            searchIcon.classList.remove('active');
-            closeIcon.classList.remove('active');
+            // searchIcon.classList.remove('active');
+   
         });
     </script>
 @endsection

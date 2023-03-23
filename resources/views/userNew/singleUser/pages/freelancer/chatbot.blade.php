@@ -8,12 +8,22 @@
     <!---------------- -Navend--------------- -->
     <!---------------- -Navend--------------- -->
     <div class="container mb-5 mt-5">
-        <h1 class="headings-profile mb-4">Inbox</h1>
+        <h1 class="headings-profile mb-4">Inbox asas</h1>
         <div class="row mt-lg-3 mt-md-3 mt-3 crd-row-one">
-            <div class="col-lg-5 col-12 " style="max-height: 513px;
-            overflow: auto;">
-                <div class=" p-4" style="background-color: #F9F9F9; border-radius: 21.0305px;">
-                    <h1 class="profile-text-ques-heading mb-5">All Messages</h1>
+            <div class="col-lg-5 col-12">
+                <div class=" p-4" style="background-color: #FFF3F7; border-radius: 21.0305px;">
+                   <div class="search-bar-inbx d-flex align-items-center justify-content-between">
+                    <div class="input-field-white-bg">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" value="" placeholder="Search">
+                    </div>
+                    <div class="filter-img">
+                        <img src="{{ asset('user') }}/assets/images/configure.png"
+                        class="" alt="">
+                    </div>
+                  
+                   </div>
+                   <div class="overflow-of-inbx" style="height:500px; overflow:auto; ">
                     @if (count($user_messages) > 0)
                         @foreach ($user_messages as $single_message)
                             <div class="d-flex  align-content-center pb-3 mt-5" style="border-bottom: 1px solid #e7e4e4;">
@@ -48,6 +58,7 @@
                     @endif
                 </div>
             </div>
+            </div>
 
 
             @if ($user_messages_show == 1)
@@ -76,22 +87,23 @@
                     <div class="container mesages-row" id="dataContainer">
                         <div class="mid-div-top-margin">
                         </div>
+                        
 
                     </div>
 
                     <form id="myForm" class="form-group" style="margin-top: 20px">
                         @csrf
                         <input type="hidden" id="message_id" name="message_id" value="{!! $message_info->id ?? '' !!}">
-                        <div class="input-text d-flex justify-content-end">
-                            <input type="text" id="empty" name="message" autocomplete="off" chat-box
-                                style="width: 100%;"  placeholder="Type Here...">
+                        <div class="input-text ">
+                        
+                                <textarea name="" id="empty" type="text"  placeholder="Type here..." name="message"></textarea>
                             <span class="text-danger error-text message_error"></span>
 
                             {{-- <button type="submit" id="getData" data-id="{{ $message_info->id }}"
                             class="input-group-text">send</button> --}}
 
                             <button type="submit" id="getData" data-id="{!! $message_info->id ?? '' !!}"
-                                class="input-group-text"><i class="fa-regular fa-paper-plane"></i></button>
+                                class="input-group-text"><i class="fa-solid fa-paper-plane"></i></button>
                         </div>
                     </form>
 
@@ -158,39 +170,59 @@
                         $('#dataContainer').empty();
                         data.data.map((value, index) => {
                             console.log(value.message, index)
-                            if (value.user_id == <?= Auth::user()->id ?>) {
+                            if (value.user_id == {{ Auth::user()->id }}) {
                                 $('#dataContainer').append(
-                                    '<div class="row" >' +
-                                    '<div class="col-5 offset-7">' +
-                                    '<p class="chat-ms-rec">' +
-                                    value.message +
-                                    '</p>' +
-                                    '</div>' +
-                                    '</div>');
+                                    '<div class="chat-bubble outgoing" style="text-align:right">' +
+                           '<p class="message">'+ value.message +'</p>'+    
+                         '</div>');
+                  // '<div class="row" >' +
+                                    // '<div class="col-5 offset-7">' +
+                                    // '<p class="chat-ms-rec">' +
+                                    // value.message +
+                                    // '</p>' +
+                                    // '</div>' +
+                                    // '</div>');
                             } else {
                                 $('#dataContainer').append(
-                                    '<div class="row w-50" style="text-align:right">' +
-                                    ' <div class="row" style="text-align:right">' +
-                                    ' <p class="chat-msg" style="text-align:right">' +
-                                    value.message +
-                                    '</p>' +
-                                    '</div>' +
-                                    '</div>');
+
+
+
+                                '<div class="chat-bubble-inc incoming">' +
+                           '<p class="message-sending">'+ value.message +'</p>'+
+                          
+                                  
+                                  
+                         '</div>');
+                                    // '<div class="row w-50" style="text-align:right">' +
+                                    // ' <div class="row" style="text-align:right">' +
+                                    // ' <p class="chat-msg" style="text-align:right">' +
+                                    // value.message +
+                                    // '</p>' +
+                                    // '</div>' +
+                                    // '</div>');
                             }
 
                         })
                     }
                 });
 
-                setTimeout(() => {
-                    var id = $('#message_id').val();
-                    getmessage(id)
-                }, 1000);
+                // setTimeout(() => {
+                //     var id = $('#message_id').val();
+                //     getmessage(id)
+                // }, 1000);
             }
 
-            var id = $('#message_id').val();
-            getmessage(id)
+            // var id = $('#message_id').val();
+            // getmessage(id)
         });
+
+
+
+
+
+
+        // letter limit in input field
+
     </script>
     <script
     type="module"
@@ -198,4 +230,7 @@
   ></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="{{ asset('user') }}/Assets/allNavScript.js"></script>
+
+
+    
 @endsection
