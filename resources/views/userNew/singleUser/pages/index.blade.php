@@ -70,7 +70,7 @@
                                                             <i class="fa-solid fa-industry"></i>
                                                             <div class="">
                                                                 <input list="browsers" name="industry" class="widths"
-                                                                    placeholder="Industry" />
+                                                                    placeholder="Job Title" />
                                                             </div>
 
 
@@ -90,18 +90,18 @@
                                                         <button type="submit" class=" buttonfill text-center">
                                                             Search
                                                         </button>
-                                                        <a href="{{ route('individual.advanceSearchFilter') }}">
-                                                            <button type="button" class="non">Filter</button>
-                                                        </a>
+                                                 
+                                                            <button type="button" class="non" >Cancel</button>
+                                                      
 
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
-                                            <a href="{{ route('individual.advanceSearchFilter') }}">
-                                                <button type="button" class="display-btn">Filter</button>
-                                            </a>
+                                       
+                                                <button type="button" class="display-btn" onclick="closeform()">Cancel</button>
+                                            
                                         </div>
                                     </div>
                                     <!-- </div> -->
@@ -128,15 +128,15 @@
                         <li><a class="navbar-link" href="#ourServices">Services</a></li>
                         <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
                         <li><a class="navbar-link" href="#contactUs">Contact</a></li>
-
+                        <li><a class="log-in-btn" href="{{ route('login') }}">Login</a></li>
                         </li>
 
                     </ul>
 
                     <div class="">
-                        <a href="{{ route('login') }}">
+                        {{-- <a href="{{ route('login') }}">
                             <button type="button" class="log-in-btn">Log in</button>
-                        </a>
+                        </a> --}}
                     </div>
                 </nav>
 
@@ -952,7 +952,11 @@ searchIcon.addEventListener('click', () => {
     }
 });
 
+// on cancel button close form
 
+function closeform (){
+    searchForm.classList.remove('active');
+}
 
 
 

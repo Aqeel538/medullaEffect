@@ -199,7 +199,8 @@ body {
 }
 
 .display-btn {
-    padding: 18px 42px;
+    padding: 17px 32px;
+
     background: #ffffff;
     color: #7c2342;
     border: 0.665455px solid #7c2342;
@@ -232,7 +233,19 @@ body {
 
     /* margin: 0px 8px 0px 0; */
 }
-
+/* .count-mesg-inbox-chats{
+    background-color: red;
+} */
+.count-mesg-inbox-chats p{
+    background-color: #7C2342;
+ width: 20px;
+ height: 20px;
+ color: white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+    border-radius: 50px;
+}
 /* /*================ Top Nav Css end *======== */
 
 /* ibdex page css */
@@ -842,8 +855,8 @@ select:focus-visible {
     background-color: transparent;
     font-family: 'Helvetica';
     font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 700;
+font-size: 15px;
     line-height: 136.99%;
 
     letter-spacing: 0.02em;

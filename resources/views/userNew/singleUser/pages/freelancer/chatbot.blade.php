@@ -25,7 +25,7 @@
                     <div class="overflow-of-inbx" style="height:500px; overflow:auto; ">
                         @if (count($user_messages) > 0)
                             @foreach ($user_messages as $single_message)
-                                <div class="d-flex  align-content-center pb-3 mt-5"
+                                {{-- <div class="d-flex  align-content-center pb-3 mt-5"
                                     style="border-bottom: 1px solid #e7e4e4;">
                                     <div class="img-holder">
                                         <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
@@ -53,6 +53,37 @@
                                     <div class="d-flex align-items-end justify-content-end">
                                         <p class=" john-para-afer-ques-heading">14m</p>
                                     </div>
+                                </div> --}}
+                                <div class="d-flex mb-3 mt-3 "    style="border-bottom: 1px solid #e7e4e4;"> 
+
+                                    <div class="img-holder">
+                                        <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
+                                            style="width: 60px;" class="" alt="">
+                                    </div>
+
+                                    <div class="ms-3" >
+                                        <div class="d-flex justify-content-between align-item-center">
+                                            <div>
+                                                <h3 class="inbox-chat-heading">
+                                                    John Doe
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <p>14 min ago</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-item-center">
+                                            <div>
+                                                <p class=""style="width:280px">
+                                                    Lorem.lorem lorem lorem <span>...</span>
+                                                </p>
+                                            </div>
+                                            <div class="count-mesg-inbox-chats">
+                                                <p>0</p>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         @else
@@ -67,7 +98,7 @@
                 <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 "
                     style="background-color: #F9F9F9;  border-radius: 21.0305px; ">
 
-                    <div class="p-4 fixed-top chat-header">
+                    <div class="p-4 fixed-top chat-header d-flex justify-content-between" >
                         <div class="d-flex">
                             <div class="img-holder">
                                 <?php $image = isset($user->image) && !empty($user->image) ? $user->image : ''; ?>
@@ -79,6 +110,25 @@
                                 <p class="p-0 m-0 ">Online</p>
                             </div>
 
+                        </div>
+                        <div>
+                            <i class="fas-elip fa-solid fa-ellipsis fasq"
+                            onclick="openmyFunction()"></i>
+
+                        <div style="position: relative;">
+                            <div class="cliked" id="openmyDIV">
+                                <div class="stsuts ">
+
+                                    <a class=""
+                                        href="">Active</a>
+                                    <a class=""
+                                        href="}">Inactive</a>
+                                    <a class=""
+                                        href="">Pause</a>
+                                </div>
+
+                            </div>
+                        </div>
                         </div>
                     </div>
                     @if (session('status'))
@@ -175,7 +225,8 @@
                             if (value.user_id == {{ Auth::user()->id }}) {
                                 $('#dataContainer').append(
                                     '<div class="chat-bubble outgoing" style="text-align:right">' +
-                                    '<p class="message">' + value.message + '</p>' +
+                                    '<p class="message">' + value.message +  '</p>' +
+                                    
                                     '</div>');
                                 // '<div class="row" >' +
                                 // '<div class="col-5 offset-7">' +
@@ -233,5 +284,23 @@
     <script src="{{ asset('user') }}/Assets/allNavScript.js"></script>
 
 
-
+<script>
+         function openmyFunction(id) {
+            // Get all the "openmyDIV" divs
+            var divs = document.querySelectorAll('[id^="openmyDIV"]');
+            // Hide all previously opened "openmyDIV" divs
+            divs.forEach(function(div) {
+                if (div.id !== "openmyDIV" + id) {
+                    div.style.display = "none";
+                }
+            });
+            // Toggle the display of the clicked "openmyDIV" div
+            var x = document.getElementById("openmyDIV" + id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+</script>
 @endsection
