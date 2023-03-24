@@ -939,26 +939,23 @@
         });
 
 
-
-        // search icon
-        const searchIcon = document.getElementById('search-icon');
-        const searchForm = document.getElementById('search-form');
-
-        const searchIconContainer = document.querySelector('.search-icon-container');
-
-        searchIconContainer.addEventListener('click', () => {
-            searchIconContainer.classList.add('active');
-            searchForm.classList.add('active');
+// search icon
+const searchIcon = document.getElementById('search-icon');
+const searchForm = document.getElementById('search-form');
 
 
-        });
+searchIcon.addEventListener('click', () => {
+    if (searchForm.classList.contains('active')) {
+        searchForm.classList.remove('active');
+    } else {
+        searchForm.classList.add('active');
+    }
+});
 
-        closeIcon.addEventListener('click', () => {
-            searchIconContainer.classList.remove('active');
-            searchForm.classList.remove('active');
-            // searchIcon.classList.remove('active');
 
-        });
+
+
+
     </script>
 @endsection
 {{-- <form method="POST" action="{{ route('search') }}" class="form-inline">
