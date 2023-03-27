@@ -42,7 +42,8 @@
 
 
                             <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
-                            <span class="notification-badge" style="border: solid 1px !important;">0</span>
+                            <span class="notification-badge" style="border: solid 1px !important;">
+                                {{ request()->countNotifications }}</span>
 
 
                         </span>
@@ -107,7 +108,7 @@
 
 
 
-<script>
+{{-- <script>
     // Update the notification badge when a new notification is received
     let notificationCount = {{ request()->countNotifications }};
 
@@ -117,5 +118,5 @@
     }
 
     // Example usage
-    updateNotificationBadge(1); // Increment the notification count by 1
-</script>
+    updateNotificationBadge(notificationCount); // Increment the notification count by 1
+</script> --}}

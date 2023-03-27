@@ -70,25 +70,27 @@
                         if($blink == 1){?>
 
 
-<span class="notsfction-badge-1">
-                              
-                                   
-    <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
-    <span class="notification-badge">0</span>
+                        <span class="notsfction-badge-1">
 
 
-</span>
-                       
+                            <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+                            <span class="notification-badge">{{ request()->countNotifications }}</span>
+
+
+                        </span>
+
                         <?php }else{ ?>
+                        <a
+                            href="{{ request()->getLastNotification ? route('company.notifications', request()->getLastNotification->id) : '#' }}">
                             <span class="notsfction-badge-1">
-                              
-                                   
+
+
                                 <ion-icon name="notifications-outline"></ion-icon>
-                                <span class="notification-badge">0</span>
-                            
-                            
+                                <span class="notification-badge"> {{ request()->countNotifications }}</span>
+
+
                             </span>
-                
+                        </a>
                         <?php }
                         ?>
                     </a>

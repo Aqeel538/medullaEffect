@@ -23,19 +23,28 @@
                         <?php
                         if($blink == 1){?>
 
-<span class="notsfction-badge-1">
+                        {{-- <a
+                            href="{{ $getLastNotification ? route('seen.notification', $getLastNotification->id) : '#' }}"> --}}
+
+                        <span class="notsfction-badge-1">
 
 
-    <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
-    <span class="notification-badge">0</span>
+                            <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
+                            <span class="notification-badge">{{ request()->countNotifications }}</span>
 
 
-</span>
+                        </span>
+                        {{-- </a> --}}
                         <?php }else{ ?>
+                        <a
+                            href="{{ request()->getLastNotification ? route('seen.notification', request()->getLastNotification->id) : '#' }}">
                             <span class="notsfction-badge-1">
-                        <ion-icon name="notifications-outline"></ion-icon>
-                        <span class="notification-badge">0</span>
-                    </span>
+
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <span class="notification-badge"> {{ request()->countNotifications }}</span>
+
+                            </span>
+                        </a>
                         <?php }
                         ?>
                     </a>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\DismissNotification;
 use App\Models\Job;
 use App\Models\LeadForm;
+use App\Models\Notification;
+use App\Models\SeenNotification;
 use App\Models\Service;
 use App\Models\Subscriber;
 use App\Models\User;
@@ -73,14 +75,42 @@ class SingleUserController extends Controller
     {
         // dd($request);
         $title = "search";
-        $query = $request->get('search');
-        if ($request->category == 'job') {
-            $results = Job::where('title', 'like', '%' . $query . '%')->get();
-        } else {
-            $results = Service::where('title', 'like', '%' . $query . '%')->get();
+
+        if ($request->searchLocation) {
+            if ($request->industry) {
+                $results = Job::where('located_in', $request->searchLocation)->where('industry', $request->industry)->with('users', 'applied_jobs')->get();
+
+                return view('userNew.singleUser.pages.search', get_defined_vars());
+            } else {
+
+                $results = Job::where('located_in', $request->searchLocation)->with('users', 'applied_jobs')->get();
+
+                return view('userNew.singleUser.pages.search', get_defined_vars());
+            }
         }
-        // dd($serviceResults);
+
+
+        if ($request->industry) {
+
+            $results = Job::where('industry', $request->industry)->with('users', 'applied_jobs')->get();
+
+            return view('userNew.singleUser.pages.search', get_defined_vars());
+        }
+
+
+        $results = Job::with('users', 'applied_jobs')->get();
         return view('userNew.singleUser.pages.search', get_defined_vars());
+
+
+
+        // $query = $request->get('search');
+        // if ($request->category == 'job') {
+        //     $results = Job::where('title', 'like', '%' . $query . '%')->get();
+        // } else {
+        //     $results = Service::where('title', 'like', '%' . $query . '%')->get();
+        // }
+        // // dd($serviceResults);
+        // return view('userNew.singleUser.pages.search', get_defined_vars());
     }
     public function faq()
     {
@@ -223,6 +253,42 @@ class SingleUserController extends Controller
         } else {
             // return response()->json(['status' => 2, 'message' => "notification not dismissed"], 200);
             return back();
+        }
+    }
+
+    public function seen_notification($id)
+    {
+        // dd('ok');
+        $title = 'Notifications';
+        $checkNotification = SeenNotification::where('notification_id', $id)->where('user_id', auth()->user()->id)->first();
+        if ($checkNotification) {
+
+            $notifications = Notification::with('companyGet', 'dismissNotification')
+                ->whereDoesntHave('dismissNotification', function ($query) {
+                    $query->where('user_id', auth()->user()->id);
+                })
+                ->get();
+            $getLastNotification = Notification::latest('id')->first('id');
+            $seenNotification = SeenNotification::where('notification_id', $getLastNotification->id)->where('user_id', auth()->user()->id)->first();
+            $latestNotifications = Notification::where('id', '>', $seenNotification->id)->get();
+            $countNotification = count($latestNotifications);
+
+            return view('userNew.singleUser.pages.freelancer.notifications', get_defined_vars());
+        } else {
+
+            $user = new SeenNotification();
+            $user->user_id = auth()->user()->id;
+            $user->notification_id = $id;
+            $data = $user->save();
+            if ($data) {
+
+                // return response()->json(['status' => 1, 'message' => "notification succesfully dismissed"], 200);
+                return back();
+            } else {
+
+                // return response()->json(['status' => 2, 'message' => "notification not dismissed"], 200);
+                return back();
+            }
         }
     }
 }

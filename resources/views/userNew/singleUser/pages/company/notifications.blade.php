@@ -59,7 +59,13 @@
                                         </div>
                                         {{-- <p class="abutnexa-text pt-4 pb-3">{!! $notification->subject ?? '' !!} </p> --}}
                                         <div class="jobviewbtns mt-1 mb-1">
-                                            <button class="buttonfill-apply">Dismiss</button>
+                                            <form method="POST" action="{{ route('dismiss.notification') }}">
+                                                @csrf
+                                                <input type="hidden" name="notification_id"
+                                                    value="{{ $notification->id }}">
+                                                <button type="submit" class="buttonfill-apply">Dismiss</button>
+                                            </form>
+
 
                                         </div>
                                     </div>

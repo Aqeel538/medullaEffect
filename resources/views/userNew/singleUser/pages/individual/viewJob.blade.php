@@ -33,20 +33,20 @@
                     <div class="allitems d-flex">
                         <div class="icon-text">
                             <p class="job-view-para">
-                                <span> <i class="fas-bag fa fa-briefcase"
+                                <span> <i class="fas-bag fa fa-user"
                                         aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->job_type ?? '' !!}</span>
                             </p>
                         </div>
                         <div class="icon-text">
                             <p class="job-view-para ">
-                                <span> <i class="fas-bag fa fa-briefcase"
+                                <span> <i class="fas-bag fa fa-clock"
                                         aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->work_type ?? '' !!}</span>
                             </p>
                         </div>
                         <div class="icon-text">
                             <p class="job-view-para ">
                                 <span> <i class="fas-bag fa fa-briefcase"
-                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->hiring_type ?? '' !!}</span>
+                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->hiring_type ?? 'Hiring type' !!}</span>
                             </p>
                         </div>
                     </div>
@@ -126,13 +126,12 @@
 
                         <div class="icon-text d-flex justify-content-between">
                             <p class="me-2 job-view-paras">
-                                <span> <i class="fas-bag fa fa-briefcase"
+                                <span> <i class="fas-bag fa fa-industry"
                                         aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->industry ?? '' !!}</span>
                             </p>
 
                             <p class="res-p-1200">
-                                <span> <i class="fas-bag fa fa-briefcase"
-                                        aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->employees ?? '' !!}
+                                <span> <i class="fas-bag fa fa-user" aria-hidden="true"></i>&nbsp;{!! $jobDetail->Users->employees ?? '' !!}
                                     employees</span>
                             </p>
                         </div>

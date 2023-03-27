@@ -130,6 +130,8 @@ Route::middleware(['auth'])->group(function () {
 
     // DISSMISS NOTIFICATION
     Route::post('/dismiss/notification', [SingleUserController::class, 'dismissNotification'])->name('dismiss.notification');
+
+    Route::get('/seen/notification/{id}', [SingleUserController::class, 'seen_notification'])->name('seen.notification');
 });
 
 // Individual Auth route
@@ -173,7 +175,7 @@ Route::middleware(['auth', 'isIndividual', 'notifications'])->group(function () 
 });
 
 // Company Route
-Route::middleware(['auth', 'isCompany'])->group(function () {
+Route::middleware(['auth', 'isCompany', 'companyNotifications'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'copmanyDashboard'])->name('company.dashboard');
     Route::post('/company/update/profile', [CompanyController::class, 'update_company_profile'])->name('update.company.profile');
     Route::post('/company/update/dashboard', [CompanyController::class, 'update_company_dashboard'])->name('update.company.dashboard');
@@ -248,7 +250,7 @@ Route::middleware(['auth', 'isCompany'])->group(function () {
 
 
 //Freelancer Routes
-Route::middleware(['auth', 'isFreelancer'])->group(function () {
+Route::middleware(['auth', 'isFreelancer', 'freelancerNotifications'])->group(function () {
     Route::get('/freelancer/profile', [FreelancerController::class, 'freelancer_profile'])->name('freelancer.profile');
     Route::get('control/panel', [FreelancerController::class, 'control_panel'])->name('control.panel');
     Route::get('/all/businesses', [FreelancerController::class, 'businesses_list'])->name('businesses.list');
@@ -326,7 +328,7 @@ Route::post('/company/create', [CompanyRegistrationController::class, 'create'])
 Route::post('/submit/lead/form', [SingleUserController::class, 'submitLeadForm'])->name('submit.lead.form');
 Route::post('/submit/subscriber/form', [SingleUserController::class, 'submitSubscriberForm'])->name('submit.subscriber.form');
 Route::middleware(['guest'])->group(function () {
-    Route::get('/individual', [SingleUserController::class, 'indiviidual'])->name('individual');
+    Route::get('/individual', [SingleUserController::class, 'individual'])->name('individual');
 });
 
 Auth::routes();
