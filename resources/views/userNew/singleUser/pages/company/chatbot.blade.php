@@ -27,43 +27,58 @@
                         @if (count($user_messages) > 0)
                             @foreach ($user_messages as $single_message)
                                 <a href="/company/messages/{{ $single_message->id }}">
-                                    <div class="d-flex  align-content-center pb-3 mt-5"
-                                        style="border-bottom: 1px solid #e7e4e4;">
+                                    <div class="d-flex mb-3 mt-3 " style="border-bottom: 1px solid #e7e4e4;">
+
                                         <div class="img-holder">
-                                            <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
-                                                style="width: 60px;" class="" alt="">
-                                        </div>
-                                        <div class="text-start ps-2">
-                                            @if ($single_message->receiver_id == Auth::user()->id)
-                                                <h3 class="m-0 p-0 inbox-chat-heading">
-                                                    <a href="/messages/{{ $single_message->id }}"
-                                                        style=" text-decoration: none;">
-                                                        <p> {{ $single_message->name }}</p>
-                                                    </a>
-                                                </h3>
-                                            @else
-                                                <h3 class="m-0 p-0 inbox-chat-heading">
-                                                    <a href="/company/messages/{{ $single_message->id }}"
-                                                        style=" text-decoration: none;">
-                                                        <p> {{ $single_message->name }}</p>
-                                                    </a>
-                                                </h3>
-                                            @endif
-                                            <a href="/company/messages/{{ $single_message->id }}"
-                                                style=" text-decoration: none;">
-                                                <p class="pt-1 m-0 john-para-afer-ques-heading">Sed ut perspiciatis unde
-                                                    omnis
-                                                    ise
-                                                    na....</p>
+                                            <a  href="/company/messages/{{ $single_message->id }}" style=" text-decoration: none;">
+                                                <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
+                                                    style="width: 60px;" class="" alt="">
                                             </a>
                                         </div>
-                                        <div class="d-flex align-items-end justify-content-end">
-                                            <a href="/company/messages/{{ $single_message->id }}"
-                                                style=" text-decoration: none;">
-                                                <p class=" john-para-afer-ques-heading">
-                                                    {{ \Carbon\Carbon::parse($single_message->created_at)->diffForHumans() }}
-                                                </p>
-                                            </a>
+
+                                        <div class="ms-3">
+                                            <div class="d-flex justify-content-between align-item-center">
+                                                <div>
+                                                    @if ($single_message->receiver_id == Auth::user()->id)
+                                                        <h3 class="inbox-chat-heading">
+                                                            <a  href="/company/messages/{{ $single_message->id }}"
+                                                                style=" text-decoration: none;">
+                                                                <p> {{ $single_message->name }}</p>
+                                                            </a>
+                                                        </h3>
+                                                    @else
+                                                        <h3 class="m-0 p-0 inbox-chat-heading">
+                                                            <a  href="/company/messages/{{ $single_message->id }}"
+                                                                style=" text-decoration: none;">
+                                                                <p> {{ $single_message->name }}</p>
+                                                            </a>
+                                                        </h3>
+                                                    @endif
+                                                </div>
+                                                <div>
+                                                    <a  href="/company/messages/{{ $single_message->id }}"
+                                                        style=" text-decoration: none;">
+                                                        <p>14 min ago</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-item-center">
+                                                <div>
+                                                    <a  href="/company/messages/{{ $single_message->id }}"
+                                                        style=" text-decoration: none;">
+                                                        <p class=""style="width:280px">
+                                                            Lorem.lorem lorem lorem <span>...</span>
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                                <div class="count-mesg-inbox-chats">
+                                                    <a  href="/company/messages/{{ $single_message->id }}"
+                                                        style=" text-decoration: none;">
+                                                        <p>0</p>
+                                                    </a>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </a>

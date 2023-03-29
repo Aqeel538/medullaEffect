@@ -162,9 +162,10 @@ class CompanyController extends Controller
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->with('Categories')->first();
 
-            $rateParts = explode(' ', $obj->rate);
-            $salaryRangeFrom = $rateParts[0];
-            $salaryRangeTo = $rateParts[2];
+            $compansation = $obj->rate;
+            // $rateParts = explode(' ', $obj->rate);
+            // $salaryRangeFrom = $rateParts[0];
+            // $salaryRangeTo = $rateParts[2];
             // dd($salaryRangeTo);
         }
         $categories = Category::get();
@@ -180,7 +181,8 @@ class CompanyController extends Controller
                 'company_name' => $req->company_name,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
-                'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
+                // 'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
+                'rate' => $req->compansation,
                 'job_type' => $req->job_type,
                 'city' => $req->city,
                 'state' => $req->state,

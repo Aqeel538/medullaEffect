@@ -27,11 +27,11 @@ class Message extends Model
 
     public function usersender()
     {
-        return $this->belongsTo(User::class, 'sender_id', 'id');
+        return $this->hasOne(User::class, 'id', 'sender_id');
     }
 
     public function userreceiver()
     {
-        return $this->belongsTo(User::class, 'receiver_id', 'id');
+        return $this->hasOne(User::class, 'id', 'receiver_id');
     }
 }

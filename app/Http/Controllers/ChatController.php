@@ -124,6 +124,13 @@ class ChatController extends Controller
         $user = User::where('id', $user)->with('messagecomments')->first();
 
 
+        // dd($allUsers);
+        // $received_messages = Message::where('receiver_id', auth()->user()->id)->get();
+
+        // $received_messages = MessageComment::where('receiver_id', auth()->user()->id)->get();
+        // dd($received_messages[2]->sender_id);
+        // dd($user->messagecomments);
+
 
         return view('userNew.singleUser.pages.freelancer.chatbot', get_defined_vars());
     }
@@ -131,6 +138,7 @@ class ChatController extends Controller
     public function getConversations(Request $request)
     {
         $id = $request->input('id');
+        // dd($id);
         $conversations =  MessageComment::where(['message_id' => $id])->with('user')->get();
         // dd($conversations->toArray());
         // return response('data', $conversations);

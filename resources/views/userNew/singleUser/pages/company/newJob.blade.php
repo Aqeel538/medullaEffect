@@ -26,7 +26,7 @@
             <div class="col-lg-6 col-md-9 col-12 text-center justify-content-center">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="headings">New Job</h1>
+                        <h1 class="headings">New Job Posting</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -123,7 +123,7 @@
 
 
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12 mt-3">
+                        {{-- <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <input class="rate-field form-control" name="salaryRangeFrom" type="text"
                                 value="<?= isset($salaryRangeFrom) && !empty($salaryRangeFrom) ? $salaryRangeFrom : '' ?>"placeholder="Salary range from"
                                 style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;"
@@ -134,7 +134,15 @@
                                 value="<?= isset($salaryRangeTo) && !empty($salaryRangeTo) ? $salaryRangeTo : '' ?>"placeholder="Salary range to"
                                 style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;"
                                 required id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" />
+                        </div> --}}
+
+                        <div class="col-lg-12 col-md-12 col-12 mt-3">
+                            <input class="rate-field form-control" name="compansation" type="text"
+                                value="<?= isset($compansation) && !empty($compansation) ? $compansation : '' ?>"placeholder="Compansation"
+                                style="  border: 2px solid #eee;  background-color: white;width: 100%;padding: 14px 10px;"
+                                required />
                         </div>
+
                         <div class="col-lg-6 col-md-6 col-12 mt-3">
                             <select name="job_type" class="form-select form-select-sm greyColor"
                                 style=" padding: 15px 10px;  outline: none; border: 2px solid #eee;  background-color: white;"

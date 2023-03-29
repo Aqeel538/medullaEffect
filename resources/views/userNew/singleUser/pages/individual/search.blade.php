@@ -28,6 +28,8 @@
         }
     </style>
     <!----- ---------2nd--Navbar------------- -->
+    @include('userNew.singleUser.pages.individual.secondNav')
+
     <div class="container-fluid second-nav">
         <div class="container">
             <div class="headers">
@@ -142,64 +144,19 @@
 
 
     <!-- hero section -->
-    <div class="container-fluid">
-        <!-- <div class="container"> -->
+    <div class="container herosecion mt-lg-5 mt-md-5 mt-2">
         <div class="row text-center justify-content-center">
             <div class="col-lg-12 col-md-10 col-12 ">
                 <h1>
-                    Search
+                    Home Of Business Opportunities.
                 </h1>
                 <p class="text-phara-respns  hero-sec-paragrph pt-4">
-                    Where Business Professionals Meet Other Business Professionals.Company
+                    Where Business Professionals Meet Other Business Professionals.
                 </p>
             </div>
 
         </div>
-        <div class="row justify-content-center filter-trd-nav-row mt-3">
-            <div class="col-lg-9 col-md-12 row-bg-color">
 
-
-                {{-- <form action="{{ route('individual.jobs.search') }}" method="GET">
-                    @csrf --}}
-                <div class="row industry-dropdown-input">
-                    <div class="col-lg-5 col-md-4 col-12">
-                        <div class="inpus-industry">&nbsp;
-                            <i class="fa-solid fa-industry"></i>
-                            <div class="">
-                                <input list="browsers" name="industry" class="widths" placeholder="Job Title" />
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-4 col-12">
-                        <div class="inpus-industry-2">
-                            <i class="fa-solid fa-location-dot"></i>
-
-                            <div class="pos">
-                                <input type="search" name="searchLocation" class="width" placeholder="Location" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
-                        <button type="submit" class=" buttonfill text-center">
-                            Search
-                        </button>
-
-                        <button type="button" class="non">Cancel</button>
-
-
-                    </div>
-                </div>
-                {{-- </form> --}}
-            </div>
-            {{-- <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
-
-                <button type="button" class="display-btn" onclick="closeform()">Cancel</button>
-
-            </div> --}}
-        </div>
-        <!-- </div> -->
     </div>
     <!-- cards row -->
 

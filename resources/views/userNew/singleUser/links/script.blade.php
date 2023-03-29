@@ -168,4 +168,67 @@
      })
  </script>
 
+ <script>
+     // search icon
+     const searchIcon = document.getElementById('modules-search-icon');
+     const searchForm = document.getElementById('modules-search-form');
+
+
+     searchIcon.addEventListener('click', () => {
+         if (searchForm.classList.contains('active')) {
+             searchForm.classList.remove('active');
+         } else {
+             searchForm.classList.add('active');
+         }
+     });
+
+     // on cancel button close form
+
+     function closeform() {
+         searchForm.classList.remove('active');
+     }
+ </script>
+
+ <script>
+     // search icon
+     const searchIcon = document.getElementById('freelancer-search-icon');
+     const searchForm = document.getElementById('freelancer-search-form');
+
+
+     searchIcon.addEventListener('click', () => {
+         if (searchForm.classList.contains('active')) {
+             searchForm.classList.remove('active');
+         } else {
+             searchForm.classList.add('active');
+         }
+     });
+
+     // on cancel button close form
+
+     function closeform() {
+         searchForm.classList.remove('active');
+     }
+ </script>
+
+ <script>
+     // search icon
+     const searchIcon = document.getElementById('individual-search-icon');
+     const searchForm = document.getElementById('individual-search-form');
+
+
+     searchIcon.addEventListener('click', () => {
+         if (searchForm.classList.contains('active')) {
+             searchForm.classList.remove('active');
+         } else {
+             searchForm.classList.add('active');
+         }
+     });
+
+     // on cancel button close form
+
+     function closeform() {
+         searchForm.classList.remove('active');
+     }
+ </script>
+
  <!-- New script ends -->
