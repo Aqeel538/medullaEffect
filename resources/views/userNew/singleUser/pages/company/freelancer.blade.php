@@ -100,13 +100,19 @@
                                 </h6>
                                 <h6 class="location-heading">Located in: <span class="place">{!! $freelancer->located_in ?? '' !!}</span>
                                 </h6>
-                                <h6 class="location-heading">Experience: <span class="place">6 Years</span> </h6>
+                                <h6 class="location-heading">Experience: <span class="place">{!! $freelancer->experience ?? '' !!}</span>
+                                </h6>
 
                                 <a href="{{ route('company.show.chat', $freelancer->id) }}">
                                     <button class="buttonfill mt-4 mb-4">
                                         Contact
                                     </button>
                                 </a>
+                                <a href="{{ route('company.freelancer.services', $freelancer->id) }}" class="">
+                                    <button class="buttonfill mb-2" style="padding: 16px 23px!important;">
+                                        Services
+                                    </button></a>
+
                             </div>
 
                         </div>
@@ -149,7 +155,6 @@ src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
         }
 
         //mbil toggle
-
-       
     </script>
+  
 @endsection

@@ -38,6 +38,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\NotificationsMiddleware::class,
+
         ],
 
         'api' => [
@@ -68,5 +69,7 @@ class Kernel extends HttpKernel
         'isFreelancer' => \App\Http\Middleware\FreelancerMiddleware::class,
         'isCompany' => \App\Http\Middleware\CompanyMiddleware::class,
         'notifications' => \App\Http\Middleware\NotificationsMiddleware::class,
+        'freelancerNotifications' => \App\Http\Middleware\FreelancerNotificationsMiddleware::class,
+        'companyNotifications' => \App\Http\Middleware\CompanyNotificationsMiddleware::class,
     ];
 }

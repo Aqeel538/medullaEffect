@@ -3,10 +3,84 @@
         <div class="headers">
             <nav class="navbar-questionare">
 
-                <div class="">
-                    {{-- <img src="{{ asset('user') }}/assets/images/landing-page-img/vectorsearch.png"
-                        class="search-icon-index" alt="" srcset=""> --}}
-                </div>
+                {{-- <div class="">
+
+                </div> --}}
+                <form method="GET" action="{{ route('individual.jobs.search') }}" class="form-inline">
+                    @csrf
+                    <div class="search-container">
+
+                        <div class="search-icon-container">
+                            <i class="fa fa-search" id="modules-search-icon"></i>
+                        </div>
+                        <div class="search-form" id="modules-search-form">
+
+                            <!-- -------------3rd---Navbar---------- -->
+                            <div class="container-fluid">
+                                <!-- <div class="container"> -->
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-lg-12 col-md-10 col-12 ">
+                                        <h1>
+                                            Search
+                                        </h1>
+                                        <p class="text-phara-respns  hero-sec-paragrph pt-4">
+                                            Where Business Professionals Meet Other Business Professionals.Company
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div class="row justify-content-center filter-trd-nav-row mt-3">
+                                    <div class="col-lg-9 col-md-12 row-bg-color">
+
+
+
+                                        <div class="row industry-dropdown-input">
+                                            <div class="col-lg-5 col-md-4 col-12">
+                                                <div class="inpus-industry">&nbsp;
+                                                    <i class="fa-solid fa-industry"></i>
+                                                    <div class="">
+                                                        <input list="browsers" name="industry" class="widths"
+                                                            placeholder="Job Title" />
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 col-md-4 col-12">
+                                                <div class="inpus-industry-2">
+                                                    <i class="fa-solid fa-location-dot"></i>
+
+                                                    <div class="pos">
+                                                        <input type="search" name="searchLocation" class="width"
+                                                            placeholder="Location" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
+                                                <button type="submit" class=" buttonfill text-center">
+                                                    Search
+                                                </button>
+
+                                                <button type="button" class="non">Cancel</button>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
+
+                                        <button type="button" class="display-btn" onclick="closeform()">Cancel</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
                 <ul class="navbar-lists" id="myDIV">
 
                     <li><a class="navbar-link {{ request()->routeIs('individual.jobs') ? 'mylist active' : '' }}"
@@ -42,7 +116,8 @@
 
 
                             <ion-icon class="filled-icon-2nd-nav" name="notifications"></ion-icon>
-                            <span class="notification-badge" style="border: solid 1px !important;">0</span>
+                            <span class="notification-badge" style="border: solid 1px !important;">
+                                {{ request()->countNotifications }}</span>
 
 
                         </span>
@@ -107,7 +182,7 @@
 
 
 
-<script>
+{{-- <script>
     // Update the notification badge when a new notification is received
     let notificationCount = {{ request()->countNotifications }};
 
@@ -117,5 +192,5 @@
     }
 
     // Example usage
-    updateNotificationBadge(1); // Increment the notification count by 1
-</script>
+    updateNotificationBadge(notificationCount); // Increment the notification count by 1
+</script> --}}

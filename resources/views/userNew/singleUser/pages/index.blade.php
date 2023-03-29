@@ -62,46 +62,46 @@
                                         <div class="col-lg-9 col-md-12 row-bg-color">
 
 
-                                            <form action="{{ route('individual.jobs.search') }}" method="GET">
-                                                @csrf
-                                                <div class="row industry-dropdown-input">
-                                                    <div class="col-lg-5 col-md-4 col-12">
-                                                        <div class="inpus-industry">&nbsp;
-                                                            <i class="fa-solid fa-industry"></i>
-                                                            <div class="">
-                                                                <input list="browsers" name="industry" class="widths"
-                                                                    placeholder="Job Title" />
-                                                            </div>
-
-
+                                            {{-- <form action="{{ route('individual.jobs.search') }}" method="GET">
+                                                @csrf --}}
+                                            <div class="row industry-dropdown-input">
+                                                <div class="col-lg-5 col-md-4 col-12">
+                                                    <div class="inpus-industry">&nbsp;
+                                                        <i class="fa-solid fa-industry"></i>
+                                                        <div class="">
+                                                            <input list="browsers" name="industry" class="widths"
+                                                                placeholder="Job Title" />
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-5 col-md-4 col-12">
-                                                        <div class="inpus-industry-2">
-                                                            <i class="fa-solid fa-location-dot"></i>
 
-                                                            <div class="pos">
-                                                                <input type="search" name="searchLocation" class="width"
-                                                                    placeholder="Location" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
-                                                        <button type="submit" class=" buttonfill text-center">
-                                                            Search
-                                                        </button>
-                                                 
-                                                            <button type="button" class="non" >Cancel</button>
-                                                      
 
                                                     </div>
                                                 </div>
-                                            </form>
+                                                <div class="col-lg-5 col-md-4 col-12">
+                                                    <div class="inpus-industry-2">
+                                                        <i class="fa-solid fa-location-dot"></i>
+
+                                                        <div class="pos">
+                                                            <input type="search" name="searchLocation" class="width"
+                                                                placeholder="Location" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-4 btns_main  text-end respn-btn">
+                                                    <button type="submit" class=" buttonfill text-center">
+                                                        Search
+                                                    </button>
+
+                                                    <button type="button" class="non">Cancel</button>
+
+
+                                                </div>
+                                            </div>
+                                            {{-- </form> --}}
                                         </div>
                                         <div class="col-lg-1 col-md-12 filter-buton-thrd-nav justify-content-center">
-                                       
-                                                <button type="button" class="display-btn" onclick="closeform()">Cancel</button>
-                                            
+
+                                            <button type="button" class="display-btn" onclick="closeform()">Cancel</button>
+
                                         </div>
                                     </div>
                                     <!-- </div> -->
@@ -125,7 +125,7 @@
 
                         <li><a class="navbar-link" href="#aboutUs">About us</a>
                         </li>
-                        <li><a class="navbar-link" href="#ourServices">Services</a></li>
+                        <li><a class="navbar-link" href="#service">Services</a></li>
                         <li><a class="navbar-link" href="#faqs">FAQ's</a></li>
                         <li><a class="navbar-link" href="#contactUs">Contact</a></li>
                         <li><a class="log-in-btn" href="{{ route('login') }}">Login</a></li>
@@ -415,7 +415,7 @@
 
     {{-- update dservices section --}}
 
-    <div class="container-fluid mt-5 mb-5">
+    <div class="container-fluid mt-5 mb-5" id="service">
         <div class="container">
             <div class="row justify-content-center text-center  mt-5 ">
                 <div class="col-lg-7 col-12">
@@ -939,27 +939,24 @@
         });
 
 
-// search icon
-const searchIcon = document.getElementById('search-icon');
-const searchForm = document.getElementById('search-form');
+        // search icon
+        const searchIcon = document.getElementById('search-icon');
+        const searchForm = document.getElementById('search-form');
 
 
-searchIcon.addEventListener('click', () => {
-    if (searchForm.classList.contains('active')) {
-        searchForm.classList.remove('active');
-    } else {
-        searchForm.classList.add('active');
-    }
-});
+        searchIcon.addEventListener('click', () => {
+            if (searchForm.classList.contains('active')) {
+                searchForm.classList.remove('active');
+            } else {
+                searchForm.classList.add('active');
+            }
+        });
 
-// on cancel button close form
+        // on cancel button close form
 
-function closeform (){
-    searchForm.classList.remove('active');
-}
-
-
-
+        function closeform() {
+            searchForm.classList.remove('active');
+        }
     </script>
 @endsection
 {{-- <form method="POST" action="{{ route('search') }}" class="form-inline">

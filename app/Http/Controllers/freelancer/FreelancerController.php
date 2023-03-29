@@ -7,6 +7,7 @@ use App\Models\BookService;
 use App\Models\Category;
 use App\Models\Notification;
 use App\Models\SaveService;
+use App\Models\SeenNotification;
 use App\Models\User;
 use App\Models\Service;
 use Illuminate\Cache\RetrievesMultipleKeys;
@@ -14,9 +15,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class FreelancerController extends Controller
 {
+
+
+
+
     public function freelancers_listing()
     {
         $title = 'All Freelancers';
@@ -149,10 +155,16 @@ class FreelancerController extends Controller
     {
         $title = 'Notifications';
 
-        $notifications = Notification::with('companyGet')->get();
-        // dd($notifications[0]->companyGet->image);
-        $countNotification = count($notifications);
-
+        $notifications = Notification::with('companyGet', 'dismissNotification')
+            ->whereDoesntHave('dismissNotification', function ($query) {
+                $query->where('user_id', auth()->user()->id);
+            })
+            ->get();
+        $getLastNotification = Notification::latest('id')->first('id');
+        $seenNotification = SeenNotification::where('notification_id', $getLastNotification->id)->where('user_id', auth()->user()->id)->first();
+        $latestNotifications = Notification::where('id', '>', $seenNotification->id)->get();
+        $countNotification = count($latestNotifications);
+        // dd($countNotification);
         return view('userNew.singleUser.pages.freelancer.notifications', get_defined_vars());
     }
 

@@ -10,6 +10,7 @@ use App\Models\CompanySaveForLater;
 use App\Models\Job;
 use App\Models\Notification;
 use App\Models\SaveForLater;
+use App\Models\SeenNotification;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -161,9 +162,10 @@ class CompanyController extends Controller
         if (isset($id) && !empty($id)) {
             $obj = Job::whereId($id)->with('Categories')->first();
 
-            $rateParts = explode(' ', $obj->rate);
-            $salaryRangeFrom = $rateParts[0];
-            $salaryRangeTo = $rateParts[2];
+            $compansation = $obj->rate;
+            // $rateParts = explode(' ', $obj->rate);
+            // $salaryRangeFrom = $rateParts[0];
+            // $salaryRangeTo = $rateParts[2];
             // dd($salaryRangeTo);
         }
         $categories = Category::get();
@@ -179,7 +181,8 @@ class CompanyController extends Controller
                 'company_name' => $req->company_name,
                 'title' => $req->title,
                 'category_id' => $req->category_id,
-                'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
+                // 'rate' => $req->salaryRangeFrom . ' ' . '-' . ' ' . $req->salaryRangeTo,
+                'rate' => $req->compansation,
                 'job_type' => $req->job_type,
                 'city' => $req->city,
                 'state' => $req->state,
@@ -688,9 +691,17 @@ class CompanyController extends Controller
     {
         $title = 'Company|Notifications';
 
-        $notifications = Notification::with('companyGet')->get();
-        // dd($notifications[0]->companyGet->image);
 
+        $notifications = Notification::with('companyGet', 'dismissNotification')
+            ->whereDoesntHave('dismissNotification', function ($query) {
+                $query->where('user_id', auth()->user()->id);
+            })
+            ->get();
+        $getLastNotification = Notification::latest('id')->first('id');
+        $seenNotification = SeenNotification::where('notification_id', $getLastNotification->id)->where('user_id', auth()->user()->id)->first();
+        $latestNotifications = Notification::where('id', '>', $seenNotification->id)->get();
+        $countNotification = count($latestNotifications);
+        // dd($notifications);
         return view('userNew.singleUser.pages.company.notifications', get_defined_vars());
     }
 }

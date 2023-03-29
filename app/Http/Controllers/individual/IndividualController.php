@@ -10,8 +10,10 @@ use App\Models\Job;
 use App\Models\Notification;
 use App\Models\Resume;
 use App\Models\SaveForLater;
+use App\Models\SeenNotification;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Events\NotificationSent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -55,11 +57,11 @@ class IndividualController extends Controller
     }
     public function individual_jobs_search(Request $request)
     {
-        $title = 'All Freelancers';
+        $title = 'All Jobs';
         $user_id = auth()->user()->id;
         // $industryOption = User::where('role', 'company')->get();
         $industryOption = Job::with('users')->get();
-        // dd($industryOption[1]->users->industry);
+
         $savedJobs = SaveForLater::where('user_id', $user_id)->with('savedJobs')->get();
 
         if ($request->searchLocation) {
@@ -237,24 +239,65 @@ class IndividualController extends Controller
     // Notification
     public function individual_notifications()
     {
+
+
         $title = 'Individual|Notifications';
         $followedCompanies = User::where('id', auth()->user()->id)->with('followingCompanies.companyNotifications.dismissNotification')->first();
 
         $allNotification = [];
+        $seenNoti = [];
+        $response = 0;
         // $countNotification = $allNotification[]->count;
         foreach ($followedCompanies['followingCompanies'] as $followedCompany) {
 
             foreach ($followedCompany['companyNotifications'] as $notifications) {
 
+
+
                 if ($notifications['dismissNotification']->where('user_id', auth()->user()->id)->first()) {
                 } else {
+                    $user_id = auth()->user()->id;
+                    $checkNotification = SeenNotification::where('notification_id', $notifications->id)->where('user_id', $user_id)->first();
+                    if ($checkNotification) {
+                    } else {
+                        $isSeen = new SeenNotification();
+
+                        $isSeen->user_id = auth()->user()->id;
+                        $isSeen->notification_id = $notifications->id;
+                        $data = $isSeen->save();
+                    }
+
+                    // dd($notifications->seenNotification()->first());
+
+                    $response = Notification::where('id', $notifications->id)->with('seenNotification', function ($query) {
+                        $query->where('user_id', '=', auth()->user()->id);
+                    })->first();
+                    // dd($response);
+                    // dd($response['seenNotification'][0]);
+                    if (isset($response['seenNotification'][0]) && !empty($response['seenNotification'][0])) {
+                        $response['seenNotification'][0];
+                    } else {
+                        // $allNotification[] = $notifications;
+                        // dd(count($allNotification));
+                    }
+                    $seenNoti[] = $response;
                     $allNotification[] = $notifications;
                 }
                 // }
 
             }
         }
-        $countNotification = count($allNotification);
+        // dd($allNotification);
+        // $checkNotification = [];
+        foreach ($seenNoti as $seenNotification) {
+            foreach ($allNotification as $allNoti) {
+            }
+        }
+
+        $countSeenNoti = count($seenNoti);
+        $count = count($allNotification);
+        $countNotification = $count - $countSeenNoti;
+
         // dd($countNotification);
         // $followedCompany = $
         // dd($followedCompanys[0]->followingCompanies);

@@ -21,4 +21,9 @@ class Notification extends Model
     {
         return $this->hasMany(DismissNotification::class, 'notification_id', 'id');
     }
+
+    public function seenNotification()
+    {
+        return $this->hasMany(SeenNotification::class, 'notification_id', 'id');
+    }
 }

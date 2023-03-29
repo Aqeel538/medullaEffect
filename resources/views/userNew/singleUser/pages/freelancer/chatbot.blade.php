@@ -54,34 +54,57 @@
                                         <p class=" john-para-afer-ques-heading">14m</p>
                                     </div>
                                 </div> --}}
-                                <div class="d-flex mb-3 mt-3 "    style="border-bottom: 1px solid #e7e4e4;"> 
+                                <div class="d-flex mb-3 mt-3 " style="border-bottom: 1px solid #e7e4e4;">
 
                                     <div class="img-holder">
-                                        <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
-                                            style="width: 60px;" class="" alt="">
+                                        <a href="/messages/{{ $single_message->id }}" style=" text-decoration: none;">
+                                            <img src="{{ asset('user') }}/assets/images/profile-imges/user.png"
+                                                style="width: 60px;" class="" alt="">
+                                        </a>
                                     </div>
 
-                                    <div class="ms-3" >
+                                    <div class="ms-3">
                                         <div class="d-flex justify-content-between align-item-center">
                                             <div>
-                                                <h3 class="inbox-chat-heading">
-                                                    John Doe
-                                                </h3>
+                                                @if ($single_message->receiver_id == Auth::user()->id)
+                                                    <h3 class="inbox-chat-heading">
+                                                        <a href="/messages/{{ $single_message->id }}"
+                                                            style=" text-decoration: none;">
+                                                            <p> {{ $single_message->name }}</p>
+                                                        </a>
+                                                    </h3>
+                                                @else
+                                                    <h3 class="m-0 p-0 inbox-chat-heading">
+                                                        <a href="/messages/{{ $single_message->id }}"
+                                                            style=" text-decoration: none;">
+                                                            <p> {{ $single_message->name }}</p>
+                                                        </a>
+                                                    </h3>
+                                                @endif
                                             </div>
                                             <div>
-                                                <p>14 min ago</p>
+                                                <a href="/messages/{{ $single_message->id }}"
+                                                    style=" text-decoration: none;">
+                                                    <p>14 min ago</p>
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between align-item-center">
                                             <div>
-                                                <p class=""style="width:280px">
-                                                    Lorem.lorem lorem lorem <span>...</span>
-                                                </p>
+                                                <a href="/messages/{{ $single_message->id }}"
+                                                    style=" text-decoration: none;">
+                                                    <p class=""style="width:280px">
+                                                        Lorem.lorem lorem lorem <span>...</span>
+                                                    </p>
+                                                </a>
                                             </div>
                                             <div class="count-mesg-inbox-chats">
-                                                <p>0</p>
+                                                <a href="/messages/{{ $single_message->id }}"
+                                                    style=" text-decoration: none;">
+                                                    <p>0</p>
+                                                </a>
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +121,7 @@
                 <div class="col-lg-7 col-12 mt-lg-0 mt-md-3 mt-3 "
                     style="background-color: #F9F9F9;  border-radius: 21.0305px; ">
 
-                    <div class="p-4 fixed-top chat-header d-flex justify-content-between" >
+                    <div class="p-4 fixed-top chat-header d-flex justify-content-between">
                         <div class="d-flex">
                             <div class="img-holder">
                                 <?php $image = isset($user->image) && !empty($user->image) ? $user->image : ''; ?>
@@ -112,23 +135,19 @@
 
                         </div>
                         <div>
-                            <i class="fas-elip fa-solid fa-ellipsis fasq"
-                            onclick="openmyFunction()"></i>
+                            <i class="fas-elip fa-solid fa-ellipsis fasq" onclick="openmyFunction()"></i>
 
-                        <div style="position: relative;">
-                            <div class="cliked" id="openmyDIV">
-                                <div class="stsuts ">
+                            <div style="position: relative;">
+                                <div class="cliked" id="openmyDIV">
+                                    <div class="stsuts ">
 
-                                    <a class=""
-                                        href="">Active</a>
-                                    <a class=""
-                                        href="}">Inactive</a>
-                                    <a class=""
-                                        href="">Pause</a>
+                                        <a class="" href="">Active</a>
+                                        <a class="" href="">Inactive</a>
+                                        <a class="" href="">Pause</a>
+                                    </div>
+
                                 </div>
-
                             </div>
-                        </div>
                         </div>
                     </div>
                     @if (session('status'))
@@ -225,8 +244,8 @@
                             if (value.user_id == {{ Auth::user()->id }}) {
                                 $('#dataContainer').append(
                                     '<div class="chat-bubble outgoing" style="text-align:right">' +
-                                    '<p class="message">' + value.message +  '</p>' +
-                                    
+                                    '<p class="message">' + value.message + '</p>' +
+
                                     '</div>');
                                 // '<div class="row" >' +
                                 // '<div class="col-5 offset-7">' +
@@ -284,8 +303,8 @@
     <script src="{{ asset('user') }}/Assets/allNavScript.js"></script>
 
 
-<script>
-         function openmyFunction(id) {
+    <script>
+        function openmyFunction(id) {
             // Get all the "openmyDIV" divs
             var divs = document.querySelectorAll('[id^="openmyDIV"]');
             // Hide all previously opened "openmyDIV" divs
@@ -302,5 +321,5 @@
                 x.style.display = "none";
             }
         }
-</script>
+    </script>
 @endsection
