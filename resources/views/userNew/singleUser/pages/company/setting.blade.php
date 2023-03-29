@@ -189,7 +189,7 @@
                         <div id="loader-container">
                             <div class="loader"></div>
                         </div>
-                        <h5 class="card-title">Passdfdgfdgword</h5>
+                        <h5 class="card-title">Password</h5>
                         <div class="" id="password" role="tabpanel">
                             {{-- <form method="POST" action="{{ route('company.change.password') }}"> --}}
                             <form id="updatePassword">
